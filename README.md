@@ -1,6 +1,43 @@
 # cs373-idb-17
 
+IDB Group: 17
+Group Members: Seth Parsons, Frank Sosa, Ritesh Thakur, Josiah Valdez, Saiprathik Chalamkuri
+Project Name: FuturFindr (FuturFindr.me)
 
+Description: This platform allows its users to plan out their future in terms of finding the right place to advance their education, find the right place to work in the real world, or find a place to live for either of those. We are providing an all in one platform that is applicable to anyone who is interested in advancing themselves, whether it be a high school student, or someone who is looking to potentially switch careers, or someone who just wants to find a place to live from where their place of work or school is at.
+
+Data Sources:
+- https://rapidapi.com/LinkUpJobSearch/api/linkup-job-search/details
+- https://api.apartments.com/v1
+- https://rapidapi.com/sshanbond/api/university-college-list-and-rankings
+
+Models:
+- Jobs/Careers
+  - Estimated Instance Count: 1,000,000 (depends on job market)
+  - Attributes for filtering and sorting: company, industry, location, name, salary range
+  - Media: link to job posting, job description, job’s metadata
+  - Connection to other models: housing near job location, schools near job location
+- College/Universities and public/private schools
+  - Estimated Instance Count: 1,000
+  - Attributes for filtering and sorting: offered majors, location, name, ranking, tuition price range, reviews
+  - Media: Campus pictures, map, video
+  - Connection to other models: Nearby job listings, nearby housing
+- Housing
+  - Estimated Instance Count: 5,000
+  - Attributes for filtering and sorting: Price, location, beds, baths, reviews
+  - Media: Pictures of inside, outside, neighborhood, map,
+  - Connection to other models: Distance from job, distance from college
+
+Organizational Technique: Traditional organization with one page per model.
+
+Questions:
+- If I want to attend this college/university what are some of my off campus housing options?
+- If I have to relocate for a job listing what does the housing market look like in that area?
+- If I find a place I would like to live in, do I or my family have good education options nearby?
+- Can I get a job after graduating without moving?
+
+
+<!-- 
 
 ## Getting started
 
@@ -89,4 +126,4 @@ Show your appreciation to those who have contributed to the project.
 For open source projects, say how it is licensed.
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers. -->
