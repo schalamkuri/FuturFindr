@@ -6,7 +6,7 @@ import Home from "./Views/Home";
 import Housing from "./Views/Housing";
 import Jobs from "./Views/Jobs";
 
-const Route = () => {
+const RouteSwitch = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -20,4 +20,4 @@ const Route = () => {
   );
 };
 
-export default Route;
+export default RouteSwitch;
