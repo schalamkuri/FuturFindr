@@ -1,9 +1,12 @@
+import NavBar from "./Components/NavBar";
+import Router from "./Router"
 
 function App() {
   return (
-    <text>
-      Hello!
-    </text>
+    <div className="App">
+      <NavBar />
+      <Router />
+    </div>
   );
 }
 
