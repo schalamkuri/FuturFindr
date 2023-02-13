@@ -2,7 +2,7 @@
 function App() {
   return (
     <text>
-      Hello this is futurfinder :)
+      Hello!
     </text>
   );
 }
