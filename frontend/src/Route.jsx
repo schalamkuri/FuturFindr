@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./Views/Home";
 import About from "./Views/About";
 import Colleges from "./Views/Colleges";
-import Jobs from "./Views/Jobs";
+import Home from "./Views/Home";
 import Housing from "./Views/Housing";
+import Jobs from "./Views/Jobs";
 
-const Router = () => {
+const Route = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -20,4 +20,4 @@ const Router = () => {
   );
 };
 
-export default Router;
+export default Route;
