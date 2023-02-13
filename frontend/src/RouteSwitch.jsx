@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import About from "./Views/About";
-import Colleges from "./Views/Colleges";
-import Home from "./Views/Home";
-import Housing from "./Views/Housing";
-import Jobs from "./Views/Jobs";
+import About from "./views/About";
+import Colleges from "./views/Colleges";
+import Home from "./views/Home";
+import Housing from "./views/Housing";
+import Jobs from "./views/Jobs";
 
 const RouteSwitch = () => {
   return (

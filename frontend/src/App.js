@@ -1,4 +1,4 @@
-import NavBar from "./Components/NavBar";
+import NavBar from "./components/NavBar";
 import RouteSwitch from "./RouteSwitch"
 
 function App() {
