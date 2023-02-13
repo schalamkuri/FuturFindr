@@ -1,9 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Logo from '../assets/fortune-teller.png'
+import Logo from '../assets/fortune-teller.png';
   
-  const NavBar = () => {
+  const NavigationBar = () => {
     return (
       <Navbar
         variant="light"
@@ -46,5 +46,5 @@ import Logo from '../assets/fortune-teller.png'
     );
   };
   
-  export default NavBar;
+  export default NavigationBar;
   
