@@ -11,8 +11,17 @@ import DevCard from '../Assets/DevCard';
 // https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/views/About.jsx
 
 const gitlabApi = axios.create({ baseURL: "https://gitlab.com/api/v4/", });
+let x = false
 
 const fetchRepositoryData = async () => {
+  // Code that makes it so this can only be called once (had a bug where
+  // commit numbers would be doubled because this was being called twice)
+  if (x === false) {
+    x = true
+  } else {
+    return
+  }
+
   // Define totals
   let totalCommits = 0,
       totalIssues = 0,
@@ -23,12 +32,10 @@ const fetchRepositoryData = async () => {
   await gitlabApi.get("projects/43389523/repository/contributors").then((response) => {
     response.data.forEach((element) => {
       aboutUs.forEach((user) => {
-        console.log(user.name)
-        if (user.name === element.name || user.gitlab_username === element.name ||
-            user.email === element.email) {
-          user.commits = element.commits
+        if (user.name === element.name || user.gitlab === element.name ||
+            user.email === element.email || user.email2 === element.email2) {
+          user.commits += element.commits
         }
-        console.log(user.commits)
       })
       totalCommits += element.commits
     })
@@ -40,8 +47,8 @@ const fetchRepositoryData = async () => {
     response.data.forEach((element) => {
       element.assignees.forEach((assignee) => {
         aboutUs.forEach((user) => {
-          if (user.name === assignee.name || user.gitlab_username === assignee.name ||
-              user.email === assignee.email)
+          if (user.name === assignee.name || user.gitlab === assignee.name ||
+              user.email === assignee.email || user.email2 === element.email2)
           user.issues += 1
         })
       })
@@ -60,6 +67,7 @@ const fetchRepositoryData = async () => {
 
 function About() {
   // Initialize data
+  const [ready, setReady] = useState(false)
   const [teamMembers, setTeamMembers] = useState([])
   const [totalCommits, setTotalCommits] = useState(0)
   const [totalIssues, setTotalIssues] = useState(0)
@@ -75,6 +83,7 @@ function About() {
 				setTotalIssues(gitlabInfo.totalIssues)
 				setTotalTests(gitlabInfo.totalTests)
 				setTeamMembers(gitlabInfo.aboutUs)
+        setReady(true)
 			}
 		}
 		fetchData()
@@ -84,6 +93,8 @@ function About() {
   return (
     <Stack>
         <Container className='p-4'>
+          { 
+            ready ? (
               <Row>
                 {
                   teamMembers.map((member) => {
@@ -96,6 +107,14 @@ function About() {
                 )
               }
               </Row>
+            ) : (
+              <Row>
+                <Col className='d-flex justify-content-center'>
+                  Loading
+                </Col>
+            </Row>
+            )
+          }
         </Container>
         <Container className='p-4 e'>
           <h3 className='d-flex justify-content-center'>Gitlab Repository Stats</h3>

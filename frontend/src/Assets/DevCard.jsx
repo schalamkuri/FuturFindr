@@ -5,7 +5,7 @@ import Tabs from 'react-bootstrap/Tabs';
 const DevCard = (inputUser) => {
   return (
     <Card>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={inputUser.inputUser.pic} />
         <Tabs
         defaultActiveKey="about"
         id="devcard-tabs"
@@ -15,7 +15,7 @@ const DevCard = (inputUser) => {
             <Tab eventKey="about" title="About">
                 <Card.Body>
                         <Card.Title>{inputUser.inputUser.name}</Card.Title>
-                        <Card.Text>Role:</Card.Text>
+                        <Card.Text>Role: {inputUser.inputUser.role}</Card.Text>
                         <Card.Text>{inputUser.inputUser.bio}</Card.Text>
                 </Card.Body>
             </Tab>
