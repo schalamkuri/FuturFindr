@@ -5,6 +5,7 @@ import Stack from 'react-bootstrap/Stack'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { aboutUs } from '../Assets/AboutUs';
+import DevCard from '../Assets/DevCard';
 
 // roughly based on GeoJobs's implementation 
 // https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/views/About.jsx
@@ -22,10 +23,12 @@ const fetchRepositoryData = async () => {
   await gitlabApi.get("projects/43389523/repository/contributors").then((response) => {
     response.data.forEach((element) => {
       aboutUs.forEach((user) => {
+        console.log(user.name)
         if (user.name === element.name || user.gitlab_username === element.name ||
             user.email === element.email) {
           user.commits = element.commits
         }
+        console.log(user.commits)
       })
       totalCommits += element.commits
     })
@@ -61,7 +64,6 @@ function About() {
   const [totalCommits, setTotalCommits] = useState(0)
   const [totalIssues, setTotalIssues] = useState(0)
   const [totalTests, setTotalTests] = useState(0)
-  const [loaded, setLoaded] = useState(false)
 
 
   // Get data from gitlab api, store it
@@ -72,8 +74,7 @@ function About() {
 				setTotalCommits(gitlabInfo.totalCommits)
 				setTotalIssues(gitlabInfo.totalIssues)
 				setTotalTests(gitlabInfo.totalTests)
-				setTeamMembers(gitlabInfo.teamInfo)
-				setLoaded(true)
+				setTeamMembers(gitlabInfo.aboutUs)
 			}
 		}
 		fetchData()
@@ -83,6 +84,20 @@ function About() {
   return (
     <Stack>
         <Container className='p-4'>
+              <Row>
+                {
+                  teamMembers.map((member) => {
+                    return (
+                      <Col>
+                        <DevCard inputUser={member}/>
+                      </Col>
+                    )
+                  }
+                )
+              }
+              </Row>
+        </Container>
+        <Container className='p-4 e'>
           <h3 className='d-flex justify-content-center'>Gitlab Repository Stats</h3>
           <Row >
             <Col className='d-flex justify-content-center'>Total Issues:</Col>
