@@ -3,6 +3,7 @@ import {
     Card,
     Typography,
 } from "@mui/material";
+import { purple } from "@mui/material/colors";
 
 const CollegeCard = (props) => {
 
@@ -11,7 +12,7 @@ const CollegeCard = (props) => {
 
     return (
         <Grid item xs={3}>
-            <Card className='college-card'>
+            <Card className='college-card' color="purple">
                <Typography>{name}</Typography>
                <Typography>{tuition}</Typography>
             </Card>
