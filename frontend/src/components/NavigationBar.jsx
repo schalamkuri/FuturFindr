@@ -6,6 +6,7 @@ import Logo from '../Assets/fortune-teller.png';
   const NavigationBar = () => {
     return (
       <Navbar
+      
         variant="light"
         expand="lg"
         style={{
