@@ -1,8 +1,8 @@
 import React from "react";
-import Splash from "../Assets/Splash.png";
-import CollegeImage from "../Assets/11111UnivTexas.jpg"
-import JobImage from "../Assets/jobs.jpg"
-import AptImage from "../Assets/Apt.webp"
+import Splash from "../Assets/HomePage/Splash.png";
+import CollegeImage from "../Assets/HomePage/Campus.jpg"
+import JobImage from "../Assets/HomePage/Jobs.jpg"
+import AptImage from "../Assets/HomePage/Apt.jpg"
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardGroup';
 import "./home.css"
@@ -10,7 +10,11 @@ import "./home.css"
 function Home() {
   return (
     <div>
-      <Card className="center">
+      <Card style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
         <Card.Img src={Splash} />
         <Card.ImgOverlay className="bigText">
           <h1>
@@ -19,37 +23,36 @@ function Home() {
         </Card.ImgOverlay>
         
       </Card>
-      <CardDeck className="deck">
-      <Card className="deck">
+      <CardDeck>
+      <Card className="card border-dark mb-3">
         <Card.Img variant="top" src={CollegeImage} />
         <Card.Body>
           <Card.Title>Colleges</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+            Find the perfect place to further your education!
           </Card.Text>
         </Card.Body>
+        <a href="colleges" class="stretched-link"></a>
       </Card>
-      <Card className="deck">
-        <Card.Img variant="top" src={JobImage} />
+      <Card className="card border-dark mb-3">
+        <Card.Img variant="top" src={JobImage}/>
         <Card.Body>
           <Card.Title>Jobs</Card.Title>
           <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.{' '}
+            Match with the place where your skills are needed!
           </Card.Text>
         </Card.Body>
+        <a href="jobs" class="stretched-link"></a>
       </Card>
-      <Card className="deck">
+      <Card className="card border-dark mb-3">
         <Card.Img variant="top" src={AptImage} />
         <Card.Body>
           <Card.Title>Housing</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
+            The home of your dreams is waiting!
           </Card.Text>
         </Card.Body>
+        <a href="housing" class="stretched-link"></a>
       </Card>
       </CardDeck>
     </div>
