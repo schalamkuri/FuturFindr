@@ -1,0 +1,14 @@
+.center{
+    margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1500px;
+}
+
+.bigText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #84bcdc;
+    margin-bottom: 500px;
+}
