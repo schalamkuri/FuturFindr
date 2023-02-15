@@ -1,4 +1,4 @@
-export const Housing_List = [
+export const HousingList = [
     {
         name: "The Addison",
         type: "Apartment",

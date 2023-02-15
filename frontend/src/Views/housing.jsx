@@ -1,13 +1,13 @@
 import React from "react";
 import Container from "react-bootstrap/esm/Container";
 import HousingCard from "../components/HousingCard";
-import { Housing_List } from "../Assets/Data/HousingData";
+import { HousingList } from "../Assets/Data/HousingData";
 
 function Housing() {
   return (
     <div>
     <Container style={{display: 'flex'}}>
-      {Housing_List.map((data) => {
+      {HousingList.map((data) => {
           return (
               <HousingCard
                   name = {data.name}
