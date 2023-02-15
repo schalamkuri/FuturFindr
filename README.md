@@ -17,18 +17,18 @@
 | **Phase** | **Git Sha**                              |
 | --------- | ---------------------------------------- |
 | 1         |                                          |
-| 2         |                                          |
+<!-- | 2         |                                          |
 | 3         |                                          |
-| 4         |                                          |
+| 4         |                                          | -->
 
 ## Project Leader
 
 | **Phase** | **Project Leader**   |
 | --------- | -------------------- |
-| 1         |                      |
-| 2         |                      |
+| 1         | Frank Sosa           |
+<!-- | 2         |                      |
 | 3         |                      |
-| 4         |                      |
+| 4         |                      | -->
 
 ### Responsibilities
 
@@ -36,7 +36,7 @@ Decide meeting times, lay out what is left to do for phase, be main source of co
 
 # GitLab Pipelines
 
-
+https://gitlab.com/ritzyo/cs373-idb-17/-/pipelines
 
 # Website Link
 
@@ -54,7 +54,7 @@ https://www.futurfindr.me/
 | Josiah Valdez         |                            |                            |
 | Ritesh Thakur         |                            |                            |
 
-### Phase 2
+<!-- ### Phase 2
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
@@ -82,13 +82,13 @@ https://www.futurfindr.me/
 | Seth Parsons          |                            |                            |
 | Saiprathik Chalamkuri |                            |                            |
 | Josiah Valdez         |                            |                            |
-| Ritesh Thakur         |                            |                            |
+| Ritesh Thakur         |                            |                            | -->
 
 ### Comments
 
-interesting project
+Used material UI along with react-bootstrap
 
-# RFP
+<!-- # RFP
 
 **Description**: This platform allows its users to plan out their future in terms of finding the right place to advance their education, find the right place to work in the real world, or find a place to live for either of those. We are providing an all in one platform that is applicable to anyone who is interested in advancing themselves, whether it be a high school student, or someone who is looking to potentially switch careers, or someone who just wants to find a place to live from where their place of work or school is at.
 
@@ -120,7 +120,7 @@ interesting project
 - If I want to attend this college/university what are some of my off campus housing options?
 - If I have to relocate for a job listing what does the housing market look like in that area?
 - If I find a place I would like to live in, do I or my family have good education options nearby?
-- Can I get a job after graduating without moving?
+- Can I get a job after graduating without moving? -->
 
 
 <!-- 
