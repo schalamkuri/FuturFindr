@@ -11,33 +11,43 @@ import axiosPic from '../Pictures/Tools/axios.png'
 
 const toolsUsed = [{
     name: "React",
+    desc: "Main javascript library used for our front-end",
     pic : reactPic
   }, {
     name: "React-Bootstrap",
+    desc: "Javascript framework, powers front-end",
     pic : reactBootstrapPic
   }, {
     name: "Material-UI",
+    desc: "Additional react component library",
     pic : materialUIPic
   }, {
     name: "NameCheap",
+    desc: "Where we bought our domain name!",
     pic : nameCheapPic
   }, {
     name: "AWS Amplify",
+    desc: "The service that hosts our React application",
     pic : awsAmplifyPic
   }, {
     name: "Teams",
+    desc: "Used for team communication",
     pic : teamsPic
   }, {
     name: "Visual Studio Code",
+    desc: "IDE everyone used for development",
     pic : vsCodePic
   }, {
     name: "GitLab",
+    desc: "Repository location for our project",
     pic : gitlabPic
   }, {
     name: "Postman",
+    desc: "Used for testing and documenting APIs",
     pic : postmanPic
   }, {
     name: "Axios",
+    desc: "Used for contacting APIs",
     pic : axiosPic
   },
 ]

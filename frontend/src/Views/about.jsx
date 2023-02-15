@@ -114,7 +114,7 @@ function About() {
                 {
                   teamMembers.map((member) => {
                     return (
-                      <Col>
+                      <Col sm='4'>
                         <DevCard inputUser={member}/>
                       </Col>
                     )
@@ -152,7 +152,7 @@ function About() {
                 {
                   toolsUsed.map((tool) => {
                     return (
-                      <Col>
+                      <Col sm='3'>
                         <ToolCard inputTool={tool}/>
                       </Col>
                     )
@@ -169,7 +169,7 @@ function About() {
             )
           }
         </Container>
-    </Stack>
+      </Stack>
   )
 }
 

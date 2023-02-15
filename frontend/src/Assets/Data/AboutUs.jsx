@@ -21,7 +21,7 @@ const aboutUs = [{
     name: "Seth Parsons",
     email: "seth.parsons007@gmail.com",
     email2: "seth007@utexas.edu",
-    bio: "I'm a senior year CS Major hoping to graduate Summer 2023. When I'm not programming, I like to work on electronics projects and collect retro video games. Also a fan of bad movies!",
+    bio: "I'm a senior year CS Major hoping to graduate Summer 2023. When I'm not programming, I like to work on electronics projects and collect retro video games.",
     gitlab: "seth007",
     role: "Full-Stack",
     commits: 0,
