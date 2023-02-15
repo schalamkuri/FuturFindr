@@ -1,10 +1,10 @@
 // roughly based on GeoJobs's implementation https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/static/TeamInfo.jsx
 
-import sethPic from './Pictures/seth.png'
-import saiprathikPic from './Pictures/saiprathik.png'
-import frankPic from './Pictures/frank.png'
-import riteshPic from './Pictures/ritesh.png'
-import josiahPic from './Pictures/josiah.png'
+import sethPic from '../Pictures/Devs/seth.png'
+import saiprathikPic from '../Pictures/Devs/saiprathik.png'
+import frankPic from '../Pictures/Devs/frank.png'
+import riteshPic from '../Pictures/Devs/ritesh.png'
+import josiahPic from '../Pictures/Devs/josiah.png'
 
 const aboutUs = [{
     name: "Saiprathik Chalamkuri",
