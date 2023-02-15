@@ -12,6 +12,7 @@ function Jobs() {
               <JobCard
                   listing = {data.listing}
                   company = {data.company}
+                  id = {data.id}
                   industry = {data.industry}
                   location = {data.location}
                   pay = {data.pay}
