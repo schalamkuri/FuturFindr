@@ -7,7 +7,7 @@
 | **Name**              | **GitLabID**     | **EID** |
 | --------------------- | ---------------- | ------- |
 | Frank Sosa            | @frasosa         | fs8292  |
-| Seth Parsons          | @seth007         |         |
+| Seth Parsons          | @seth007         | shp655  |
 | Saiprathik Chalamkuri | @schalamkuri     | sc63494 |
 | Josiah Valdez         | @ultramolecular  | jgv633  |
 | Ritesh Thakur         | @ritzyo          | rt27362 |
