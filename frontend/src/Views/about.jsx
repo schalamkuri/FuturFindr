@@ -6,8 +6,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { aboutUs } from '../Assets/Data/AboutUs';
 import { toolsUsed } from '../Assets/Data/ToolsUsed';
+import { apisScraped } from '../Assets/Data/APIsScraped';
 import DevCard from '../components/DevCard';
 import ToolCard from '../components/ToolCard';
+import APICard from '../components/APICard';
 
 // roughly based on GeoJobs's implementation 
 // https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/views/About.jsx
@@ -94,18 +96,17 @@ function About() {
   // Return actual page
   return (
     <Stack>
+        {/* Description Section */}
         <Container className='p-4'>
           <h2 className='d-flex justify-content-left'>What is FuturFindr?</h2>
           <p>
-            FuturFindr (pronounced future finder) is a platform that assists users in planning out their future in terms of finding the right place to advance their education, find the right place to work in the real world, or finding a place to live for either of those. This is an all in one platform that is applicable to anyone who is interested in advancing themselves, whether it be a high school student, or someone who is looking to potentially switch careers, or someone who just wants to find a place to live from where their place of work or school is at. We hope you find it useful!
+            FuturFindr (pronounced future finder) is a platform that assists users in planning out their future by helping them find the right place to advance their education, find the right place to work in the real world, or finding a place to live for either of those. This is an all in one platform that is applicable to anyone who is interested in advancing themselves, whether it be a high school student, or someone who is looking to potentially switch careers, or someone who just wants to find a place to live from where their place of work or school is at.
           </p>
-        </Container>
-        <Container className='p-4'>
-          <h2 className='d-flex justify-content-left'>Building this Project</h2>
           <p>
-            FuturFindr uses a React front-end combined with an SQL database to scrape and combine API data and present it back to you as nice, clean information cards relating to careers, education, and living spaces, all connected together as appropriate and linking out to the necessary places to make advancing yourself easier.
+          FuturFindr uses a React front-end combined with an SQL database to scrape and combine API data and present it back to you as nice, clean information cards. By connecting careers, education, and living spaces, with cards filled with relevant information and links to the necessary places, this results with a service that can make advancing yourself easier (and save you from opening so many chrome tabs)!
           </p>
         </Container>
+        {/* Developer Section */}
         <Container className='p-4'>
           <h2 className='d-flex justify-content-left'>Developers</h2>
           { 
@@ -131,6 +132,7 @@ function About() {
             )
           }
         </Container>
+        {/* GitLab Repo Section */}
         <Container className='p-4 e'>
           <h3 className='d-flex justify-content-center'>Gitlab Repository Stats</h3>
           <Row >
@@ -144,8 +146,9 @@ function About() {
             <Col className='d-flex justify-content-center'>{totalTests}</Col>
           </Row>
         </Container>
+        {/* Tools Section */}
         <Container className='p-4'>
-          <h3 className='d-flex justify-content-center'>Tools we Used:</h3>
+          <h3 className='d-flex justify-content-center'>Tools We Used:</h3>
           { 
             ready ? (
               <Row>
@@ -154,6 +157,32 @@ function About() {
                     return (
                       <Col sm='3'>
                         <ToolCard inputTool={tool}/>
+                      </Col>
+                    )
+                  }
+                )
+              }
+              </Row>
+            ) : (
+              <Row>
+                <Col className='d-flex justify-content-center'>
+                  Loading
+                </Col>
+            </Row>
+            )
+          }
+        </Container>
+        {/* API Section */}
+        <Container className='p-4'>
+          <h3 className='d-flex justify-content-center'>APIs We Scraped:</h3>
+          { 
+            ready ? (
+              <Row>
+                {
+                  apisScraped.map((api) => {
+                    return (
+                      <Col sm='3'>
+                        <APICard inputAPI={api}/>
                       </Col>
                     )
                   }
