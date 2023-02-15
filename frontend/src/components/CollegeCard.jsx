@@ -1,12 +1,18 @@
 import {
     Grid,
     Card,
-    Typography,
+    Typography, 
     CardMedia,
+    CardActionArea,
 } from "@mui/material";
+
+import { Link as RouterLink } from 'react-router-dom';
 
 
 const CollegeCard = (props) => {
+
+
+    let id = props.id
 
     let name = props.name
     let tuition = props.tuition
@@ -16,20 +22,26 @@ const CollegeCard = (props) => {
     let acceptance_rate = props.acceptance_rate
     let city = props.city
 
+    
+    
 
     return (
         // <Grid item xs={3}>
             <Card className='college-card' color="purple">
+                <CardActionArea component={RouterLink} to= {"/colleges/" + id} >
                 <CardMedia
-                sx={{ height: 140 }}
+                sx={{ height: 150 }}
                 image={media}>
                 </CardMedia>
+                
                <Typography>{name}</Typography>
                <Typography>Tuition: ${tuition}</Typography>
                <Typography>Rank: {rank} </Typography>
                <Typography>Graduation Rate: {graduation_rate}% </Typography>
+               <Typography>{id}</Typography>
                <Typography>Acceptance Rate: {acceptance_rate}% </Typography>
                <Typography>City: {city} </Typography>
+               </CardActionArea>
             </Card>
         // </Grid >
 

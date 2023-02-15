@@ -7,6 +7,8 @@ import Housing from "./Views/housing";
 import Jobs from "./Views/jobs";
 import JobsInstance from "./Views/JobsInstance";
 import HousingInstance from "./Views/HousingInstance";
+import CollegeInstance from "./Views/CollegeInstance";
+
 
 const RouteSwitch = () => {
   return (
@@ -19,6 +21,7 @@ const RouteSwitch = () => {
         <Route path="/jobs/:id" element={<JobsInstance />} />
         <Route path="/housing" element={<Housing />} />
         <Route path="/housing/:id" element={<HousingInstance />} />
+        <Route path="/colleges/:id" element={<CollegeInstance />} />
       </Routes>
     </BrowserRouter>
   );
