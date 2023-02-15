@@ -43,7 +43,7 @@ const aboutUs = [{
     name: "Ritesh Thakur",
     email: "ritz.thakur@gmail.com",
     email2: "ritesh@macbook-pro-8.local",
-    bio: "Hey! I'm a CS student here at UT who loves to play basketball and hang out with friends.",
+    bio: "Hey! I'm a CS student here at UT who loves to play basketball, try new foods, and hang out with friends.",
     gitlab: "ritzyo",
     role: "Full-Stack",
     commits: 0,
