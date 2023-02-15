@@ -39,7 +39,7 @@ const toolsUsed = [{
   }, {
     name: "Axios",
     pic : axiosPic
-  }
+  },
 ]
 
 export { toolsUsed };

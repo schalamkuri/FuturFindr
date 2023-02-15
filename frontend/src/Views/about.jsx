@@ -153,7 +153,7 @@ function About() {
                   toolsUsed.map((tool) => {
                     return (
                       <Col>
-                        <ToolCard inputUser={tool}/>
+                        <ToolCard inputTool={tool}/>
                       </Col>
                     )
                   }
