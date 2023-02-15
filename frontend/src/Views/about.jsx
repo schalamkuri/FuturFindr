@@ -4,8 +4,10 @@ import Container from 'react-bootstrap/Container'
 import Stack from 'react-bootstrap/Stack'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { aboutUs } from '../Assets/AboutUs';
-import DevCard from '../Assets/DevCard';
+import { aboutUs } from '../Assets/Data/AboutUs';
+import { toolsUsed } from '../Assets/Data/ToolsUsed';
+import DevCard from '../components/DevCard';
+import ToolCard from '../components/ToolCard';
 
 // roughly based on GeoJobs's implementation 
 // https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/views/About.jsx
@@ -93,6 +95,19 @@ function About() {
   return (
     <Stack>
         <Container className='p-4'>
+          <h2 className='d-flex justify-content-left'>What is FuturFindr?</h2>
+          <p>
+            FuturFindr (pronounced future finder) is a platform that assists users in planning out their future in terms of finding the right place to advance their education, find the right place to work in the real world, or finding a place to live for either of those. This is an all in one platform that is applicable to anyone who is interested in advancing themselves, whether it be a high school student, or someone who is looking to potentially switch careers, or someone who just wants to find a place to live from where their place of work or school is at. We hope you find it useful!
+          </p>
+        </Container>
+        <Container className='p-4'>
+          <h2 className='d-flex justify-content-left'>Building this Project</h2>
+          <p>
+            FuturFindr uses a React front-end combined with an SQL database to scrape and combine API data and present it back to you as nice, clean information cards relating to careers, education, and living spaces, all connected together as appropriate and linking out to the necessary places to make advancing yourself easier.
+          </p>
+        </Container>
+        <Container className='p-4'>
+          <h2 className='d-flex justify-content-left'>Developers</h2>
           { 
             ready ? (
               <Row>
@@ -128,6 +143,31 @@ function About() {
             <Col className='d-flex justify-content-center'>{totalCommits}</Col>
             <Col className='d-flex justify-content-center'>{totalTests}</Col>
           </Row>
+        </Container>
+        <Container className='p-4'>
+          <h3 className='d-flex justify-content-center'>Tools we Used:</h3>
+          { 
+            ready ? (
+              <Row>
+                {
+                  toolsUsed.map((tool) => {
+                    return (
+                      <Col>
+                        <ToolCard inputUser={tool}/>
+                      </Col>
+                    )
+                  }
+                )
+              }
+              </Row>
+            ) : (
+              <Row>
+                <Col className='d-flex justify-content-center'>
+                  Loading
+                </Col>
+            </Row>
+            )
+          }
         </Container>
     </Stack>
   )

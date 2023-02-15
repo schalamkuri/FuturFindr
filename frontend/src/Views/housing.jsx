@@ -21,6 +21,10 @@ function Housing() {
           )
         })}
     </Container>
+    <div style={{marginRight: "20px"}}>
+      <p class="font-weight-light text-right">{HousingList.length} out of {HousingList.length} instances</p>
+      <p class="font-weight-light text-right">Page 1</p>
+    </div>
     </div>
   )
 }
