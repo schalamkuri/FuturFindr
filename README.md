@@ -1,11 +1,94 @@
 # cs373-idb-17
 
-**IDB Group**: 17
+# FuturFindr
 
-**Group Members**: Seth Parsons, Frank Sosa, Ritesh Thakur, Josiah Valdez, Saiprathik Chalamkuri
+## Team members
 
-**Project Name**: FuturFindr (FuturFindr.me)
+| **Name**              | **GitLabID**     | **EID** |
+| --------------------- | ---------------- | ------- |
+| Frank Sosa            | @frasosa         | fs8292  |
+| Seth Parsons          | @seth007         |         |
+| Saiprathik Chalamkuri | @schalamkuri     | sc63494 |
+| Josiah Valdez         | @ritzyo          | jgv633  |
+| Ritesh Thakur         | @ultramolecular  | rt27362 |
 
+## Git SHA
+
+| **Phase** | **Git Sha**                              |
+| --------- | ---------------------------------------- |
+| 1         |                                          |
+| 2         |                                          |
+| 3         |                                          |
+| 4         |                                          |
+
+## Project Leader
+
+| **Phase** | **Project Leader**   |
+| --------- | -------------------- |
+| 1         |                      |
+| 2         |                      |
+| 3         |                      |
+| 4         |                      |
+
+### Responsibilities
+
+Decide meeting times, lay out what is left to do for phase, be main source of contact
+
+# GitLab Pipelines
+
+
+
+# Website Link
+
+https://www.futurfindr.me/
+
+# Completion Times
+
+### Phase 1
+
+| Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
+| --------------------- | -------------------------- | -------------------------- |
+| Frank Sosa            |                            |                            |
+| Seth Parsons          |                            |                            |
+| Saiprathik Chalamkuri |                            |                            |
+| Josiah Valdez         |                            |                            |
+| Ritesh Thakur         |                            |                            |
+
+### Phase 2
+
+| Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
+| --------------------- | -------------------------- | -------------------------- |
+| Frank Sosa            |                            |                            |
+| Seth Parsons          |                            |                            |
+| Saiprathik Chalamkuri |                            |                            |
+| Josiah Valdez         |                            |                            |
+| Ritesh Thakur         |                            |                            |
+
+### Phase 3
+
+| Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
+| --------------------- | -------------------------- | -------------------------- |
+| Frank Sosa            |                            |                            |
+| Seth Parsons          |                            |                            |
+| Saiprathik Chalamkuri |                            |                            |
+| Josiah Valdez         |                            |                            |
+| Ritesh Thakur         |                            |                            |
+
+### Phase 4
+
+| Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
+| --------------------- | -------------------------- | -------------------------- |
+| Frank Sosa            |                            |                            |
+| Seth Parsons          |                            |                            |
+| Saiprathik Chalamkuri |                            |                            |
+| Josiah Valdez         |                            |                            |
+| Ritesh Thakur         |                            |                            |
+
+### Comments
+
+Thomas Langford is UTSHPE. He was on the wrong account when he first committed to the repo. For phase 1, he made 8 commits.
+
+# RFP
 
 **Description**: This platform allows its users to plan out their future in terms of finding the right place to advance their education, find the right place to work in the real world, or find a place to live for either of those. We are providing an all in one platform that is applicable to anyone who is interested in advancing themselves, whether it be a high school student, or someone who is looking to potentially switch careers, or someone who just wants to find a place to live from where their place of work or school is at.
 
