@@ -1,6 +1,9 @@
 import React from "react";
 import CollegeCard from "../components/CollegeCard";
 import { Grid, Slider, Box } from "@mui/material";
+import ut from "../Assets/ut_campus.jpg";
+import tamu from "../Assets/tamu.jpeg";
+import tcu from "../Assets/tamu.jpeg";
 
 // function valuetext(value) {
 //   return `${value}°C`;
@@ -53,40 +56,40 @@ function Colleges() {
       </Box>
 
       <Box>
-      <Grid container margin={5} spacing={5} flexDirection={"row"} flexWrap={"wrap"}>
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
-        <CollegeCard name={"University of Texas at Austin"} tuition={30000} />
+      <Grid container margin={5} spacing={10} flexDirection={"row"} flexWrap={"wrap"}>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut} />
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
+        <CollegeCard name={"University of Texas at Austin"} tuition={30000} media ={ut}/>
 
-        <CollegeCard name={"Texas A&M University"} tuition={35000} />
-        <CollegeCard name={"Texas A&M University"} tuition={35000} />
-        <CollegeCard name={"Texas A&M University"} tuition={35000} />
-        <CollegeCard name={"Texas A&M University"} tuition={35000} />
-        <CollegeCard name={"Texas A&M University"} tuition={35000} />
-        <CollegeCard name={"Texas A&M University"} tuition={35000} />
+        <CollegeCard name={"Texas A&M University"} tuition={35000} media ={tamu}/>
+        <CollegeCard name={"Texas A&M University"} tuition={35000} media ={tamu}/>
+        <CollegeCard name={"Texas A&M University"} tuition={35000} media ={tamu}/>
+        <CollegeCard name={"Texas A&M University"} tuition={35000} media ={tamu}/>
+        <CollegeCard name={"Texas A&M University"} tuition={35000} media ={tamu}/>
+        <CollegeCard name={"Texas A&M University"} tuition={35000} media ={tamu}/>
 
-        <CollegeCard name={"Texas Christian University"} tuition={60000} />
-        <CollegeCard name={"Texas Christian University"} tuition={60000} />
-        <CollegeCard name={"Texas Christian University"} tuition={60000} />
-        <CollegeCard name={"Texas Christian University"} tuition={60000} />
-        <CollegeCard name={"Texas Christian University"} tuition={60000} />
-        <CollegeCard name={"Texas Christian University"} tuition={60000} />
-        <CollegeCard name={"Texas Christian University"} tuition={60000} />
+        <CollegeCard name={"Texas Christian University"} tuition={60000} media ={tcu}/>
+        <CollegeCard name={"Texas Christian University"} tuition={60000} media ={tcu}/>
+        <CollegeCard name={"Texas Christian University"} tuition={60000} media ={tcu}/>
+        <CollegeCard name={"Texas Christian University"} tuition={60000} media ={tcu}/>
+        <CollegeCard name={"Texas Christian University"} tuition={60000} media ={tcu}/>
+        <CollegeCard name={"Texas Christian University"} tuition={60000} media ={tcu}/>
+        <CollegeCard name={"Texas Christian University"} tuition={60000} media ={tcu}/>
       </Grid>
         
       </Box>

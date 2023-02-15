@@ -2,19 +2,26 @@ import {
     Grid,
     Card,
     Typography,
+    CardMedia,
 } from "@mui/material";
-import { purple } from "@mui/material/colors";
+
 
 const CollegeCard = (props) => {
 
     let name = props.name
     let tuition = props.tuition
+    let media = props.media
+
 
     return (
         <Grid item xs={3}>
             <Card className='college-card' color="purple">
+                <CardMedia
+                sx={{ height: 140 }}
+                image={media}>
+                </CardMedia>
                <Typography>{name}</Typography>
-               <Typography>{tuition}</Typography>
+               <Typography>Tuition: ${tuition}</Typography>
             </Card>
         </Grid >
 
