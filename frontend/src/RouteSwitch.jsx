@@ -7,6 +7,8 @@ import Housing from "./Views/housing";
 import Jobs from "./Views/jobs";
 import JobsInstance from "./Views/JobsInstance";
 import HousingInstance from "./Views/HousingInstance";
+import CollegeInstance from "./Views/CollegeInstance";
+
 
 // Code is based off of geojobs routeswitch
 // https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/RouteSwitch.jsx
@@ -22,6 +24,7 @@ const RouteSwitch = () => {
         <Route path="/jobs/:id" element={<JobsInstance />} />
         <Route path="/housing" element={<Housing />} />
         <Route path="/housing/:id" element={<HousingInstance />} />
+        <Route path="/colleges/:id" element={<CollegeInstance />} />
       </Routes>
     </BrowserRouter>
   );
