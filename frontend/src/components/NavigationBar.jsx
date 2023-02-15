@@ -2,6 +2,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from '../Assets/fortune-teller.png';
+
+// Code is based off of geojobs navigation bar
+// https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/components/GlobalNavbar/GlobalNavbar.jsx
   
   const NavigationBar = () => {
     return (

@@ -8,6 +8,9 @@ import Jobs from "./Views/jobs";
 import JobsInstance from "./Views/JobsInstance";
 import HousingInstance from "./Views/HousingInstance";
 
+// Code is based off of geojobs routeswitch
+// https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/RouteSwitch.jsx
+
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
