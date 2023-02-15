@@ -48,11 +48,11 @@ https://www.futurfindr.me/
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
-| Frank Sosa            |                            |                            |
-| Seth Parsons          |                            |                            |
-| Saiprathik Chalamkuri |                            |                            |
-| Josiah Valdez         |                            |                            |
-| Ritesh Thakur         |                            |                            |
+| Frank Sosa            | 25                         | 30                         |
+| Seth Parsons          | 20                         | 30                         |
+| Saiprathik Chalamkuri | 25                         | 30                         |
+| Josiah Valdez         | 20                         | 25                         |
+| Ritesh Thakur         | 25                         | 25                         |
 
 <!-- ### Phase 2
 
