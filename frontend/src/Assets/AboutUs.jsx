@@ -32,7 +32,7 @@ const aboutUs = [{
     name: "Frank Sosa",
     email: "76409653+ItsFakeout@users.noreply.github.com",
     email2: "frank.sosa@utexas.edu",
-    bio: "I see now that the circumstances of one's birth are irrelevant. It is what you do with the gift of life that determines who you are.",
+    bio: "I'm a 3rd year computer science major. I like playing video games and trying new restaurants in my free time.",
     gitlab: "frasosa",
     role: "Full-Stack",
     commits: 0,

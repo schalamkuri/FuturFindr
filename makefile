@@ -3,6 +3,10 @@
 docker-front:
 	docker run -d -p 3000:3000 --name front-container front
 
-#build frontend docker image
-build-front :
+# build frontend docker image
+build-front:
 	docker build -t front .\frontend
+
+# launches react local testing environment
+start:
+	cd frontend && npm install && npm start
