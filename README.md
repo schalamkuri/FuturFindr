@@ -86,7 +86,7 @@ https://www.futurfindr.me/
 
 ### Comments
 
-Thomas Langford is UTSHPE. He was on the wrong account when he first committed to the repo. For phase 1, he made 8 commits.
+interesting project
 
 # RFP
 
