@@ -22,6 +22,10 @@ function Jobs() {
           )
         })}
     </Container>
+    <div style={{marginRight: "20px"}}>
+      <p class="font-weight-light text-right">{JobsList.length} out of {JobsList.length} instances</p>
+      <p class="font-weight-light text-right">Page 1</p>
+    </div>
     </div>
   );
 }
