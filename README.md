@@ -17,8 +17,8 @@
 | **Phase** | **Git Sha**                              |
 | --------- | ---------------------------------------- |
 | 1         | 6c033bfc                                 |
-<!-- | 2         |                                          |
-| 3         |                                          |
+| 2         |                                          |
+<!-- | 3         |                                          |
 | 4         |                                          | -->
 
 ## Project Leader
@@ -26,8 +26,8 @@
 | **Phase** | **Project Leader**   |
 | --------- | -------------------- |
 | 1         | Frank Sosa           |
-<!-- | 2         |                      |
-| 3         |                      |
+| 2         |                      |
+<!-- | 3         |                      |
 | 4         |                      | -->
 
 ### Responsibilities
@@ -54,7 +54,7 @@ https://www.futurfindr.me/
 | Josiah Valdez         | 20                         | 25                         |
 | Ritesh Thakur         | 25                         | 25                         |
 
-<!-- ### Phase 2
+### Phase 2
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
@@ -64,7 +64,7 @@ https://www.futurfindr.me/
 | Josiah Valdez         |                            |                            |
 | Ritesh Thakur         |                            |                            |
 
-### Phase 3
+<!-- ### Phase 3
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
