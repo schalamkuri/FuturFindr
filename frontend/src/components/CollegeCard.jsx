@@ -11,9 +11,6 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const CollegeCard = (props) => {
 
-
-    let id = props.id
-
     let name = props.name
     let tuition = props.tuition
     let media = props.media
@@ -22,13 +19,10 @@ const CollegeCard = (props) => {
     let acceptance_rate = props.acceptance_rate
     let city = props.city
 
-    
-    
-
     return (
         // <Grid item xs={3}>
             <Card className='college-card' color="purple">
-                <CardActionArea component={RouterLink} to= {"/colleges/" + id} >
+                <CardActionArea component={RouterLink} to= {`/colleges/${name.split(' ').join('')}`} >
                 <CardMedia
                 sx={{ height: 150 }}
                 image={media}>
@@ -38,7 +32,6 @@ const CollegeCard = (props) => {
                <Typography>Tuition: ${tuition}</Typography>
                <Typography>Rank: {rank} </Typography>
                <Typography>Graduation Rate: {graduation_rate}% </Typography>
-               <Typography>{id}</Typography>
                <Typography>Acceptance Rate: {acceptance_rate}% </Typography>
                <Typography>City: {city} </Typography>
                </CardActionArea>

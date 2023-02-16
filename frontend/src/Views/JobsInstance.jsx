@@ -5,6 +5,7 @@ import { JobsMap } from "../Assets/Data/JobsMap";
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Housing from "./housing";
+import Colleges from "./colleges";
 
 
 function JobsInstance() {
@@ -36,7 +37,15 @@ function JobsInstance() {
         }}>
             Check out housing in the same city!
         </h2>;
-        <Housing/>
+        <Housing reuse = {true}/>
+        <h2 style = {{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+        }}>
+            Check out nearby Colleges!
+        </h2>;
+        <Colleges reuse = {true}/>
         </div>
     )
 }

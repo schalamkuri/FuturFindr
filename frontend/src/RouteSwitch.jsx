@@ -19,12 +19,12 @@ const RouteSwitch = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/colleges" element={<Colleges />} />
-        <Route path="/jobs" element={<Jobs />} />
-        <Route path="/jobs/:id" element={<JobsInstance />} />
-        <Route path="/housing" element={<Housing />} />
-        <Route path="/housing/:id" element={<HousingInstance />} />
+        <Route path="/colleges" element={<Colleges reuse = {false}/>} />
         <Route path="/colleges/:id" element={<CollegeInstance />} />
+        <Route path="/jobs" element={<Jobs reuse = {false}/>} />
+        <Route path="/jobs/:id" element={<JobsInstance />} />
+        <Route path="/housing" element={<Housing reuse = {false}/>} />
+        <Route path="/housing/:id" element={<HousingInstance />} />
       </Routes>
     </BrowserRouter>
   );

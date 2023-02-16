@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import { HousingList } from "../Assets/Data/HousingData";
 import { HousingMap } from "../Assets/Data/HousingMap";
 import Jobs from "./jobs";
+import Colleges from "./colleges";
 
 function HousingInstance() {
     const params = useParams()
@@ -35,7 +36,15 @@ function HousingInstance() {
         }}>
             Check out jobs in the same city!
         </h2>;
-        <Jobs/>
+        <Jobs reuse = {true}/>
+        <h2 style = {{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+        }}>
+            Check out nearby Colleges!
+        </h2>;
+        <Colleges reuse = {true}/>
         </div>
     )
 }

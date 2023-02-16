@@ -1,16 +1,13 @@
 import React from "react";
 import CollegeCard from "../components/CollegeCard";
 import { Grid, Slider, Box, Typography } from "@mui/material";
-import ut from "../Assets/ut_campus.jpg";
-import tamu from "../Assets/tamu.jpeg";
-import tcu from "../Assets/tcu.jpeg";
 import collegeData from "../Assets/Data/colleges.json"
 
 // function valuetext(value) {
 //   return `${value}°C`;
 // }
 
-function Colleges() {
+function Colleges(props) {
   const [value, setValue] = React.useState([20, 37]);
   const [value2, setValue2] = React.useState([20, 37]);
 
@@ -39,11 +36,25 @@ function Colleges() {
         </Grid>
         )
     }
-)
+  )
+
+  // controls if the text for how many instances there are is shown
+  function subText() {
+    if (!props.reuse) {
+      return (
+        <div style={{marginRight: "20px"}}>
+          <p class="font-weight-light text-right">3 out of 3 instances</p>
+          <p class="font-weight-light text-right">Page 1</p>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
 
   return (
     <>
-      <Grid>
+      {/* <Grid>
         <Grid item xs={6}>
           <Slider
             value={value}
@@ -58,14 +69,15 @@ function Colleges() {
             valueLabelDisplay="auto"
           />
         </Grid>
-      </Grid>
+      </Grid> */}
 
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={10} justifyContent="center">
+        <Grid container spacing={10} justifyContent="center" marginTop={"0px"}>
           {DisplayData}
         </Grid>
 
       </Box>
+      {subText()}
     </>
   );
 }
