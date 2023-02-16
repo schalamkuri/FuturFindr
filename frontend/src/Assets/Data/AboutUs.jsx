@@ -52,10 +52,10 @@ const aboutUs = [{
     pic : riteshPic
   }, {
     name: "Josiah Valdez",
-    email: "josiah.py@utexas.edu",
-    email2: "josiah.py@gmail.com",
+    email: "josiah.py@gmail.com",
+    email2: "josiah.py@utexas.edu",
     bio: `A third-year CS student in pursuit of happiness. Enjoys really spicy food, martial arts, \
-          horror movies, video games, traveling, and spending time with friends and family.`,
+          horror movies, video games, traveling, and spending time with loved ones.`,
     gitlab: "ultramolecular",
     role: "Full-Stack",
     commits: 0,
