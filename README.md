@@ -88,8 +88,6 @@ https://www.futurfindr.me/
 
 Used material UI along with react-bootstrap
 
-Our customer group did not give us user stories in time, so the only user stories in our repo and report were made by us
-
 <!-- # RFP
 
 **Description**: This platform allows its users to plan out their future in terms of finding the right place to advance their education, find the right place to work in the real world, or find a place to live for either of those. We are providing an all in one platform that is applicable to anyone who is interested in advancing themselves, whether it be a high school student, or someone who is looking to potentially switch careers, or someone who just wants to find a place to live from where their place of work or school is at.
