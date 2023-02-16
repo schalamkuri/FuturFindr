@@ -18,7 +18,7 @@ function Home() {
         <Card.Img src={Splash} />
         <Card.ImgOverlay className="bigText">
           <h1>
-            What's in your future?
+            What's in your future? 
           </h1>
         </Card.ImgOverlay>
         
