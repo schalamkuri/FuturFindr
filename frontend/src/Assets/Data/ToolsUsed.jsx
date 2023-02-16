@@ -12,43 +12,53 @@ import axiosPic from '../Pictures/Tools/axios.png'
 const toolsUsed = [{
     name: "React",
     desc: "Main javascript library used for our front-end",
-    pic : reactPic
+    pic : reactPic,
+    link: "https://reactjs.org/"
   }, {
     name: "React-Bootstrap",
     desc: "Javascript framework, powers front-end",
-    pic : reactBootstrapPic
+    pic : reactBootstrapPic,
+    link: "https://react-bootstrap.github.io/"
   }, {
     name: "Material-UI",
     desc: "Additional react component library",
-    pic : materialUIPic
+    pic : materialUIPic,
+    link: "https://material-ui.com/"
   }, {
     name: "NameCheap",
     desc: "Where we bought our domain name!",
-    pic : nameCheapPic
+    pic : nameCheapPic,
+    link: "https://www.namecheap.com/"
   }, {
     name: "AWS Amplify",
     desc: "The service that hosts our React application",
-    pic : awsAmplifyPic
+    pic : awsAmplifyPic,
+    link: "https://aws.amazon.com/amplify/"
   }, {
     name: "Teams",
     desc: "Used for team communication",
-    pic : teamsPic
+    pic : teamsPic,
+    link: "https://www.microsoft.com/en-us/microsoft-365/microsoft-teams/group-chat-software"
   }, {
     name: "Visual Studio Code",
     desc: "IDE everyone used for development",
-    pic : vsCodePic
+    pic : vsCodePic,
+    link: "https://code.visualstudio.com/"
   }, {
     name: "GitLab",
     desc: "Repository location for our project",
-    pic : gitlabPic
+    pic : gitlabPic,
+    link: "https://gitlab.com/"
   }, {
     name: "Postman",
     desc: "Used for testing and documenting APIs",
-    pic : postmanPic
+    pic : postmanPic,
+    link: "https://www.postman.com/"
   }, {
     name: "Axios",
     desc: "Used for contacting APIs",
-    pic : axiosPic
+    pic : axiosPic,
+    link: "https://www.npmjs.com/package/axios"
   },
 ]
 

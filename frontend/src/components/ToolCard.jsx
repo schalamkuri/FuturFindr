@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 const ToolCard = (inputTool) => {
   return (
@@ -7,6 +8,7 @@ const ToolCard = (inputTool) => {
             <Card.Body>
                 <Card.Title>{inputTool.inputTool.name}<br /></Card.Title>
                 <Card.Text>{inputTool.inputTool.desc}</Card.Text>
+                <Button variant="primary" href={inputTool.inputTool.link} target="_blank">Link</Button>
             </Card.Body>
     </Card>
   );
