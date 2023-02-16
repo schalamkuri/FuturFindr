@@ -8,9 +8,9 @@ import josiahPic from '../Pictures/Devs/josiah.png'
 
 const aboutUs = [{
     name: "Saiprathik Chalamkuri",
-    email: "placeholder@gmail.com",
-    email2: "placeholder@gmail.com",
-    bio: "I see now that the circumstances of one's birth are irrelevant. It is what you do with the gift of life that determines who you are.",
+    email: "saiprathikchalamkuri@gmail.com",
+    email2: "saiprathikchalamkuri@utexas.edu",
+    bio: "I am a junior in the CS progam here at UT. Outside of programming, I lead a normal life consisting of playing basketball and hanging out with my friends",
     gitlab: "schalamkuri",
     role: "Full-Stack",
     commits: 0,
