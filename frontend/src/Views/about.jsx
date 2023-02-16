@@ -146,6 +146,12 @@ function About() {
             <Col className='d-flex justify-content-center'>{totalTests}</Col>
           </Row>
         </Container>
+        {/* API Documentation Section */}
+        <Container className='p-4'>
+          <a href="https://documenter.getpostman.com/view/25807396/2s93CExcaC" target="_blank">
+            <h3 className='d-flex justify-content-center'>Postman API Documentation</h3>
+          </a>
+        </Container>
         {/* Tools Section */}
         <Container className='p-4'>
           <h3 className='d-flex justify-content-center'>Tools We Used:</h3>
