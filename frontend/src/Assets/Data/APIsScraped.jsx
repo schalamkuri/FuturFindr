@@ -1,6 +1,6 @@
 import gitlabPic from '../Pictures/Tools/gitlab.png'
 import apartmentsPic from '../Pictures/Tools/apartments.png'
-import linkupPic from '../Pictures/Tools/linkup.png'
+import adzunaPic from '../Pictures/Tools/adzuna.png'
 import scorecardPic from '../Pictures/Tools/scorecard.png'
 
 const apisScraped = [{
@@ -14,10 +14,10 @@ const apisScraped = [{
     link: "https://www.apartments.com/",
     pic : apartmentsPic
   }, {
-    name: "LinkUp.com",
-    desc: "Fetched job listing, employment info",
-    link: "https://linkup.com/",
-    pic : linkupPic
+    name: "Adzuna",
+    desc: "Fetched job listings, employment info",
+    link: "https://developer.adzuna.com/",
+    pic : adzunaPic
   }, {
     name: "College Scorecard",
     desc: "Fetched college/university info",
