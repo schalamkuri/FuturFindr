@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 app.debug=True
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:GeojobsTeam!@db.geojobs.me/geojobs'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://idb_master:CS373idb!@futurfindr-db.cbbs3s1efq9u.us-east-2.rds.amazonaws.com:5432/postgres'
 db = SQLAlchemy(app)
 
 class College(db.Model) :

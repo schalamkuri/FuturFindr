@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import text, column, desc
 from models import app, db, Job, College, HousingUnit
 from schema import job_schema, housing_unit_schema, college_schema, housing_unit_img_schema, college_img_schema
 import json
