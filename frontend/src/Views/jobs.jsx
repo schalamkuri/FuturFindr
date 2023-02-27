@@ -20,7 +20,7 @@ const Jobs = (props) => {
     pages.push(
       <Pagination.Item
         key={number}
-        currentPage={number === currentPage}
+        active={number === currentPage}
         onClick={() => pagination(number)}
       >
         {number}
