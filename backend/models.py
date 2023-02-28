@@ -36,7 +36,7 @@ class HousingUnit(db.Model) :
     address = db.Column(db.String(70))
     property_type = db.Column(db.String(20))
     sqft = db.Column(db.Integer)
-    build_year = db.Column(db.Integer)
+    date_listed = db.Column(db.String(40))
     #images = db.relationship('HousingUnitImage', backref = 'housingunit')
 
 class HousingUnitImage(db.Model) :
