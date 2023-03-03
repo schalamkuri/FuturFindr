@@ -25,5 +25,86 @@
     "graduation_rate": 70,
     "acceptance_rate": 60,
     "city": "Fort Worth"
+  },
+  {
+    "name": "University of Texas at Austin",
+    "tuition": 30000,
+    "media": "https://www.utexas.edu/sites/default/files/styles/utexas_hero_photo_image/public/hero-photos/maincampus_hero.jpg?itok=ZkKrhFki",
+    "rank": 1,
+    "graduation_rate": 99,
+    "acceptance_rate": 29,
+    "city": "Austin"
+  },
+  {
+    "name": "Texas A&M University",
+    "tuition": 35000,
+    "media": "https://engineering.tamu.edu/biomedical/_files/_images/_content-images/tamu-aerial-21Sept2020.jpg",
+    "rank": 5,
+    "graduation_rate": 80,
+    "acceptance_rate": 50,
+    "city": "College Station"
+  },
+  {
+    "name": "Texas Christian University",
+    "tuition": 60000,
+    "media": "https://money-assets.money.com/mcp/2020/profile/228875.jpg",
+    "rank": 10,
+    "graduation_rate": 70,
+    "acceptance_rate": 60,
+    "city": "Fort Worth"
+  },
+  {
+    "name": "University of Texas at Austin",
+    "tuition": 30000,
+    "media": "https://www.utexas.edu/sites/default/files/styles/utexas_hero_photo_image/public/hero-photos/maincampus_hero.jpg?itok=ZkKrhFki",
+    "rank": 1,
+    "graduation_rate": 99,
+    "acceptance_rate": 29,
+    "city": "Austin"
+  },
+  {
+    "name": "Texas A&M University",
+    "tuition": 35000,
+    "media": "https://engineering.tamu.edu/biomedical/_files/_images/_content-images/tamu-aerial-21Sept2020.jpg",
+    "rank": 5,
+    "graduation_rate": 80,
+    "acceptance_rate": 50,
+    "city": "College Station"
+  },
+  {
+    "name": "Texas Christian University",
+    "tuition": 60000,
+    "media": "https://money-assets.money.com/mcp/2020/profile/228875.jpg",
+    "rank": 10,
+    "graduation_rate": 70,
+    "acceptance_rate": 60,
+    "city": "Fort Worth"
+  },
+  {
+    "name": "University of Texas at Austin",
+    "tuition": 30000,
+    "media": "https://www.utexas.edu/sites/default/files/styles/utexas_hero_photo_image/public/hero-photos/maincampus_hero.jpg?itok=ZkKrhFki",
+    "rank": 1,
+    "graduation_rate": 99,
+    "acceptance_rate": 29,
+    "city": "Austin"
+  },
+  {
+    "name": "Texas A&M University",
+    "tuition": 35000,
+    "media": "https://engineering.tamu.edu/biomedical/_files/_images/_content-images/tamu-aerial-21Sept2020.jpg",
+    "rank": 5,
+    "graduation_rate": 80,
+    "acceptance_rate": 50,
+    "city": "College Station"
+  },
+  {
+    "name": "Texas Christian University",
+    "tuition": 60000,
+    "media": "https://money-assets.money.com/mcp/2020/profile/228875.jpg",
+    "rank": 10,
+    "graduation_rate": 70,
+    "acceptance_rate": 60,
+    "city": "Fort Worgsd"
   }
 ]
