@@ -5,7 +5,7 @@ import sys
 def populate_db():
     #populate_colleges()
     populate_housing()
-    #populate_housing_imgs()
+    populate_housing_imgs()
     populate_jobs()
 
 # TODO: figure out how to populate db for our models and data
@@ -36,7 +36,25 @@ def populate_housing():
 
 
 def populate_housing_imgs():
-    pass
+    with open("api_data/housing_images.json") as housing_images:
+        temp_num = 1
+        imgs = json.load(housing_images)
+        for house in imgs:
+            # find associated housing unit
+            if "id" in house:
+                temp = HousingUnit.query.filter_by(id=house["id"]).first()
+                if temp:
+                    for image in house["images"]:
+                        db_row = {
+                            "id": temp_num,
+                            "housing_id": house["id"],
+                            "img_url": image,
+                        }
+                        temp_num += 1
+                        image_instance = HousingUnitImage(**db_row)
+                        temp.images.append(image_instance)
+                        db.session.add(image_instance)
+        db.session.commit()
 
 def populate_jobs():
     temp = open("api_data/full_time_jobs.json", encoding="utf8")
