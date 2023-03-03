@@ -6,7 +6,7 @@ def populate_db():
     #populate_colleges()
     populate_housing()
     #populate_housing_imgs()
-    #populate_jobs()
+    populate_jobs()
 
 # TODO: figure out how to populate db for our models and data
 def populate_colleges():
@@ -17,13 +17,11 @@ def populate_housing():
     housing_data = json.load(temp)
     temp.close()
 
-    temp_id_int = 1
-
     # File is an array of arrays
     for array1 in housing_data:
         for array2 in array1:
             db_row = {
-                "id": temp_id_int,
+                "id": array2["id"] if "id" in array2 else None,
                 "city": array2["city"] if "city" in array2 else None,
                 "bathrooms": array2["bathrooms"] if "bathrooms" in array2 else None,
                 "bedrooms": array2["bedrooms"] if "bedrooms" in array2 else None,
@@ -33,7 +31,6 @@ def populate_housing():
                 "sqft": array2["squareFootage"] if "squareFootage" in array2 else None,
                 "date_listed": array2["listedDate"] if "listedDate" in array2 else None,
             }
-            temp_id_int += 1
             db.session.add(HousingUnit(**db_row))
     db.session.commit()
 
@@ -42,7 +39,54 @@ def populate_housing_imgs():
     pass
 
 def populate_jobs():
-    pass
+    temp = open("api_data/full_time_jobs.json", encoding="utf8")
+    fulltime_job_data = json.load(temp)
+    temp.close()
+
+    # File is an array of arrays
+    for job in fulltime_job_data['results']:
+        db_row = {
+            "id": job["id"],
+            "title": job["title"],
+            "location": job["location"]["display_name"],
+            "company": job["company"]["display_name"],
+            "category": job["category"]["label"],
+            "type": "Full-time",
+            "url": job["redirect_url"],
+            "salary_min": job["salary_min"],
+            "salary_max": job["salary_max"] if "salary_max" in job else None,
+            "latitude": job["latitude"] if "latitude" in job else None,
+            "longitude": job["longitude"] if "longitude" in job else None,
+            "description": job["description"],
+            "created": job["created"],
+            #"img_url": logo_url[0] if logo_url else None,
+        }
+        db.session.add(Job(**db_row))
+
+    temp = open("api_data/part_time_jobs.json", encoding="utf8")
+    parttime_job_data = json.load(temp)
+    temp.close()
+
+    for job in parttime_job_data['results']:
+        db_row = {
+            "id": job["id"],
+            "title": job["title"],
+            "location": job["location"]["display_name"],
+            "company": job["company"]["display_name"],
+            "category": job["category"]["label"],
+            "type": "Part-time",
+            "url": job["redirect_url"],
+            "salary_min": job["salary_min"],
+            "salary_max": job["salary_max"] if "salary_max" in job else None,
+            "latitude": job["latitude"] if "latitude" in job else None,
+            "longitude": job["longitude"] if "longitude" in job else None,
+            "description": job["description"],
+            "created": job["created"],
+            #"img_url": logo_url[0] if logo_url else None,
+        }
+        db.session.add(Job(**db_row))
+
+    db.session.commit()
 
 if __name__ == "__main__":
     with app.app_context():

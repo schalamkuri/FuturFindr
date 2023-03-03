@@ -14207,40 +14207,6 @@
       }
     },
     {
-      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiLUFIVnNSMno3UkdlLWItYW15UlFmdyIsImkiOiIzOTMwODk2Mzc1In0.TYCvv0X_-0Fc0WKduX-wn4vAlYqLmZyIdeP4ntBSCJk",
-      "salary_min": 80404.12,
-      "redirect_url": "https://www.adzuna.com/land/ad/3930896375?se=-AHVsR2z7RGe-b-amyRQfw&utm_medium=api&utm_source=d99ebe96&v=8E6874A923726A2272F5D52DE46299BADE664DC6",
-      "category": {
-        "__CLASS__": "Adzuna::API::Response::Category",
-        "label": "Healthcare & Nursing Jobs",
-        "tag": "healthcare-nursing-jobs"
-      },
-      "title": "Licensed Practical Nurse - No Vaccine Required",
-      "description": "Nursing is a Work of Heart To give of yourself in the care of others requires true dedication. Feeling you have gotten lost in the regulations of your current role? Looking to find Autonomy in your work, using Evidence Based Nursing Decisions? Southern Health Partners can help you get back your Heart for Nursing. If you enjoy making an impact for an under-served patient population, and are looking for a safe, secure work environment, look no further. Correctional Nursing is just the place for y…",
-      "id": "3930896375",
-      "contract_time": "full_time",
-      "__CLASS__": "Adzuna::API::Response::Job",
-      "salary_is_predicted": "1",
-      "created": "2023-02-17T17:00:10Z",
-      "location": {
-        "__CLASS__": "Adzuna::API::Response::Location",
-        "display_name": "Highland Heights, Campbell County",
-        "area": [
-          "US",
-          "Kentucky",
-          "Campbell County",
-          "Highland Heights"
-        ]
-      },
-      "salary_max": 80404.12,
-      "longitude": -84.46195,
-      "company": {
-        "__CLASS__": "Adzuna::API::Response::Company",
-        "display_name": "Southern Health Partners"
-      },
-      "latitude": 39.03168
-    },
-    {
       "contract_time": "full_time",
       "__CLASS__": "Adzuna::API::Response::Job",
       "salary_is_predicted": "1",
@@ -15053,40 +15019,6 @@
         "__CLASS__": "Adzuna::API::Response::Company",
         "display_name": "Hartford HealthCare"
       }
-    },
-    {
-      "title": "Dental Assistant",
-      "category": {
-        "label": "Healthcare & Nursing Jobs",
-        "tag": "healthcare-nursing-jobs",
-        "__CLASS__": "Adzuna::API::Response::Category"
-      },
-      "redirect_url": "https://www.adzuna.com/land/ad/3916877033?se=-AHVsR2z7RGe-b-amyRQfw&utm_medium=api&utm_source=d99ebe96&v=F69ABFC81832AD72CAE6DB17FE7C938256ED3F1A",
-      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiLUFIVnNSMno3UkdlLWItYW15UlFmdyIsImkiOiIzOTE2ODc3MDMzIn0.nDVpNA8JbY4Ql-FgfGtKRE0SRX9m2ygUWKWswrNXoQs",
-      "salary_min": 40866.26,
-      "description": "At Gentle Dental, we value our teammate’s smile as much as our patient’s smile. Our vision is to provide exceptional, lifelong, integrated oral healthcare services. We enhance the quality of our patients’ lives by providing accessible oral healthcare, which is paramount to overall health and wellbeing. We focus on a commitment to patient care, operational and clinical excellence, personal accountability, building relationships, and seeking out innovative and creative approaches to support our p…",
-      "id": "3916877033",
-      "__CLASS__": "Adzuna::API::Response::Job",
-      "salary_is_predicted": "1",
-      "contract_time": "full_time",
-      "location": {
-        "__CLASS__": "Adzuna::API::Response::Location",
-        "display_name": "Kansas City, Wyandotte County",
-        "area": [
-          "US",
-          "Kansas",
-          "Wyandotte County",
-          "Kansas City"
-        ]
-      },
-      "created": "2023-02-10T01:43:58Z",
-      "company": {
-        "__CLASS__": "Adzuna::API::Response::Company",
-        "display_name": "Gentle Dental"
-      },
-      "salary_max": 40866.26,
-      "longitude": -94.625437,
-      "latitude": 39.116761
     },
     {
       "latitude": 43.154072,
@@ -31184,40 +31116,6 @@
       "redirect_url": "https://www.adzuna.com/land/ad/3929596926?se=JImYfx-z7RGIhJrCtJb2WA&utm_medium=api&utm_source=d99ebe96&v=CAE6D3721F2AEBBF9778135C01B27F58C2F85D9A",
       "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiSkltWWZ4LXo3UkdJaEpyQ3RKYjJXQSIsImkiOiIzOTI5NTk2OTI2In0.I9WXSf_1CLhGNvfWPgamO5XGmX7IFrKSmL2JNnbSWyI",
       "salary_min": 46908.17
-    },
-    {
-      "location": {
-        "area": [
-          "US",
-          "Ohio",
-          "Muskingum County",
-          "Adams Mills"
-        ],
-        "display_name": "Adams Mills, Muskingum County",
-        "__CLASS__": "Adzuna::API::Response::Location"
-      },
-      "created": "2023-01-27T22:59:49Z",
-      "contract_time": "full_time",
-      "company": {
-        "__CLASS__": "Adzuna::API::Response::Company",
-        "display_name": "WIN Waste Innovations"
-      },
-      "id": "3882183217",
-      "salary_is_predicted": "1",
-      "__CLASS__": "Adzuna::API::Response::Job",
-      "latitude": 40.192629,
-      "category": {
-        "label": "Logistics & Warehouse Jobs",
-        "__CLASS__": "Adzuna::API::Response::Category",
-        "tag": "logistics-warehouse-jobs"
-      },
-      "salary_min": 41733.16,
-      "redirect_url": "https://www.adzuna.com/land/ad/3882183217?se=JImYfx-z7RGIhJrCtJb2WA&utm_medium=api&utm_source=d99ebe96&v=C9760785DD67CA07257A923467CB8DF913347692",
-      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiSkltWWZ4LXo3UkdJaEpyQ3RKYjJXQSIsImkiOiIzODgyMTgzMjE3In0.GKOMC0SiS4m0fqQ8VuJJtuU3fEPlH350DfrAmD9vIy0",
-      "longitude": -81.910183,
-      "description": "WIN Waste Innovations is a waste management company committed to delivering essential waste management solutions to customers and communities supported by our team of 2,100 employees. We believe in preserving our environment for future generations while providing for today's needs. WIN Waste Innovations is a vertically integrated business with a platform of 50 strategically located collection, transfer, and disposal assets. These include waste-to-energy facilities, transfer stations, ash monofi…",
-      "title": "Residential Driver - Up to $5,000 Sign On Bonus",
-      "salary_max": 41733.16
     },
     {
       "location": {

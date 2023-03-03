@@ -28,7 +28,7 @@ class CollegeImage(db.Model) :
 
 
 class HousingUnit(db.Model) :
-    id = db.Column(db.BigInteger, primary_key = True)
+    id = db.Column(db.String(65), primary_key = True)
     city = db.Column(db.String(40))
     bathrooms = db.Column(db.Integer)
     bedrooms = db.Column(db.Integer)
@@ -41,15 +41,16 @@ class HousingUnit(db.Model) :
 
 class HousingUnitImage(db.Model) :
     id = db.Column(db.BigInteger, primary_key = True)
-    housing_id = db.Column(db.BigInteger, db.ForeignKey(HousingUnit.id))
+    housing_id = db.Column(db.String(65), db.ForeignKey(HousingUnit.id))
     img_url = db.Column(db.String(200))
 
 class Job(db.Model) : 
     id = db.Column(db.BigInteger, primary_key = True)
-    title = db.Column(db.String(70))
-    company = db.Column(db.String(40))
-    city = db.Column(db.String(40))
-    category = db.Column(db.String(30))
+    title = db.Column(db.String(150))
+    company = db.Column(db.String(60))
+    location = db.Column(db.String(50))
+    category = db.Column(db.String(40))
+    type = db.Column(db.String(10))
     url = db.Column(db.String(150))
     salary_min = db.Column(db.Integer)
     salary_max = db.Column(db.Integer)
@@ -57,4 +58,4 @@ class Job(db.Model) :
     longitude = db.Column(db.Float)
     description = db.Column(db.String(550))
     created = db.Column(db.DateTime)
-    img_url = db.Column(db.String(200))
+    #img_url = db.Column(db.String(200))

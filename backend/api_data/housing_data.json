@@ -1237,14 +1237,6 @@
       "longitude": -106.541473
     },
     {
-      "addressLine1": "7815 Buckboard Ave NE",
-      "formattedAddress": "7815 Buckboard Ave NE, Albuquerque, NM 87109",
-      "city": "Albuquerque",
-      "state": "NM",
-      "zipCode": "87109",
-      "price": 2195
-    },
-    {
       "rawAddress": "2641 E Dakota Ave, Fresno, CA 93726",
       "county": "Fresno County",
       "bedrooms": 3,
@@ -1788,26 +1780,6 @@
       }
     ],
     [
-      {
-        "bathrooms": 2.5,
-        "bedrooms": 4,
-        "price": 2515,
-        "rawAddress": "7547 E Navarro Ave, Mesa, AZ 85209",
-        "county": "Maricopa County",
-        "propertyType": "Single Family",
-        "addressLine1": "7547 E Navarro Ave",
-        "city": "Mesa",
-        "state": "AZ",
-        "zipCode": "85209",
-        "formattedAddress": "7547 E Navarro Ave, Mesa, AZ 85209",
-        "lastSeen": "2022-10-16T03:42:52.501Z",
-        "listedDate": "2021-09-09T02:30:29.017Z",
-        "status": "Active",
-        "removedDate": null,
-        "daysOnMarket": 403,
-        "latitude": 33.429002,
-        "longitude": -111.873187
-      },
       {
         "rawAddress": "2132 N 30th St, Mesa, AZ 85213",
         "county": "Maricopa County",
