@@ -19,7 +19,7 @@ class College(db.Model) :
     admission_rate = db.Column(db.Float)
     ranking = db.Column(db.Integer)
     tuition = db.Column(db.Integer)
-    #images = db.relationship('CollegeImage', backref = 'college')
+    images = db.relationship('CollegeImage', backref = 'college')
 
 class CollegeImage(db.Model) :
     id = db.Column(db.BigInteger, primary_key = True)
@@ -37,11 +37,11 @@ class HousingUnit(db.Model) :
     property_type = db.Column(db.String(20))
     sqft = db.Column(db.Integer)
     date_listed = db.Column(db.String(40))
-    #images = db.relationship('HousingUnitImage', backref = 'housingunit')
+    images = db.relationship('HousingUnitImage', backref = 'housingunit')
 
 class HousingUnitImage(db.Model) :
     id = db.Column(db.BigInteger, primary_key = True)
-    apt_id = db.Column(db.String(65), db.ForeignKey('housingunit.id'))
+    housing_id = db.Column(db.BigInteger, db.ForeignKey(HousingUnit.id))
     img_url = db.Column(db.String(200))
 
 class Job(db.Model) : 

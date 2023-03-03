@@ -35,8 +35,6 @@ def populate_housing():
             }
             temp_id_int += 1
             db.session.add(HousingUnit(**db_row))
-    print('This is error output', file=sys.stderr)
-    print('This is standard output', file=sys.stdout)
     db.session.commit()
 
 
@@ -49,6 +47,6 @@ def populate_jobs():
 if __name__ == "__main__":
     with app.app_context():
         # TODO: figure out if we need to drop/create all here as well
-        # db.drop_all()
-        # db.create_all()
+        db.drop_all()
+        db.create_all()
         populate_db()

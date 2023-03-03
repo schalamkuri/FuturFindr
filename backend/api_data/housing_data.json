@@ -1313,8 +1313,9 @@
       "id": "5280-N-6th-St,-Apt-H,-Fresno,-CA-93710",
       "latitude": 36.813721,
       "longitude": -119.762705
-    },
-    [
+    }
+  ],
+  [
       {
         "formattedAddress": "2402 Northrop Ave, Sacramento, CA 95825",
         "addressLine1": "2402 Northrop Ave",
@@ -3102,5 +3103,4 @@
         "longitude": -97.122055
       }
     ]
-  ]
 ]
