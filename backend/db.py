@@ -66,7 +66,7 @@ def populate_jobs():
         db_row = {
             "id": job["id"],
             "title": job["title"],
-            "location": job["location"]["display_name"],
+            "city": job["location"]["area"][3] if len(job["location"]["area"]) >= 4 else job["location"]["display_name"],
             "company": job["company"]["display_name"],
             "category": job["category"]["label"],
             "type": "Full-time",
@@ -89,7 +89,7 @@ def populate_jobs():
         db_row = {
             "id": job["id"],
             "title": job["title"],
-            "location": job["location"]["display_name"],
+            "city": job["location"]["area"][3] if len(job["location"]) >= 4 else job["location"]["display_name"],
             "company": job["company"]["display_name"],
             "category": job["category"]["label"],
             "type": "Part-time",

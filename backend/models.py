@@ -48,7 +48,7 @@ class Job(db.Model) :
     id = db.Column(db.BigInteger, primary_key = True)
     title = db.Column(db.String(150))
     company = db.Column(db.String(60))
-    location = db.Column(db.String(50))
+    city = db.Column(db.String(50))
     category = db.Column(db.String(40))
     type = db.Column(db.String(10))
     url = db.Column(db.String(150))
