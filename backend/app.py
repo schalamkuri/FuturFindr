@@ -10,9 +10,7 @@ import json
 
 DEFAULT_PAGE_SIZE = 9
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
-
+# Home page
 @app.route("/")
 def home():
     return "<h1>FuturFindr API</h1>"
@@ -51,8 +49,8 @@ def get_housing():
     # return result
     result = housing_unit_schema.dump(query, many=True)
     return jsonify({"data": result, "meta": {"count": count}})
-@app.route("/jobs")
 
+@app.route("/jobs")
 def get_jobs():
     # get api call arguments
     page_num = request.args.get("page", type=int)
@@ -116,5 +114,9 @@ def get_job(instance_id):
 def paginate_helper(page_num, per_page, query):
     return query.paginate(page=page_num, per_page=(DEFAULT_PAGE_SIZE if per_page is None else per_page), \
                           error_out=False).items
+
+# Run app
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
 
