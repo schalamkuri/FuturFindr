@@ -6,16 +6,19 @@ import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Jobs = (props) => {
+function Jobs() {
 
+  // State
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(8);
+
   // Get current posts
   var indexOfLastPost = currentPage * postsPerPage;
   var indexOfFirstPost = indexOfLastPost - postsPerPage;
   var currentPosts = JobsList.slice(indexOfFirstPost, indexOfLastPost);
   var pages = []
 
+  // Make page button for each page
   for (let number = 1; number <= Math.ceil(JobsList.length / postsPerPage); number++) {
     pages.push(
       <Pagination.Item
@@ -28,6 +31,7 @@ const Jobs = (props) => {
     );
   }
 
+  // On click funtion for paginator
   function pagination(number) {
     indexOfLastPost = currentPage * postsPerPage;
     indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -37,59 +41,36 @@ const Jobs = (props) => {
 
   return (
     <>
-      <Container fluid>
-        <Row>
-          {
-            currentPosts.map(data => {
-              return (
-                <Col sm={4} key={data.id}>
-                  <JobCard
-                    listing = {data.listing}
-                    company = {data.company}
-                    id = {data.id}
-                    industry = {data.industry}
-                    location = {data.location}
-                    pay = {data.pay}
-                    datePosted = {data.datePosted}
-                    image_url = {data.image_url}
-                />
-                </Col>
-              );
-            })
-          }
-        </Row>
+    <Container fluid>
+      <Row>{
+        currentPosts.map(data => {
+          return (
+            <Col sm={3} key={data.id}>
+              <JobCard
+                listing = {data.listing}
+                company = {data.company}
+                id = {data.id}
+                industry = {data.industry}
+                location = {data.location}
+                pay = {data.pay}
+                datePosted = {data.datePosted}
+                image_url = {data.image_url}
+              />
+            </Col>
+          );
+        })
+      }</Row>
       <Pagination style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",}}>
         {pages}
       </Pagination>
-      </Container>  
+      <p class="font-weight-light text-right">
+        Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {JobsList.length}
+      </p>
+    </Container>  
     </>
-    // <div>
-    // <Container style={{display: 'flex'}}>
-    //   {currentPosts.map((data) => {
-    //       return (
-    //           <JobCard
-    //               listing = {data.listing}
-    //               company = {data.company}
-    //               id = {data.id}
-    //               industry = {data.industry}
-    //               location = {data.location}
-    //               pay = {data.pay}
-    //               datePosted = {data.datePosted}
-    //               image_url = {data.image_url}
-    //           />
-    //       )
-    //     })}
-    // </Container>
-    // <Pagination 
-      // postsPerPage={postsPerPage}
-      // totalPosts={JobsList.length}
-      // paginate={paginate}
-    // />
-    // {/* {subText()} */}
-    // </div>
   );
 }
 
