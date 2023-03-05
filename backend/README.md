@@ -1,4 +1,4 @@
-# GeoJobs Backend
+# FuturFindr Backend
 ### Launching the backend server
 Run:<br />
 `docker build -t futurfindr-backend -f Dockerfile .`<br /><br />
