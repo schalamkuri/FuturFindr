@@ -12,15 +12,41 @@ if __name__ == "__main__":
 
 @app.route("/")
 def home():
-    #try:
-        #db.session.query(column("1")).from_statement(text("SELECT 1")).all()
-        return "<h1>FuturFindr API</h1>"
-    #except Exception as e:
-        #top = "<h1>An exception has occurred.</h1>"
-        #bottom = "<p>" + str(e) + "</p>"
-        #return top + bottom
+    return "<h1>FuturFindr API</h1>"
 
+@app.route("/colleges")
+def get_colleges():
+    # get api call arguments
+    page_num = request.args.get("page", type=int)
+    per_page = request.args.get("per_page", type=int)
+    query = db.session.query(College)
+    count = query.count()
+    
+    # pagination
+    if page_num is not None:
+        query = paginate_helper(page_num, per_page, query)
+
+    # return result
+    result = college_schema.dump(query, many=True)
+    return jsonify({"data": result, "meta": {"count": count}})
+
+@app.route("/housing")
+def get_housing():
+    # get api call arguments
+    page_num = request.args.get("page", type=int)
+    per_page = request.args.get("per_page", type=int)
+    query = db.session.query(HousingUnit)
+    count = query.count()
+    
+    # pagination
+    if page_num is not None:
+        query = paginate_helper(page_num, per_page, query)
+
+    # return result
+    result = housing_unit_schema.dump(query, many=True)
+    return jsonify({"data": result, "meta": {"count": count}})
 @app.route("/jobs")
+
 def get_jobs():
     # get api call arguments
     page_num = request.args.get("page", type=int)
@@ -28,10 +54,14 @@ def get_jobs():
     query = db.session.query(Job)
     count = query.count()
     
+    # pagination
     if page_num is not None:
         query = paginate_helper(page_num, per_page, query)
+
+    # return result
     result = job_schema.dump(query, many=True)
     return jsonify({"data": result, "meta": {"count": count}})
+
 
 def paginate_helper(page_num, per_page, query):
     if per_page is None:
