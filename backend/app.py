@@ -8,7 +8,7 @@ from models import app, db, Job, College, HousingUnit, HousingUnitImage
 from schema import job_schema, housing_unit_schema, college_schema, housing_unit_img_schema, college_img_schema
 import json
 
-DEFAULT_PAGE_SIZE = 6
+DEFAULT_PAGE_SIZE = 9
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
@@ -88,6 +88,17 @@ def get_housing_unit(instance_id):
         return Response(json.dumps({"error": "Invalid housing unit ID"}), mimetype="application/json")
     result = housing_unit_schema.dump(house)
     housing_images = HousingUnitImage.query.filter_by(housing_id=instance_id).first()
+
+    # also return a nearby job
+    # temp1 = Job.query.filter_by(city=result["city"]).first()
+    # nearby_job = job_schema.dump(temp1)
+    # result.update({"nearby_jobs" : nearby_job})
+
+    # also return a nearby college
+    # temp2 = College.query.filter_by(city=result["city"]).first()
+    # nearby_college = college_schema.dump(temp2)
+    # result.update({"nearby_colleges" : nearby_college})
+
     image_dump = housing_unit_img_schema.dump(housing_images)
     result.update({"images": image_dump})
     return jsonify({"data": result})
