@@ -9,26 +9,29 @@ import Col from 'react-bootstrap/Col';
 
 function Jobs() {
 
+  const backendApi = axios.create({ baseURL: "http://localhost:5000/", });
+
+
   // State
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(8);
   const [jobs, setJobs] = useState([])
 
-  // const getJobs = async () => {
-  //   try {
-  //     const data = await axios.get(
-  //       //url
-  //     )
-  //     console.log(data)
-  //     setJobs(data.data)
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }
+  const getJobs = async () => {
+    try {
+      const data = await backendApi.get(
+        "jobs?page=1&per_page=8 HTTP/1.1"
+      )
+      console.log(data)
+      // setJobs(data.data)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
-  // useEffect(() => {
-  //   getJobs()
-  // }, [])
+  useEffect(() => {
+    getJobs()
+  }, [])
 
   // Get current posts
   var indexOfLastPost = currentPage * postsPerPage;
