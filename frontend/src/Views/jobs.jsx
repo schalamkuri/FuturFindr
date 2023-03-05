@@ -14,21 +14,21 @@ function Jobs() {
   const [postsPerPage] = useState(8);
   const [jobs, setJobs] = useState([])
 
-  const getJobs = async () => {
-    try {
-      const data = await axios.get(
-        //url
-      )
-      console.log(data)
-      setJobs(data.data)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  // const getJobs = async () => {
+  //   try {
+  //     const data = await axios.get(
+  //       //url
+  //     )
+  //     console.log(data)
+  //     setJobs(data.data)
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
 
-  useEffect(() => {
-    getPlayerData()
-  }, [])
+  // useEffect(() => {
+  //   getJobs()
+  // }, [])
 
   // Get current posts
   var indexOfLastPost = currentPage * postsPerPage;
