@@ -36,7 +36,7 @@ function HousingInstance() {
         }}>
             Check out jobs in the same city!
         </h2>;
-        <Jobs reuse = {true}/>
+        {/* <Jobs/> */}
         <h2 style = {{
             display: "flex",
             justifyContent: "center",
@@ -44,7 +44,7 @@ function HousingInstance() {
         }}>
             Check out nearby Colleges!
         </h2>;
-        <Colleges reuse = {true}/>
+        {/* <Colleges/> */}
         </div>
     )
 }
