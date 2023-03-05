@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import Container from "react-bootstrap/esm/Container";
 import JobCard from "../components/JobCard";
 import { JobsList } from "../Assets/Data/JobsData";
@@ -11,6 +12,23 @@ function Jobs() {
   // State
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(8);
+  const [jobs, setJobs] = useState([])
+
+  const getJobs = async () => {
+    try {
+      const data = await axios.get(
+        //url
+      )
+      console.log(data)
+      setJobs(data.data)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  useEffect(() => {
+    getPlayerData()
+  }, [])
 
   // Get current posts
   var indexOfLastPost = currentPage * postsPerPage;

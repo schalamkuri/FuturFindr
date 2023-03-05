@@ -1,15 +1,18 @@
-FROM node:lts-alpine
+# pull base image
+FROM node:alpine
 
+# set working directory
 WORKDIR /app
 
+# add `/front-end/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package.json .
-
+# install dependencies
+COPY package*.json ./
 RUN npm install
 
-COPY . .
+# add app
+COPY . ./
 
-EXPOSE 3000
-
-CMD ["npm". "start"]
+# start app
+CMD ["npm", "start"]
