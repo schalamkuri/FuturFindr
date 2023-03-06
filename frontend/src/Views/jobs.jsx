@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 function Jobs() {
 
-  const backendApi = axios.create({ baseURL: "http://localhost:5000/", });
+  const backendApi = axios.create({ baseURL: "http://api.futurfindr.me/", });
 
   // State
   const [currentPage, setCurrentPage] = useState(1);
