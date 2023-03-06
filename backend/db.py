@@ -1,6 +1,7 @@
 import json
-from models import app, db, College, CollegeImage, HousingUnit, HousingUnitImage, Job
 import sys
+from models import app, db, College, CollegeImage, HousingUnit, HousingUnitImage, Job
+from serpapi import GoogleSearch
 
 def populate_db():
     #populate_colleges()
@@ -8,9 +9,27 @@ def populate_db():
     populate_housing_imgs()
     populate_jobs()
 
-# TODO: figure out how to populate db for our models and data
 def populate_colleges():
     pass
+
+# code inspired by study spots, will be used for college pictures later
+# def populate_college_imgs():
+#        params = {
+#            "device": "desktop",
+#            "engine": "google",
+#            "q": uni["latest.school.name"],
+#            "google_domain": "google.com",
+#            "tbm": "isch",
+#            "api_key": "4c13786a79ca2ec9d61d240d81cc136a05c6b9e7cb8ca07b9b609f6a6499375a"
+#        }
+#        image_response = GoogleSearch(params).get_dict()
+#        for image in image_response["images_results"]:
+#            try:
+#                uni["photo"] = image["original"]
+#                break
+#            except:
+#                print("Unable to find an image for " + uni["latest.school.name"])
+#                pass
 
 def populate_housing():
     temp = open("api_data/housing_data.json")
@@ -31,6 +50,7 @@ def populate_housing():
                 "sqft": array2["squareFootage"] if "squareFootage" in array2 else None,
                 "date_listed": array2["listedDate"] if "listedDate" in array2 else None,
             }
+
             db.session.add(HousingUnit(**db_row))
     db.session.commit()
 
@@ -77,7 +97,6 @@ def populate_jobs():
             "longitude": job["longitude"] if "longitude" in job else None,
             "description": job["description"],
             "created": job["created"],
-            #"img_url": logo_url[0] if logo_url else None,
         }
         db.session.add(Job(**db_row))
 
@@ -100,15 +119,40 @@ def populate_jobs():
             "longitude": job["longitude"] if "longitude" in job else None,
             "description": job["description"],
             "created": job["created"],
-            #"img_url": logo_url[0] if logo_url else None,
         }
+        # also search on google images for company image
+        # params = {
+        #    "device": "desktop",
+        #    "engine": "google",
+        #    "q": db_row["company"],
+        #    "google_domain": "google.com",
+        #    "tbm": "isch",
+        #   "api_key": "4c13786a79ca2ec9d61d240d81cc136a05c6b9e7cb8ca07b9b609f6a6499375a",
+        #}
+        #response = GoogleSearch(params).get_dict()
+        #if "images_results" in response:
+        #    for img in response["images_results"]:
+        #            try:
+        #                db_row["img_url"] = response["original"]
+        #                break
+        #            except:
+        #                print("Error: couldn't find image for " + db_row["company"])
+        #                pass
         db.session.add(Job(**db_row))
 
     db.session.commit()
 
+params = {
+            "device": "desktop",
+            "engine": "google",
+            "q": "apple",
+            "google_domain": "google.com",
+            "tbm": "isch",
+            "api_key": "4c13786a79ca2ec9d61d240d81cc136a05c6b9e7cb8ca07b9b609f6a6499375a",
+        }
+
 if __name__ == "__main__":
     with app.app_context():
-        # TODO: figure out if we need to drop/create all here as well
         db.drop_all()
         db.create_all()
         populate_db()
