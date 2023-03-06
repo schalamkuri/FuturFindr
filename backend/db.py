@@ -141,16 +141,7 @@ def populate_jobs():
         db.session.add(Job(**db_row))
 
     db.session.commit()
-
-params = {
-            "device": "desktop",
-            "engine": "google",
-            "q": "apple",
-            "google_domain": "google.com",
-            "tbm": "isch",
-            "api_key": "4c13786a79ca2ec9d61d240d81cc136a05c6b9e7cb8ca07b9b609f6a6499375a",
-        }
-
+    
 if __name__ == "__main__":
     with app.app_context():
         db.drop_all()

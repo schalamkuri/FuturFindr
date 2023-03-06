@@ -85,7 +85,6 @@ def get_housing_unit(instance_id):
     if house == None:
         return Response(json.dumps({"error": "Invalid housing unit ID"}), mimetype="application/json")
     result = housing_unit_schema.dump(house)
-    housing_images = HousingUnitImage.query.filter_by(housing_id=instance_id).first()
 
     # also return a nearby job
     # temp1 = Job.query.filter_by(city=result["city"]).first()
@@ -97,8 +96,6 @@ def get_housing_unit(instance_id):
     # nearby_college = college_schema.dump(temp2)
     # result.update({"nearby_colleges" : nearby_college})
 
-    image_dump = housing_unit_img_schema.dump(housing_images)
-    result.update({"images": image_dump})
     return jsonify({"data": result})
 
 @app.route("/jobs/<int:instance_id>")
