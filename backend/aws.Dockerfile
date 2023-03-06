@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # start by pulling/updating python
 RUN apt-get clean && apt-get update
 RUN apt-get install -y python3
+RUN apt-get install -y waitress
 RUN apt-get install -y python3-pip python3-dev build-essential vim
 RUN apt-get install -y default-libmysqlclient-dev libpq-dev postgresql
 RUN apt-get -y install nginx
