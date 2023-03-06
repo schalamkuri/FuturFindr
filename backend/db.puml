@@ -1,0 +1,12 @@
+@startuml
+
+hide circle
+
+skinparam linetype ortho
+
+entity "Housing_unit" as h {
+    h_id : Integer <<PK>>
+    --
+    
+}
+@enduml
