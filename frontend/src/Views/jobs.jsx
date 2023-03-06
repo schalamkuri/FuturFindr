@@ -10,8 +10,8 @@ function Jobs() {
 
   // State
   const [currentPage, setCurrentPage] = useState(1);
-  const [jobsList, setJobs] = useState([])
-  const [load, setLoad] = useState(false)
+  const [jobsList, setJobs] = useState([]);
+  const [load, setLoad] = useState(false);
   const postsPerPage = 8;
   const totalJobs  = 1947;
 
