@@ -1,97 +1,130 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import Container from "react-bootstrap/esm/Container";
 import JobCard from "../components/JobCard";
-import { JobsList } from "../Assets/Data/JobsData";
 import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 
 function Jobs() {
 
   const backendApi = axios.create({ baseURL: "http://localhost:5000/", });
 
-
   // State
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
-  const [jobs, setJobs] = useState([])
+  const [jobsList, setJobs] = useState([])
+  const [load, setLoad] = useState(false)
+  const postsPerPage = 8;
+  const totalJobs  = 1947;
+
+  // Indexes
+  var indexOfLastPost = currentPage * postsPerPage;
+  var indexOfFirstPost = indexOfLastPost - postsPerPage;
 
   const getJobs = async () => {
     try {
+      var endpoint = 'jobs?page='+ currentPage + '&per_page=8'
       const data = await backendApi.get(
-        "jobs?page=1&per_page=8 HTTP/1.1"
+        endpoint
       )
-      console.log(data)
-      // setJobs(data.data)
+      setJobs(data.data.data)
+      setLoad(true)
     } catch (e) {
       console.log(e)
     }
-  }
+  };
 
   useEffect(() => {
     getJobs()
-  }, [])
+  }, [jobsList, load])
 
-  // Get current posts
-  var indexOfLastPost = currentPage * postsPerPage;
-  var indexOfFirstPost = indexOfLastPost - postsPerPage;
-  var currentPosts = JobsList.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Create intermediate pages
+  let numPages = Math.ceil(totalJobs / postsPerPage)
   var pages = []
-
-  // Make page button for each page
-  for (let number = 1; number <= Math.ceil(JobsList.length / postsPerPage); number++) {
-    pages.push(
-      <Pagination.Item
-        key={number}
-        active={number === currentPage}
-        onClick={() => pagination(number)}
-      >
-        {number}
-      </Pagination.Item>
-    );
+  for (let number = currentPage - 1; number <= currentPage + 1; number++) {
+    if (number > 0 && number <= numPages) {
+      pages.push(
+        <Pagination.Item
+          key={number}
+          active={number === currentPage}
+          onClick={() => pagination(number)}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
   }
 
-  // On click funtion for paginator
+  // On click function for paginator
   function pagination(number) {
+    setCurrentPage(number);
     indexOfLastPost = currentPage * postsPerPage;
     indexOfFirstPost = indexOfLastPost - postsPerPage;
-    currentPosts = JobsList.slice(indexOfFirstPost, indexOfLastPost);
-    setCurrentPage(number);
   }
 
   return (
     <>
-    <Container fluid>
-      <Row>{
-        currentPosts.map(data => {
-          return (
-            <Col sm={3} key={data.id}>
-              <JobCard
-                listing = {data.listing}
-                company = {data.company}
-                id = {data.id}
-                industry = {data.industry}
-                location = {data.location}
-                pay = {data.pay}
-                datePosted = {data.datePosted}
-                image_url = {data.image_url}
-              />
-            </Col>
-          );
-        })
-      }</Row>
-      <Pagination style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",}}>
-        {pages}
-      </Pagination>
-      <p class="font-weight-light text-right">
-        Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {JobsList.length}
-      </p>
-    </Container>  
-    </>
+    <div style={{
+      display: "block",
+      marginLeft: "auto",
+      marginRight: "auto"  }}>
+      {load ? (
+        <>
+        <Row>{
+          jobsList.map(data => {
+            return (
+              <Col sm={3} key={data.id}>
+                <JobCard
+                  id = {data.id}
+                  title = {data.title}
+                  company = {data.company}
+                  category = {data.category}
+                  location = {data.city}
+                  salaryMin = {data.salary_min}
+                  salaryMax = {data.salary_max}
+                  datePosted = {data.created}
+                  image_url = {data.url}
+                />
+              </Col>
+            );
+          })
+        }</Row>
+        <Pagination style = {{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"}}>
+          {currentPage > 2 && (
+            <Pagination.Item
+              first
+              key={1}
+              onClick={() => pagination(1)}
+              active={1 === currentPage}
+            >
+              1
+            </Pagination.Item>
+          )}
+          {currentPage > 3 && <Pagination.Ellipsis />}
+          {pages}
+          {currentPage < numPages - 3 && <Pagination.Ellipsis />}
+          {currentPage < numPages - 2 && (
+            <Pagination.Item
+              last
+              key={numPages}
+              onClick={() => pagination(numPages)}
+              active={numPages === currentPage}
+            >
+              {numPages}
+            </Pagination.Item>
+          )}
+        </Pagination>
+        <p class="font-weight-light text-right">
+          Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {totalJobs}
+        </p>
+        </>
+      ): (<Spinner animation="border" variant="info"/>)}
+  </div>
+  </>
   );
 }
 
