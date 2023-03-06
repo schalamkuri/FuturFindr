@@ -16,7 +16,8 @@ function Jobs() {
   const totalJobs  = 1947;
 
   // Indexes
-  var indexOfLastPost = currentPage * postsPerPage;
+  var indexOfLastPost = currentPage * postsPerPage < totalJobs ?
+    currentPage * postsPerPage : totalJobs;
   var indexOfFirstPost = indexOfLastPost - postsPerPage;
 
   const getJobs = async () => {
@@ -57,8 +58,6 @@ function Jobs() {
   // On click function for paginator
   function pagination(number) {
     setCurrentPage(number);
-    indexOfLastPost = currentPage * postsPerPage;
-    indexOfFirstPost = indexOfLastPost - postsPerPage;
   }
 
   return (

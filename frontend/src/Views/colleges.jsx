@@ -65,7 +65,7 @@ function Colleges() {
         alignItems: "center",}}>
         {pages}
       </Pagination>
-      <p className="font-weight-light text-right">
+      <p class="font-weight-light text-right">
         Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {CollegeList.length}
       </p>
     </Container>  

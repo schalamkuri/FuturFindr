@@ -1,79 +1,127 @@
-import React, { useState } from "react";
-import Container from "react-bootstrap/esm/Container";
+import React, { useState, useEffect } from "react";
+import { backendApi } from "../Assets/Data/Constants";
 import HousingCard from "../components/HousingCard";
-import { HousingList } from "../Assets/Data/HousingData";
 import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 
 function Housing() {
 
   // State
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
+  const [housingList, setHousing] = useState([])
+  const [load, setLoad] = useState(false)
+  const postsPerPage = 8;
+  const totalHousing = 132;
 
-  // Get current posts
-  var indexOfLastPost = currentPage * postsPerPage;
+  // Indexes
+  var indexOfLastPost = currentPage * postsPerPage < totalHousing ?
+    currentPage * postsPerPage : totalHousing;
   var indexOfFirstPost = indexOfLastPost - postsPerPage;
-  var currentPosts = HousingList.slice(indexOfFirstPost, indexOfLastPost);
-  var pages = []
 
-  // Make page button for each page
-  for (let number = 1; number <= Math.ceil(HousingList.length / postsPerPage); number++) {
-    pages.push(
-      <Pagination.Item
-        key={number}
-        active={number === currentPage}
-        onClick={() => pagination(number)}
-      >
-        {number}
-      </Pagination.Item>
-    );
+  const getHousing = async () => {
+    try {
+      var endpoint = 'housing?page='+ currentPage + '&per_page=8'
+      const data = await backendApi.get(
+        endpoint
+      )
+      console.log(data)
+      setHousing(data.data.data)
+      setLoad(true)
+    } catch (e) {
+      console.log(e)
+    }
+  };
+
+  useEffect(() => {
+    getHousing()
+  }, [housingList, load])
+
+
+  // Create intermediate pages
+  let numPages = Math.ceil(totalHousing / postsPerPage)
+  var pages = []
+  for (let number = currentPage - 1; number <= currentPage + 1; number++) {
+    if (number > 0 && number <= numPages) {
+      pages.push(
+        <Pagination.Item
+          key={number}
+          active={number === currentPage}
+          onClick={() => pagination(number)}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
   }
 
-  // On click funtion for paginator
+  // On click function for paginator
   function pagination(number) {
-    indexOfLastPost = currentPage * postsPerPage;
-    indexOfFirstPost = indexOfLastPost - postsPerPage;
-    currentPosts = HousingList.slice(indexOfFirstPost, indexOfLastPost);
     setCurrentPage(number);
   }
 
-
-
   return (
     <>
-    <Container fluid>
+    {load ? (
+      <>
       <Row>{
-        currentPosts.map(data => {
+        housingList.map(data => {
           return (
             <Col sm={3} key={data.id}>
               <HousingCard
-                name = {data.name}
+                id = {data.id}
+                address = {data.address}
+                type = {data.property_type}
                 city = {data.city}
-                beds = {data.beds}
-                baths = {data.baths}
                 price = {data.price}
-                type = {data.type}
-                datePosted = {data.datePosted}
-                image_url = {data.image_url}
+                beds = {data.bedrooms}
+                baths = {data.bathrooms}
+                dateListed = {data.date_listed}
+                images = {data.id != "12-E-46th-St,-New-York,-NY-10017" && data.id != "125-Rivington-St,-Apt-2,-New-York,-NY-10002"? (
+                  data.images.length != 0 ? data.images[0].img_url 
+                  : "https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg"
+                ) : data.images[5].img_url}
+                // {data.images.length != 0 ? data.images[0].img_url 
+                //   : "https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg"}
               />
             </Col>
           );
         })
       }</Row>
-      <Pagination style={{
+      <Pagination style = {{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",}}>
+        alignItems: "center"}}>
+        {currentPage > 2 && (
+          <Pagination.Item
+            key={1}
+            onClick={() => pagination(1)}
+            active={1 === currentPage}
+          >
+            1
+          </Pagination.Item>
+        )}
+        {currentPage > 3 && <Pagination.Ellipsis />}
         {pages}
+        {currentPage < numPages - 3 && <Pagination.Ellipsis />}
+        {currentPage < numPages - 2 && (
+          <Pagination.Item
+            key={numPages}
+            onClick={() => pagination(numPages)}
+            active={numPages === currentPage}
+          >
+            {numPages}
+          </Pagination.Item>
+        )}
       </Pagination>
       <p className="font-weight-light text-right">
-        Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {HousingList.length}
+        Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {totalHousing}
       </p>
-    </Container>  
-    </>
-  )
+      </>
+    ): (<Spinner animation="border" variant="info"/>)}
+  </>
+  );
 }
 
 export default Housing;
