@@ -32,7 +32,7 @@ function Home() {
             Find the perfect place to further your education!
           </Card.Text>
         </Card.Body>
-        <a href="colleges" class="stretched-link"></a>
+        <a href="colleges" className="stretched-link"></a>
       </Card>
       <Card className="card border-dark mb-3">
         <Card.Img variant="top" src={JobImage}/>
@@ -42,7 +42,7 @@ function Home() {
             Match with the place where your skills are needed!
           </Card.Text>
         </Card.Body>
-        <a href="jobs" class="stretched-link"></a>
+        <a href="jobs" className="stretched-link"></a>
       </Card>
       <Card className="card border-dark mb-3">
         <Card.Img variant="top" src={AptImage} />
@@ -52,7 +52,7 @@ function Home() {
             The home of your dreams is waiting!
           </Card.Text>
         </Card.Body>
-        <a href="housing" class="stretched-link"></a>
+        <a href="housing" className="stretched-link"></a>
       </Card>
       </CardDeck>
     </div>

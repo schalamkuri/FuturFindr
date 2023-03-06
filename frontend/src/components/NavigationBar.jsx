@@ -21,7 +21,7 @@ import Logo from '../Assets/fortune-teller.png';
         <Container>
           <Navbar.Brand href="/">
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-              <img src={Logo} height={"50px"} width={"50px"} class="img-fluid"></img>
+              <img src={Logo} height={"50px"} width={"50px"} className="img-fluid"></img>
               <h2>FuturFindr</h2>
             </div>
           </Navbar.Brand>

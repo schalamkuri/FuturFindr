@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import {backendApi} from "../Assets/Data/Constants"
 import JobCard from "../components/JobCard";
 import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
@@ -7,8 +7,6 @@ import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 
 function Jobs() {
-
-  const backendApi = axios.create({ baseURL: "http://api.futurfindr.me/", });
 
   // State
   const [currentPage, setCurrentPage] = useState(1);
@@ -96,7 +94,6 @@ function Jobs() {
           alignItems: "center"}}>
           {currentPage > 2 && (
             <Pagination.Item
-              first
               key={1}
               onClick={() => pagination(1)}
               active={1 === currentPage}
@@ -109,7 +106,6 @@ function Jobs() {
           {currentPage < numPages - 3 && <Pagination.Ellipsis />}
           {currentPage < numPages - 2 && (
             <Pagination.Item
-              last
               key={numPages}
               onClick={() => pagination(numPages)}
               active={numPages === currentPage}
@@ -118,7 +114,7 @@ function Jobs() {
             </Pagination.Item>
           )}
         </Pagination>
-        <p class="font-weight-light text-right">
+        <p className="font-weight-light text-right">
           Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {totalJobs}
         </p>
         </>

@@ -16,7 +16,7 @@ function JobCard(props) {
         </Card.Text>
         <a href=
           {`/jobs/${props.id}`} 
-          class="stretched-link"></a
+          className="stretched-link"></a
         >
       </Card.Body>
     </Card>

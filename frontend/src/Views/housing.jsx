@@ -68,7 +68,7 @@ function Housing() {
         alignItems: "center",}}>
         {pages}
       </Pagination>
-      <p class="font-weight-light text-right">
+      <p className="font-weight-light text-right">
         Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {HousingList.length}
       </p>
     </Container>  
