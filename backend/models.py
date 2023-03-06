@@ -58,4 +58,4 @@ class Job(db.Model) :
     longitude = db.Column(db.Float)
     description = db.Column(db.String(550))
     created = db.Column(db.DateTime)
-    #img_url = db.Column(db.String(200))
+    img_url = db.Column(db.String(200))
