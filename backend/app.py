@@ -87,14 +87,14 @@ def get_housing_unit(instance_id):
     result = housing_unit_schema.dump(house)
 
     # also return a nearby job
-    # temp1 = Job.query.filter_by(city=result["city"]).first()
-    # nearby_job = job_schema.dump(temp1)
-    # result.update({"nearby_jobs" : nearby_job})
+    temp1 = Job.query.filter_by(city=result["city"]).first()
+    nearby_job = job_schema.dump(temp1)
+    result.update({"nearby_job" : nearby_job})
 
     # also return a nearby college
     # temp2 = College.query.filter_by(city=result["city"]).first()
     # nearby_college = college_schema.dump(temp2)
-    # result.update({"nearby_colleges" : nearby_college})
+    # result.update({"nearby_college" : nearby_college})
 
     return jsonify({"data": result})
 
@@ -104,9 +104,15 @@ def get_job(instance_id):
     if job == None:
         return Response(json.dumps({"error": "Invalid job ID"}), mimetype="application/json")
     result = job_schema.dump(job)
+
+    # also return a nearby housing unit
+    temp1 = Job.query.filter_by(city=result["city"]).first()
+    nearby_job = job_schema.dump(temp1)
+    result.update({"nearby_housing_unit" : nearby_job})
+
     return jsonify({"data": result})
 
-
+# google maps api key "AIzaSyB--bIa6UPVD5X1MRBveqR6A7Hy4-tMfSo"
 
 def paginate_helper(page_num, per_page, query):
     return query.paginate(page=page_num, per_page=(DEFAULT_PAGE_SIZE if per_page is None else per_page), \

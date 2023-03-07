@@ -1,7 +1,9 @@
 import json
 import sys
 from models import app, db, College, CollegeImage, HousingUnit, HousingUnitImage, Job
-from serpapi import GoogleSearch
+import googlemaps
+
+gmaps = googlemaps.Client(key='AIzaSyB--bIa6UPVD5X1MRBveqR6A7Hy4-tMfSo')
 
 def populate_db():
     #populate_colleges()
@@ -39,9 +41,14 @@ def populate_housing():
     # File is an array of arrays
     for array1 in housing_data:
         for array2 in array1:
+            # find lat/long coordinates for address
+            if "formattedAddress" in array2:
+                geocode_result = gmaps.geocode(array2["formattedAddress"])
             db_row = {
                 "id": array2["id"] if "id" in array2 else None,
                 "city": array2["city"] if "city" in array2 else None,
+                "latitude": geocode_result[0]['geometry']['location']['lat'] if geocode_result else None,
+                "longitude": geocode_result[0]['geometry']['location']['lng'] if geocode_result else None,
                 "bathrooms": array2["bathrooms"] if "bathrooms" in array2 else None,
                 "bedrooms": array2["bedrooms"] if "bedrooms" in array2 else None,
                 "price": array2["price"] if "price" in array2 else None,
@@ -141,7 +148,7 @@ def populate_jobs():
         db.session.add(Job(**db_row))
 
     db.session.commit()
-    
+
 if __name__ == "__main__":
     with app.app_context():
         db.drop_all()
