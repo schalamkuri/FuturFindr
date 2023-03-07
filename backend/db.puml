@@ -1,53 +1,59 @@
 @startuml
 
     entity College {
-        id: Integer <<PK>>
+        **id**: Integer <<PK>>
         --
-        city: String(70)
-        name: String(40)
-        zip: Integer
-        latitude: Double
-        longitude: Double
-        admission_rate: Double
-        ranking: Integer
-        tuition: Integer
-    }
-
-    entity College_Image {
-        id: BigInteger <<PK>>
-        --
-        college_id: BigInteger <<FK>>
-        img_url: String(200)
+        **city**: String(70)
+        **name**: String(40)
+        **zip**: Integer
+        **latitude**: Double
+        **longitude**: Double
+        **admission_rate**: Double
+        **ranking**: Integer
+        **tuition**: Integer
     }
 
     entity Housing_Unit {
-        id: String(65) <<PK>>
+        **id**: String(65) <<PK>>
         --
-        apt_id: String(65) <<FK>>
-        img_url: String(200)
+        **city**: String(40)  
+        **latitude**: Double
+        **longitude**: Double
+        **bathrooms**: Integer
+        **bedrooms**: Integer
+        **price**: Integer
+        **address**: String(70)
+        **property_type**: String(20)
+        **sqft**: Integer
+        **date_listed**: String(40)
+    }
+
+    entity Housing_Unit_Image {
+        **id**: BigInteger <<PK>>
+        --
+        **housing_id**: String(65) <<FK>>
+        **img_url**: String(200)
     }
 
     entity Job {
-        id: BigInteger <<PK>>
+        **id**: BigInteger <<PK>>
         --
-        city_id: Integer <<FK>>
-        company: String(40)
-        title: String(70)
-        category: String(30)
-        url: String(150)
-        salary_min: Integer
-        salary_max: Integer
-        latitude: Float
-        longitude: Float
-        description: String(550)
-        created: DateTime
-        img_url: String(200)
+        **title**: String(150)
+        **company**: String(60)
+        **city**: String(50)
+        **category**: String(40)
+        **type**: String(10)
+        **url**: String(150)
+        **salary_min**: Integer
+        **salary_max**: Integer
+        **latitude**: Double
+        **longitude**: Double
+        **description**: String(550)
+        **created**: Timestamp
+        **img_url**: String(200)
     }
 
-    City }o--o{city_tag_link
-    Tag }o--o{ city_tag_link
-    City ||-|{ Apartment
-    City ||-|{ Job
-    Apartment ||--o{ ApartmentImage
+    Housing_Unit ||--o{ Housing_Unit_Image
+    
 
 @enduml
