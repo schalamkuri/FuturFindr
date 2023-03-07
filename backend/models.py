@@ -36,7 +36,7 @@ class HousingUnit(db.Model) :
     images = db.relationship('HousingUnitImage', backref = 'housingunit')
 
 class HousingUnitImage(db.Model) :
-    id = db.Column(db.BigInteger, primary_key = True)
+    id = db.Column(db.String, primary_key = True)
     housing_id = db.Column(db.String(65), db.ForeignKey(HousingUnit.id))
     img_url = db.Column(db.String(1000))
 

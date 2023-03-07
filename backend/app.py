@@ -157,7 +157,6 @@ def get_nearby_housing(lat, lng, num):
         HousingUnit.id,
         HousingUnit.latitude,
         HousingUnit.longitude,
-        HousingUnit.images,
         literal_column(
             "SQRT(POW(69 * (latitude - " + str(lat) + "), 2) + POW(69 * ("
             + str(lng) + " - longitude) * COS(latitude / 57), 2))").label("distance"),
