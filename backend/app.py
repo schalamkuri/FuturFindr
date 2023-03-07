@@ -171,6 +171,7 @@ def get_nearby_jobs(lat, lng, num):
     temp = (
         db.session.query(
         Job.title,
+        Job.company,
         Job.id,
         Job.latitude,
         Job.longitude,
@@ -183,7 +184,6 @@ def get_nearby_jobs(lat, lng, num):
     if num > 0:
         nearby_jobs = nearby_jobs[:num]
     return job_schema.dump(nearby_jobs, many = True)
-
 
 # Run app
 if __name__ == "__main__":

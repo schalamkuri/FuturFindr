@@ -19,7 +19,7 @@ class College(db.Model) :
     instate_tuition = db.Column(db.Integer)
     outstate_tuition = db.Column(db.Integer)
     url = db.Column(db.String(150))
-    img_url = db.Column(db.String(200))
+    img_url = db.Column(db.String(300))
 
 class HousingUnit(db.Model) :
     id = db.Column(db.String(65), primary_key = True)
@@ -54,4 +54,4 @@ class Job(db.Model) :
     longitude = db.Column(db.Float)
     description = db.Column(db.String(550))
     created = db.Column(db.DateTime)
-    img_url = db.Column(db.String(200))
+    img_url = db.Column(db.String(300))

@@ -2,14 +2,48 @@ import json
 import sys
 from models import app, db, College, HousingUnit, HousingUnitImage, Job
 import googlemaps
+import wikipedia
+from googleapiclient.discovery import build
 
 gmaps = googlemaps.Client(key='AIzaSyB--bIa6UPVD5X1MRBveqR6A7Hy4-tMfSo')
+gsearch_key = "AIzaSyBQ3-z04RoOVwb93OevrNok30ZRTXoc4mE"
+gsearch_id = "90e585031d91d445c"
+adzuna_img_link = "https://zunastatic-abf.kxcdn.com/images/global/jobs/fb_share.png"
+
+# google custom search helper method
+# modeled after sample code from google themselves
+# https://github.com/googleapis/google-api-python-client/blob/main/samples/customsearch/main.py
+
+# First, build a service object for interacting with the API.
+service = build(
+    "customsearch", "v1", developerKey=gsearch_key
+)
+
+def google_search(term):
+    result = (
+        service.cse()
+        .list(
+            q=term,
+            cx=gsearch_id,
+            searchType="image"
+        )
+        .execute()
+    )
+    # If we have a valid result, return it
+    try:
+        return result["items"][0]["link"]
+    except:
+        return None
 
 def populate_db():
     populate_colleges()
+    print("Finished filling college data.")
     populate_housing()
+    print("Finished filling housing data.")
     populate_housing_imgs()
+    print("Finished filling housing image data.")
     populate_jobs()
+    print("Finished filling job data.")
 
 def populate_colleges():
     temp = open("api_data/college_data.json")
@@ -21,6 +55,8 @@ def populate_colleges():
             # find lat/long coordinates for address
             if "school.name" in college:
                 geocode_result = gmaps.geocode(college["school.name"])
+                # find image from google custom search too
+                image = google_search(college["school.name"])
             db_row = {
                 "id": college["id"] if "id" in college else None,
                 "city": college["school.city"] if "school.city" in college else None,
@@ -30,30 +66,12 @@ def populate_colleges():
                 "admission_rate": college["2020.admissions.admission_rate.overall"] if "2020.admissions.admission_rate.overall" in college else None,
                 "outstate_tuition": college["2020.cost.tuition.out_of_state"] if "2020.cost.tuition.out_of_state" in college else None,
                 "instate_tuition": college["2020.cost.tuition.in_state"] if "2020.cost.tuition.in_state" in college else None,
-                "url": college["school.school_url"] if "school.school_url" in college else None
+                "url": college["school.school_url"] if "school.school_url" in college else None,
+                "img_url": image if image else None
             }
 
             db.session.add(College(**db_row))
     db.session.commit()
-
-# code inspired by study spots, will be used for college pictures later
-# def populate_college_imgs():
-#        params = {
-#            "device": "desktop",
-#            "engine": "google",
-#            "q": uni["latest.school.name"],
-#            "google_domain": "google.com",
-#            "tbm": "isch",
-#            "api_key": "4c13786a79ca2ec9d61d240d81cc136a05c6b9e7cb8ca07b9b609f6a6499375a"
-#        }
-#        image_response = GoogleSearch(params).get_dict()
-#        for image in image_response["images_results"]:
-#            try:
-#                uni["photo"] = image["original"]
-#                break
-#            except:
-#                print("Unable to find an image for " + uni["latest.school.name"])
-#                pass
 
 def populate_housing():
     temp = open("api_data/housing_data.json")
@@ -112,6 +130,9 @@ def populate_jobs():
 
     # File is an array of arrays
     for job in fulltime_job_data['results']:
+        if "company" in job:
+            # find image from google custom search too
+            image = google_search(job["company"])
         db_row = {
             "id": job["id"],
             "title": job["title"],
@@ -126,6 +147,7 @@ def populate_jobs():
             "longitude": job["longitude"] if "longitude" in job else None,
             "description": job["description"],
             "created": job["created"],
+            "img_url" : image if image else None
         }
         db.session.add(Job(**db_row))
 
@@ -134,6 +156,9 @@ def populate_jobs():
     temp.close()
 
     for job in parttime_job_data['results']:
+        if "company" in job:
+            # find image from google custom search too
+            image = google_search(job["company"])
         db_row = {
             "id": job["id"],
             "title": job["title"],
@@ -148,25 +173,8 @@ def populate_jobs():
             "longitude": job["longitude"] if "longitude" in job else None,
             "description": job["description"],
             "created": job["created"],
+            "img_url" : image if image else None
         }
-        # also search on google images for company image
-        # params = {
-        #    "device": "desktop",
-        #    "engine": "google",
-        #    "q": db_row["company"],
-        #    "google_domain": "google.com",
-        #    "tbm": "isch",
-        #   "api_key": "4c13786a79ca2ec9d61d240d81cc136a05c6b9e7cb8ca07b9b609f6a6499375a",
-        #}
-        #response = GoogleSearch(params).get_dict()
-        #if "images_results" in response:
-        #    for img in response["images_results"]:
-        #            try:
-        #                db_row["img_url"] = response["original"]
-        #                break
-        #            except:
-        #                print("Error: couldn't find image for " + db_row["company"])
-        #                pass
         db.session.add(Job(**db_row))
 
     db.session.commit()
@@ -175,4 +183,5 @@ if __name__ == "__main__":
     with app.app_context():
         db.drop_all()
         db.create_all()
+        print("Reset database to empty - starting to fill database...")
         populate_db()
