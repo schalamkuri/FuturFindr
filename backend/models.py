@@ -30,6 +30,8 @@ class CollegeImage(db.Model) :
 class HousingUnit(db.Model) :
     id = db.Column(db.String(65), primary_key = True)
     city = db.Column(db.String(40))
+    latitude = db.Column(db.Float)
+    longitude = db.Column(db.Float)
     bathrooms = db.Column(db.Integer)
     bedrooms = db.Column(db.Integer)
     price = db.Column(db.Integer)
