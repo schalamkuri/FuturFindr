@@ -12,7 +12,7 @@ function Housing() {
   const [currentPage, setCurrentPage] = useState(1);
   const [housingList, setHousing] = useState([])
   const [load, setLoad] = useState(false)
-  const postsPerPage = 8;
+  const postsPerPage = 12;
   const totalHousing = 132;
 
   // Indexes
@@ -22,7 +22,7 @@ function Housing() {
 
   const getHousing = async () => {
     try {
-      var endpoint = 'housing?page='+ currentPage + '&per_page=8'
+      var endpoint = 'housing?page='+ currentPage + '&per_page=' + postsPerPage
       const data = await backendApi.get(
         endpoint
       )
@@ -67,7 +67,7 @@ function Housing() {
       <Row>{
         housingList.map(data => {
           return (
-            <Col sm={3} key={data.id}>
+            <Col sm={2} key={data.id}>
               <HousingCard
                 id = {data.id}
                 address = {data.address}

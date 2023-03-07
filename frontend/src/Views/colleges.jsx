@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {backendApi} from "../Assets/Data/Constants"
 import CollegeCard from "../components/CollegeCard";
-import Container from "react-bootstrap/esm/Container";
 import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,7 +12,7 @@ function Colleges() {
   const [currentPage, setCurrentPage] = useState(1);
   const [collegeList, setColleges] = useState([]);
   const [load, setLoad] = useState(false);
-  const postsPerPage = 8;
+  const postsPerPage = 12;
   const totalColleges = 4000;
 
   // Indexes
@@ -23,7 +22,7 @@ function Colleges() {
 
   const getColleges = async () => {
     try {
-      var endpoint = 'colleges?page='+ currentPage + '&per_page=8'
+      var endpoint = 'colleges?page='+ currentPage + '&per_page=' + postsPerPage
       const data = await backendApi.get(
         endpoint
       )
@@ -72,7 +71,7 @@ function Colleges() {
         <Row>{
           collegeList.map(data => {
             return (
-              <Col sm={3} key={data.id}>
+              <Col sm={2} key={data.id}>
                 <CollegeCard
                 id={data.id}
                 name={data.name}

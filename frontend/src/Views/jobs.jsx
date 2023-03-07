@@ -12,7 +12,7 @@ function Jobs() {
   const [currentPage, setCurrentPage] = useState(1);
   const [jobsList, setJobs] = useState([]);
   const [load, setLoad] = useState(false);
-  const postsPerPage = 8;
+  const postsPerPage = 12;
   const totalJobs  = 1947;
 
   // Indexes
@@ -22,7 +22,7 @@ function Jobs() {
 
   const getJobs = async () => {
     try {
-      var endpoint = 'jobs?page='+ currentPage + '&per_page=8'
+      var endpoint = 'jobs?page='+ currentPage + '&per_page=' + postsPerPage
       const data = await backendApi.get(
         endpoint
       )
@@ -71,7 +71,7 @@ function Jobs() {
         <Row>{
           jobsList.map(data => {
             return (
-              <Col sm={3} key={data.id}>
+              <Col sm={2} key={data.id}>
                 <JobCard
                   id = {data.id}
                   title = {data.title}

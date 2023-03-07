@@ -13,7 +13,7 @@ function CollegeInstance() {
 
     const getCollege = async () => {
         try {
-        	var endpoint = 'housing/' + id
+        	var endpoint = 'colleges/' + id
     		const data = await backendApi.get(
             	endpoint
           	)
@@ -33,7 +33,7 @@ function CollegeInstance() {
         {load ? (
             <Container>
             <Card className="card border-dark mb-3" style={{height: "90%" }}>
-            <Card.Img variant="top" src={college.img_url ? college.img_url : "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"}/>
+            <Card.Img variant="top" src={college.img_url !== null? college.img_url : "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"}/>
             <Card.Body>
                 <Card.Title>{college.name}</Card.Title>
                 <Card.Text>
