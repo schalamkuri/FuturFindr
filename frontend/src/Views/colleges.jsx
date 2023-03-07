@@ -71,7 +71,7 @@ function Colleges() {
         <Row>{
           collegeList.map(data => {
             return (
-              <Col sm={2} key={data.id}>
+              <Col sm={3} key={data.id}>
                 <CollegeCard
                 id={data.id}
                 name={data.name}

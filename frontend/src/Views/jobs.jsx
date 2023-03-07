@@ -71,7 +71,7 @@ function Jobs() {
         <Row>{
           jobsList.map(data => {
             return (
-              <Col sm={2} key={data.id}>
+              <Col sm={3} key={data.id}>
                 <JobCard
                   id = {data.id}
                   title = {data.title}

@@ -67,7 +67,7 @@ function Housing() {
       <Row>{
         housingList.map(data => {
           return (
-            <Col sm={2} key={data.id}>
+            <Col sm={3} key={data.id}>
               <HousingCard
                 id = {data.id}
                 address = {data.address}
