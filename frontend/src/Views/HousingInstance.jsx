@@ -3,8 +3,13 @@ import { useParams } from 'react-router';
 import { backendApi } from "../Assets/Data/Constants";
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image'
 import Carousel from 'react-bootstrap/Carousel'
 import Spinner from 'react-bootstrap/Spinner';
+import "./connections.css"
+
 
 function HousingInstance() {
     const id = useParams()['id']
@@ -63,7 +68,31 @@ function HousingInstance() {
             </Card.Text>
         </Card.Body>
         </Card>
+        <div className="title-holder">
+          <h2>Jobs</h2>
+          <div className="subtitle">Checkout nearby jobs</div>
+        </div>
+        <Row className='portfoliolist'>
+          {
+            house.nearby_jobs.map(job => {
+              return (
+                <Col sm={4} key={job.id}>
+                  <div className='portfolio-wrapper'>
+                    <a href={`/jobs/${job.id}`} >
+                      <Image src={"https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"} />
+                      <div className='label text-center'>
+                        <h3>{job.title}</h3>
+                        <p>{job.property_type}</p>
+                      </div>
+                    </a>
+                  </div>
+                </Col>
+              );
+            })
+          }
+        </Row>
         </Container>
+
         ): (<Spinner animation="border" variant="info"/>)}
 
         {/* <Container>
