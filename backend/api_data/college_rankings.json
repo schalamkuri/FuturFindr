@@ -13,7 +13,7 @@
       },
       "3": {
         "id": "5135",
-        "location": "Stanford ...",
+        "location": "Stanford",
         "name": "Stanford University"
       },
       "4": {
@@ -23,17 +23,17 @@
       },
       "5": {
         "id": "5143",
-        "location": "Berkeley ...",
+        "location": "Berkeley",
         "name": "University of California, Berkeley"
       },
       "6": {
         "id": "5821",
-        "location": "Ann Arbor ...",
+        "location": "Ann Arbor",
         "name": "University of Michigan"
       },
       "7": {
         "id": "6835",
-        "location": "Seattle ...",
+        "location": "Seattle",
         "name": "University of Washington"
       },
       "8": {
@@ -43,7 +43,7 @@
       },
       "9": {
         "id": "5147",
-        "location": "Los Angeles ...",
+        "location": "Los Angeles",
         "name": "University of California, Los Angeles"
       },
       "10": {
@@ -58,7 +58,7 @@
       },
       "12": {
         "id": "5863",
-        "location": "Minneapolis ...",
+        "location": "Minneapolis",
         "name": "University of Minnesota-Twin Cities"
       },
       "13": {
@@ -73,7 +73,7 @@
       },
       "15": {
         "id": "5669",
-        "location": "Baltimore ...",
+        "location": "Baltimore",
         "name": "Johns Hopkins University"
       },
       "16": {
@@ -93,12 +93,12 @@
       },
       "19": {
         "id": "5151",
-        "location": "San Diego ...",
+        "location": "San Diego",
         "name": "University of California, San Diego"
       },
       "20": {
         "id": "6122",
-        "location": "New York City ...",
+        "location": "New York City",
         "name": "New York University"
       },
       "21": {
@@ -108,7 +108,7 @@
       },
       "22": {
         "id": "5144",
-        "location": "Davis ...",
+        "location": "Davis",
         "name": "University of California, Davis"
       },
       "23": {
@@ -118,12 +118,12 @@
       },
       "24": {
         "id": "6474",
-        "location": "University Park ...",
+        "location": "University Park",
         "name": "Penn State University"
       },
       "25": {
         "id": "6422",
-        "location": "Pittsburgh ...",
+        "location": "Pittsburgh",
         "name": "Carnegie Mellon University"
       },
       "26": {
@@ -138,12 +138,12 @@
       },
       "28": {
         "id": "4964",
-        "location": "Tempe ...",
+        "location": "Tempe",
         "name": "Arizona State University"
       },
       "29": {
         "id": "5474",
-        "location": "Champaign ...",
+        "location": "Champaign",
         "name": "University of Illinois at Urbana-Champaign"
       },
       "30": {
@@ -153,7 +153,7 @@
       },
       "31": {
         "id": "6020",
-        "location": "New Brunswick ...",
+        "location": "New Brunswick",
         "name": "Rutgers, The State University of New Jersey"
       },
       "32": {
@@ -163,7 +163,7 @@
       },
       "33": {
         "id": "5146",
-        "location": "Irvine ...",
+        "location": "Irvine",
         "name": "University of California, Irvine"
       },
       "34": {
@@ -173,12 +173,12 @@
       },
       "35": {
         "id": "6802",
-        "location": "Charlottesville ...",
+        "location": "Charlottesville",
         "name": "University of Virginia"
       },
       "36": {
         "id": "5442",
-        "location": "Evanston ...",
+        "location": "Evanston",
         "name": "Northwestern University"
       },
       "37": {
@@ -193,12 +193,12 @@
       },
       "39": {
         "id": "6322",
-        "location": "Columbus ...",
+        "location": "Columbus",
         "name": "The Ohio State University"
       },
       "40": {
         "id": "5703",
-        "location": "Boston ...",
+        "location": "Boston",
         "name": "Boston University"
       },
       "41": {
@@ -218,7 +218,7 @@
       },
       "44": {
         "id": "6507",
-        "location": "Pittsburgh ...",
+        "location": "Pittsburgh",
         "name": "University of Pittsburgh"
       },
       "45": {
@@ -228,7 +228,7 @@
       },
       "46": {
         "id": "5153",
-        "location": "Santa Barbara ...",
+        "location": "Santa Barbara",
         "name": "University of California, Santa Barbara"
       },
       "47": {
@@ -273,7 +273,7 @@
       },
       "55": {
         "id": "6394",
-        "location": "Corvallis ...",
+        "location": "Corvallis",
         "name": "Oregon State University"
       },
       "56": {
@@ -283,7 +283,7 @@
       },
       "57": {
         "id": "5557",
-        "location": "Iowa City ...",
+        "location": "Iowa City",
         "name": "University of Iowa"
       },
       "58": {
@@ -293,7 +293,7 @@
       },
       "59": {
         "id": "5301",
-        "location": "Tampa ...",
+        "location": "Tampa",
         "name": "University of South Florida"
       },
       "60": {
@@ -323,7 +323,7 @@
       },
       "65": {
         "id": "5242",
-        "location": "Washington ...",
+        "location": "Washington",
         "name": "George Washington University"
       },
       "66": {
@@ -333,17 +333,17 @@
       },
       "67": {
         "id": "5152",
-        "location": "San Francisco ...",
+        "location": "San Francisco",
         "name": "University of California, San Francisco"
       },
       "68": {
         "id": "6177",
-        "location": "Buffalo ...",
+        "location": "Buffalo",
         "name": "University at Buffalo, State University of New York"
       },
       "69": {
         "id": "5154",
-        "location": "Santa Cruz ...",
+        "location": "Santa Cruz",
         "name": "University of California, Santa Cruz"
       },
       "70": {
@@ -358,7 +358,7 @@
       },
       "72": {
         "id": "5273",
-        "location": "Tallahassee ...",
+        "location": "Tallahassee",
         "name": "Florida State University"
       },
       "73": {
@@ -368,12 +368,12 @@
       },
       "74": {
         "id": "6402",
-        "location": "Eugene ...",
+        "location": "Eugene",
         "name": "University of Oregon"
       },
       "75": {
         "id": "5472",
-        "location": "Chicago ...",
+        "location": "Chicago",
         "name": "University of Illinois at Chicago"
       },
       "76": {
@@ -393,7 +393,7 @@
       },
       "79": {
         "id": "5150",
-        "location": "Riverside ...",
+        "location": "Riverside",
         "name": "University of California, Riverside"
       },
       "80": {
@@ -408,7 +408,7 @@
       },
       "82": {
         "id": "5223",
-        "location": "Storrs ...",
+        "location": "Storrs",
         "name": "University of Connecticut"
       },
       "83": {
@@ -423,37 +423,37 @@
       },
       "85": {
         "id": "5296",
-        "location": "Orlando ...",
+        "location": "Orlando",
         "name": "University of Central Florida"
       },
       "86": {
         "id": "5584",
-        "location": "Lawrence ...",
+        "location": "Lawrence",
         "name": "University of Kansas"
       },
       "87": {
         "id": "6039",
-        "location": "Albuquerque ...",
+        "location": "Albuquerque",
         "name": "University of New Mexico"
       },
       "88": {
         "id": "6631",
-        "location": "Knoxville ...",
+        "location": "Knoxville",
         "name": "The University of Tennessee, Knoxville"
       },
       "89": {
         "id": "6499",
-        "location": "Philadelphia ...",
+        "location": "Philadelphia",
         "name": "Temple University"
       },
       "90": {
         "id": "5298",
-        "location": "Coral Gables ...",
+        "location": "Coral Gables",
         "name": "University of Miami"
       },
       "91": {
         "id": "6085",
-        "location": "The Bronx ...",
+        "location": "The Bronx",
         "name": "Fordham University"
       },
       "92": {
@@ -463,7 +463,7 @@
       },
       "93": {
         "id": "5740",
-        "location": "Boston ...",
+        "location": "Boston",
         "name": "Northeastern University"
       },
       "94": {
@@ -483,12 +483,12 @@
       },
       "97": {
         "id": "6562",
-        "location": "Columbia ...",
+        "location": "Columbia",
         "name": "University of South Carolina"
       },
       "98": {
         "id": "6709",
-        "location": "Denton ...",
+        "location": "Denton",
         "name": "University of North Texas"
       },
       "99": {
@@ -498,12 +498,12 @@
       },
       "100": {
         "id": "5999",
-        "location": "Durham ...",
+        "location": "Durham",
         "name": "University of New Hampshire"
       },
       "101": {
         "id": "5114",
-        "location": "San Diego ...",
+        "location": "San Diego",
         "name": "San Diego State University"
       },
       "102": {
@@ -518,7 +518,7 @@
       },
       "104": {
         "id": "6375",
-        "location": "Norman ...",
+        "location": "Norman",
         "name": "The University of Oklahoma"
       },
       "105": {
@@ -538,7 +538,7 @@
       },
       "108": {
         "id": "6132",
-        "location": "Troy ...",
+        "location": "Troy",
         "name": "Rensselaer Polytechnic Institute"
       },
       "109": {
@@ -548,7 +548,7 @@
       },
       "110": {
         "id": "6738",
-        "location": "Logan ...",
+        "location": "Logan",
         "name": "Utah State University"
       },
       "111": {
@@ -558,12 +558,12 @@
       },
       "112": {
         "id": "6632",
-        "location": "Martin ...",
+        "location": "Martin",
         "name": "The University of Tennessee at Martin"
       },
       "113": {
         "id": "6366",
-        "location": "Stillwater ...",
+        "location": "Stillwater",
         "name": "Oklahoma State University"
       },
       "114": {
@@ -588,7 +588,7 @@
       },
       "118": {
         "id": "6859",
-        "location": "Morgantown ...",
+        "location": "Morgantown",
         "name": "West Virginia University"
       },
       "119": {
@@ -653,7 +653,7 @@
       },
       "131": {
         "id": "6298",
-        "location": "Kent ...",
+        "location": "Kent",
         "name": "Kent State University"
       },
       "132": {
@@ -668,7 +668,7 @@
       },
       "134": {
         "id": "5876",
-        "location": "Mississippi State ...",
+        "location": "Mississippi State",
         "name": "Mississippi State University"
       },
       "135": {
@@ -698,7 +698,7 @@
       },
       "140": {
         "id": "5572",
-        "location": "Manhattan ...",
+        "location": "Manhattan",
         "name": "Kansas State University"
       },
       "141": {
@@ -708,7 +708,7 @@
       },
       "142": {
         "id": "5262",
-        "location": "Boca Raton ...",
+        "location": "Boca Raton",
         "name": "Florida Atlantic University"
       },
       "143": {
@@ -718,7 +718,7 @@
       },
       "144": {
         "id": "6533",
-        "location": "Kingston ...",
+        "location": "Kingston",
         "name": "University of Rhode Island"
       },
       "145": {
@@ -743,7 +743,7 @@
       },
       "149": {
         "id": "4970",
-        "location": "Flagstaff ...",
+        "location": "Flagstaff",
         "name": "Northern Arizona University"
       },
       "150": {
@@ -773,7 +773,7 @@
       },
       "155": {
         "id": "6392",
-        "location": "Portland ...",
+        "location": "Portland",
         "name": "Oregon Health & Science University"
       },
       "156": {
@@ -833,12 +833,12 @@
       },
       "167": {
         "id": "4961",
-        "location": "Fairbanks ...",
+        "location": "Fairbanks",
         "name": "University of Alaska Fairbanks"
       },
       "168": {
         "id": "5035",
-        "location": "Fullerton ...",
+        "location": "Fullerton",
         "name": "California State University, Fullerton"
       },
       "169": {
@@ -848,7 +848,7 @@
       },
       "170": {
         "id": "6275",
-        "location": "Bowling Green ...",
+        "location": "Bowling Green",
         "name": "Bowling Green State University"
       },
       "171": {
@@ -893,7 +893,7 @@
       },
       "179": {
         "id": "5613",
-        "location": "Louisville ...",
+        "location": "Louisville",
         "name": "University of Louisville"
       },
       "180": {
@@ -903,7 +903,7 @@
       },
       "181": {
         "id": "5931",
-        "location": "St. Louis ...",
+        "location": "St. Louis",
         "name": "Saint Louis University"
       },
       "182": {
@@ -928,7 +928,7 @@
       },
       "186": {
         "id": "6327",
-        "location": "Athens ...",
+        "location": "Athens",
         "name": "Ohio University"
       },
       "187": {
@@ -938,7 +938,7 @@
       },
       "188": {
         "id": "5285",
-        "location": "Fort Lauderdale ...",
+        "location": "Fort Lauderdale",
         "name": "Nova Southeastern University"
       },
       "189": {
@@ -953,7 +953,7 @@
       },
       "191": {
         "id": "6673",
-        "location": "San Marcos ...",
+        "location": "San Marcos",
         "name": "Texas State University"
       },
       "192": {
@@ -973,7 +973,7 @@
       },
       "195": {
         "id": "5456",
-        "location": "Carbondale ...",
+        "location": "Carbondale",
         "name": "Southern Illinois University Carbondale"
       },
       "196": {
@@ -1023,7 +1023,7 @@
       },
       "205": {
         "id": "5106",
-        "location": "Malibu ...",
+        "location": "Malibu",
         "name": "Pepperdine University"
       },
       "206": {
@@ -1033,7 +1033,7 @@
       },
       "207": {
         "id": "6125",
-        "location": "New York City ...",
+        "location": "New York City",
         "name": "Pace University"
       },
       "208": {
@@ -1053,7 +1053,7 @@
       },
       "211": {
         "id": "5335",
-        "location": "Kennesaw ...",
+        "location": "Kennesaw",
         "name": "Kennesaw State University"
       },
       "212": {
@@ -1063,7 +1063,7 @@
       },
       "213": {
         "id": "6629",
-        "location": "Memphis ...",
+        "location": "Memphis",
         "name": "The University of Memphis"
       },
       "214": {
@@ -1088,7 +1088,7 @@
       },
       "218": {
         "id": "5798",
-        "location": "Allendale ...",
+        "location": "Allendale",
         "name": "Grand Valley State University"
       },
       "219": {
@@ -1098,7 +1098,7 @@
       },
       "220": {
         "id": "6341",
-        "location": "Akron ...",
+        "location": "Akron",
         "name": "University of Akron"
       },
       "221": {
@@ -1178,7 +1178,7 @@
       },
       "236": {
         "id": "6309",
-        "location": "Oxford ...",
+        "location": "Oxford",
         "name": "Miami University"
       },
       "237": {
@@ -1238,7 +1238,7 @@
       },
       "248": {
         "id": "6352",
-        "location": "Dayton ...",
+        "location": "Dayton",
         "name": "Wright State University"
       },
       "249": {
@@ -1263,7 +1263,7 @@
       },
       "253": {
         "id": "4967",
-        "location": "Daytona Beach ...",
+        "location": "Daytona Beach",
         "name": "Embry-Riddle Aeronautical University"
       },
       "254": {
@@ -1273,7 +1273,7 @@
       },
       "255": {
         "id": "5927",
-        "location": "Springfield ...",
+        "location": "Springfield",
         "name": "Missouri State University"
       },
       "256": {
@@ -1328,7 +1328,7 @@
       },
       "266": {
         "id": "5042",
-        "location": "San Bernardino ...",
+        "location": "San Bernardino",
         "name": "California State University, San Bernardino"
       },
       "267": {
@@ -1368,7 +1368,7 @@
       },
       "274": {
         "id": "5372",
-        "location": "Pocatello ...",
+        "location": "Pocatello",
         "name": "Idaho State University"
       },
       "275": {
@@ -1418,7 +1418,7 @@
       },
       "284": {
         "id": "6598",
-        "location": "Johnson City ...",
+        "location": "Johnson City",
         "name": "East Tennessee State University"
       },
       "285": {
@@ -1428,12 +1428,12 @@
       },
       "286": {
         "id": "5070",
-        "location": "Claremont ...",
+        "location": "Claremont",
         "name": "Harvey Mudd College"
       },
       "287": {
         "id": "5331",
-        "location": "Statesboro ...",
+        "location": "Statesboro",
         "name": "Georgia Southern University"
       },
       "288": {
@@ -1453,7 +1453,7 @@
       },
       "291": {
         "id": "5457",
-        "location": "Edwardsville ...",
+        "location": "Edwardsville",
         "name": "Southern Illinois University Edwardsville"
       },
       "292": {
@@ -1468,17 +1468,17 @@
       },
       "294": {
         "id": "5350",
-        "location": "Savannah ...",
+        "location": "Savannah",
         "name": "Savannah College of Art and Design"
       },
       "295": {
         "id": "5794",
-        "location": "Ypsilanti ...",
+        "location": "Ypsilanti",
         "name": "Eastern Michigan University"
       },
       "296": {
         "id": "5864",
-        "location": "Saint Paul ...",
+        "location": "Saint Paul",
         "name": "University of St. Thomas"
       },
       "297": {
@@ -1513,7 +1513,7 @@
       },
       "303": {
         "id": "5749",
-        "location": "Boston ...",
+        "location": "Boston",
         "name": "Suffolk University"
       },
       "304": {
@@ -1523,12 +1523,12 @@
       },
       "305": {
         "id": "9703",
-        "location": "St. Cloud ...",
+        "location": "St. Cloud",
         "name": "Rasmussen College"
       },
       "306": {
         "id": "6019",
-        "location": "Glassboro ...",
+        "location": "Glassboro",
         "name": "Rowan University"
       },
       "307": {
@@ -1553,7 +1553,7 @@
       },
       "311": {
         "id": "6718",
-        "location": "Edinburg ...",
+        "location": "Edinburg",
         "name": "University of Texas Rio Grande Valley"
       },
       "312": {
@@ -1568,7 +1568,7 @@
       },
       "314": {
         "id": "5148",
-        "location": "Merced ...",
+        "location": "Merced",
         "name": "University of California, Merced"
       },
       "315": {
@@ -1613,7 +1613,7 @@
       },
       "323": {
         "id": "5842",
-        "location": "Mankato ...",
+        "location": "Mankato",
         "name": "Minnesota State University, Mankato"
       },
       "324": {
@@ -1643,7 +1643,7 @@
       },
       "329": {
         "id": "6148",
-        "location": "Queens ...",
+        "location": "Queens",
         "name": "St. John's University"
       },
       "330": {
@@ -1688,12 +1688,12 @@
       },
       "338": {
         "id": "5033",
-        "location": "Carson ...",
+        "location": "Carson",
         "name": "California State University, Dominguez Hills"
       },
       "339": {
         "id": "6815",
-        "location": "Ellensburg ...",
+        "location": "Ellensburg",
         "name": "Central Washington University"
       },
       "340": {
@@ -1723,7 +1723,7 @@
       },
       "345": {
         "id": "6458",
-        "location": "Lock Haven ...",
+        "location": "Lock Haven",
         "name": "Lock Haven University"
       },
       "346": {
@@ -1753,7 +1753,7 @@
       },
       "351": {
         "id": "6740",
-        "location": "Ogden ...",
+        "location": "Ogden",
         "name": "Weber State University"
       },
       "352": {
@@ -1813,7 +1813,7 @@
       },
       "363": {
         "id": "5043",
-        "location": "San Marcos ...",
+        "location": "San Marcos",
         "name": "California State University San Marcos"
       },
       "364": {
@@ -1848,7 +1848,7 @@
       },
       "370": {
         "id": "9658",
-        "location": "Brooklyn ...",
+        "location": "Brooklyn",
         "name": "Long Island University"
       },
       "371": {
@@ -1878,12 +1878,12 @@
       },
       "376": {
         "id": "6069",
-        "location": "Potsdam ...",
+        "location": "Potsdam",
         "name": "Clarkson University"
       },
       "377": {
         "id": "5162",
-        "location": "Stockton ...",
+        "location": "Stockton",
         "name": "University of the Pacific"
       },
       "378": {
@@ -1893,12 +1893,12 @@
       },
       "379": {
         "id": "5175",
-        "location": "Colorado Springs ...",
+        "location": "Colorado Springs",
         "name": "Colorado College"
       },
       "380": {
         "id": "5833",
-        "location": "St. Joseph ...",
+        "location": "St. Joseph",
         "name": "College of Saint Benedict/Saint John's University"
       },
       "381": {
@@ -1923,7 +1923,7 @@
       },
       "385": {
         "id": "6254",
-        "location": "Cullowhee ...",
+        "location": "Cullowhee",
         "name": "Western Carolina University"
       },
       "386": {
@@ -1968,12 +1968,12 @@
       },
       "394": {
         "id": "6018",
-        "location": "Lawrenceville ...",
+        "location": "Lawrenceville",
         "name": "Rider University"
       },
       "395": {
         "id": "6006",
-        "location": "Teaneck ...",
+        "location": "Teaneck",
         "name": "Fairleigh Dickinson University"
       },
       "396": {
@@ -1988,7 +1988,7 @@
       },
       "398": {
         "id": "5478",
-        "location": "Macomb ...",
+        "location": "Macomb",
         "name": "Western Illinois University"
       },
       "399": {
@@ -2003,7 +2003,7 @@
       },
       "401": {
         "id": "5605",
-        "location": "Highland Heights ...",
+        "location": "Highland Heights",
         "name": "Northern Kentucky University"
       },
       "402": {
@@ -2018,7 +2018,7 @@
       },
       "404": {
         "id": "5044",
-        "location": "Turlock ...",
+        "location": "Turlock",
         "name": "California State University, Stanislaus"
       },
       "405": {
@@ -2028,7 +2028,7 @@
       },
       "406": {
         "id": "7685",
-        "location": "Hyde Park ...",
+        "location": "Hyde Park",
         "name": "The Culinary Institute of America"
       },
       "407": {
@@ -2058,17 +2058,17 @@
       },
       "412": {
         "id": "5473",
-        "location": "Springfield ...",
+        "location": "Springfield",
         "name": "University of Illinois at Springfield"
       },
       "413": {
         "id": "5303",
-        "location": "Pensacola ...",
+        "location": "Pensacola",
         "name": "University of West Florida"
       },
       "414": {
         "id": "5394",
-        "location": "Chicago ...",
+        "location": "Chicago",
         "name": "DeVry University"
       },
       "415": {
@@ -2153,7 +2153,7 @@
       },
       "431": {
         "id": "6526",
-        "location": "Providence ...",
+        "location": "Providence",
         "name": "Johnson and Wales University"
       },
       "432": {
@@ -2238,17 +2238,17 @@
       },
       "448": {
         "id": "6520",
-        "location": "Chester ...",
+        "location": "Chester",
         "name": "Widener University"
       },
       "449": {
         "id": "6739",
-        "location": "Orem ...",
+        "location": "Orem",
         "name": "Utah Valley University"
       },
       "450": {
         "id": "6697",
-        "location": "Lubbock ...",
+        "location": "Lubbock",
         "name": "Texas Tech University Health Sciences Center"
       },
       "451": {
@@ -2263,7 +2263,7 @@
       },
       "453": {
         "id": "5341",
-        "location": "Macon ...",
+        "location": "Macon",
         "name": "Mercer University"
       },
       "454": {
@@ -2293,7 +2293,7 @@
       },
       "459": {
         "id": "6118",
-        "location": "Old Westbury ...",
+        "location": "Old Westbury",
         "name": "New York Institute of Technology"
       },
       "460": {
@@ -2303,12 +2303,12 @@
       },
       "461": {
         "id": "6730",
-        "location": "Canyon ...",
+        "location": "Canyon",
         "name": "West Texas A&M University"
       },
       "462": {
         "id": "5248",
-        "location": "Washington ...",
+        "location": "Washington",
         "name": "Strayer University"
       },
       "463": {
@@ -2343,7 +2343,7 @@
       },
       "469": {
         "id": "6017",
-        "location": "Galloway ...",
+        "location": "Galloway",
         "name": "Stockton University"
       },
       "470": {
@@ -2393,7 +2393,7 @@
       },
       "479": {
         "id": "12172",
-        "location": "Cambridge ...",
+        "location": "Cambridge",
         "name": "Hult International Business School"
       },
       "480": {
@@ -2403,7 +2403,7 @@
       },
       "481": {
         "id": "5049",
-        "location": "Claremont ...",
+        "location": "Claremont",
         "name": "Claremont Graduate University"
       },
       "482": {
@@ -2418,12 +2418,12 @@
       },
       "484": {
         "id": "5620",
-        "location": "New Orleans ...",
+        "location": "New Orleans",
         "name": "Louisiana State University Health Sciences Center"
       },
       "485": {
         "id": "6699",
-        "location": "Denton ...",
+        "location": "Denton",
         "name": "Texas Woman's University"
       },
       "486": {
@@ -2448,7 +2448,7 @@
       },
       "490": {
         "id": "5036",
-        "location": "Hayward ...",
+        "location": "Hayward",
         "name": "California State University, East Bay"
       },
       "491": {
@@ -2458,7 +2458,7 @@
       },
       "492": {
         "id": "5665",
-        "location": "Frostburg ...",
+        "location": "Frostburg",
         "name": "Frostburg State University"
       },
       "493": {
@@ -2473,7 +2473,7 @@
       },
       "495": {
         "id": "5655",
-        "location": "Biddeford ...",
+        "location": "Biddeford",
         "name": "University of New England"
       },
       "496": {
@@ -2508,7 +2508,7 @@
       },
       "502": {
         "id": "4943",
-        "location": "Troy ...",
+        "location": "Troy",
         "name": "Troy University"
       },
       "503": {
@@ -2558,7 +2558,7 @@
       },
       "512": {
         "id": "6269",
-        "location": "Yellow Springs ...",
+        "location": "Yellow Springs",
         "name": "Antioch University"
       },
       "513": {
@@ -2573,7 +2573,7 @@
       },
       "515": {
         "id": "6188",
-        "location": "New York City ...",
+        "location": "New York City",
         "name": "Touro College"
       },
       "516": {
@@ -2608,7 +2608,7 @@
       },
       "522": {
         "id": "6541",
-        "location": "Conway ...",
+        "location": "Conway",
         "name": "Coastal Carolina University"
       },
       "523": {
@@ -2648,7 +2648,7 @@
       },
       "530": {
         "id": "6746",
-        "location": "Burlington ...",
+        "location": "Burlington",
         "name": "Champlain College"
       },
       "531": {
@@ -2728,12 +2728,12 @@
       },
       "546": {
         "id": "6010",
-        "location": "Union ...",
+        "location": "Union",
         "name": "Kean University"
       },
       "547": {
         "id": "5604",
-        "location": "Murray ...",
+        "location": "Murray",
         "name": "Murray State University"
       },
       "548": {
@@ -2763,7 +2763,7 @@
       },
       "553": {
         "id": "6400",
-        "location": "Ashland ...",
+        "location": "Ashland",
         "name": "Southern Oregon University"
       },
       "554": {
@@ -2783,7 +2783,7 @@
       },
       "557": {
         "id": "5723",
-        "location": "Cambridge ...",
+        "location": "Cambridge",
         "name": "Lesley University"
       },
       "558": {
@@ -2818,7 +2818,7 @@
       },
       "564": {
         "id": "5068",
-        "location": "San Francisco ...",
+        "location": "San Francisco",
         "name": "Golden Gate University"
       },
       "565": {
@@ -2853,7 +2853,7 @@
       },
       "571": {
         "id": "5216",
-        "location": "Fairfield ...",
+        "location": "Fairfield",
         "name": "Sacred Heart University"
       },
       "572": {
@@ -2893,7 +2893,7 @@
       },
       "579": {
         "id": "5451",
-        "location": "Chicago ...",
+        "location": "Chicago",
         "name": "Roosevelt University"
       },
       "580": {
@@ -2908,7 +2908,7 @@
       },
       "582": {
         "id": "6333",
-        "location": "Delaware ...",
+        "location": "Delaware",
         "name": "Ohio Wesleyan University"
       },
       "583": {
@@ -2918,7 +2918,7 @@
       },
       "584": {
         "id": "5253",
-        "location": "Miami ...",
+        "location": "Miami",
         "name": "Barry University"
       },
       "585": {
@@ -2948,7 +2948,7 @@
       },
       "590": {
         "id": "6757",
-        "location": "Colchester ...",
+        "location": "Colchester",
         "name": "Saint Michael's College"
       },
       "591": {
@@ -2963,7 +2963,7 @@
       },
       "593": {
         "id": "5328",
-        "location": "Milledgeville ...",
+        "location": "Milledgeville",
         "name": "Georgia College and State University"
       },
       "594": {
@@ -3018,7 +3018,7 @@
       },
       "604": {
         "id": "5230",
-        "location": "West Haven ...",
+        "location": "West Haven",
         "name": "University of New Haven"
       },
       "605": {
@@ -3053,7 +3053,7 @@
       },
       "611": {
         "id": "5017",
-        "location": "San Francisco ...",
+        "location": "San Francisco",
         "name": "California College of the Arts"
       },
       "612": {
@@ -3103,7 +3103,7 @@
       },
       "621": {
         "id": "5291",
-        "location": "Saint Leo ...",
+        "location": "Saint Leo",
         "name": "Saint Leo University"
       },
       "622": {
@@ -3143,7 +3143,7 @@
       },
       "629": {
         "id": "5437",
-        "location": "Chicago ...",
+        "location": "Chicago",
         "name": "National Louis University"
       },
       "630": {
@@ -3158,7 +3158,7 @@
       },
       "632": {
         "id": "5831",
-        "location": "Saint Paul ...",
+        "location": "Saint Paul",
         "name": "Bethel University"
       },
       "633": {
@@ -3193,17 +3193,17 @@
       },
       "639": {
         "id": "6293",
-        "location": "Columbus ...",
+        "location": "Columbus",
         "name": "Franklin University"
       },
       "640": {
         "id": "4981",
-        "location": "Searcy ...",
+        "location": "Searcy",
         "name": "Harding University"
       },
       "641": {
         "id": "5955",
-        "location": "Bellevue ...",
+        "location": "Bellevue",
         "name": "Bellevue University"
       },
       "642": {
@@ -3298,7 +3298,7 @@
       },
       "660": {
         "id": "6682",
-        "location": "Stephenville ...",
+        "location": "Stephenville",
         "name": "Tarleton State University"
       },
       "661": {
@@ -3308,12 +3308,12 @@
       },
       "662": {
         "id": "6575",
-        "location": "Madison ...",
+        "location": "Madison",
         "name": "Dakota State University"
       },
       "663": {
         "id": "5860",
-        "location": "Duluth ...",
+        "location": "Duluth",
         "name": "The College of St. Scholastica"
       },
       "664": {
@@ -3348,7 +3348,7 @@
       },
       "670": {
         "id": "5657",
-        "location": "Portland ...",
+        "location": "Portland",
         "name": "University of Southern Maine"
       },
       "671": {
@@ -3368,7 +3368,7 @@
       },
       "674": {
         "id": "5920",
-        "location": "Maryville ...",
+        "location": "Maryville",
         "name": "Northwest Missouri State University"
       },
       "675": {
@@ -3378,7 +3378,7 @@
       },
       "676": {
         "id": "6161",
-        "location": "Plattsburgh ...",
+        "location": "Plattsburgh",
         "name": "State University of New York College at Plattsburgh"
       },
       "677": {
@@ -3403,7 +3403,7 @@
       },
       "681": {
         "id": "5718",
-        "location": "Wenham ...",
+        "location": "Wenham",
         "name": "Gordon College"
       },
       "682": {
@@ -3433,7 +3433,7 @@
       },
       "687": {
         "id": "6726",
-        "location": "Tyler ...",
+        "location": "Tyler",
         "name": "The University of Texas at Tyler"
       },
       "688": {
@@ -3468,7 +3468,7 @@
       },
       "694": {
         "id": "5438",
-        "location": "Naperville ...",
+        "location": "Naperville",
         "name": "North Central College"
       },
       "695": {
@@ -3483,7 +3483,7 @@
       },
       "697": {
         "id": "5222",
-        "location": "Bridgeport ...",
+        "location": "Bridgeport",
         "name": "University of Bridgeport"
       },
       "698": {
@@ -3503,7 +3503,7 @@
       },
       "701": {
         "id": "5178",
-        "location": "Colorado Springs ...",
+        "location": "Colorado Springs",
         "name": "Colorado Technical University"
       },
       "702": {
@@ -3513,7 +3513,7 @@
       },
       "703": {
         "id": "5421",
-        "location": "Galesburg ...",
+        "location": "Galesburg",
         "name": "Knox College"
       },
       "704": {
@@ -3528,7 +3528,7 @@
       },
       "706": {
         "id": "5431",
-        "location": "Downers Grove ...",
+        "location": "Downers Grove",
         "name": "Midwestern University"
       },
       "707": {
@@ -3563,7 +3563,7 @@
       },
       "713": {
         "id": "16941",
-        "location": "San Marcos ...",
+        "location": "San Marcos",
         "name": "University of St. Augustine for Health Sciences"
       },
       "714": {
@@ -3628,7 +3628,7 @@
       },
       "726": {
         "id": "5823",
-        "location": "Flint ...",
+        "location": "Flint",
         "name": "University of Michigan-Flint"
       },
       "727": {
@@ -3673,7 +3673,7 @@
       },
       "735": {
         "id": "6667",
-        "location": "Prairie View ...",
+        "location": "Prairie View",
         "name": "Prairie View A&M University"
       },
       "736": {
@@ -3713,7 +3713,7 @@
       },
       "743": {
         "id": "5257",
-        "location": "Saint Petersburg ...",
+        "location": "Saint Petersburg",
         "name": "Eckerd College"
       },
       "744": {
@@ -3723,7 +3723,7 @@
       },
       "745": {
         "id": "6705",
-        "location": "Houston ...",
+        "location": "Houston",
         "name": "University of Houston-Clear Lake"
       },
       "746": {
@@ -3773,7 +3773,7 @@
       },
       "755": {
         "id": "5519",
-        "location": "Upland ...",
+        "location": "Upland",
         "name": "Taylor University"
       },
       "756": {
@@ -3808,7 +3808,7 @@
       },
       "762": {
         "id": "6532",
-        "location": "Newport ...",
+        "location": "Newport",
         "name": "Salve Regina University"
       },
       "763": {
@@ -3833,12 +3833,12 @@
       },
       "767": {
         "id": "5880",
-        "location": "Tougaloo ...",
+        "location": "Tougaloo",
         "name": "Tougaloo College"
       },
       "768": {
         "id": "6771",
-        "location": "Harrisonburg ...",
+        "location": "Harrisonburg",
         "name": "Eastern Mennonite University"
       },
       "769": {
@@ -3858,7 +3858,7 @@
       },
       "772": {
         "id": "5691",
-        "location": "Westminster ...",
+        "location": "Westminster",
         "name": "McDaniel College"
       },
       "773": {
@@ -3948,7 +3948,7 @@
       },
       "790": {
         "id": "5774",
-        "location": "Flint ...",
+        "location": "Flint",
         "name": "Baker College"
       },
       "791": {
@@ -3963,7 +3963,7 @@
       },
       "793": {
         "id": "5014",
-        "location": "Riverside ...",
+        "location": "Riverside",
         "name": "California Baptist University"
       },
       "794": {
@@ -3978,7 +3978,7 @@
       },
       "796": {
         "id": "5260",
-        "location": "St. Augustine ...",
+        "location": "St. Augustine",
         "name": "Flagler College"
       },
       "797": {
@@ -4003,7 +4003,7 @@
       },
       "801": {
         "id": "5761",
-        "location": "Springfield ...",
+        "location": "Springfield",
         "name": "Western New England University"
       },
       "802": {
@@ -4038,7 +4038,7 @@
       },
       "808": {
         "id": "6385",
-        "location": "McMinnville ...",
+        "location": "McMinnville",
         "name": "Linfield University"
       },
       "809": {
@@ -4048,7 +4048,7 @@
       },
       "810": {
         "id": "5502",
-        "location": "South Bend ...",
+        "location": "South Bend",
         "name": "Indiana University South Bend"
       },
       "811": {
@@ -4073,7 +4073,7 @@
       },
       "815": {
         "id": "5922",
-        "location": "Parkville ...",
+        "location": "Parkville",
         "name": "Park University"
       },
       "816": {
@@ -4083,7 +4083,7 @@
       },
       "817": {
         "id": "5603",
-        "location": "Morehead ...",
+        "location": "Morehead",
         "name": "Morehead State University"
       },
       "818": {
@@ -4103,7 +4103,7 @@
       },
       "821": {
         "id": "5156",
-        "location": "La Verne ...",
+        "location": "La Verne",
         "name": "University of La Verne"
       },
       "822": {
@@ -4123,12 +4123,12 @@
       },
       "825": {
         "id": "5239",
-        "location": "New Castle ...",
+        "location": "New Castle",
         "name": "Wilmington University"
       },
       "826": {
         "id": "5901",
-        "location": "Springfield ...",
+        "location": "Springfield",
         "name": "Drury University"
       },
       "827": {
@@ -4208,7 +4208,7 @@
       },
       "842": {
         "id": "5858",
-        "location": "Winona ...",
+        "location": "Winona",
         "name": "Saint Mary's University of Minnesota"
       },
       "843": {
@@ -4263,7 +4263,7 @@
       },
       "853": {
         "id": "5109",
-        "location": "San Diego ...",
+        "location": "San Diego",
         "name": "Point Loma Nazarene University"
       },
       "854": {
@@ -4273,7 +4273,7 @@
       },
       "855": {
         "id": "7276",
-        "location": "San Diego ...",
+        "location": "San Diego",
         "name": "Alliant International University"
       },
       "856": {
@@ -4343,7 +4343,7 @@
       },
       "869": {
         "id": "6489",
-        "location": "Moon Township ...",
+        "location": "Moon Township",
         "name": "Robert Morris University"
       },
       "870": {
@@ -4363,7 +4363,7 @@
       },
       "873": {
         "id": "6190",
-        "location": "Kings Point ...",
+        "location": "Kings Point",
         "name": "United States Merchant Marine Academy"
       },
       "874": {
@@ -4443,7 +4443,7 @@
       },
       "889": {
         "id": "5812",
-        "location": "Midland ...",
+        "location": "Midland",
         "name": "Northwood University"
       },
       "890": {
@@ -4463,7 +4463,7 @@
       },
       "893": {
         "id": "5380",
-        "location": "Aurora ...",
+        "location": "Aurora",
         "name": "Aurora University"
       },
       "894": {
@@ -4503,7 +4503,7 @@
       },
       "901": {
         "id": "5992",
-        "location": "Henniker ...",
+        "location": "Henniker",
         "name": "New England College"
       },
       "902": {
@@ -4513,7 +4513,7 @@
       },
       "903": {
         "id": "6867",
-        "location": "Waukesha ...",
+        "location": "Waukesha",
         "name": "Carroll University"
       },
       "904": {
@@ -4553,7 +4553,7 @@
       },
       "911": {
         "id": "9107",
-        "location": "Kirksville ...",
+        "location": "Kirksville",
         "name": "A.T. Still University"
       },
       "912": {
@@ -4568,7 +4568,7 @@
       },
       "914": {
         "id": "5373",
-        "location": "Lewiston ...",
+        "location": "Lewiston",
         "name": "Lewis-Clark State College"
       },
       "915": {
@@ -4673,7 +4673,7 @@
       },
       "935": {
         "id": "5622",
-        "location": "Shreveport ...",
+        "location": "Shreveport",
         "name": "Louisiana State University in Shreveport"
       },
       "936": {
@@ -4688,7 +4688,7 @@
       },
       "938": {
         "id": "5065",
-        "location": "Fresno ...",
+        "location": "Fresno",
         "name": "Fresno Pacific University"
       },
       "939": {
@@ -4713,7 +4713,7 @@
       },
       "943": {
         "id": "5516",
-        "location": "Notre Dame ...",
+        "location": "Notre Dame",
         "name": "Saint Mary's College"
       },
       "944": {
@@ -4743,7 +4743,7 @@
       },
       "949": {
         "id": "5791",
-        "location": "Grand Rapids ...",
+        "location": "Grand Rapids",
         "name": "Davenport University"
       },
       "950": {
@@ -4758,7 +4758,7 @@
       },
       "952": {
         "id": "5853",
-        "location": "Saint Paul ...",
+        "location": "Saint Paul",
         "name": "University of Northwestern - St. Paul"
       },
       "953": {
@@ -4798,7 +4798,7 @@
       },
       "960": {
         "id": "5672",
-        "location": "Emmitsburg ...",
+        "location": "Emmitsburg",
         "name": "Mount St. Mary's University"
       },
       "961": {
@@ -4843,7 +4843,7 @@
       },
       "969": {
         "id": "16914",
-        "location": "Annapolis ...",
+        "location": "Annapolis",
         "name": "St John's College"
       },
       "970": {
@@ -4863,7 +4863,7 @@
       },
       "973": {
         "id": "6371",
-        "location": "Bethany ...",
+        "location": "Bethany",
         "name": "Southern Nazarene University"
       },
       "974": {
@@ -4883,7 +4883,7 @@
       },
       "977": {
         "id": "6356",
-        "location": "Lawton ...",
+        "location": "Lawton",
         "name": "Cameron University"
       },
       "978": {
@@ -4918,7 +4918,7 @@
       },
       "984": {
         "id": "5506",
-        "location": "North Manchester ...",
+        "location": "North Manchester",
         "name": "Manchester University"
       },
       "985": {
@@ -4953,7 +4953,7 @@
       },
       "991": {
         "id": "6363",
-        "location": "Edmond ...",
+        "location": "Edmond",
         "name": "Oklahoma Christian University"
       },
       "992": {
@@ -4968,7 +4968,7 @@
       },
       "994": {
         "id": "5286",
-        "location": "West Palm Beach ...",
+        "location": "West Palm Beach",
         "name": "Palm Beach Atlantic University"
       },
       "995": {
@@ -4978,7 +4978,7 @@
       },
       "996": {
         "id": "5202",
-        "location": "Pueblo ...",
+        "location": "Pueblo",
         "name": "Colorado State University-Pueblo"
       },
       "997": {
@@ -4993,7 +4993,7 @@
       },
       "999": {
         "id": "5480",
-        "location": "Anderson ...",
+        "location": "Anderson",
         "name": "Anderson University, Indiana"
       },
       "1000": {
@@ -5008,7 +5008,7 @@
       },
       "1002": {
         "id": "6137",
-        "location": "Troy ...",
+        "location": "Troy",
         "name": "The Sage Colleges"
       },
       "1003": {
@@ -5033,7 +5033,7 @@
       },
       "1007": {
         "id": "5467",
-        "location": "Deerfield ...",
+        "location": "Deerfield",
         "name": "Trinity International University"
       },
       "1008": {
@@ -5048,7 +5048,7 @@
       },
       "1010": {
         "id": "5900",
-        "location": "Addison ...",
+        "location": "Addison",
         "name": "Chamberlain University"
       },
       "1011": {
@@ -5078,7 +5078,7 @@
       },
       "1016": {
         "id": "5560",
-        "location": "Fayette ...",
+        "location": "Fayette",
         "name": "Upper Iowa University"
       },
       "1017": {
@@ -5113,7 +5113,7 @@
       },
       "1023": {
         "id": "6816",
-        "location": "Seattle ...",
+        "location": "Seattle",
         "name": "City University of Seattle"
       },
       "1024": {
@@ -5163,7 +5163,7 @@
       },
       "1033": {
         "id": "5727",
-        "location": "Boston ...",
+        "location": "Boston",
         "name": "MCPHS University"
       },
       "1034": {
@@ -5208,7 +5208,7 @@
       },
       "1042": {
         "id": "5489",
-        "location": "Winona Lake ...",
+        "location": "Winona Lake",
         "name": "Grace College"
       },
       "1043": {
@@ -5268,7 +5268,7 @@
       },
       "1054": {
         "id": "5578",
-        "location": "Ottawa ...",
+        "location": "Ottawa",
         "name": "Ottawa University"
       },
       "1055": {
@@ -5303,7 +5303,7 @@
       },
       "1061": {
         "id": "6750",
-        "location": "Johnson ...",
+        "location": "Johnson",
         "name": "Northern Vermont University"
       },
       "1062": {
@@ -5348,7 +5348,7 @@
       },
       "1070": {
         "id": "5968",
-        "location": "Lincoln ...",
+        "location": "Lincoln",
         "name": "Nebraska Wesleyan University"
       },
       "1071": {
@@ -5368,7 +5368,7 @@
       },
       "1074": {
         "id": "6373",
-        "location": "Weatherford ...",
+        "location": "Weatherford",
         "name": "Southwestern Oklahoma State University"
       },
       "1075": {
@@ -5448,7 +5448,7 @@
       },
       "1090": {
         "id": "6748",
-        "location": "Plainfield ...",
+        "location": "Plainfield",
         "name": "Goddard College"
       },
       "1091": {
@@ -5458,12 +5458,12 @@
       },
       "1092": {
         "id": "6236",
-        "location": "Rocky Mount ...",
+        "location": "Rocky Mount",
         "name": "North Carolina Wesleyan College"
       },
       "1093": {
         "id": "6092",
-        "location": "Houghton ...",
+        "location": "Houghton",
         "name": "Houghton College"
       },
       "1094": {
@@ -5473,7 +5473,7 @@
       },
       "1095": {
         "id": "5885",
-        "location": "Hattiesburg ...",
+        "location": "Hattiesburg",
         "name": "William Carey University"
       },
       "1096": {
@@ -5528,7 +5528,7 @@
       },
       "1106": {
         "id": "5688",
-        "location": "Stevenson ...",
+        "location": "Stevenson",
         "name": "Stevenson University"
       },
       "1107": {
@@ -5613,7 +5613,7 @@
       },
       "1123": {
         "id": "14916",
-        "location": "Boston ...",
+        "location": "Boston",
         "name": "Cambridge College"
       },
       "1124": {
@@ -5633,7 +5633,7 @@
       },
       "1127": {
         "id": "5169",
-        "location": "Burbank ...",
+        "location": "Burbank",
         "name": "Woodbury University"
       },
       "1128": {
@@ -5653,7 +5653,7 @@
       },
       "1131": {
         "id": "5163",
-        "location": "Costa Mesa ...",
+        "location": "Costa Mesa",
         "name": "Vanguard University of Southern California"
       },
       "1132": {
@@ -5768,7 +5768,7 @@
       },
       "1154": {
         "id": "6446",
-        "location": "Immaculata ...",
+        "location": "Immaculata",
         "name": "Immaculata University"
       },
       "1155": {
@@ -5783,7 +5783,7 @@
       },
       "1157": {
         "id": "6277",
-        "location": "Buffalo ...",
+        "location": "Buffalo",
         "name": "Bryant and Stratton College"
       },
       "1158": {
@@ -5793,7 +5793,7 @@
       },
       "1159": {
         "id": "5838",
-        "location": "St. Bonifacius ...",
+        "location": "St. Bonifacius",
         "name": "Crown College"
       },
       "1160": {
@@ -5828,7 +5828,7 @@
       },
       "1166": {
         "id": "5491",
-        "location": "Huntington ...",
+        "location": "Huntington",
         "name": "Huntington University"
       },
       "1167": {
@@ -5853,7 +5853,7 @@
       },
       "1171": {
         "id": "5155",
-        "location": "Los Angeles ...",
+        "location": "Los Angeles",
         "name": "American Jewish University"
       },
       "1172": {
@@ -5873,7 +5873,7 @@
       },
       "1175": {
         "id": "6150",
-        "location": "Brooklyn ...",
+        "location": "Brooklyn",
         "name": "St. Joseph's College"
       },
       "1176": {
@@ -5888,7 +5888,7 @@
       },
       "1178": {
         "id": "7692",
-        "location": "The Bronx ...",
+        "location": "The Bronx",
         "name": "Monroe College"
       },
       "1179": {
@@ -5898,12 +5898,12 @@
       },
       "1180": {
         "id": "5052",
-        "location": "San Jose ...",
+        "location": "San Jose",
         "name": "University of Silicon Valley"
       },
       "1181": {
         "id": "6216",
-        "location": "Boiling Springs ...",
+        "location": "Boiling Springs",
         "name": "Gardner-Webb University"
       },
       "1182": {
@@ -5948,7 +5948,7 @@
       },
       "1190": {
         "id": "6230",
-        "location": "Montreat ...",
+        "location": "Montreat",
         "name": "Montreat College"
       },
       "1191": {
@@ -5978,7 +5978,7 @@
       },
       "1196": {
         "id": "5571",
-        "location": "Wichita ...",
+        "location": "Wichita",
         "name": "Friends University"
       },
       "1197": {
@@ -6053,7 +6053,7 @@
       },
       "1211": {
         "id": "5988",
-        "location": "Rindge ...",
+        "location": "Rindge",
         "name": "Franklin Pierce University"
       },
       "1212": {
@@ -6063,7 +6063,7 @@
       },
       "1213": {
         "id": "5436",
-        "location": "Lombard ...",
+        "location": "Lombard",
         "name": "National University of Health Sciences"
       },
       "1214": {
@@ -6073,7 +6073,7 @@
       },
       "1215": {
         "id": "5376",
-        "location": "Chicago ...",
+        "location": "Chicago",
         "name": "Adler University"
       },
       "1216": {
@@ -6098,17 +6098,17 @@
       },
       "1220": {
         "id": "6579",
-        "location": "Rapid City ...",
+        "location": "Rapid City",
         "name": "National American University"
       },
       "1221": {
         "id": "6340",
-        "location": "Tiffin ...",
+        "location": "Tiffin",
         "name": "Tiffin University"
       },
       "1222": {
         "id": "6729",
-        "location": "Plainview ...",
+        "location": "Plainview",
         "name": "Wayland Baptist University"
       },
       "1223": {
@@ -6173,7 +6173,7 @@
       },
       "1235": {
         "id": "5463",
-        "location": "Los Angeles ...",
+        "location": "Los Angeles",
         "name": "The Chicago School of Professional Psychology"
       },
       "1236": {
@@ -6243,12 +6243,12 @@
       },
       "1249": {
         "id": "6593",
-        "location": "Dayton ...",
+        "location": "Dayton",
         "name": "Bryan College"
       },
       "1250": {
         "id": "5494",
-        "location": "Fort Wayne ...",
+        "location": "Fort Wayne",
         "name": "Indiana Institute of Technology"
       },
       "1251": {
@@ -6273,7 +6273,7 @@
       },
       "1255": {
         "id": "6825",
-        "location": "Kirkland ...",
+        "location": "Kirkland",
         "name": "Northwest University"
       },
       "1256": {
@@ -6353,7 +6353,7 @@
       },
       "1271": {
         "id": "7681",
-        "location": "New York City ...",
+        "location": "New York City",
         "name": "Berkeley College"
       },
       "1272": {
@@ -6403,7 +6403,7 @@
       },
       "1281": {
         "id": "16848",
-        "location": "Fort Pierce ...",
+        "location": "Fort Pierce",
         "name": "Indian River State College"
       },
       "1282": {
@@ -6413,12 +6413,12 @@
       },
       "1283": {
         "id": "6617",
-        "location": "Elizabethton ...",
+        "location": "Elizabethton",
         "name": "Milligan University"
       },
       "1284": {
         "id": "16829",
-        "location": "Swainsboro ...",
+        "location": "Swainsboro",
         "name": "East Georgia State College"
       },
       "1285": {
@@ -6533,7 +6533,7 @@
       },
       "1307": {
         "id": "6773",
-        "location": "Emory ...",
+        "location": "Emory",
         "name": "Emory & Henry College"
       },
       "1308": {
@@ -6573,12 +6573,12 @@
       },
       "1315": {
         "id": "5360",
-        "location": "Macon ...",
+        "location": "Macon",
         "name": "Wesleyan College"
       },
       "1316": {
         "id": "6008",
-        "location": "Lodi ...",
+        "location": "Lodi",
         "name": "Felician University"
       },
       "1317": {
@@ -6603,7 +6603,7 @@
       },
       "1321": {
         "id": "6765",
-        "location": "Danville ...",
+        "location": "Danville",
         "name": "Averett University"
       },
       "1322": {
@@ -6623,12 +6623,12 @@
       },
       "1325": {
         "id": "5807",
-        "location": "Livonia ...",
+        "location": "Livonia",
         "name": "Madonna University"
       },
       "1326": {
         "id": "5577",
-        "location": "Wichita ...",
+        "location": "Wichita",
         "name": "Newman University"
       },
       "1327": {
@@ -6643,7 +6643,7 @@
       },
       "1329": {
         "id": "5080",
-        "location": "Pleasant Hill ...",
+        "location": "Pleasant Hill",
         "name": "John F. Kennedy University"
       },
       "1330": {
@@ -6658,7 +6658,7 @@
       },
       "1332": {
         "id": "5926",
-        "location": "Bolivar ...",
+        "location": "Bolivar",
         "name": "Southwest Baptist University"
       },
       "1333": {
@@ -6723,7 +6723,7 @@
       },
       "1345": {
         "id": "7290",
-        "location": "Elko ...",
+        "location": "Elko",
         "name": "Great Basin College"
       },
       "1346": {
@@ -6858,7 +6858,7 @@
       },
       "1372": {
         "id": "5514",
-        "location": "Fort Wayne ...",
+        "location": "Fort Wayne",
         "name": "University of Saint Francis"
       },
       "1373": {
@@ -6868,7 +6868,7 @@
       },
       "1374": {
         "id": "6314",
-        "location": "Mount Vernon ...",
+        "location": "Mount Vernon",
         "name": "Mount Vernon Nazarene University"
       },
       "1375": {
@@ -6973,7 +6973,7 @@
       },
       "1395": {
         "id": "7698",
-        "location": "Washington ...",
+        "location": "Washington",
         "name": "University of the Potomac"
       },
       "1396": {
@@ -6983,7 +6983,7 @@
       },
       "1397": {
         "id": "5417",
-        "location": "Elgin ...",
+        "location": "Elgin",
         "name": "Judson University"
       },
       "1398": {
@@ -6993,17 +6993,17 @@
       },
       "1399": {
         "id": "5949",
-        "location": "Havre ...",
+        "location": "Havre",
         "name": "Montana State University-Northern"
       },
       "1400": {
         "id": "5645",
-        "location": "Standish ...",
+        "location": "Standish",
         "name": "Saint Joseph's College of Maine"
       },
       "1401": {
         "id": "5608",
-        "location": "Louisville ...",
+        "location": "Louisville",
         "name": "Sullivan University"
       },
       "1402": {
@@ -7103,7 +7103,7 @@
       },
       "1421": {
         "id": "6387",
-        "location": "Portland ...",
+        "location": "Portland",
         "name": "Multnomah University"
       },
       "1422": {
@@ -7148,7 +7148,7 @@
       },
       "1430": {
         "id": "6361",
-        "location": "Alva ...",
+        "location": "Alva",
         "name": "Northwestern Oklahoma State University"
       },
       "1431": {
@@ -7158,7 +7158,7 @@
       },
       "1432": {
         "id": "6472",
-        "location": "Elkins Park ...",
+        "location": "Elkins Park",
         "name": "Salus University"
       },
       "1433": {
@@ -7233,7 +7233,7 @@
       },
       "1447": {
         "id": "6231",
-        "location": "Mount Olive ...",
+        "location": "Mount Olive",
         "name": "University of Mount Olive"
       },
       "1448": {
@@ -7263,7 +7263,7 @@
       },
       "1453": {
         "id": "7728",
-        "location": "Langhorne ...",
+        "location": "Langhorne",
         "name": "Cairn University"
       },
       "1454": {
@@ -7283,7 +7283,7 @@
       },
       "1457": {
         "id": "5120",
-        "location": "Rocklin ...",
+        "location": "Rocklin",
         "name": "William Jessup University"
       },
       "1458": {
@@ -7318,7 +7318,7 @@
       },
       "1464": {
         "id": "5654",
-        "location": "Presque Isle ...",
+        "location": "Presque Isle",
         "name": "University of Maine at Presque Isle"
       },
       "1465": {
@@ -7328,7 +7328,7 @@
       },
       "1466": {
         "id": "5450",
-        "location": "Rockford ...",
+        "location": "Rockford",
         "name": "Rockford University"
       },
       "1467": {
@@ -7353,7 +7353,7 @@
       },
       "1471": {
         "id": "5088",
-        "location": "Atherton ...",
+        "location": "Atherton",
         "name": "Menlo College"
       },
       "1472": {
@@ -7373,7 +7373,7 @@
       },
       "1475": {
         "id": "5104",
-        "location": "Carpinteria ...",
+        "location": "Carpinteria",
         "name": "Pacifica Graduate Institute"
       },
       "1476": {
@@ -7418,7 +7418,7 @@
       },
       "1484": {
         "id": "5783",
-        "location": "Howell ...",
+        "location": "Howell",
         "name": "Cleary University"
       },
       "1485": {
@@ -7468,7 +7468,7 @@
       },
       "1494": {
         "id": "5357",
-        "location": "Toccoa Falls ...",
+        "location": "Toccoa Falls",
         "name": "Toccoa Falls College"
       },
       "1495": {
@@ -7563,7 +7563,7 @@
       },
       "1513": {
         "id": "4962",
-        "location": "Juneau ...",
+        "location": "Juneau",
         "name": "University of Alaska Southeast"
       },
       "1514": {
@@ -7598,7 +7598,7 @@
       },
       "1520": {
         "id": "9104",
-        "location": "Leavenworth ...",
+        "location": "Leavenworth",
         "name": "University of Saint Mary"
       },
       "1521": {
@@ -7628,12 +7628,12 @@
       },
       "1526": {
         "id": "14913",
-        "location": "Worcester ...",
+        "location": "Worcester",
         "name": "Becker College"
       },
       "1527": {
         "id": "6603",
-        "location": "Knoxville ...",
+        "location": "Knoxville",
         "name": "Johnson University"
       },
       "1528": {
@@ -7693,7 +7693,7 @@
       },
       "1539": {
         "id": "14912",
-        "location": "Boston ...",
+        "location": "Boston",
         "name": "Bay State College"
       },
       "1540": {
@@ -7738,7 +7738,7 @@
       },
       "1548": {
         "id": "5400",
-        "location": "Eureka ...",
+        "location": "Eureka",
         "name": "Eureka College"
       },
       "1549": {
@@ -7798,7 +7798,7 @@
       },
       "1560": {
         "id": "14920",
-        "location": "Boston ...",
+        "location": "Boston",
         "name": "Fisher College"
       },
       "1561": {
@@ -7878,7 +7878,7 @@
       },
       "1576": {
         "id": "6239",
-        "location": "Winston Salem ...",
+        "location": "Winston Salem",
         "name": "Carolina University"
       },
       "1577": {
@@ -7913,7 +7913,7 @@
       },
       "1583": {
         "id": "7737",
-        "location": "San Dimas ...",
+        "location": "San Dimas",
         "name": "Life Pacific College"
       },
       "1584": {
@@ -7968,7 +7968,7 @@
       },
       "1594": {
         "id": "12339",
-        "location": "Espanola ...",
+        "location": "Espanola",
         "name": "Northern New Mexico College"
       },
       "1595": {
@@ -7983,7 +7983,7 @@
       },
       "1597": {
         "id": "14941",
-        "location": "Boca Raton ...",
+        "location": "Boca Raton",
         "name": "Everglades University"
       },
       "1598": {
@@ -8003,7 +8003,7 @@
       },
       "1601": {
         "id": "5130",
-        "location": "Fullerton ...",
+        "location": "Fullerton",
         "name": "Marshall B. Ketchum University"
       },
       "1602": {
@@ -8058,7 +8058,7 @@
       },
       "1612": {
         "id": "14915",
-        "location": "Brookline ...",
+        "location": "Brookline",
         "name": "Boston Graduate School of Psychoanalysis"
       },
       "1613": {
@@ -8163,7 +8163,7 @@
       },
       "1633": {
         "id": "6625",
-        "location": "Athens ...",
+        "location": "Athens",
         "name": "Tennessee Wesleyan University"
       },
       "1634": {
@@ -8353,12 +8353,12 @@
       },
       "1671": {
         "id": "7686",
-        "location": "Johnson City ...",
+        "location": "Johnson City",
         "name": "Davis College"
       },
       "1672": {
         "id": "5891",
-        "location": "Moberly ...",
+        "location": "Moberly",
         "name": "Central Christian College of the Bible"
       },
       "1673": {
@@ -8423,7 +8423,7 @@
       },
       "1685": {
         "id": "11683",
-        "location": "Graceville ...",
+        "location": "Graceville",
         "name": "The Baptist College of Florida"
       },
       "1686": {
@@ -8448,7 +8448,7 @@
       },
       "1690": {
         "id": "5369",
-        "location": "Boise ...",
+        "location": "Boise",
         "name": "Boise Bible College"
       },
       "1691": {
@@ -8498,7 +8498,7 @@
       },
       "1700": {
         "id": "7717",
-        "location": "Houston ...",
+        "location": "Houston",
         "name": "College of Biblical Studies"
       },
       "1701": {
@@ -8543,7 +8543,7 @@
       },
       "1709": {
         "id": "6372",
-        "location": "Bethany ...",
+        "location": "Bethany",
         "name": "Southwestern Christian University"
       },
       "1710": {
@@ -8653,7 +8653,7 @@
       },
       "1731": {
         "id": "7732",
-        "location": "Newark ...",
+        "location": "Newark",
         "name": "Pillar College"
       },
       "1732": {
@@ -8693,7 +8693,7 @@
       },
       "1739": {
         "id": "7734",
-        "location": "South Point ...",
+        "location": "South Point",
         "name": "Tri-State Bible College"
       },
       "1740": {
