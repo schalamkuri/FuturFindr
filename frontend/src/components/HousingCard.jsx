@@ -11,8 +11,8 @@ function HousingCard(props) {
             {props.type} <br></br>
             City: {props.city} <br></br>
             Monthly Rent: {props.price} <br></br>
-            Beds: {props.beds} <br></br>
-            Baths {props.baths} <br></br>
+            Beds: {props.beds ? props.beds : "Unknown"} <br></br>
+            Baths {props.baths ? props.baths : "Unknown"} <br></br>
         </Card.Text>
         <a href={`/housing/${props.id}`} className="stretched-link"></a>
       </Card.Body>
