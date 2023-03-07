@@ -26,7 +26,6 @@ function Housing() {
       const data = await backendApi.get(
         endpoint
       )
-      console.log(data)
       setHousing(data.data.data)
       setLoad(true)
     } catch (e) {
@@ -36,7 +35,7 @@ function Housing() {
 
   useEffect(() => {
     getHousing()
-  }, [housingList, load])
+  },[housingList, load])
 
 
   // Create intermediate pages
@@ -78,9 +77,9 @@ function Housing() {
                 beds = {data.bedrooms}
                 baths = {data.bathrooms}
                 dateListed = {data.date_listed}
-                images = {data.id != "12-E-46th-St,-New-York,-NY-10017" && data.id != "125-Rivington-St,-Apt-2,-New-York,-NY-10002"? (
-                  data.images.length != 0 ? data.images[0].img_url 
-                  : "https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg"
+                image = {data.id !== "12-E-46th-St,-New-York,-NY-10017" && data.id !== "125-Rivington-St,-Apt-2,-New-York,-NY-10002"? (
+                  data.images.length !== 0 ? data.images[0].img_url 
+                  : "https://www.pngkit.com/png/detail/413-4134663_house-vector-library-house-clipart-grey.png"
                 ) : data.images[5].img_url}
                 // {data.images.length != 0 ? data.images[0].img_url 
                 //   : "https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg"}

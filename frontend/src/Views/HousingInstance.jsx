@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 function HousingInstance() {
     const id = useParams()['id']
-    const [house, setHouse] = useState();
+    const [house, setHouse] = useState([]);
     const [load, setLoad] = useState(false);
 	const [items, setItems] = useState([])
 
@@ -38,7 +38,7 @@ function HousingInstance() {
     
       useEffect(() => {
     	getHouse()
-      }, [house, load, items])
+      },)
 
     return (
         <div>
@@ -46,8 +46,8 @@ function HousingInstance() {
         <Container>
         <Card className="card border-dark mb-3" style={{height: "90%"}}>
         <Card.Img variant="top" src={house.images.img_url} />
-        {house.images.length == 0 ? 
-			<Card.Img variant="top" src={"https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg"} /> :
+        {house.images.length === 0 ? 
+			<Card.Img variant="top" src={"https://www.pngkit.com/png/detail/413-4134663_house-vector-library-house-clipart-grey.png"} /> :
 			<Carousel slide={false}>
 				{items}
 			</Carousel>

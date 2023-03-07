@@ -1,51 +1,68 @@
-import React from "react";
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { CollegesMap } from "../Assets/Data/CollegesMap";
-import  CollegeData from "../Assets/Data/colleges.json";
-import Jobs from "./jobs";
-import Housing from "./housing";
+import { backendApi } from "../Assets/Data/Constants";
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
 
 function CollegeInstance() {
-    const params = useParams()
-    let id = params['id']
-    let props = CollegeData[CollegesMap[id]]
+    const id = useParams()['id']
+    const [college, setCollege] = useState([]);
+    const [load, setLoad] = useState(false);
+
+    const getCollege = async () => {
+        try {
+        	var endpoint = 'housing/' + id
+    		const data = await backendApi.get(
+            	endpoint
+          	)
+			setCollege(data.data.data);
+			setLoad(true);
+        } catch (e) {
+          	console.log(e);
+        }
+      };
+    
+      useEffect(() => {
+    	getCollege()
+      },)
 
     return (
         <div>
-        <Container>
-            <Card className="card border-dark mb-3">
-            <Card.Img variant="top" src={props.media} />
+        {load ? (
+            <Container>
+            <Card className="card border-dark mb-3" style={{height: "90%" }}>
+            <Card.Img variant="top" src={college.img_url ? college.img_url : "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"}/>
             <Card.Body>
-                <Card.Title>{props.name}</Card.Title>
+                <Card.Title>{college.name}</Card.Title>
                 <Card.Text>
-                    Tuition: ${props.tuition} <br></br>
-                    Rank: {props.rank} <br></br>
-                    Graduation Rate: {props.graduation_rate}% <br></br>
-                    Acceptance Rate: {props.acceptance_rate}% <br></br>
-                    City: {props.city} <br></br>
+                    Instate Tuition: ${college.instate_tuition ? college.instate_tuition : "~"} <br></br>
+					Outstate Tuition: ${college.outstate_tuition ? college.outstate_tuition : "~"} <br></br>
+					Admission Rate: %{college.admission_rate ? Math.trunc(college.admission_rate * 100) : "~"} <br></br>
+					City: {college.city} <br></br>
                 </Card.Text>
             </Card.Body>
+            <Button variant="info" href={college.url}>See College</Button>
             </Card>
-        </Container>
-        <h2 style = {{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
-            Check out jobs in the same city!
-        </h2>;
-        {/* <Jobs/> */}
-        <h2 style = {{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
-            Check out housing in the same city!
-        </h2>;
-        {/* <Housing/> */}
-        </div>
+            </Container>
+            // <h2 style = {{
+            //     display: "flex",
+            //     justifyContent: "center",
+            //     alignItems: "center"
+            // }}>
+            //     Check out jobs in the same city!
+            // </h2>;
+            // <h2 style = {{
+            //     display: "flex",
+            //     justifyContent: "center",
+            //     alignItems: "center"
+            // }}>
+            //     Check out housing in the same city!
+            // </h2>;
+        // </div>
+        ): (<Spinner animation="border" variant="info"/>)}
+        </div> 
     )
 }
 

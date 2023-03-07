@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 
-
 function JobsInstance() {
     const id = useParams()['id']
     const [job, setJob] = useState([]);
@@ -27,14 +26,14 @@ function JobsInstance() {
     
       useEffect(() => {
         getJob()
-      }, [job, load])
+      },)
 
     return (
         <div>
         {load ? (
         <Container>
         <Card className="card border-dark mb-3" style={{height: "90%" }}>
-        <Card.Img variant="top" src={"https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg"}/>
+        <Card.Img variant="top" src={"https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"}/>
         <Card.Body>
             <Card.Title>{job.title}</Card.Title>
             <Card.Text>

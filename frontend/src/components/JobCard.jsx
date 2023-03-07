@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 function JobCard(props) {
   return (
     <Card className="card border-dark mb-3" style={{height: "90%" }}>
-      <Card.Img variant="top" src={"https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg"}/>
+      <Card.Img variant="top" src={"https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"}/>
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>

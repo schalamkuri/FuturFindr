@@ -1,75 +1,124 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
+import {backendApi} from "../Assets/Data/Constants"
 import CollegeCard from "../components/CollegeCard";
-import CollegeList from "../Assets/Data/colleges.json"
 import Container from "react-bootstrap/esm/Container";
 import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 function Colleges() {
   // State
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
+  const [collegeList, setColleges] = useState([]);
+  const [load, setLoad] = useState(false);
+  const postsPerPage = 8;
+  const totalColleges = 4000;
 
-  // Get current posts
-  var indexOfLastPost = currentPage * postsPerPage;
+  // Indexes
+  var indexOfLastPost = currentPage * postsPerPage < totalColleges ?
+    currentPage * postsPerPage : totalColleges;
   var indexOfFirstPost = indexOfLastPost - postsPerPage;
-  var currentPosts = CollegeList.slice(indexOfFirstPost, indexOfLastPost);
-  var pages = []
 
-  // Make page button for each page
-  for (let number = 1; number <= Math.ceil(CollegeList.length / postsPerPage); number++) {
-    pages.push(
-      <Pagination.Item
-        key={number}
-        active={number === currentPage}
-        onClick={() => pagination(number)}
-      >
-        {number}
-      </Pagination.Item>
-    );
+  const getColleges = async () => {
+    try {
+      var endpoint = 'colleges?page='+ currentPage + '&per_page=8'
+      const data = await backendApi.get(
+        endpoint
+      )
+      setColleges(data.data.data)
+      setLoad(true)
+    } catch (e) {
+      console.log(e)
+    }
+  };
+
+  useEffect(() => {
+    getColleges()
+  }, [collegeList, load])
+
+
+  // Create intermediate pages
+  let numPages = Math.ceil(totalColleges / postsPerPage)
+  var pages = []
+  for (let number = currentPage - 1; number <= currentPage + 1; number++) {
+    if (number > 0 && number <= numPages) {
+      pages.push(
+        <Pagination.Item
+          key={number}
+          active={number === currentPage}
+          onClick={() => pagination(number)}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
   }
 
-  // On click funtion for paginator
+  // On click function for paginator
   function pagination(number) {
-    indexOfLastPost = currentPage * postsPerPage;
-    indexOfFirstPost = indexOfLastPost - postsPerPage;
-    currentPosts = CollegeList.slice(indexOfFirstPost, indexOfLastPost);
     setCurrentPage(number);
   }
 
   return (
     <>
-    <Container fluid>
-      <Row>{
-        currentPosts.map(data => {
-          return (
-            <Col sm={3} key={data.id}>
-              <CollegeCard
+    <div style={{
+      display: "block",
+      marginLeft: "auto",
+      marginRight: "auto"  }}>
+      {load ? (
+        <>
+        <Row>{
+          collegeList.map(data => {
+            return (
+              <Col sm={3} key={data.id}>
+                <CollegeCard
                 id={data.id}
                 name={data.name}
-                tuition={data.tuition}
-                image_url={data.media}
-                rank={data.rank}
-                graduation_rate={data.graduation_rate}
-                acceptance_rate={data.acceptance_rate}
+                instateTuition={data.instate_tuition}
+                outstateTuition={data.outstate_tuition}
+                image_url={data.img_url}
+                admissionRate={data.admission_rate}
                 city={data.city}
               />
-            </Col>
-          );
-        })
-      }</Row>
-      <Pagination style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",}}>
-        {pages}
-      </Pagination>
-      <p class="font-weight-light text-right">
-        Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {CollegeList.length}
-      </p>
-    </Container>  
-    </>
+              </Col>
+            );
+          })
+        }</Row>
+        <Pagination style = {{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"}}>
+          {currentPage > 2 && (
+            <Pagination.Item
+              key={1}
+              onClick={() => pagination(1)}
+              active={1 === currentPage}
+            >
+              1
+            </Pagination.Item>
+          )}
+          {currentPage > 3 && <Pagination.Ellipsis />}
+          {pages}
+          {currentPage < numPages - 3 && <Pagination.Ellipsis />}
+          {currentPage < numPages - 2 && (
+            <Pagination.Item
+              key={numPages}
+              onClick={() => pagination(numPages)}
+              active={numPages === currentPage}
+            >
+              {numPages}
+            </Pagination.Item>
+          )}
+        </Pagination>
+        <p className="font-weight-light text-right">
+          Showing instances {indexOfFirstPost}-{indexOfLastPost} out of {totalColleges}
+        </p>
+        </>
+      ): (<Spinner animation="border" variant="info"/>)}
+  </div>
+  </>
   );
 }
 
