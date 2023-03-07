@@ -3,12 +3,15 @@
 
 from flask import Flask, jsonify, request, Response
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import literal_column
 from sqlalchemy.sql import text, column, desc
 from models import app, db, Job, College, HousingUnit, HousingUnitImage
 from schema import job_schema, housing_unit_schema, college_schema, housing_unit_img_schema, college_img_schema
 import json
 
 DEFAULT_PAGE_SIZE = 9
+DEFAULT_NEARBY_RETURNED = 3
+DEFAULT_NEARBY_RADIUS = 500
 
 # Home page
 @app.route("/")
@@ -77,6 +80,15 @@ def get_college(instance_id):
     result = college_schema.dump(college)
     college_images = college_img_schema.dump(college.images, many=True)
     result.update({"images": college_images})
+
+    # also return nearby housing
+    temp1 = get_nearby_housing(result["latitude"], result["longitude"], DEFAULT_NEARBY_RETURNED)
+    result.update({"nearby_housing": temp1})
+
+    # also return nearby jobs
+    temp2 = get_nearby_jobs(result["latitude"], result["longitude"], DEFAULT_NEARBY_RETURNED)
+    result.update({"nearby_jobs": temp2})
+
     return jsonify({"data": result})
 
 @app.route("/housing/<string:instance_id>")
@@ -86,15 +98,13 @@ def get_housing_unit(instance_id):
         return Response(json.dumps({"error": "Invalid housing unit ID"}), mimetype="application/json")
     result = housing_unit_schema.dump(house)
 
-    # also return a nearby job
-    temp1 = Job.query.filter_by(city=result["city"]).first()
-    nearby_job = job_schema.dump(temp1)
-    result.update({"nearby_job" : nearby_job})
+     # also return nearby colleges
+    temp1 = get_nearby_colleges(result["latitude"], result["longitude"], DEFAULT_NEARBY_RETURNED)
+    result.update({"nearby_colleges": temp1})
 
-    # also return a nearby college
-    # temp2 = College.query.filter_by(city=result["city"]).first()
-    # nearby_college = college_schema.dump(temp2)
-    # result.update({"nearby_college" : nearby_college})
+    # also return nearby jobs
+    temp2 = get_nearby_jobs(result["latitude"], result["longitude"], DEFAULT_NEARBY_RETURNED)
+    result.update({"nearby_jobs": temp2})
 
     return jsonify({"data": result})
 
@@ -105,21 +115,78 @@ def get_job(instance_id):
         return Response(json.dumps({"error": "Invalid job ID"}), mimetype="application/json")
     result = job_schema.dump(job)
 
-    # also return a nearby housing unit
-    temp1 = Job.query.filter_by(city=result["city"]).first()
-    nearby_job = job_schema.dump(temp1)
-    result.update({"nearby_housing_unit" : nearby_job})
+    # also return nearby colleges
+    temp1 = get_nearby_colleges(result["latitude"], result["longitude"], DEFAULT_NEARBY_RETURNED)
+    result.update({"nearby_colleges": temp1})
+
+    # also return nearby housing
+    temp2 = get_nearby_housing(result["latitude"], result["longitude"], DEFAULT_NEARBY_RETURNED)
+    print(temp2)
+    result.update({"nearby_housing_units": temp2})
 
     return jsonify({"data": result})
-
-# google maps api key "AIzaSyB--bIa6UPVD5X1MRBveqR6A7Hy4-tMfSo"
 
 def paginate_helper(page_num, per_page, query):
     return query.paginate(page=page_num, per_page=(DEFAULT_PAGE_SIZE if per_page is None else per_page), \
                           error_out=False).items
 
+
+# Helper methods for returning nearby model instances
+# inspired by StudySpots https://gitlab.com/jakem02/cs373-idb/-/blob/main/backend/model_functions.py
+
+def get_nearby_colleges(lat, lng, num):
+    temp = (
+        db.session.query(
+        College.name,
+        College.id,
+        College.latitude,
+        College.longitude,
+        literal_column(
+            "SQRT(POW(69.1 * (latitude - " + str(lat) + "), 2) + POW(69.1 * ("
+            + str(lng) + " - longitude) * COS(latitude / 57.3), 2))").label("distance"),
+    ).order_by("distance").subquery()
+    )
+    nearby_colleges = db.session.query(temp).filter(text("distance<" + str(DEFAULT_NEARBY_RADIUS))).all()
+    if num > 0:
+        nearby_colleges = nearby_colleges[:num]
+    return college_schema.dump(nearby_colleges, many = True)
+
+def get_nearby_housing(lat, lng, num):
+    temp = (
+        db.session.query(
+        HousingUnit.address,
+        HousingUnit.property_type,
+        HousingUnit.id,
+        HousingUnit.latitude,
+        HousingUnit.longitude,
+        literal_column(
+            "SQRT(POW(69 * (latitude - " + str(lat) + "), 2) + POW(69 * ("
+            + str(lng) + " - longitude) * COS(latitude / 57), 2))").label("distance"),
+        ).order_by("distance").subquery()
+    )
+    nearby_housing = db.session.query(temp).filter(text("distance<" + str(DEFAULT_NEARBY_RADIUS))).all()
+    if num > 0:
+        nearby_housing = nearby_housing[:num]
+    return housing_unit_schema.dump(nearby_housing, many = True)
+
+def get_nearby_jobs(lat, lng, num):
+    temp = (
+        db.session.query(
+        Job.title,
+        Job.id,
+        Job.latitude,
+        Job.longitude,
+        literal_column(
+            "SQRT(POW(69.1 * (latitude - " + str(lat) + "), 2) + POW(69.1 * ("
+            + str(lng) + " - longitude) * COS(latitude / 57.3), 2))").label("distance"),
+    ).order_by("distance").subquery()
+    )
+    nearby_jobs = db.session.query(temp).filter(text("distance<" + str(DEFAULT_NEARBY_RADIUS))).all()
+    if num > 0:
+        nearby_jobs = nearby_jobs[:num]
+    return job_schema.dump(nearby_jobs, many = True)
+
+
 # Run app
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
-
-
