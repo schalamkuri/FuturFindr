@@ -119,7 +119,6 @@ def get_job(instance_id):
 
     # also return nearby housing
     temp2 = get_nearby_housing(result["latitude"], result["longitude"], DEFAULT_NEARBY_RETURNED)
-    print(temp2)
     result.update({"nearby_housing_units": temp2})
 
     return jsonify({"data": result})
@@ -139,6 +138,7 @@ def get_nearby_colleges(lat, lng, num):
         College.id,
         College.latitude,
         College.longitude,
+        College.img_url,
         literal_column(
             "SQRT(POW(69.1 * (latitude - " + str(lat) + "), 2) + POW(69.1 * ("
             + str(lng) + " - longitude) * COS(latitude / 57.3), 2))").label("distance"),
@@ -157,6 +157,7 @@ def get_nearby_housing(lat, lng, num):
         HousingUnit.id,
         HousingUnit.latitude,
         HousingUnit.longitude,
+        HousingUnit.images,
         literal_column(
             "SQRT(POW(69 * (latitude - " + str(lat) + "), 2) + POW(69 * ("
             + str(lng) + " - longitude) * COS(latitude / 57), 2))").label("distance"),
@@ -175,6 +176,7 @@ def get_nearby_jobs(lat, lng, num):
         Job.id,
         Job.latitude,
         Job.longitude,
+        Job.img_url,
         literal_column(
             "SQRT(POW(69.1 * (latitude - " + str(lat) + "), 2) + POW(69.1 * ("
             + str(lng) + " - longitude) * COS(latitude / 57.3), 2))").label("distance"),

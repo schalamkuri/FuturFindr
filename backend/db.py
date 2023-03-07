@@ -1,4 +1,5 @@
 import json
+import time
 import sys
 from models import app, db, College, HousingUnit, HousingUnitImage, Job
 import googlemaps
@@ -6,7 +7,8 @@ import wikipedia
 from googleapiclient.discovery import build
 
 gmaps = googlemaps.Client(key='AIzaSyB--bIa6UPVD5X1MRBveqR6A7Hy4-tMfSo')
-gsearch_key = "AIzaSyBQ3-z04RoOVwb93OevrNok30ZRTXoc4mE"
+gsearch_keys = ["AIzaSyBQ3-z04RoOVwb93OevrNok30ZRTXoc4mE", "", ""]
+index = 0
 gsearch_id = "90e585031d91d445c"
 adzuna_img_link = "https://zunastatic-abf.kxcdn.com/images/global/jobs/fb_share.png"
 
@@ -15,11 +17,10 @@ adzuna_img_link = "https://zunastatic-abf.kxcdn.com/images/global/jobs/fb_share.
 # https://github.com/googleapis/google-api-python-client/blob/main/samples/customsearch/main.py
 
 # First, build a service object for interacting with the API.
-service = build(
-    "customsearch", "v1", developerKey=gsearch_key
-)
-
 def google_search(term):
+    service = build(
+        "customsearch", "v1", developerKey=gsearch_keys[index]
+    )
     result = (
         service.cse()
         .list(
@@ -36,12 +37,12 @@ def google_search(term):
         return None
 
 def populate_db():
-    populate_colleges()
-    print("Finished filling college data.")
-    populate_housing()
-    print("Finished filling housing data.")
-    populate_housing_imgs()
-    print("Finished filling housing image data.")
+    #populate_colleges()
+    #print("Finished filling college data.")
+    #populate_housing()
+    #print("Finished filling housing data.")
+    #populate_housing_imgs()
+    #print("Finished filling housing image data.")
     populate_jobs()
     print("Finished filling job data.")
 
@@ -67,10 +68,12 @@ def populate_colleges():
                 "outstate_tuition": college["2020.cost.tuition.out_of_state"] if "2020.cost.tuition.out_of_state" in college else None,
                 "instate_tuition": college["2020.cost.tuition.in_state"] if "2020.cost.tuition.in_state" in college else None,
                 "url": college["school.school_url"] if "school.school_url" in college else None,
-                "img_url": image if image else None
+                "img_url": image if image and len(image) <= 1000 else None
             }
 
             db.session.add(College(**db_row))
+            time.sleep(0.6)
+
     db.session.commit()
 
 def populate_housing():
@@ -132,7 +135,7 @@ def populate_jobs():
     for job in fulltime_job_data['results']:
         if "company" in job:
             # find image from google custom search too
-            image = google_search(job["company"])
+            image = google_search(job["company"]["display_name"])
         db_row = {
             "id": job["id"],
             "title": job["title"],
@@ -147,9 +150,10 @@ def populate_jobs():
             "longitude": job["longitude"] if "longitude" in job else None,
             "description": job["description"],
             "created": job["created"],
-            "img_url" : image if image else None
+            "img_url" : image if image and len(image) <= 1000 else None
         }
         db.session.add(Job(**db_row))
+        time.sleep(0.6)
 
     temp = open("api_data/part_time_jobs.json", encoding="utf8")
     parttime_job_data = json.load(temp)
@@ -158,7 +162,7 @@ def populate_jobs():
     for job in parttime_job_data['results']:
         if "company" in job:
             # find image from google custom search too
-            image = google_search(job["company"])
+            image = google_search(job["company"]["display_name"])
         db_row = {
             "id": job["id"],
             "title": job["title"],
@@ -173,15 +177,16 @@ def populate_jobs():
             "longitude": job["longitude"] if "longitude" in job else None,
             "description": job["description"],
             "created": job["created"],
-            "img_url" : image if image else None
+            "img_url" : image if image and len(image) <= 1000 else None
         }
         db.session.add(Job(**db_row))
+        time.sleep(0.6)
 
     db.session.commit()
 
 if __name__ == "__main__":
     with app.app_context():
-        db.drop_all()
-        db.create_all()
-        print("Reset database to empty - starting to fill database...")
+        #db.drop_all()
+        #db.create_all()
+        #print("Reset database to empty - starting to fill database...")
         populate_db()
