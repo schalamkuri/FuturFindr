@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import literal_column
 from sqlalchemy.sql import text, column, desc
 from models import app, db, Job, College, HousingUnit, HousingUnitImage
-from schema import job_schema, housing_unit_schema, college_schema, housing_unit_img_schema, college_img_schema
+from schema import job_schema, housing_unit_schema, college_schema, housing_unit_img_schema
 import json
 
 DEFAULT_PAGE_SIZE = 9
@@ -78,8 +78,6 @@ def get_college(instance_id):
     if college == None:
         return Response(json.dumps({"error": "Invalid college ID"}), mimetype="application/json")
     result = college_schema.dump(college)
-    college_images = college_img_schema.dump(college.images, many=True)
-    result.update({"images": college_images})
 
     # also return nearby housing
     temp1 = get_nearby_housing(result["latitude"], result["longitude"], DEFAULT_NEARBY_RETURNED)

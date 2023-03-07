@@ -12,20 +12,14 @@ db = SQLAlchemy(app)
 class College(db.Model) :
     id = db.Column(db.BigInteger, primary_key = True)
     city = db.Column(db.String(40))
-    name = db.Column(db.String(70))
-    zip = db.Column(db.Integer)
+    name = db.Column(db.String(100))
     latitude = db.Column(db.Float)
     longitude = db.Column(db.Float)
     admission_rate = db.Column(db.Float)
-    ranking = db.Column(db.Integer)
-    tuition = db.Column(db.Integer)
-    images = db.relationship('CollegeImage', backref = 'college')
-
-class CollegeImage(db.Model) :
-    id = db.Column(db.BigInteger, primary_key = True)
-    college_id = db.Column(db.BigInteger, db.ForeignKey('college.id'))
+    instate_tuition = db.Column(db.Integer)
+    outstate_tuition = db.Column(db.Integer)
+    url = db.Column(db.String(150))
     img_url = db.Column(db.String(200))
-
 
 class HousingUnit(db.Model) :
     id = db.Column(db.String(65), primary_key = True)

@@ -1,18 +1,40 @@
 import json
 import sys
-from models import app, db, College, CollegeImage, HousingUnit, HousingUnitImage, Job
+from models import app, db, College, HousingUnit, HousingUnitImage, Job
 import googlemaps
 
 gmaps = googlemaps.Client(key='AIzaSyB--bIa6UPVD5X1MRBveqR6A7Hy4-tMfSo')
 
 def populate_db():
-    #populate_colleges()
+    populate_colleges()
     populate_housing()
     populate_housing_imgs()
     populate_jobs()
 
 def populate_colleges():
-    pass
+    temp = open("api_data/college_data.json")
+    college_data = json.load(temp)
+    temp.close()
+
+    # File is an array of arrays
+    for college in college_data["results"] :
+            # find lat/long coordinates for address
+            if "school.name" in college:
+                geocode_result = gmaps.geocode(college["school.name"])
+            db_row = {
+                "id": college["id"] if "id" in college else None,
+                "city": college["school.city"] if "school.city" in college else None,
+                "name": college["school.name"] if "school.name" in college else None,
+                "latitude": geocode_result[0]['geometry']['location']['lat'] if geocode_result else None,
+                "longitude": geocode_result[0]['geometry']['location']['lng'] if geocode_result else None,
+                "admission_rate": college["2020.admissions.admission_rate.overall"] if "2020.admissions.admission_rate.overall" in college else None,
+                "outstate_tuition": college["2020.cost.tuition.out_of_state"] if "2020.cost.tuition.out_of_state" in college else None,
+                "instate_tuition": college["2020.cost.tuition.in_state"] if "2020.cost.tuition.in_state" in college else None,
+                "url": college["school.school_url"] if "school.school_url" in college else None
+            }
+
+            db.session.add(College(**db_row))
+    db.session.commit()
 
 # code inspired by study spots, will be used for college pictures later
 # def populate_college_imgs():
