@@ -36,7 +36,7 @@ const aboutUs = [{
     gitlab: "frasosa",
     role: "Full-Stack",
     commits: 0,
-    issues: 12,
+    issues: 0,
     tests: 0,
     pic : frankPic
   }, {
@@ -48,7 +48,7 @@ const aboutUs = [{
     role: "Full-Stack",
     commits: 0,
     issues: 0,
-    tests: 0,
+    tests: 10,
     pic : riteshPic
   }, {
     name: "Josiah Valdez",

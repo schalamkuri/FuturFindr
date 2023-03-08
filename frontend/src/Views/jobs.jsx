@@ -81,7 +81,8 @@ function Jobs() {
                   salaryMin = {data.salary_min}
                   salaryMax = {data.salary_max}
                   datePosted = {data.created}
-                  image = {data.img_url}
+                  image = {data.img_url ? data.img_url :
+                    "https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"}
                 />
               </Col>
             );

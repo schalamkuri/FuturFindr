@@ -20,11 +20,6 @@ const toolsUsed = [{
     pic : reactBootstrapPic,
     link: "https://react-bootstrap.github.io/"
   }, {
-    name: "Material-UI",
-    desc: "Additional react component library",
-    pic : materialUIPic,
-    link: "https://material-ui.com/"
-  }, {
     name: "NameCheap",
     desc: "Where we bought our domain name!",
     pic : nameCheapPic,

@@ -77,7 +77,7 @@ function Colleges() {
                 name={data.name}
                 instateTuition={data.instate_tuition}
                 outstateTuition={data.outstate_tuition}
-                img_url={data.img_url}
+                img_url={data.img_url ? data.img_url : "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"}
                 admissionRate={data.admission_rate}
                 city={data.city}
               />

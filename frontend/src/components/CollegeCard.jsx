@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 function CollegeCard(props) {
 	return (
 		<Card className="card border-dark mb-3" style={{height: "90%"}}>
-			<Card.Img variant="top" src={props.img_url ? props.img_url : "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"}/>
+			<Card.Img variant="top" src={props.img_url}/>
 			<Card.Body>
 				<Card.Title>{props.name}</Card.Title>
 				<Card.Text>

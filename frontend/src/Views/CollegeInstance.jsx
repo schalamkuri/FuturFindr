@@ -69,7 +69,8 @@ function CollegeInstance() {
                     <Col sm={4} key={job.id}>
                     <div className='portfolio-wrapper'>
                         <a href={`/jobs/${job.id}`} >
-                        <Image src={job.img_url ? job.img_url : "https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"} />
+                        <Image src={job.img_url ? job.img_url : 
+                            "https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"} />
                         <div className='label text-center'>
                             <h3>{job.title}</h3>
                             <p>{job.company}</p>
