@@ -19,6 +19,8 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
     "react-test-renderer": "^18.2.0",
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.8.1",
     "sort-by": "^0.0.2",
     "web-vitals": "^2.1.4"
   },
@@ -51,8 +53,7 @@
     "@babel/preset-env": "^7.20.2",
     "babel-jest": "^29.5.0",
     "jest": "^27.5.1"
-    
-  }, 
+  },
   "jest": {
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
