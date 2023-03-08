@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router'
 import { backendApi } from "../Assets/Data/Constants";
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image'
 import Spinner from 'react-bootstrap/Spinner';
+import "./connections.css"
 
 function JobsInstance() {
     const id = useParams()['id']
@@ -33,11 +37,11 @@ function JobsInstance() {
         {load ? (
         <Container>
         <Card className="card border-dark mb-3" style={{height: "90%" }}>
-        <Card.Img variant="top" src={"https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"}/>
+        <Card.Img variant="top" src={job.img_url ? job.img_url :"https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"}/>
         <Card.Body>
             <Card.Title>{job.title}</Card.Title>
             <Card.Text>
-                {job.company} <br></br>
+                Company: {job.company} <br></br>
                 Industry: {job.category} <br></br>
                 Location: {job.city} <br></br>
                 Pay range: ${job.salary_min}-{job.salary_max} <br></br>
@@ -47,23 +51,63 @@ function JobsInstance() {
         <Card.Footer>{job.description}</Card.Footer>
         <Button variant="info" href={job.url}>See job listing</Button>
         </Card>
+        {job.nearby_housing_units.length !== 0 ? (
+            <>
+            <div className="title-holder">
+            <h2>Housing</h2>
+            <div className="subtitle">Checkout nearby housing</div>
+            </div>
+            <Row className='portfoliolist'>
+            {
+                job.nearby_housing_units.map(housing => {
+                    return (
+                    <Col sm={4} key={housing.id}>
+                        <div className='portfolio-wrapper'>
+                        <a href={`/housing/${housing.id}`} >
+                            <Image src={housing.img_url ? housing.img_url : 
+                                "https://www.pngkit.com/png/detail/413-4134663_house-vector-library-house-clipart-grey.png"} />
+                            <div className='label text-center'>
+                            <h3>{housing.address}</h3>
+                            <p>{housing.property_type}</p>
+                            </div>
+                        </a>
+                        </div>
+                    </Col>
+                    );
+                })
+            }
+            </Row>
+            </>
+          ): null}
+          {job.nearby_colleges.length !== 0 ? (
+          <>
+          <div className="title-holder">
+            <h2>Colleges</h2>
+            <div className="subtitle">Checkout nearby colleges</div>
+          </div>
+          <Row className='portfoliolist'>
+          {
+              job.nearby_colleges.map(college => {
+                  return (
+                  <Col sm={4} key={college.id}>
+                      <div className='portfolio-wrapper'>
+                      <a href={`/colleges/${college.id}`} >
+                          <Image src={college.img_url ? college.img_url : 
+                              "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"} />
+                          <div className='label text-center'>
+                          <h3>{college.name}</h3>
+                          <p>{college.city}</p>
+                          </div>
+                      </a>
+                      </div>
+                  </Col>
+                  );
+              })
+          }
+          </Row>
+          </>
+        ): null}
         </Container>
-        // <h2 style = {{
-        //     display: "flex",
-        //     justifyContent: "center",
-        //     alignItems: "center"
-        // }}>
-        //     Check out housing in the same city!
-        // </h2>;
-        // {/* <Housing/> */}
-        // <h2 style = {{
-        //     display: "flex",
-        //     justifyContent: "center",
-        //     alignItems: "center"
-        // }}>
-        //     Check out nearby Colleges!
-        // </h2>;
-        //{/* <Colleges/> */}
         ): (<Spinner animation="border" variant="info"/>)}
         </div> 
     )

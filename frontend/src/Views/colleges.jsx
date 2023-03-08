@@ -77,7 +77,7 @@ function Colleges() {
                 name={data.name}
                 instateTuition={data.instate_tuition}
                 outstateTuition={data.outstate_tuition}
-                image_url={data.img_url}
+                img_url={data.img_url}
                 admissionRate={data.admission_rate}
                 city={data.city}
               />

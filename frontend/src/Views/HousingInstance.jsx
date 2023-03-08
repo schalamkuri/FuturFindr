@@ -63,11 +63,13 @@ function HousingInstance() {
                 {house.property_type} <br></br>
                 City: {house.city} <br></br>
                 Monthly Rent: ${house.price} <br></br>
-                Beds: {house.bedrooms ? house.bedrooms : "Unknown"} <br></br>
-                Baths {house.bathrooms ? house.bedrooms : "Unknown"} <br></br>
+                Beds: {house.bedrooms ? house.bedrooms : "~"} <br></br>
+                Baths {house.bathrooms ? house.bedrooms : "~"} <br></br>
             </Card.Text>
         </Card.Body>
         </Card>
+        {house.nearby_jobs.length !== 0 ? (
+        <>
         <div className="title-holder">
           <h2>Jobs</h2>
           <div className="subtitle">Checkout nearby jobs</div>
@@ -79,10 +81,11 @@ function HousingInstance() {
                 <Col sm={4} key={job.id}>
                   <div className='portfolio-wrapper'>
                     <a href={`/jobs/${job.id}`} >
-                      <Image src={"https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"} />
+                      <Image src={job.img_url ? job.img_url : 
+                        "https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"} />
                       <div className='label text-center'>
                         <h3>{job.title}</h3>
-                        <p>{job.property_type}</p>
+                        <p>{job.company}</p>
                       </div>
                     </a>
                   </div>
@@ -91,42 +94,41 @@ function HousingInstance() {
             })
           }
         </Row>
+        </>
+        ): null}
+        {house.nearby_colleges.length !== 0 ? (
+        <>
+        <div className="title-holder">
+          <h2>Colleges</h2>
+          <div className="subtitle">Checkout nearby colleges</div>
+        </div>
+        <Row className='portfoliolist'>
+        {
+            house.nearby_colleges.map(college => {
+                return (
+                <Col sm={4} key={college.id}>
+                    <div className='portfolio-wrapper'>
+                    <a href={`/colleges/${college.id}`} >
+                        <Image src={college.img_url ? college.img_url : 
+                            "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"} />
+                        <div className='label text-center'>
+                        <h3>{college.name}</h3>
+                        <p>{college.city}</p>
+                        </div>
+                    </a>
+                    </div>
+                </Col>
+                );
+            })
+        }
+        </Row>
+        </>
+        ): null}
         </Container>
-
         ): (<Spinner animation="border" variant="info"/>)}
-
-        {/* <Container>
-            <Card className="card border-dark mb-3">
-            <Card.Img variant="top" src={props.image_url} />
-            <Card.Body>
-                <Card.Title>{props.name}</Card.Title>
-                <Card.Text>
-                    {props.type} <br></br>
-                    City: {props.city} <br></br>
-                    Monthly Rent: {props.price} <br></br>
-                    Beds: {props.beds} <br></br>
-                    Baths {props.baths} <br></br>
-                </Card.Text>
-            </Card.Body>
-            </Card>
-        </Container>
-        <h2 style = {{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
-            Check out jobs in the same city!
-        </h2>;
-        <h2 style = {{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
-            Check out nearby Colleges!
-        </h2>; */}
-
         </div>
     )
+
 }
 
 export default HousingInstance

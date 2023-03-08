@@ -81,7 +81,7 @@ function Jobs() {
                   salaryMin = {data.salary_min}
                   salaryMax = {data.salary_max}
                   datePosted = {data.created}
-                  image_url = {data.url}
+                  image = {data.img_url}
                 />
               </Col>
             );
