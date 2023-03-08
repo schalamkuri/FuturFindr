@@ -49,15 +49,12 @@ const fetchRepositoryData = async () => {
   // user, also increment total issues)
   await gitlabApi.get("projects/43389523/issues").then((response) => {
     response.data.forEach((element) => {
-      element.assignees.forEach((assignee) => {
         aboutUs.forEach((user) => {
-          if (user.name === assignee.name || user.gitlab === assignee.name ||
-              user.email === assignee.email || user.email2 === element.email2)
+          if (user.name === element.author.name || user.gitlab === element.author.username)
           user.issues += 1
         })
       })
       totalIssues += 1
-    })
   });
 
   // return info
