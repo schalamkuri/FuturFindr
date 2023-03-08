@@ -4,13 +4,16 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-app.debug=True
+app.debug = True
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://idb_master:CS373idb!@futurfindr-db.cbbs3s1efq9u.us-east-2.rds.amazonaws.com:5432/postgres'
+app.config[
+    "SQLALCHEMY_DATABASE_URI"
+] = "postgresql+psycopg2://idb_master:CS373idb!@futurfindr-db.cbbs3s1efq9u.us-east-2.rds.amazonaws.com:5432/postgres"
 db = SQLAlchemy(app)
 
-class College(db.Model) :
-    id = db.Column(db.BigInteger, primary_key = True)
+
+class College(db.Model):
+    id = db.Column(db.BigInteger, primary_key=True)
     city = db.Column(db.String(40))
     name = db.Column(db.String(100))
     latitude = db.Column(db.Float)
@@ -21,8 +24,9 @@ class College(db.Model) :
     url = db.Column(db.String(150))
     img_url = db.Column(db.String(1000))
 
-class HousingUnit(db.Model) :
-    id = db.Column(db.String(65), primary_key = True)
+
+class HousingUnit(db.Model):
+    id = db.Column(db.String(65), primary_key=True)
     city = db.Column(db.String(40))
     latitude = db.Column(db.Float)
     longitude = db.Column(db.Float)
@@ -33,15 +37,17 @@ class HousingUnit(db.Model) :
     property_type = db.Column(db.String(20))
     sqft = db.Column(db.Integer)
     date_listed = db.Column(db.String(40))
-    images = db.relationship('HousingUnitImage', backref = 'housingunit')
+    images = db.relationship("HousingUnitImage", backref="housingunit")
 
-class HousingUnitImage(db.Model) :
-    id = db.Column(db.String, primary_key = True)
+
+class HousingUnitImage(db.Model):
+    id = db.Column(db.String, primary_key=True)
     housing_id = db.Column(db.String(65), db.ForeignKey(HousingUnit.id))
     img_url = db.Column(db.String(1000))
 
-class Job(db.Model) : 
-    id = db.Column(db.BigInteger, primary_key = True)
+
+class Job(db.Model):
+    id = db.Column(db.BigInteger, primary_key=True)
     title = db.Column(db.String(150))
     company = db.Column(db.String(60))
     city = db.Column(db.String(50))

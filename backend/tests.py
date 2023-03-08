@@ -3,10 +3,11 @@ import unittest
 
 # Influenced by GeoJob's implementation
 
-'''
+"""
     TODO: figure out what other tests we should include, like pagination,
     instances, model search, etc.
-'''
+"""
+
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -28,6 +29,7 @@ class Tests(unittest.TestCase):
     def testAllSearch(self):
         with self.client:
             pass
+
 
 if __name__ == "__main__":
     unittest.main()
