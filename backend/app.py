@@ -138,6 +138,7 @@ def get_nearby_colleges(lat, lng, num):
         College.id,
         College.latitude,
         College.longitude,
+        College.admission_rate,
         College.img_url,
         literal_column(
             "SQRT(POW(69.1 * (latitude - " + str(lat) + "), 2) + POW(69.1 * ("
@@ -165,7 +166,14 @@ def get_nearby_housing(lat, lng, num):
     nearby_housing = db.session.query(temp).filter(text("distance<" + str(DEFAULT_NEARBY_RADIUS))).all()
     if num > 0:
         nearby_housing = nearby_housing[:num]
-    return housing_unit_schema.dump(nearby_housing, many = True)
+    result = housing_unit_schema.dump(nearby_housing, many = True)
+    counter = 0
+    for element in nearby_housing:
+        temp = HousingUnitImage.query.filter_by(housing_id=element.id).first()
+        house_img = housing_unit_img_schema.dump(temp)
+        result[counter]["img_url"] = house_img["img_url"] if "img_url" in house_img else None
+        counter += 1
+    return result
 
 def get_nearby_jobs(lat, lng, num):
     temp = (

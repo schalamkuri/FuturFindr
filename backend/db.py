@@ -43,8 +43,9 @@ def populate_db():
     #print("Finished filling housing data.")
     #populate_housing_imgs()
     #print("Finished filling housing image data.")
-    populate_jobs()
-    print("Finished filling job data.")
+    #populate_jobs()
+    #print("Finished filling job data.")
+    print("Database was not touched. Please do not run this script unless you know what you're doing.")
 
 def populate_colleges():
     temp = open("api_data/college_data.json")
