@@ -4,29 +4,31 @@
 
 ## Team members
 
-| **Name**              | **GitLabID**     | **EID** |
-| --------------------- | ---------------- | ------- |
-| Frank Sosa            | @frasosa         | fs8292  |
-| Seth Parsons          | @seth007         | shp655  |
-| Saiprathik Chalamkuri | @schalamkuri     | sc63494 |
-| Josiah Valdez         | @ultramolecular  | jgv633  |
-| Ritesh Thakur         | @ritzyo          | rt27362 |
+| **Name**        | **GitLabID** | **EID** |
+| --------------------- | ------------------ | ------------- |
+| Frank Sosa            | @frasosa           | fs8292        |
+| Seth Parsons          | @seth007           | shp655        |
+| Saiprathik Chalamkuri | @schalamkuri       | sc63494       |
+| Josiah Valdez         | @ultramolecular    | jgv633        |
+| Ritesh Thakur         | @ritzyo            | rt27362       |
 
 ## Git SHA
 
-| **Phase** | **Git Sha**                              |
-| --------- | ---------------------------------------- |
-| 1         | 6c033bfc                                 |
-| 2         |                                          |
+| **Phase** | **Git Sha** |
+| --------------- | ----------------- |
+| 1               | 6c033bfc          |
+| 2               |                   |
+
 <!-- | 3         |                                          |
 | 4         |                                          | -->
 
 ## Project Leader
 
-| **Phase** | **Project Leader**   |
-| --------- | -------------------- |
-| 1         | Frank Sosa           |
-| 2         | Seth Parsons                     |
+| **Phase** | **Project Leader** |
+| --------------- | ------------------------ |
+| 1               | Frank Sosa               |
+| 2               | Seth Parsons             |
+
 <!-- | 3         |                      |
 | 4         |                      | -->
 
@@ -62,7 +64,7 @@ https://www.futurfindr.me/
 | Seth Parsons          |                            |                            |
 | Saiprathik Chalamkuri |                            |                            |
 | Josiah Valdez         |                            |                            |
-| Ritesh Thakur         |                            |                            |
+| Ritesh Thakur         | 30                         | 3                          |
 
 <!-- ### Phase 3
 
@@ -85,7 +87,6 @@ https://www.futurfindr.me/
 | Ritesh Thakur         |                            |                            | -->
 
 ### Comments
-
 
 <!-- # RFP
 
@@ -120,7 +121,6 @@ https://www.futurfindr.me/
 - If I have to relocate for a job listing what does the housing market look like in that area?
 - If I find a place I would like to live in, do I or my family have good education options nearby?
 - Can I get a job after graduating without moving? -->
-
 
 <!-- 
 
