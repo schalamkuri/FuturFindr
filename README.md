@@ -26,7 +26,7 @@
 | **Phase** | **Project Leader**   |
 | --------- | -------------------- |
 | 1         | Frank Sosa           |
-| 2         |                      |
+| 2         | Seth Parsons                     |
 <!-- | 3         |                      |
 | 4         |                      | -->
 
@@ -58,7 +58,7 @@ https://www.futurfindr.me/
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
-| Frank Sosa            |                            |                            |
+| Frank Sosa            | 25                         | 35                         |
 | Seth Parsons          |                            |                            |
 | Saiprathik Chalamkuri |                            |                            |
 | Josiah Valdez         |                            |                            |
@@ -86,7 +86,6 @@ https://www.futurfindr.me/
 
 ### Comments
 
-Used material UI along with react-bootstrap
 
 <!-- # RFP
 
