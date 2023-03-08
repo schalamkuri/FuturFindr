@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from "axios";
+import axios from "axios"
 import Container from 'react-bootstrap/Container'
 import Stack from 'react-bootstrap/Stack'
 import Row from 'react-bootstrap/Row'

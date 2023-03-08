@@ -5,7 +5,7 @@ import Tabs from 'react-bootstrap/Tabs';
 const DevCard = (inputUser) => {
   return (
     <Card>
-      <Card.Img variant="top" src={inputUser.inputUser.pic} />
+      <Card.Img variant="top" src={inputUser?.inputUser?.pic ?? "fsf"} />
         <Tabs
         defaultActiveKey="about"
         id="devcard-tabs"
@@ -14,17 +14,17 @@ const DevCard = (inputUser) => {
         >
             <Tab eventKey="about" title="About">
                 <Card.Body>
-                        <Card.Title>{inputUser.inputUser.name}</Card.Title>
-                        <Card.Text>Role: {inputUser.inputUser.role}</Card.Text>
-                        <Card.Text>{inputUser.inputUser.bio}</Card.Text>
+                        <Card.Title>{inputUser?.inputUser?.name}</Card.Title>
+                        <Card.Text>Role: {inputUser?.inputUser?.role}</Card.Text>
+                        <Card.Text>{inputUser?.inputUser?.bio}</Card.Text>
                 </Card.Body>
             </Tab>
             <Tab eventKey="GitLab" title="GitLab"> 
                 <Card.Body>
-                    <Card.Title>@{inputUser.inputUser.gitlab}<br /></Card.Title>
-                    Commits: {inputUser.inputUser.commits}<br />
-                    Issues: {inputUser.inputUser.issues}<br />
-                    Unit Tests: {inputUser.inputUser.tests}
+                    <Card.Title>@{inputUser?.inputUser?.gitlab}<br /></Card.Title>
+                    Commits: {inputUser?.inputUser?.commits}<br />
+                    Issues: {inputUser?.inputUser?.issues}<br />
+                    Unit Tests: {inputUser?.inputUser?.tests}
                 </Card.Body>
             </Tab>
         </Tabs>

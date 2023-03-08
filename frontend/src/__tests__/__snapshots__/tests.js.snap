@@ -1,0 +1,872 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`APICard initializes correctly 1`] = `
+<div
+  className="card"
+>
+  <img
+    className="card-img-top"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    >
+      <br />
+    </div>
+    <p
+      className="card-text"
+    />
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="button"
+    >
+      Link
+    </button>
+  </div>
+</div>
+`;
+
+exports[`About initializes correctly 1`] = `
+<div
+  className="vstack"
+>
+  <div
+    className="p-4 container"
+  >
+    <h2
+      className="d-flex justify-content-left"
+    >
+      What is FuturFindr?
+    </h2>
+    <p>
+      FuturFindr (pronounced future finder) is a platform that assists users in planning out their future by helping them find the right place to advance their education, find the right place to work in the real world, or finding a place to live for either of those. This is an all in one platform that is applicable to anyone who is interested in advancing themselves, whether it be a high school student, or someone who is looking to potentially switch careers, or someone who just wants to find a place to live from where their place of work or school is at.
+    </p>
+    <p>
+      FuturFindr uses a React front-end combined with an SQL database to scrape and combine API data and present it back to you as nice, clean information cards. By connecting careers, education, and living spaces, with cards filled with relevant information and links to the necessary places, this results with a service that can make advancing yourself easier (and save you from opening so many chrome tabs)!
+    </p>
+  </div>
+  <div
+    className="p-4 container"
+  >
+    <h2
+      className="d-flex justify-content-left"
+    >
+      Developers
+    </h2>
+    <div
+      className="row"
+    >
+      <div
+        className="d-flex justify-content-center col"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+  <div
+    className="p-4 e container"
+  >
+    <h3
+      className="d-flex justify-content-center"
+    >
+      Gitlab Repository Stats
+    </h3>
+    <div
+      className="row"
+    >
+      <div
+        className="d-flex justify-content-center col"
+      >
+        Total Issues:
+      </div>
+      <div
+        className="d-flex justify-content-center col"
+      >
+        Total Commits:
+      </div>
+      <div
+        className="d-flex justify-content-center col"
+      >
+        Total Unit Tests:
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="d-flex justify-content-center col"
+      >
+        0
+      </div>
+      <div
+        className="d-flex justify-content-center col"
+      >
+        0
+      </div>
+      <div
+        className="d-flex justify-content-center col"
+      >
+        0
+      </div>
+    </div>
+  </div>
+  <div
+    className="p-4 container"
+  >
+    <a
+      href="https://documenter.getpostman.com/view/25807396/2s93CExcaC"
+      target="_blank"
+    >
+      <h3
+        className="d-flex justify-content-center"
+      >
+        Postman API Documentation
+      </h3>
+    </a>
+  </div>
+  <div
+    className="p-4 container"
+  >
+    <h3
+      className="d-flex justify-content-center"
+    >
+      Tools We Used:
+    </h3>
+    <div
+      className="row"
+    >
+      <div
+        className="d-flex justify-content-center col"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+  <div
+    className="p-4 container"
+  >
+    <h3
+      className="d-flex justify-content-center"
+    >
+      APIs We Scraped:
+    </h3>
+    <div
+      className="row"
+    >
+      <div
+        className="d-flex justify-content-center col"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CollegeCard Initial correctly 1`] = `
+<div
+  className="card border-dark mb-3 card"
+  style={
+    Object {
+      "height": "90%",
+    }
+  }
+>
+  <img
+    className="card-img-top"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    />
+    <p
+      className="card-text"
+    >
+      Instate Tuition: $
+      ~
+       
+      <br />
+      Outstate Tuition: $
+      ~
+       
+      <br />
+      Admission Rate: %
+      ~
+       
+      <br />
+      City: 
+       
+      <br />
+    </p>
+    <a
+      class="stretched-link"
+      href="/colleges/undefined"
+    />
+  </div>
+</div>
+`;
+
+exports[`DevCard initializes correctly 1`] = `
+<div
+  className="card"
+>
+  <img
+    className="card-img-top"
+    src="fsf"
+  />
+  <ul
+    className="mb-3 nav nav-tabs nav-justified"
+    onKeyDown={[Function]}
+    role="tablist"
+  >
+    <li
+      className="nav-item"
+      role="presentation"
+    >
+      <button
+        aria-controls="devcard-tabs-tabpane-about"
+        aria-selected={true}
+        className="nav-link active"
+        data-rr-ui-event-key="about"
+        disabled={false}
+        id="devcard-tabs-tab-about"
+        onClick={[Function]}
+        role="tab"
+        type="button"
+      >
+        About
+      </button>
+    </li>
+    <li
+      className="nav-item"
+      role="presentation"
+    >
+      <button
+        aria-controls="devcard-tabs-tabpane-GitLab"
+        aria-selected={false}
+        className="nav-link"
+        data-rr-ui-event-key="GitLab"
+        disabled={false}
+        id="devcard-tabs-tab-GitLab"
+        onClick={[Function]}
+        role="tab"
+        tabIndex={-1}
+        type="button"
+      >
+        GitLab
+      </button>
+    </li>
+  </ul>
+  <div
+    className="tab-content"
+  >
+    <div
+      aria-labelledby="devcard-tabs-tab-about"
+      className="fade tab-pane active show"
+      id="devcard-tabs-tabpane-about"
+      role="tabpanel"
+    >
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title h5"
+        />
+        <p
+          className="card-text"
+        >
+          Role: 
+        </p>
+        <p
+          className="card-text"
+        />
+      </div>
+    </div>
+    <div
+      aria-labelledby="devcard-tabs-tab-GitLab"
+      className="fade tab-pane"
+      id="devcard-tabs-tabpane-GitLab"
+      role="tabpanel"
+    >
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title h5"
+        >
+          @
+          <br />
+        </div>
+        Commits: 
+        <br />
+        Issues: 
+        <br />
+        Unit Tests: 
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`HousingCard initializes correctly 1`] = `
+<div
+  className="card border-dark mb-3 card"
+  style={
+    Object {
+      "height": "90%",
+    }
+  }
+>
+  <img
+    className="card-img-top"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    />
+    <p
+      className="card-text"
+    >
+       
+      <br />
+      City: 
+      ~
+       
+      <br />
+      Monthly Rent: $
+      ~
+       
+      <br />
+      Beds: 
+      ~
+       
+      <br />
+      Baths 
+      ~
+       
+      <br />
+    </p>
+    <a
+      className="stretched-link"
+      href="/housing/undefined"
+    />
+  </div>
+</div>
+`;
+
+exports[`JobCard initializes correctly 1`] = `
+<div
+  className="card border-dark mb-3 card"
+  style={
+    Object {
+      "height": "90%",
+    }
+  }
+>
+  <img
+    className="card-img-top"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    />
+    <p
+      className="card-text"
+    >
+      Company: 
+       
+      <br />
+      Industry: 
+       
+      <br />
+      Location: 
+       
+      <br />
+      Pay range: $
+      -
+       
+      <br />
+      Date Posted: 
+       
+      <br />
+    </p>
+    <a
+      className="stretched-link"
+      href="/jobs/undefined"
+    />
+  </div>
+</div>
+`;
+
+exports[`NavigationBar initializes correctly 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-light"
+  style={
+    Object {
+      "alignItems": "right",
+      "backgroundColor": "#84bcdc",
+      "display": "flex",
+    }
+  }
+>
+  <div
+    className="container"
+  >
+    <a
+      className="navbar-brand"
+      href="/"
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "justifyContent": "space-evenly",
+          }
+        }
+      >
+        <img
+          className="img-fluid"
+          height="50px"
+          src="fortune-teller.png"
+          width="50px"
+        />
+        <h2>
+          FuturFindr
+        </h2>
+      </div>
+    </a>
+    <button
+      aria-controls="basic-navbar-nav"
+      aria-label="Toggle navigation"
+      className="navbar-toggler collapsed"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse"
+      style={
+        Object {
+          "alignItems": "left",
+        }
+      }
+    >
+      <div
+        className="mr-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <a
+          className="nav-link"
+          data-rr-ui-event-key="/about"
+          disabled={false}
+          href="/about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+        <a
+          className="nav-link"
+          data-rr-ui-event-key="/colleges"
+          disabled={false}
+          href="/colleges"
+          onClick={[Function]}
+        >
+          Colleges
+        </a>
+        <a
+          className="nav-link"
+          data-rr-ui-event-key="/jobs"
+          disabled={false}
+          href="/jobs"
+          onClick={[Function]}
+        >
+          Jobs
+        </a>
+        <a
+          className="nav-link"
+          data-rr-ui-event-key="/housing"
+          disabled={false}
+          href="/housing"
+          onClick={[Function]}
+        >
+          Housing
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`RouteSwitch initializes correctly 1`] = `
+<div
+  className="App"
+>
+  <link
+    crossOrigin="anonymous"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    rel="stylesheet"
+  />
+  <nav
+    className="navbar navbar-expand-lg navbar-light"
+    style={
+      Object {
+        "alignItems": "right",
+        "backgroundColor": "#84bcdc",
+        "display": "flex",
+      }
+    }
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="navbar-brand"
+        href="/"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "justifyContent": "space-evenly",
+            }
+          }
+        >
+          <img
+            className="img-fluid"
+            height="50px"
+            src="fortune-teller.png"
+            width="50px"
+          />
+          <h2>
+            FuturFindr
+          </h2>
+        </div>
+      </a>
+      <button
+        aria-controls="basic-navbar-nav"
+        aria-label="Toggle navigation"
+        className="navbar-toggler collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        aria-expanded={null}
+        className="navbar-collapse collapse"
+        style={
+          Object {
+            "alignItems": "left",
+          }
+        }
+      >
+        <div
+          className="mr-auto navbar-nav"
+          onKeyDown={[Function]}
+        >
+          <a
+            className="nav-link"
+            data-rr-ui-event-key="/about"
+            disabled={false}
+            href="/about"
+            onClick={[Function]}
+          >
+            About
+          </a>
+          <a
+            className="nav-link"
+            data-rr-ui-event-key="/colleges"
+            disabled={false}
+            href="/colleges"
+            onClick={[Function]}
+          >
+            Colleges
+          </a>
+          <a
+            className="nav-link"
+            data-rr-ui-event-key="/jobs"
+            disabled={false}
+            href="/jobs"
+            onClick={[Function]}
+          >
+            Jobs
+          </a>
+          <a
+            className="nav-link"
+            data-rr-ui-event-key="/housing"
+            disabled={false}
+            href="/housing"
+            onClick={[Function]}
+          >
+            Housing
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div>
+    <div
+      className="card"
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <img
+        className="card-img"
+        src="Splash.png"
+      />
+      <div
+        className="bigText card-img-overlay"
+      >
+        <h1>
+          What's in your future?
+        </h1>
+      </div>
+    </div>
+    <div
+      className="card-group"
+    >
+      <div
+        className="card border-dark mb-3 card"
+      >
+        <img
+          className="card-img-top"
+          src="Campus.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <div
+            className="card-title h5"
+          >
+            Colleges
+          </div>
+          <p
+            className="card-text"
+          >
+            Find the perfect place to further your education!
+          </p>
+        </div>
+        <a
+          className="stretched-link"
+          href="colleges"
+        />
+      </div>
+      <div
+        className="card border-dark mb-3 card"
+      >
+        <img
+          className="card-img-top"
+          src="Jobs.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <div
+            className="card-title h5"
+          >
+            Jobs
+          </div>
+          <p
+            className="card-text"
+          >
+            Match with the place where your skills are needed!
+          </p>
+        </div>
+        <a
+          className="stretched-link"
+          href="jobs"
+        />
+      </div>
+      <div
+        className="card border-dark mb-3 card"
+      >
+        <img
+          className="card-img-top"
+          src="Apt.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <div
+            className="card-title h5"
+          >
+            Housing
+          </div>
+          <p
+            className="card-text"
+          >
+            The home of your dreams is waiting!
+          </p>
+        </div>
+        <a
+          className="stretched-link"
+          href="housing"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RouteSwitch initializes correctly 2`] = `
+<div>
+  <div
+    className="card"
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <img
+      className="card-img"
+      src="Splash.png"
+    />
+    <div
+      className="bigText card-img-overlay"
+    >
+      <h1>
+        What's in your future?
+      </h1>
+    </div>
+  </div>
+  <div
+    className="card-group"
+  >
+    <div
+      className="card border-dark mb-3 card"
+    >
+      <img
+        className="card-img-top"
+        src="Campus.jpg"
+      />
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title h5"
+        >
+          Colleges
+        </div>
+        <p
+          className="card-text"
+        >
+          Find the perfect place to further your education!
+        </p>
+      </div>
+      <a
+        className="stretched-link"
+        href="colleges"
+      />
+    </div>
+    <div
+      className="card border-dark mb-3 card"
+    >
+      <img
+        className="card-img-top"
+        src="Jobs.jpg"
+      />
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title h5"
+        >
+          Jobs
+        </div>
+        <p
+          className="card-text"
+        >
+          Match with the place where your skills are needed!
+        </p>
+      </div>
+      <a
+        className="stretched-link"
+        href="jobs"
+      />
+    </div>
+    <div
+      className="card border-dark mb-3 card"
+    >
+      <img
+        className="card-img-top"
+        src="Apt.jpg"
+      />
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title h5"
+        >
+          Housing
+        </div>
+        <p
+          className="card-text"
+        >
+          The home of your dreams is waiting!
+        </p>
+      </div>
+      <a
+        className="stretched-link"
+        href="housing"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ToolCard initializes correctly 1`] = `
+<div
+  className="card"
+>
+  <img
+    className="card-img-top"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    >
+      <br />
+    </div>
+    <p
+      className="card-text"
+    />
+    <a
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex={0}
+      target="_blank"
+    >
+      Link
+    </a>
+  </div>
+</div>
+`;
