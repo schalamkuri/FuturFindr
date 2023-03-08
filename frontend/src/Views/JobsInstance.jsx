@@ -11,10 +11,12 @@ import Spinner from 'react-bootstrap/Spinner';
 import "./connections.css"
 
 function JobsInstance() {
+    // state
     const id = useParams()['id']
     const [job, setJob] = useState([]);
     const [load, setLoad] = useState(false);
 
+    // get specific job instance from backend
     const getJob = async () => {
         try {
           var endpoint = 'jobs/' + id
@@ -96,7 +98,7 @@ function JobsInstance() {
                               "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"} />
                           <div className='label text-center'>
                           <h3>{college.name}</h3>
-                          <p>{college.city}</p>
+                          <p>Admission Rate: %{college.admission_rate ? Math.trunc(college.admission_rate * 100) : "~"}</p>
                           </div>
                       </a>
                       </div>

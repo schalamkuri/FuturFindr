@@ -11,16 +11,22 @@ import Spinner from 'react-bootstrap/Spinner';
 import "./connections.css"
 
 function CollegeInstance() {
+    // state
     const id = useParams()['id']
     const [college, setCollege] = useState([]);
     const [load, setLoad] = useState(false);
 
+    // function to get specific college instance from backend
     const getCollege = async () => {
         try {
         	var endpoint = 'colleges/' + id
     		const data = await backendApi.get(
             	endpoint
           	)
+            // make the url external if it is not already
+            if (data.data.data.url[0] == 'w') {
+                data.data.data.url = "http://" + data.data.data.url
+            }
 			setCollege(data.data.data);
 			setLoad(true);
         } catch (e) {
@@ -37,7 +43,8 @@ function CollegeInstance() {
         {load ? (
             <Container>
             <Card className="card border-dark mb-3" style={{height: "90%" }}>
-            <Card.Img variant="top" src={college.img_url ? college.img_url : "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"}/>
+            <Card.Img variant="top" src={college.img_url ? college.img_url : 
+                "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"}/>
             <Card.Body>
                 <Card.Title>{college.name}</Card.Title>
                 <Card.Text>

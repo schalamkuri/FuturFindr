@@ -36,7 +36,7 @@ const aboutUs = [{
     gitlab: "frasosa",
     role: "Full-Stack",
     commits: 0,
-    issues: 0,
+    issues: 12,
     tests: 0,
     pic : frankPic
   }, {

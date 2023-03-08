@@ -12,11 +12,13 @@ import "./connections.css"
 
 
 function HousingInstance() {
+    // state
     const id = useParams()['id']
     const [house, setHouse] = useState([]);
     const [load, setLoad] = useState(false);
-	const [items, setItems] = useState([])
+	  const [items, setItems] = useState([])
 
+    // get specific housing instance from backend
     const getHouse = async () => {
         try {
         	var endpoint = 'housing/' + id
@@ -52,11 +54,11 @@ function HousingInstance() {
         <Card className="card border-dark mb-3" style={{height: "90%"}}>
         <Card.Img variant="top" src={house.images.img_url} />
         {house.images.length === 0 ? 
-			<Card.Img variant="top" src={"https://www.pngkit.com/png/detail/413-4134663_house-vector-library-house-clipart-grey.png"} /> :
-			<Carousel slide={false}>
-				{items}
-			</Carousel>
-		}
+        <Card.Img variant="top" src={"https://www.pngkit.com/png/detail/413-4134663_house-vector-library-house-clipart-grey.png"} /> :
+        <Carousel slide={false}>
+          {items}
+        </Carousel>
+        }
         <Card.Body>
             <Card.Title>{house.address}</Card.Title>
             <Card.Text>
@@ -104,22 +106,22 @@ function HousingInstance() {
         </div>
         <Row className='portfoliolist'>
         {
-            house.nearby_colleges.map(college => {
-                return (
-                <Col sm={4} key={college.id}>
-                    <div className='portfolio-wrapper'>
-                    <a href={`/colleges/${college.id}`} >
-                        <Image src={college.img_url ? college.img_url : 
-                            "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"} />
-                        <div className='label text-center'>
-                        <h3>{college.name}</h3>
-                        <p>{college.city}</p>
-                        </div>
-                    </a>
+          house.nearby_colleges.map(college => {
+            return (
+            <Col sm={4} key={college.id}>
+                <div className='portfolio-wrapper'>
+                <a href={`/colleges/${college.id}`} >
+                    <Image src={college.img_url ? college.img_url : 
+                        "https://www.convergemedia.org/wp-content/uploads/2017/01/academia-1000.png"} />
+                    <div className='label text-center'>
+                    <h3>{college.name}</h3>
+                    <p>Admission Rate: {college.admission_rate ? Math.trunc(college.admission_rate * 100) : "~"}</p>
                     </div>
-                </Col>
-                );
-            })
+                </a>
+                </div>
+            </Col>
+            );
+          })
         }
         </Row>
         </>
