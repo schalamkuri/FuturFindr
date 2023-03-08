@@ -211,7 +211,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.futurfindr.me/colleges/<int:instance_id>",
+					"raw": "https://api.futurfindr.me/colleges/228778",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -220,9 +220,10 @@
 					],
 					"path": [
 						"colleges",
-						"<int:instance_id>"
+						"228778"
 					]
-				}
+				},
+				"description": "Replace the number after the very last forward slash ('/') with a college ID to get lots of information about that college."
 			},
 			"response": [
 				{
@@ -257,7 +258,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.futurfindr.me/jobs/<int:instance_id>",
+					"raw": "https://api.futurfindr.me/jobs/3854626597",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -266,9 +267,10 @@
 					],
 					"path": [
 						"jobs",
-						"<int:instance_id>"
+						"3854626597"
 					]
-				}
+				},
+				"description": "Replace the number after the very last forward slash ('/') with a job ID to get lots of information about that job."
 			},
 			"response": [
 				{
@@ -303,7 +305,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.futurfindr.me/housing/<string:instance_id>",
+					"raw": "https://api.futurfindr.me/housing/808-Columbus-Ave,-New-York,-NY-10025",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -312,9 +314,10 @@
 					],
 					"path": [
 						"housing",
-						"<string:instance_id>"
+						"808-Columbus-Ave,-New-York,-NY-10025"
 					]
-				}
+				},
+				"description": "Replace the string after the very last forward slash ('/') with a housing ID to get lots of information about that housing option."
 			},
 			"response": [
 				{
