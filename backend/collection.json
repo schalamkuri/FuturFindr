@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "72896f8a-ad77-4466-a0df-cbd369aba60d",
+		"name": "FuturFindr API Documentation",
+		"description": "Standard API Documentation for FuturFindr API (futurfindr.me).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25807396"
+	},
+	"item": [
+		{
+			"name": "Get College Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.futurfindr.me/colleges?page=1&per_page=10",
+					"protocol": "https",
+					"host": [
+						"api",
+						"futurfindr",
+						"me"
+					],
+					"path": [
+						"colleges"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "page number, one-based indexing (optional) (default page size is 9)"
+						},
+						{
+							"key": "per_page",
+							"value": "10",
+							"description": "instances per page to display (optional)"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get College Information",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.futurfindr.me/colleges?page=1&per_page=10",
+							"protocol": "https",
+							"host": [
+								"api",
+								"futurfindr",
+								"me"
+							],
+							"path": [
+								"colleges"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"admission_rate\": 0.8965,\n            \"city\": \"Normal\",\n            \"id\": 100654,\n            \"img_url\": \"https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/aamusports.com/responsive_2019/images/svgs/footer_logo_aamu-new.png\",\n            \"instate_tuition\": 10024,\n            \"latitude\": 34.78384090000001,\n            \"longitude\": -86.5722237,\n            \"name\": \"Alabama A & M University\",\n            \"outstate_tuition\": 18634,\n            \"url\": \"www.aamu.edu/\"\n        },\n        {\n            \"admission_rate\": 0.806,\n            \"city\": \"Birmingham\",\n            \"id\": 100663,\n            \"img_url\": \"https://www.usnews.com/dims4/USNEWS/7095941/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F30%2F09a5b34c4fa3a81530dcb48b57fc70%2Fcollege-photo_12935.jpg\",\n            \"instate_tuition\": 8568,\n            \"latitude\": 33.5020323,\n            \"longitude\": -86.80574949999999,\n            \"name\": \"University of Alabama at Birmingham\",\n            \"outstate_tuition\": 20400,\n            \"url\": \"https://www.uab.edu/\"\n        },\n        {\n            \"admission_rate\": null,\n            \"city\": \"Montgomery\",\n            \"id\": 100690,\n            \"img_url\": \"https://www.amridgeuniversity.edu/wp-content/uploads/2017/01/Amridge-University-Bldg3.jpg\",\n            \"instate_tuition\": 6950,\n            \"latitude\": 32.3626707,\n            \"longitude\": -86.17392559999999,\n            \"name\": \"Amridge University\",\n            \"outstate_tuition\": 6950,\n            \"url\": \"www.amridgeuniversity.edu/\"\n        },\n        {\n            \"admission_rate\": 0.7711,\n            \"city\": \"Huntsville\",\n            \"id\": 100706,\n            \"img_url\": \"https://www.usnews.com/dims4/USNEWS/91a1fa1/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F5f%2F3e2efe29c31df901c9d4e88e3e31e1%2Fcollege-photo_30379.jpg\",\n            \"instate_tuition\": 11338,\n            \"latitude\": 34.7251606,\n            \"longitude\": -86.6404712,\n            \"name\": \"University of Alabama in Huntsville\",\n            \"outstate_tuition\": 23734,\n            \"url\": \"www.uah.edu/\"\n        },\n        {\n            \"admission_rate\": 0.9888,\n            \"city\": \"Montgomery\",\n            \"id\": 100724,\n            \"img_url\": \"https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/Alabama_State_University_seal.svg/800px-Alabama_State_University_seal.svg.png\",\n            \"instate_tuition\": 11068,\n            \"latitude\": 32.3629762,\n            \"longitude\": -86.2939803,\n            \"name\": \"Alabama State University\",\n            \"outstate_tuition\": 19396,\n            \"url\": \"www.alasu.edu/\"\n        },\n        {\n            \"admission_rate\": 0.8039,\n            \"city\": \"Tuscaloosa\",\n            \"id\": 100751,\n            \"img_url\": \"https://uasystem.edu/images/contact/UAs-UA-contact2-inline-h-800x640.jpg\",\n            \"instate_tuition\": 11620,\n            \"latitude\": 33.2140233,\n            \"longitude\": -87.5391418,\n            \"name\": \"The University of Alabama\",\n            \"outstate_tuition\": 31090,\n            \"url\": \"www.ua.edu/\"\n        },\n        {\n            \"admission_rate\": null,\n            \"city\": \"Alexander City\",\n            \"id\": 100760,\n            \"img_url\": \"https://www.cacc.edu/images/campus.jpg\",\n            \"instate_tuition\": 4930,\n            \"latitude\": 32.9244717,\n            \"longitude\": -85.9472511,\n            \"name\": \"Central Alabama Community College\",\n            \"outstate_tuition\": 8860,\n            \"url\": \"www.cacc.edu/\"\n        },\n        {\n            \"admission_rate\": null,\n            \"city\": \"Athens\",\n            \"id\": 100812,\n            \"img_url\": \"https://www.athens.edu/wp-content/uploads/2021/02/AthensStateLogo.VERT_.Blue_-639x1024.jpg\",\n            \"instate_tuition\": null,\n            \"latitude\": 34.8055801,\n            \"longitude\": -86.9645309,\n            \"name\": \"Athens State University\",\n            \"outstate_tuition\": null,\n            \"url\": \"www.athens.edu/\"\n        },\n        {\n            \"admission_rate\": 0.9555,\n            \"city\": \"Montgomery\",\n            \"id\": 100830,\n            \"img_url\": \"https://www.usnews.com/dims4/USNEWS/660bbae/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fc0%2Fd46708532046e1a3433ffa9c0a0fae%2Fcollege-photo_34075.jpg\",\n            \"instate_tuition\": 8860,\n            \"latitude\": 32.3695951,\n            \"longitude\": -86.1788341,\n            \"name\": \"Auburn University at Montgomery\",\n            \"outstate_tuition\": 18820,\n            \"url\": \"www.aum.edu/\"\n        },\n        {\n            \"admission_rate\": 0.8507,\n            \"city\": \"Auburn\",\n            \"id\": 100858,\n            \"img_url\": \"https://www.usnews.com/dims4/USNEWS/7edea40/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fe1%2Fc3e58114b9e270ac11d07a72b8bb7f%2Fcollege-photo_28846.jpg\",\n            \"instate_tuition\": 11796,\n            \"latitude\": 32.5933574,\n            \"longitude\": -85.4951663,\n            \"name\": \"Auburn University\",\n            \"outstate_tuition\": 31956,\n            \"url\": \"www.auburn.edu/\"\n        }\n    ],\n    \"meta\": {\n        \"count\": 10\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Jobs Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.futurfindr.me/jobs?page=1&per_page=10",
+					"protocol": "https",
+					"host": [
+						"api",
+						"futurfindr",
+						"me"
+					],
+					"path": [
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "page number, one-based indexing (optional) (default page size is 9)"
+						},
+						{
+							"key": "per_page",
+							"value": "10",
+							"description": "instances per page to display (optional)"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Jobs Information",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.futurfindr.me/jobs?page=1&per_page=10",
+							"protocol": "https",
+							"host": [
+								"api",
+								"futurfindr",
+								"me"
+							],
+							"path": [
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"category\": \"Sales Jobs\",\n            \"city\": \"Indianapolis\",\n            \"company\": \"Adzuna\",\n            \"created\": \"2023-02-17T10:40:42\",\n            \"description\": \"Job Title: Enterprise Account Executive Location: Indianapolis, IN / Minneapolis, MN / U.S. Remote Salary: $60k - $85k / OTE: $100k - $150k Adzuna, a leading global job search engine that aims to list every job, everywhere, is currently seeking an experienced Enterprise Account Executive to join our North American sales team in helping millions of people find better, more fulfilling jobs. This is a dynamic and fast-moving scale-up environment where you will have the opportunity to add immediate…\",\n            \"id\": 3930227459,\n            \"img_url\": \"https://zunastatic-abf.kxcdn.com/images/global/jobs/fb_share.png\",\n            \"latitude\": 39.77745,\n            \"longitude\": -86.109012,\n            \"salary_max\": 85000,\n            \"salary_min\": 60000,\n            \"title\": \"Enterprise Account Executive\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3930227459?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=5B79188F14C6CE78FB7782323AB048077D03C153\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Houston\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2023-02-11T05:56:47\",\n            \"description\": \"JOB SUMMARY At Houston Methodist, the Registered Nurse (RN) II position is a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner's model of clinical practice. The RN II position provides professional nursing care to a diverse patient population, conducts nursing assessments, assists with exams and treatment, patient education, and maintenance of medical records.The RN II position provides direct patient care effectively and efficiently which …\",\n            \"id\": 3919547642,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.704908,\n            \"longitude\": -95.409253,\n            \"salary_max\": 108614,\n            \"salary_min\": 108614,\n            \"title\": \"Registered Nurse II (RN)- CVICU $5,000 Sign-On Bonus\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3919547642?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=F7CDA1E31BE3BDBEF86DE5BAFCDEABCC039AAFA3\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Houston\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2023-01-26T01:07:36\",\n            \"description\": \"JOB SUMMARY At Houston Methodist, the Registered Nurse (RN) II position is a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner's model of clinical practice. The RN II position provides professional nursing care to a diverse patient population, conducts nursing assessments, assists with exams and treatment, patient education, and maintenance of medical records.The RN II position provides direct patient care effectively and efficiently which …\",\n            \"id\": 3876878021,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.97289,\n            \"longitude\": -95.57733,\n            \"salary_max\": 81493,\n            \"salary_min\": 81493,\n            \"title\": \"RN II, ICU Full-Time (Nights)\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3876878021?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=304320214F0790D9D7F0C927D5D90C9BF5FBEF33\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Houston\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2022-12-13T00:20:21\",\n            \"description\": \"JOB SUMMARY At Houston Methodist, the Registered Nurse (RN) II position is a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner's model of clinical practice. The RN II position provides professional nursing care to a diverse patient population, conducts nursing assessments, assists with exams and treatment, patient education, and maintenance of medical records.The RN II position provides direct patient care effectively and efficiently which …\",\n            \"id\": 3770278878,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.704908,\n            \"longitude\": -95.409253,\n            \"salary_max\": 92989,\n            \"salary_min\": 92989,\n            \"title\": \"Registered Nurse (RN) AOD (Post/Pre OP) WT 3 FT Days 5K Sign-ON Bonus\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3770278878?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=44C729896B55D2621CE3C0DE960B867A5C24AEFB\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Houston\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2023-02-18T07:45:03\",\n            \"description\": \"JOB SUMMARY At Houston Methodist, the Registered Nurse (RN) II position a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner’s model of clinical practice. The RN II position is responsible for providing professional nursing care to a diverse patient population, conducting nursing assessments, assisting with exams and treatment, patient education, and maintenance of medical records. The RN II position provides direct patient care effectively …\",\n            \"id\": 3931754804,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.97289,\n            \"longitude\": -95.57733,\n            \"salary_max\": 78375,\n            \"salary_min\": 78375,\n            \"title\": \"RN II - 5 West/MedSurg Oncology (Nights) - $10,000 Sign On and Referral Bonus\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3931754804?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=281E7A4BC366AEC2DD5489DB5C079115AC8F2589\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Stewart Heights\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2022-10-19T18:42:38\",\n            \"description\": \"JOB SUMMARY At Houston Methodist, the Registered Nurse (RN) II position is a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner's model of clinical practice. The RN II position provides professional nursing care to a diverse patient population, conducts nursing assessments, assists with exams and treatment, patient education, and maintenance of medical records. The RN II position provides direct patient care effectively and efficiently which…\",\n            \"id\": 3605448153,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.781608,\n            \"longitude\": -94.972897,\n            \"salary_max\": 93047,\n            \"salary_min\": 93047,\n            \"title\": \"Registered Nurse II (RN) ADN Neuro/General -Days $5,000 Sign on and $10,000 Referral Bonus\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3605448153?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=1BC61915CB55608697DF885672C0D3B32E2B6601\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Houston\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2022-07-26T12:37:33\",\n            \"description\": \"JOB SUMMARY At Houston Methodist, the Registered Nurse (RN) II position is a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner's model of clinical practice. The RN II position provides professional nursing care to a diverse patient population, conducts nursing assessments, assists with exams and treatment, patient education, and maintenance of medical records.The RN II position provides direct patient care effectively and efficiently which …\",\n            \"id\": 3348988236,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.704908,\n            \"longitude\": -95.409253,\n            \"salary_max\": 98120,\n            \"salary_min\": 98120,\n            \"title\": \"Registered Nurse (RN) RN II AOD (Pre/Post OP) Main 3 FT Nights 10K Sign-ON Bonus\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3348988236?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=EDFE5B1CEA492C5910A13165EE84AFBFD6488812\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Houston\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2022-12-31T00:12:17\",\n            \"description\": \"JOB SUMMARY At Houston Methodist, the Registered Nurse (RN) II position is a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner's model of clinical practice. The RN II position provides professional nursing care to a diverse patient population, conducts nursing assessments, assists with exams and treatment, patient education, and maintenance of medical records.The RN II position provides direct patient care effectively and efficiently which …\",\n            \"id\": 3810958438,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.97289,\n            \"longitude\": -95.57733,\n            \"salary_max\": 84066,\n            \"salary_min\": 84066,\n            \"title\": \"RN II - Antepartum/High Risk Postpartum (Days) - $5,000 Sign on Bonus and $10,000 Referral Bonus\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3810958438?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=219E252E72BBF2A14F88AAB148F6C7C4848FBDA8\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Booth\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2023-01-28T00:32:35\",\n            \"description\": \"JOB SUMMARY At Houston Methodist, the Registered Nurse (RN) IIB position is a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner's model of clinical practice. The RN IIB position provides professional nursing care to a diverse patient population, conducts nursing assessments, assists with exams and treatment, patient education, and maintenance of medical records.The RN IIB position provides direct patient care effectively and efficiently whi…\",\n            \"id\": 3882247326,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.575254,\n            \"longitude\": -95.644126,\n            \"salary_max\": 112839,\n            \"salary_min\": 112839,\n            \"title\": \"Registered Nurse II (RN) - Interventional Radiology\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3882247326?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=09264C0105FDCB26622D60151C325D4F53E27EB4\"\n        },\n        {\n            \"category\": \"Healthcare & Nursing Jobs\",\n            \"city\": \"Houston\",\n            \"company\": \"Houston Methodist\",\n            \"created\": \"2022-08-30T15:44:56\",\n            \"description\": \"JOB SUMMARY At Houston Methodist Willowbrook, the Registered Nurse (RN) II Float position is a licensed staff nurse, an experienced clinician, functions at the Competent to Proficient stage of Benner's model of clinical practice. The RN II Float position provides professional nursing care to a diverse patient population, conducts nursing assessments, assists with exams and treatment, patient education, and maintenance of medical records.The RN II Float position provides direct patient care effe…\",\n            \"id\": 3444597811,\n            \"img_url\": \"https://www.houstonmethodist.org/-/media/images/newsroom/ct-newsroomversion.ashx?mw=1382&hash=8D95693E9FF9B79E75B056EDD7C6D388\",\n            \"latitude\": 29.97289,\n            \"longitude\": -95.57733,\n            \"salary_max\": 79660,\n            \"salary_min\": 79660,\n            \"title\": \"Registered Nurse II Float Pool - Full-Time, Days ($5,000 Sign on and $10,000 Referral Bonus)\",\n            \"type\": \"Full-time\",\n            \"url\": \"https://www.adzuna.com/land/ad/3444597811?se=gGo7qx2z7RG5Kk4WVCr16Q&utm_medium=api&utm_source=d99ebe96&v=6CB62AE19A06D4B62093DEBEF49F3916DA2CF74A\"\n        }\n    ],\n    \"meta\": {\n        \"count\": 10\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Housing Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.futurfindr.me/housing?page=1&per_page=10",
+					"protocol": "https",
+					"host": [
+						"api",
+						"futurfindr",
+						"me"
+					],
+					"path": [
+						"housing"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "page number, one-based indexing (optional) (default page size is 9)"
+						},
+						{
+							"key": "per_page",
+							"value": "10",
+							"description": "instances per page to display (optional)"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Housing Information",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.futurfindr.me/housing?page=1&per_page=10",
+							"protocol": "https",
+							"host": [
+								"api",
+								"futurfindr",
+								"me"
+							],
+							"path": [
+								"housing"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"address\": \"4 W 108th St, New York, NY 10025\",\n            \"bathrooms\": 1,\n            \"bedrooms\": 1,\n            \"city\": \"New York\",\n            \"date_listed\": \"2021-04-11T01:12:50.402Z\",\n            \"id\": \"4-W-108th-St,-New-York,-NY-10025\",\n            \"images\": [\n                {\n                    \"id\": \"1\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/7b9782560b4f870edc8a4f7642249a59-p_i.jpg\"\n                },\n                {\n                    \"id\": \"2\",\n                    \"img_url\": \"https://ar.rdcpix.com/f826d8ca936cf4d0efcc3b77e2cf1a1cc-f4292805268od-w480_h360_x2.jpg\"\n                }\n            ],\n            \"latitude\": 40.7994561,\n            \"longitude\": -73.95972689999999,\n            \"price\": 1600,\n            \"property_type\": \"Single Family\",\n            \"sqft\": 1250\n        },\n        {\n            \"address\": \"808 Columbus Ave, New York, NY 10025\",\n            \"bathrooms\": 2,\n            \"bedrooms\": 2,\n            \"city\": \"New York\",\n            \"date_listed\": \"2021-04-11T01:12:54.156Z\",\n            \"id\": \"808-Columbus-Ave,-New-York,-NY-10025\",\n            \"images\": [\n                {\n                    \"id\": \"3\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/3cdcd575f332c861c4f74c36e706726c-se_medium_500_250.webp\"\n                },\n                {\n                    \"id\": \"4\",\n                    \"img_url\": \"https://cdn-img-feed.streeteasy.com/nyc/image/98/426347798.jpg\"\n                },\n                {\n                    \"id\": \"5\",\n                    \"img_url\": \"https://www.nynesting.com/sites/default/files/columbus_square_808_columbus_avenue_rental.jpg\"\n                },\n                {\n                    \"id\": \"6\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/093613218b7beb7d518ea651166c2a2f-se_medium_500_250.webp\"\n                },\n                {\n                    \"id\": \"7\",\n                    \"img_url\": \"https://s3-us-west-2.amazonaws.com/transparentcity/uploads/images/000/005/883/original/Screen_Shot_2018-09-06_at_5.53.34_PM.jpg?1536270840\"\n                },\n                {\n                    \"id\": \"8\",\n                    \"img_url\": \"https://www.compass.com/m3/d8d146bb00156174337598460a5497ff96c35604/640x480.jpg\"\n                },\n                {\n                    \"id\": \"9\",\n                    \"img_url\": \"https://5fef0e83e88e7201d5ac-03d894bd6aa9e18271441adec0a042f6.ssl.cf5.rackcdn.com/1037/10/LPHD0/10375710/10375710-K4h3wgZbnLJ7rhFg.jpg\"\n                },\n                {\n                    \"id\": \"10\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/33d015e20f2539cca2132aab23bb8738-se_medium_500_250.webp\"\n                }\n            ],\n            \"latitude\": 40.7939667,\n            \"longitude\": -73.9671163,\n            \"price\": 3958,\n            \"property_type\": \"Single Family\",\n            \"sqft\": 810\n        },\n        {\n            \"address\": \"12 E 46th St, New York, NY 10017\",\n            \"bathrooms\": 1,\n            \"bedrooms\": 1,\n            \"city\": \"New York\",\n            \"date_listed\": \"2021-10-15T16:35:23.000Z\",\n            \"id\": \"12-E-46th-St,-New-York,-NY-10017\",\n            \"images\": [\n                {\n                    \"id\": \"11\",\n                    \"img_url\": \"https://images1.loopnet.com/i2/ZJK9MggyMaGoz6DaoeIt8xNFTS64fQWhxD3qr3-TRqU/110/12-E-46th-St-New-York-NY-Primary-Photo-1-Large.jpg\"\n                },\n                {\n                    \"id\": \"12\",\n                    \"img_url\": \"https://www.commercialcafe.com/images/b6f4145d-1957-4f08-99e4-c771dbaaee29/1155496.jpg\"\n                },\n                {\n                    \"id\": \"13\",\n                    \"img_url\": \"https://www.commercialcafe.com/images/4951fb71-51e2-4c31-a586-b1a27ba1810f/1155498.jpg\"\n                },\n                {\n                    \"id\": \"14\",\n                    \"img_url\": \"https://www.commercialcafe.com/images/dc5bc891-132f-4638-a4af-a01542a9bf38/1155497.jpg\"\n                },\n                {\n                    \"id\": \"15\",\n                    \"img_url\": \"https://ar.rdcpix.com/e184e03d665ae12b3ba0b69b79295fcdl-f4206252292od-w480_h360_x2.jpg\"\n                },\n                {\n                    \"id\": \"16\",\n                    \"img_url\": \"https://images1.loopnet.com/i2/DLPyhBholzFMiCneKPIm5M5k-cJe2yUIyFwJXMaEFR0/110/image.jpg\"\n                },\n                {\n                    \"id\": \"17\",\n                    \"img_url\": \"https://images1.loopnet.com/i2/1rmGQ61C1nOAcn_ABXceoARlqMwer9o-S4qKmXX6nvE/110/image.jpg\"\n                }\n            ],\n            \"latitude\": 40.7554516,\n            \"longitude\": -73.978256,\n            \"price\": 2750,\n            \"property_type\": \"Apartment\",\n            \"sqft\": 700\n        },\n        {\n            \"address\": \"282 11th Ave, New York, NY 10001\",\n            \"bathrooms\": 1,\n            \"bedrooms\": 1,\n            \"city\": \"New York\",\n            \"date_listed\": \"2020-02-18T07:53:30.346Z\",\n            \"id\": \"282-11th-Ave,-New-York,-NY-10001\",\n            \"images\": [\n                {\n                    \"id\": \"18\",\n                    \"img_url\": \"https://ar.rdcpix.com/370074b808177edcecc15d7d5b02fa5fc-f483856024od-w480_h360_x2.jpg\"\n                },\n                {\n                    \"id\": \"19\",\n                    \"img_url\": \"https://www.compass.com/m3/fc9c268288a47bf84ac3b99df93102cbce68ef9c.jpg\"\n                },\n                {\n                    \"id\": \"20\",\n                    \"img_url\": \"https://images1.apartments.com/i2/-EV1QPVChJ-_uIDI7Dk8p0cgKZlO6Zz_0kE4m2iby0U/111/282-11th-ave-new-york-ny-primary-photo.jpg\"\n                },\n                {\n                    \"id\": \"21\",\n                    \"img_url\": \"https://www.compass.com/m3/ae613b17fe0119a3fb84ad21fd2a81181bdf5655.jpg\"\n                }\n            ],\n            \"latitude\": 40.7520753,\n            \"longitude\": -74.0044791,\n            \"price\": 4364,\n            \"property_type\": \"Single Family\",\n            \"sqft\": null\n        },\n        {\n            \"address\": \"233 Broadway, Fl 12, New York, NY 10279\",\n            \"bathrooms\": 2,\n            \"bedrooms\": 1,\n            \"city\": \"New York\",\n            \"date_listed\": \"2021-09-08T03:18:56.837Z\",\n            \"id\": \"233-Broadway,-Fl-12,-New-York,-NY-10279\",\n            \"images\": [\n                {\n                    \"id\": \"22\",\n                    \"img_url\": \"https://images1.loopnet.com/i2/QeAYxMsfDxsyBCPf5jZy1uix9MkpE0U152MItRVPs0g/112/image.jpg\"\n                },\n                {\n                    \"id\": \"23\",\n                    \"img_url\": \"https://ar.rdcpix.com/b61f4fffcf3a0d3169b7388f96a011del-f1346307676od-w480_h360_x2.jpg\"\n                },\n                {\n                    \"id\": \"24\",\n                    \"img_url\": \"https://images1.loopnet.com/i2/ccK2E8Oz0Rk2B-LRmrME3-EFUPc2jZg5q4ruosTBirU/112/image.jpg\"\n                },\n                {\n                    \"id\": \"25\",\n                    \"img_url\": \"https://media.truva.com/image/upload/t_large_image/t_invisible_watermark/gyj7ls5jve2gp9k8emmy\"\n                },\n                {\n                    \"id\": \"26\",\n                    \"img_url\": \"https://media.truva.com/image/upload/t_large_image/t_invisible_watermark/d2nnuhm9wktihqviph1x\"\n                },\n                {\n                    \"id\": \"27\",\n                    \"img_url\": \"https://media.truva.com/image/upload/t_large_image/t_invisible_watermark/cytlqd5fkdgcanrr8i9j\"\n                },\n                {\n                    \"id\": \"28\",\n                    \"img_url\": \"https://www.retail-officespace.com/wp-content/uploads/broadway_1.jpg\"\n                },\n                {\n                    \"id\": \"29\",\n                    \"img_url\": \"https://cdn.commercialcafe.com/images/1AA9E6ED-1AE8-4C22-80DF-2F7C1FE90922/6236.jpg?width=550\"\n                }\n            ],\n            \"latitude\": 40.71208680000001,\n            \"longitude\": -74.0079181,\n            \"price\": 2500,\n            \"property_type\": \"Condo\",\n            \"sqft\": 1500\n        },\n        {\n            \"address\": \"515 W 111th St, Unit 3, New York, NY 10025\",\n            \"bathrooms\": 1,\n            \"bedrooms\": 3,\n            \"city\": \"New York\",\n            \"date_listed\": \"2022-09-18T03:25:38.707Z\",\n            \"id\": \"515-W-111th-St,-Unit-3,-New-York,-NY-10025\",\n            \"images\": [\n                {\n                    \"id\": \"30\",\n                    \"img_url\": \"https://ap.rdcpix.com/b90dfee1cfcae5cf34c8acbac027bf85l-m3038105000od-w480_h360_x2.jpg\"\n                },\n                {\n                    \"id\": \"31\",\n                    \"img_url\": \"https://images1.apartments.com/i2/feu8a1Dj-m2aPWWlVM-zLOa9fZZ5dqK1DTOPUVczsZc/111/515-w-111th-st-unit-3b-new-york-ny-building-photo.jpg\"\n                },\n                {\n                    \"id\": \"32\",\n                    \"img_url\": \"https://images1.apartments.com/i2/HOdQc95XREj33BsGUJOYTgBoNMNYBQLtTLvhonX8uvc/111/515-w-111th-st-new-york-ny-primary-photo.jpg\"\n                },\n                {\n                    \"id\": \"33\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/dd5228332520adc17317c611746fe62f-p_i.jpg\"\n                },\n                {\n                    \"id\": \"34\",\n                    \"img_url\": \"https://images1.apartments.com/i2/Wr2LmAlhj7Ylbtxwis6eRwWPPTAydVQWpQvPf6FeyEU/111/515-w-111th-st-unit-2e-new-york-ny-primary-photo.jpg\"\n                },\n                {\n                    \"id\": \"35\",\n                    \"img_url\": \"https://image1.apartmentfinder.com/i2/IQsY-gJMz2iwuI56BLoUMnBRL2nlEqdP49Yb5F7bHyU/111/513-515-w-111th-st-new-york-ny-513---515-w-111th-street.jpg\"\n                },\n                {\n                    \"id\": \"36\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/effb4e7839d4b125e85656c576ef7a6f-p_i.jpg\"\n                },\n                {\n                    \"id\": \"37\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/4583e8d678fb73a3e1394878d5affbb0-p_i.jpg\"\n                }\n            ],\n            \"latitude\": 40.8041761,\n            \"longitude\": -73.9642006,\n            \"price\": 4500,\n            \"property_type\": \"Apartment\",\n            \"sqft\": 850\n        },\n        {\n            \"address\": \"170 Amsterdam Ave, New York, NY 10023\",\n            \"bathrooms\": 1,\n            \"bedrooms\": 1,\n            \"city\": \"New York\",\n            \"date_listed\": \"2021-04-11T01:12:54.180Z\",\n            \"id\": \"170-Amsterdam-Ave,-New-York,-NY-10023\",\n            \"images\": [\n                {\n                    \"id\": \"38\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/f0066d52dd1aec025df1863290a22b82-se_large_800_400.webp\"\n                },\n                {\n                    \"id\": \"39\",\n                    \"img_url\": \"https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_auto,f_auto/4154-152/170-amsterdam-apartments-entrance\"\n                },\n                {\n                    \"id\": \"40\",\n                    \"img_url\": \"https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_auto,f_auto/4154-161/170-amsterdam-apartments-rooftop-lounge\"\n                },\n                {\n                    \"id\": \"41\",\n                    \"img_url\": \"https://thumbs.cityrealty.com/assets/smart/0x0/webp/5/58/5876eae9f73b23d66f8ce71965595d06fa5abf1b/170-amsterdam-avenue-00.jpg\"\n                },\n                {\n                    \"id\": \"42\",\n                    \"img_url\": \"https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_auto,f_auto/4154-192/170-amsterdam-apartments-living-room\"\n                },\n                {\n                    \"id\": \"43\",\n                    \"img_url\": \"https://images1.apartments.com/i2/UjdjCEWk-Y04PCTGtYcQNWbgSrOv1bj9ojQXZ1jBYPY/117/170-amsterdam-new-york-ny-exterior.jpg?p=1\"\n                }\n            ],\n            \"latitude\": 40.7760596,\n            \"longitude\": -73.98379849999999,\n            \"price\": 5381,\n            \"property_type\": \"Single Family\",\n            \"sqft\": 983\n        },\n        {\n            \"address\": \"125 Rivington St, Apt 2, New York, NY 10002\",\n            \"bathrooms\": 3,\n            \"bedrooms\": 3,\n            \"city\": \"New York\",\n            \"date_listed\": \"2020-07-19T03:52:09.354Z\",\n            \"id\": \"125-Rivington-St,-Apt-2,-New-York,-NY-10002\",\n            \"images\": [\n                {\n                    \"id\": \"44\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/121cbe71f06e4837e9fb3891f985ecdd-se_large_800_400.webp\"\n                },\n                {\n                    \"id\": \"45\",\n                    \"img_url\": \"https://images1.loopnet.com/i2/UBczz978IKE5nAdaO7n9StduInmtkcSezIlcdt_8tf8/110/image.jpg\"\n                },\n                {\n                    \"id\": \"46\",\n                    \"img_url\": \"https://images1.apartments.com/i2/ap82i-nkk7OxalmkOGN4TlwgeaMzkx-t0q2cLSLFjYI/111/125-rivington-st-new-york-ny-primary-photo.jpg\"\n                },\n                {\n                    \"id\": \"47\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/47667c090999ce7f4d85a16c632b7fde-se_medium_500_250.webp\"\n                },\n                {\n                    \"id\": \"48\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/59528adb6718bc9caa510315ebad709b-se_medium_500_250.webp\"\n                },\n                {\n                    \"id\": \"49\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/bfe871cbd2584f19623f9066f2d6a267-se_medium_500_250.webp\"\n                },\n                {\n                    \"id\": \"50\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/707860655ce3c1c1f19fdff44fef41d7-se_medium_500_250.webp\"\n                },\n                {\n                    \"id\": \"51\",\n                    \"img_url\": \"https://www.compass.com/m/1ccfd7bd1c3776f9d60191098f72a795cefc118f_img_4_79149/origin.jpg\"\n                },\n                {\n                    \"id\": \"52\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/4a9f75da0976ab80d33b3a4506a14a70-se_medium_500_250.webp\"\n                },\n                {\n                    \"id\": \"53\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/435feda98fd468cfcc6f91485e1a1acd-se_medium_500_250.webp\"\n                }\n            ],\n            \"latitude\": 40.719636,\n            \"longitude\": -73.9872376,\n            \"price\": 9000,\n            \"property_type\": \"Apartment\",\n            \"sqft\": 1000\n        },\n        {\n            \"address\": \"223 E 96th St, Unit 1, New York, NY 10128\",\n            \"bathrooms\": 1,\n            \"bedrooms\": 1,\n            \"city\": \"New York\",\n            \"date_listed\": \"2022-10-04T03:36:43.774Z\",\n            \"id\": \"223-E-96th-St,-Unit-1,-New-York,-NY-10128\",\n            \"images\": [\n                {\n                    \"id\": \"54\",\n                    \"img_url\": \"https://images1.loopnet.com/i2/aIyWy_mh8prGFw_rZPvrg1bUZCu-BkaLo9YBWBMopkw/110/223-E-96th-St-New-York-NY-Primary-Photo-1-Large.jpg\"\n                },\n                {\n                    \"id\": \"55\",\n                    \"img_url\": \"https://images1.loopnet.com/i2/8fbB_wYzCi3Vm24bBsNB_9bJZ7MVnguZbtbDNvRFnzI/110/223-E-96th-St-New-York-NY-Primary-Photo-1-Large.png\"\n                },\n                {\n                    \"id\": \"56\",\n                    \"img_url\": \"https://photonet.hotpads.com/search/listingPhoto/StreetEasy/3973973/0002_1397296052_medium.jpg\"\n                },\n                {\n                    \"id\": \"57\",\n                    \"img_url\": \"https://img.zumpercdn.com/549686269/1280x960?auto=format\"\n                },\n                {\n                    \"id\": \"58\",\n                    \"img_url\": \"https://rentpath-res.cloudinary.com/$img_current/t_3x2_jpg_xl/f5555478fb59b8720ffd951e1bdfc891\"\n                },\n                {\n                    \"id\": \"59\",\n                    \"img_url\": \"https://images1.apartments.com/i2/FZLotFlpbkx0qE13axJG-M6ZhapE8ZahdbCcdITZ0JU/111/223-e-96th-st-new-york-ny-primary-photo.jpg\"\n                },\n                {\n                    \"id\": \"60\",\n                    \"img_url\": \"https://photos.zillowstatic.com/fp/4e4c44594cd9dadc8e23e07ddb8dc4a0-cc_ft_960.jpg\"\n                }\n            ],\n            \"latitude\": 40.7849212,\n            \"longitude\": -73.9478532,\n            \"price\": 3600,\n            \"property_type\": \"Apartment\",\n            \"sqft\": 500\n        },\n        {\n            \"address\": \"11 E First St, New York, NY 10003\",\n            \"bathrooms\": 1,\n            \"bedrooms\": null,\n            \"city\": \"New York\",\n            \"date_listed\": \"2021-10-19T02:07:46.971Z\",\n            \"id\": \"11-E-First-St,-New-York,-NY-10003\",\n            \"images\": [\n                {\n                    \"id\": \"61\",\n                    \"img_url\": \"https://ar.rdcpix.com/4929282e2c5d568d734c79746066217cc-f1465296867od-w480_h360_x2.jpg\"\n                }\n            ],\n            \"latitude\": 40.724342,\n            \"longitude\": -73.9917504,\n            \"price\": 5135,\n            \"property_type\": \"Single Family\",\n            \"sqft\": null\n        }\n    ],\n    \"meta\": {\n        \"count\": 10\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get College by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.futurfindr.me/colleges/<int:instance_id>",
+					"protocol": "https",
+					"host": [
+						"api",
+						"futurfindr",
+						"me"
+					],
+					"path": [
+						"colleges",
+						"<int:instance_id>"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get College by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.futurfindr.me/colleges/228778",
+							"protocol": "https",
+							"host": [
+								"api",
+								"futurfindr",
+								"me"
+							],
+							"path": [
+								"colleges",
+								"228778"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n  \"data\": {\n    \"admission_rate\": 0.3195,\n    \"city\": \"Austin\",\n    \"id\": 228778,\n    \"img_url\": \"https://upload.wikimedia.org/wikipedia/en/thumb/e/e1/University_of_Texas_at_Austin_seal.svg/1200px-University_of_Texas_at_Austin_seal.svg.png\",\n    \"instate_tuition\": 11448,\n    \"latitude\": 30.2849185,\n    \"longitude\": -97.7340567,\n    \"name\": \"The University of Texas at Austin\",\n    \"nearby_housing\": [\n      {\n        \"address\": \"12023 Mill Pne, San Antonio, TX 78254\",\n        \"id\": \"12023-Mill-Pne,-San-Antonio,-TX-78254\",\n        \"latitude\": 29.5309071,\n        \"longitude\": -98.7295551,\n        \"property_type\": \"Single Family\"\n      },\n      {\n        \"address\": \"10446 Mountain View Dr, Apt 2, San Antonio, TX 78251\",\n        \"id\": \"10446-Mountain-View-Dr,-Apt-2,-San-Antonio,-TX-78251\",\n        \"latitude\": 29.4891974,\n        \"longitude\": -98.69721729999999,\n        \"property_type\": \"Single Family\"\n      },\n      {\n        \"address\": \"10446 Mountain View Dr, Apt 1, San Antonio, TX 78251\",\n        \"id\": \"10446-Mountain-View-Dr,-Apt-1,-San-Antonio,-TX-78251\",\n        \"latitude\": 29.4891974,\n        \"longitude\": -98.69721729999999,\n        \"property_type\": \"Single Family\"\n      }\n    ],\n    \"nearby_jobs\": [\n      {\n        \"company\": \"Sonrava Health\",\n        \"id\": 3929635597,\n        \"img_url\": \"https://mms.businesswire.com/media/20220622005253/en/1489403/22/SonravaHealth-color.jpg\",\n        \"latitude\": 30.273471,\n        \"longitude\": -97.685499,\n        \"title\": \"Endodontist\"\n      },\n      {\n        \"company\": \"St. David's South Austin Medical Center\",\n        \"id\": 3854318047,\n        \"img_url\": \"https://communityimpact.com/wp-content/uploads/2017/01/StDavids.jpg\",\n        \"latitude\": 30.244865,\n        \"longitude\": -97.765554,\n        \"title\": \"Emergency Room Registered Nurse\"\n      },\n      {\n        \"company\": \"Ascension\",\n        \"id\": 3856398482,\n        \"img_url\": \"https://ascensionventures.org/wp-content/uploads/2022/10/ascension-ventures-logo-featured-image.png\",\n        \"latitude\": 30.307418,\n        \"longitude\": -97.683871,\n        \"title\": \"Pediatric Registered Nurse RN Cardiovascular ICU Cvicu\"\n      }\n    ],\n    \"outstate_tuition\": 40032,\n    \"url\": \"https://www.utexas.edu/\"\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Job by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.futurfindr.me/jobs/<int:instance_id>",
+					"protocol": "https",
+					"host": [
+						"api",
+						"futurfindr",
+						"me"
+					],
+					"path": [
+						"jobs",
+						"<int:instance_id>"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Job by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.futurfindr.me/jobs/3854626597",
+							"protocol": "https",
+							"host": [
+								"api",
+								"futurfindr",
+								"me"
+							],
+							"path": [
+								"jobs",
+								"3854626597"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n  \"data\": {\n    \"category\": \"IT Jobs\",\n    \"city\": \"Burbank\",\n    \"company\": \"S&C Electric Company\",\n    \"created\": \"2023-01-17T11:32:28\",\n    \"description\": \"JOB SUMMARY The Technology & Breakthrough Innovation (TBI) team located in Chicago, IL, Alameda, CA, and Franklin, WI creates some of the world's most cutting-edge products. TBI is looking for an experienced Software Project Engineer to join the team and create data driven software that advances technology and proves out new project concepts. This position emphasis applying Machine Learning (ML) technologies in different S&C products with the focus on edge devices. The responsibilities of this \\u2026\",\n    \"id\": 3854626597,\n    \"img_url\": \"https://www.sandc.com/globalassets/sac-electric/images/blog/mis-check-predsentation-2019_14-sized.jpg\",\n    \"latitude\": 41.74614,\n    \"longitude\": -87.77016,\n    \"nearby_colleges\": [\n      {\n        \"id\": 144193,\n        \"img_url\": \"https://www.ccc.edu/colleges/daley/departments/PublishingImages/DSC_0506.JPG\",\n        \"latitude\": 41.756601,\n        \"longitude\": -87.72384470000001,\n        \"name\": \"City Colleges of Chicago-Richard J Daley College\"\n      },\n      {\n        \"id\": 143464,\n        \"img_url\": \"https://www.cameobeautyacademy.com/clientuploads/imagemanager/14.jpg\",\n        \"latitude\": 41.7159275,\n        \"longitude\": -87.74092259999999,\n        \"name\": \"Cameo Beauty Academy\"\n      },\n      {\n        \"id\": 148627,\n        \"img_url\": \"https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Saint_Xavier_University_seal.svg/1200px-Saint_Xavier_University_seal.svg.png\",\n        \"latitude\": 41.7090685,\n        \"longitude\": -87.7151562,\n        \"name\": \"Saint Xavier University\"\n      }\n    ],\n    \"nearby_housing_units\": [\n      {\n        \"address\": \"2628 S Kedzie Ave, Unit 2ND, Chicago, IL 60623\",\n        \"id\": \"2628-S-Kedzie-Ave,-Unit-2ND,-Chicago,-IL-60623\",\n        \"latitude\": 41.843635,\n        \"longitude\": -87.70528220000001,\n        \"property_type\": \"Single Family\"\n      },\n      {\n        \"address\": \"303 W 109th St, Chicago, IL 60628\",\n        \"id\": \"303-W-109th-St,-Chicago,-IL-60628\",\n        \"latitude\": 41.6959536,\n        \"longitude\": -87.6306863,\n        \"property_type\": \"Single Family\"\n      },\n      {\n        \"address\": \"2230 N Orchard St, Apt 404, Chicago, IL 60614\",\n        \"id\": \"2230-N-Orchard-St,-Apt-404,-Chicago,-IL-60614\",\n        \"latitude\": 41.9228969,\n        \"longitude\": -87.64659809999999,\n        \"property_type\": \"Apartment\"\n      }\n    ],\n    \"salary_max\": 80821,\n    \"salary_min\": 80821,\n    \"title\": \"Software Project Engineer\",\n    \"type\": \"Full-time\",\n    \"url\": \"https://www.adzuna.com/land/ad/3854626597?se=JImYfx-z7RGIhJrCtJb2WA&utm_medium=api&utm_source=d99ebe96&v=08155F55EEE3232569BFF56A32FA27C4EDDFB8A0\"\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Housing by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.futurfindr.me/housing/<string:instance_id>",
+					"protocol": "https",
+					"host": [
+						"api",
+						"futurfindr",
+						"me"
+					],
+					"path": [
+						"housing",
+						"<string:instance_id>"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Housing by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.futurfindr.me/housing/808-Columbus-Ave,-New-York,-NY-10025",
+							"protocol": "https",
+							"host": [
+								"api",
+								"futurfindr",
+								"me"
+							],
+							"path": [
+								"housing",
+								"808-Columbus-Ave,-New-York,-NY-10025"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n  \"data\": {\n    \"address\": \"808 Columbus Ave, New York, NY 10025\",\n    \"bathrooms\": 2,\n    \"bedrooms\": 2,\n    \"city\": \"New York\",\n    \"date_listed\": \"2021-04-11T01:12:54.156Z\",\n    \"id\": \"808-Columbus-Ave,-New-York,-NY-10025\",\n    \"images\": [\n      {\n        \"id\": \"3\",\n        \"img_url\": \"https://photos.zillowstatic.com/fp/3cdcd575f332c861c4f74c36e706726c-se_medium_500_250.webp\"\n      },\n      {\n        \"id\": \"4\",\n        \"img_url\": \"https://cdn-img-feed.streeteasy.com/nyc/image/98/426347798.jpg\"\n      },\n      {\n        \"id\": \"5\",\n        \"img_url\": \"https://www.nynesting.com/sites/default/files/columbus_square_808_columbus_avenue_rental.jpg\"\n      },\n      {\n        \"id\": \"6\",\n        \"img_url\": \"https://photos.zillowstatic.com/fp/093613218b7beb7d518ea651166c2a2f-se_medium_500_250.webp\"\n      },\n      {\n        \"id\": \"7\",\n        \"img_url\": \"https://s3-us-west-2.amazonaws.com/transparentcity/uploads/images/000/005/883/original/Screen_Shot_2018-09-06_at_5.53.34_PM.jpg?1536270840\"\n      },\n      {\n        \"id\": \"8\",\n        \"img_url\": \"https://www.compass.com/m3/d8d146bb00156174337598460a5497ff96c35604/640x480.jpg\"\n      },\n      {\n        \"id\": \"9\",\n        \"img_url\": \"https://5fef0e83e88e7201d5ac-03d894bd6aa9e18271441adec0a042f6.ssl.cf5.rackcdn.com/1037/10/LPHD0/10375710/10375710-K4h3wgZbnLJ7rhFg.jpg\"\n      },\n      {\n        \"id\": \"10\",\n        \"img_url\": \"https://photos.zillowstatic.com/fp/33d015e20f2539cca2132aab23bb8738-se_medium_500_250.webp\"\n      }\n    ],\n    \"latitude\": 40.7939667,\n    \"longitude\": -73.9671163,\n    \"nearby_colleges\": [\n      {\n        \"id\": 193405,\n        \"img_url\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/94/ISMMS.svg/1200px-ISMMS.svg.png\",\n        \"latitude\": 40.7897148,\n        \"longitude\": -73.9531097,\n        \"name\": \"Icahn School of Medicine at Mount Sinai\"\n      },\n      {\n        \"id\": 189015,\n        \"img_url\": \"https://upload.wikimedia.org/wikipedia/en/a/a9/Bank_Street_College_of_Education_round_seal.svg\",\n        \"latitude\": 40.805691,\n        \"longitude\": -73.9664532,\n        \"name\": \"Bank Street College of Education\"\n      },\n      {\n        \"id\": 190150,\n        \"img_url\": \"https://www.columbia.edu/content/sites/default/files/styles/cu_crop/public/content/Campus%20Images/Low_Library_NYC_skyline_night_lights.jpg?h=df0fa240&itok=M4yELnWC\",\n        \"latitude\": 40.8075355,\n        \"longitude\": -73.9625727,\n        \"name\": \"Columbia University in the City of New York\"\n      }\n    ],\n    \"nearby_jobs\": [\n      {\n        \"company\": \"Sonic Anatomic Pathology\",\n        \"id\": 3929792489,\n        \"img_url\": \"https://www.sonichealthcareusa.com/media/1722/sli01.jpg?crop=0.17986928104575162,0,0.19750628456510813,0&cropmode=percentage&width=768&height=520&rnd=132646543808300000\",\n        \"latitude\": 40.75284,\n        \"longitude\": -73.97528,\n        \"title\": \"Histology Technician I\"\n      },\n      {\n        \"company\": \"CenterWell Home Health\",\n        \"id\": 3910469604,\n        \"img_url\": \"https://mms.businesswire.com/media/20220901005209/en/1558947/5/RGB_CWHH_positive_logo_for_digital.jpg\",\n        \"latitude\": 40.825066,\n        \"longitude\": -73.910998,\n        \"title\": \"Home Health Registered Nurse, Full Time\"\n      },\n      {\n        \"company\": \"AMR\",\n        \"id\": 3924638615,\n        \"img_url\": \"https://cms.jibecdn.com/prod/gmr-amr/assets/OPENGRAPH-IMAGE-en-us-1635783635953.png\",\n        \"latitude\": 40.700968,\n        \"longitude\": -73.70278,\n        \"title\": \"Paramedic\"\n      }\n    ],\n    \"price\": 3958,\n    \"property_type\": \"Single Family\",\n    \"sqft\": 810\n  }\n}"
+				}
+			]
+		}
+	]
+}
