@@ -61,7 +61,7 @@ https://www.futurfindr.me/
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
 | Frank Sosa            | 25                         | 35                         |
-| Seth Parsons          |                            |                            |
+| Seth Parsons          | 20                         | 40                         |
 | Saiprathik Chalamkuri |                            |                            |
 | Josiah Valdez         | 20                         | 18                         |
 | Ritesh Thakur         | 30                         | 20                         |
