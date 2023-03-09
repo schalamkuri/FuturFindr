@@ -66,9 +66,6 @@ test_postman:
 
 test_backend:
   stage: test
-  image: python:3.10-slim-bullseye
-  before_script:
-    - python -m pip install --upgrade pip
-    - pip install -r backend/requirements.txt
+  image: backend/Dockerfile
   script:
     - make pytests
