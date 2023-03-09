@@ -21,3 +21,7 @@ docker-back:
 # makes the flask based docker image and runs the docker container on port 5000
 docker-back-w:
 	docker build -t futurfindr-backend .\backend && docker run --rm -it -p 5000:5000 futurfindr-backend
+
+pytests:
+	echo "Running backend unit tests..."
+	python3 backend/tests.py
