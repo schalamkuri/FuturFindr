@@ -62,3 +62,12 @@ test_postman:
     - cd backend
     - newman --version
     - newman run collection.json
+
+
+test_backend:
+  stage: test
+  image: python:3.6-stretch
+  before_script:
+    - pip3 install -r backend/requirements.txt
+  script:
+    - make pytests
