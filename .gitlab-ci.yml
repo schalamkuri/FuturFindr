@@ -68,9 +68,10 @@ test_backend:
   stage: test
   image: python:3.10-slim-bullseye
   before_script:
-    - pip install -r backend/requirements.txt
     - apt-get install -y python3-pip python3-dev build-essential vim
     - apt-get install -y default-libmysqlclient-dev libpq-dev postgresql
     - apt-get -y install nginx
+    - pip3 install --upgrade pip
+    - pip install -r backend/requirements.txt
   script:
     - make pytests
