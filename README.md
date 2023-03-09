@@ -62,7 +62,7 @@ https://www.futurfindr.me/
 | --------------------- | -------------------------- | -------------------------- |
 | Frank Sosa            | 25                         | 35                         |
 | Seth Parsons          | 20                         | 40                         |
-| Saiprathik Chalamkuri |                            |                            |
+| Saiprathik Chalamkuri | 30                         | 30                         |
 | Josiah Valdez         | 20                         | 18                         |
 | Ritesh Thakur         | 30                         | 20                         |
 
