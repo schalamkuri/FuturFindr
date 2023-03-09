@@ -54,6 +54,16 @@ const toolsUsed = [{
     desc: "Used for contacting APIs",
     pic : axiosPic,
     link: "https://www.npmjs.com/package/axios"
+  }, {
+    name: "Jest",
+    desc: "Used for frontend testing",
+    pic : "https://pbs.twimg.com/profile_images/821713465245102080/mMtKIMax_400x400.jpg",
+    link: "https://jestjs.io/"
+  }, {
+    name: "Selenium",
+    desc: "Used for GUI testing",
+    pic : "https://www.perfecto.io/sites/default/files/image/2020-09/social-blog-what-to-expect-with-selenium-2.jpg",
+    link: "https://www.selenium.dev/"
   },
 ]
 

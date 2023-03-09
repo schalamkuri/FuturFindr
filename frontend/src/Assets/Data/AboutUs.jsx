@@ -15,7 +15,7 @@ const aboutUs = [{
     role: "Full-Stack",
     commits: 0,
     issues: 0,
-    tests: 0,
+    tests: 10,
     pic : saiprathikPic
   }, {
     name: "Seth Parsons",
@@ -48,7 +48,7 @@ const aboutUs = [{
     role: "Full-Stack",
     commits: 0,
     issues: 0,
-    tests: 10,
+    tests: 16,
     pic : riteshPic
   }, {
     name: "Josiah Valdez",
@@ -60,7 +60,7 @@ const aboutUs = [{
     role: "Full-Stack",
     commits: 0,
     issues: 0,
-    tests: 0,
+    tests: 6,
     pic : josiahPic
   },
 ]
