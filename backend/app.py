@@ -13,6 +13,7 @@ from schema import (
     housing_unit_img_schema,
 )
 import json
+import datetime
 
 DEFAULT_PAGE_SIZE = 9
 DEFAULT_NEARBY_RETURNED = 3
@@ -30,11 +31,11 @@ def home():
 
 @app.route("/search/<string:query>")
 def search_all(query):
-    terms = query.split()
+    parameters = query.split()
     results = {
-        **search_colleges(terms),
-        **search_housing(terms),
-        **search_jobs(terms),
+        **search_colleges(parameters),
+        **search_housing(parameters),
+        **search_jobs(parameters),
     }
     temp = sorted(results.keys(), key=lambda x: results[x], reverse=True)
     colleges = [college for college in temp if type(college) == College]
@@ -51,20 +52,20 @@ def search_all(query):
 @app.route("/search/<string:model>/<string:query>")
 def search_models(model, query):
     model = model.strip().lower()
-    terms = query.split()
+    parameters = query.split()
     result = None
     if model == "college":
-        results = search_colleges(terms)
+        results = search_colleges(parameters)
         colleges = sorted(results.keys(), key=lambda x: results[x], reverse=True)
         result = college_schema.dump(colleges, many=True)
     elif model == "housing":
-        results = search_housing(terms)
+        results = search_housing(parameters)
         housing = sorted(
             results.keys(), key=lambda x: results[x], reverse=True
         )
         result = housing_unit_schema.dump(housing, many=True)
     elif model == "job":
-        results = search_jobs(terms)
+        results = search_jobs(parameters)
         jobs = sorted(results.keys(), key=lambda x: results[x], reverse=True)
         result = job_schema.dump(jobs, many=True)
     else:
@@ -318,15 +319,24 @@ def get_nearby_jobs(lat, lng, num):
 
 def search_colleges(parameters):
     results = {}
-    for term in parameters:
+    for parameter in parameters:
         queries = []
-        queries.append(College.city.contains(term))
-        queries.append(College.name.contains(term))
-        queries.append(College.latitude.contains(term))
-        queries.append(College.longitude.contains(term))
-        queries.append(College.admission_rate.contains(term))
-        queries.append(College.instate_tuition.contains(term))
-        queries.append(College.outstate_tuition.contains(term))
+        try:
+            queries.append(College.city.contains(parameter))
+            queries.append(College.name.contains(parameter))
+        except:
+            pass
+        try:
+            queries.append(College.latitude.contains(float(parameter)))
+            queries.append(College.longitude.contains(float(parameter)))
+            queries.append(College.admission_rate.contains(float(parameter)))
+        except:
+            pass
+        try:
+            queries.append(College.instate_tuition.contains(int(parameter)))
+            queries.append(College.outstate_tuition.contains(int(parameter)))
+        except:
+            pass
         colleges = College.query.filter(or_(*queries))
         for college in colleges:
             if not college in results:
@@ -337,16 +347,27 @@ def search_colleges(parameters):
 
 def search_housing(parameters):
     results = {}
-    for term in parameters:
+    for parameter in parameters:
         queries = []
-        queries.append(HousingUnit.city.contains(term))
-        queries.append(HousingUnit.bathrooms.contains(term))
-        queries.append(HousingUnit.bedrooms.contains(term))
-        queries.append(HousingUnit.price.contains(term))
-        queries.append(HousingUnit.address.contains(term))
-        queries.append(HousingUnit.property_type.contains(term))
-        queries.append(HousingUnit.sqft.contains(term))
-        queries.append(HousingUnit.date_listed.contains(term))
+        try:
+            queries.append(HousingUnit.city.contains(parameter))
+            queries.append(HousingUnit.address.contains(parameter))
+            queries.append(HousingUnit.property_type.contains(parameter))
+            queries.append(HousingUnit.date_listed.contains(parameter))
+        except:
+            pass
+        try:
+            queries.append(HousingUnit.latitude.contains(float(parameter)))
+            queries.append(HousingUnit.longitude.contains(float(parameter)))
+        except:
+            pass
+        try:
+            queries.append(HousingUnit.bathrooms.contains(int(parameter)))
+            queries.append(HousingUnit.bedrooms.contains(int(parameter)))
+            queries.append(HousingUnit.price.contains(int(parameter)))
+            queries.append(HousingUnit.sqft.contains(int(parameter)))
+        except:
+            pass
         units = HousingUnit.query.filter(or_(*queries))
         for unit in units:
             if not unit in results:
@@ -359,17 +380,29 @@ def search_jobs(parameters):
     results = {}
     for parameter in parameters:
         queries = []
-        queries.append(Job.title.contains(parameter))
-        queries.append(Job.company.contains(parameter))
-        queries.append(Job.city.contains(parameter))
-        queries.append(Job.category.contains(parameter))
-        queries.append(Job.url.contains(parameter))
-        queries.append(Job.salary_min.contains(parameter))
-        queries.append(Job.salary_max.contains(parameter))
-        queries.append(Job.latitude.contains(parameter))
-        queries.append(Job.longitude.contains(parameter))
-        queries.append(Job.description.contains(parameter))
-        queries.append(Job.created.contains(parameter))
+        try:
+            queries.append(Job.title.contains(parameter))
+            queries.append(Job.company.contains(parameter))
+            queries.append(Job.city.contains(parameter))
+            queries.append(Job.category.contains(parameter))
+            queries.append(Job.url.contains(parameter))
+            queries.append(Job.description.contains(parameter))
+        except:
+            pass
+        try:
+            queries.append(Job.created.contains(datetime(parameter)))
+        except:
+            pass
+        try:
+            queries.append(Job.salary_min.contains(int(parameter)))
+            queries.append(Job.salary_max.contains(int(parameter)))
+        except:
+            pass
+        try:
+            queries.append(Job.latitude.contains(float(parameter)))
+            queries.append(Job.longitude.contains(float(parameter)))
+        except:
+            pass
         jobs = Job.query.filter(or_(*queries))
         for job in jobs:
             if not job in results:
