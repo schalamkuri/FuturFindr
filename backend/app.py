@@ -3,7 +3,7 @@
 
 from flask import Flask, jsonify, request, Response
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import literal_column
+from sqlalchemy import literal_column, or_
 from sqlalchemy.sql import text, column, desc
 from models import app, db, Job, College, HousingUnit, HousingUnitImage
 from schema import (
@@ -22,6 +22,56 @@ DEFAULT_NEARBY_RADIUS = 500
 @app.route("/")
 def home():
     return "<h1>FuturFindr API</h1>"
+
+
+# Functions for returning search results
+# Inspired by GeoJobs - https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/back-end/app.py
+
+
+@app.route("/search/<string:query>")
+def search_all(query):
+    terms = query.split()
+    results = {
+        **search_colleges(terms),
+        **search_housing(terms),
+        **search_jobs(terms),
+    }
+    temp = sorted(results.keys(), key=lambda x: results[x], reverse=True)
+    colleges = [college for college in temp if type(college) == College]
+    housing = [housing for housing in temp if type(housing) == HousingUnit]
+    jobs = [job for job in temp if type(job) == Job]
+    college_results = college_schema.dump(colleges, many=True)
+    housing_results = housing_unit_schema.dump(housing, many=True)
+    job_results = job_schema.dump(jobs, many=True)
+    return jsonify(
+        {"colleges": college_results, "housing": housing_results, "jobs": job_results}
+    )
+
+
+@app.route("/search/<string:model>/<string:query>")
+def search_models(model, query):
+    model = model.strip().lower()
+    terms = query.split()
+    result = None
+    if model == "college":
+        results = search_colleges(terms)
+        colleges = sorted(results.keys(), key=lambda x: results[x], reverse=True)
+        result = college_schema.dump(colleges, many=True)
+    elif model == "housing":
+        results = search_housing(terms)
+        housing = sorted(
+            results.keys(), key=lambda x: results[x], reverse=True
+        )
+        result = housing_unit_schema.dump(housing, many=True)
+    elif model == "job":
+        results = search_jobs(terms)
+        jobs = sorted(results.keys(), key=lambda x: results[x], reverse=True)
+        result = job_schema.dump(jobs, many=True)
+    else:
+        return Response(
+            json.dumps({"error": "Invalid model type"}), mimetype="application/json"
+        )
+    return jsonify({"data": result})
 
 
 # Functions for returning lists of models
@@ -165,7 +215,6 @@ def paginate_helper(page_num, per_page, query):
 # Helper methods for returning nearby model instances
 # inspired by StudySpots https://gitlab.com/jakem02/cs373-idb/-/blob/main/backend/model_functions.py
 
-
 def get_nearby_colleges(lat, lng, num):
     temp = (
         db.session.query(
@@ -262,6 +311,72 @@ def get_nearby_jobs(lat, lng, num):
     if num > 0:
         nearby_jobs = nearby_jobs[:num]
     return job_schema.dump(nearby_jobs, many=True)
+
+
+# Helper methods for searching specific models
+# inspired by GeoJobs https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/back-end/app.py
+
+def search_colleges(parameters):
+    results = {}
+    for term in parameters:
+        queries = []
+        queries.append(College.city.contains(term))
+        queries.append(College.name.contains(term))
+        queries.append(College.latitude.contains(term))
+        queries.append(College.longitude.contains(term))
+        queries.append(College.admission_rate.contains(term))
+        queries.append(College.instate_tuition.contains(term))
+        queries.append(College.outstate_tuition.contains(term))
+        colleges = College.query.filter(or_(*queries))
+        for college in colleges:
+            if not college in results:
+                results[college] = 1
+            else:
+                results[college] += 1
+    return results
+
+def search_housing(parameters):
+    results = {}
+    for term in parameters:
+        queries = []
+        queries.append(HousingUnit.city.contains(term))
+        queries.append(HousingUnit.bathrooms.contains(term))
+        queries.append(HousingUnit.bedrooms.contains(term))
+        queries.append(HousingUnit.price.contains(term))
+        queries.append(HousingUnit.address.contains(term))
+        queries.append(HousingUnit.property_type.contains(term))
+        queries.append(HousingUnit.sqft.contains(term))
+        queries.append(HousingUnit.date_listed.contains(term))
+        units = HousingUnit.query.filter(or_(*queries))
+        for unit in units:
+            if not unit in results:
+                results[unit] = 1
+            else:
+                results[unit] += 1
+    return results
+
+def search_jobs(parameters):
+    results = {}
+    for parameter in parameters:
+        queries = []
+        queries.append(Job.title.contains(parameter))
+        queries.append(Job.company.contains(parameter))
+        queries.append(Job.city.contains(parameter))
+        queries.append(Job.category.contains(parameter))
+        queries.append(Job.url.contains(parameter))
+        queries.append(Job.salary_min.contains(parameter))
+        queries.append(Job.salary_max.contains(parameter))
+        queries.append(Job.latitude.contains(parameter))
+        queries.append(Job.longitude.contains(parameter))
+        queries.append(Job.description.contains(parameter))
+        queries.append(Job.created.contains(parameter))
+        jobs = Job.query.filter(or_(*queries))
+        for job in jobs:
+            if not job in results:
+                results[job] = 1
+            else:
+                results[job] += 1
+    return results
 
 
 # Run app
