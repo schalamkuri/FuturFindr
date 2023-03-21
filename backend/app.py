@@ -327,14 +327,14 @@ def search_colleges(parameters):
         except:
             pass
         try:
-            queries.append(College.latitude.contains(float(parameter)))
-            queries.append(College.longitude.contains(float(parameter)))
-            queries.append(College.admission_rate.contains(float(parameter)))
+            queries.append(College.latitude.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(College.longitude.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(College.admission_rate.contains("cast(" + float(parameter) + " as float)"))
         except:
             pass
         try:
-            queries.append(College.instate_tuition.contains(int(parameter)))
-            queries.append(College.outstate_tuition.contains(int(parameter)))
+            queries.append(College.instate_tuition.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(College.outstate_tuition.contains("cast(" + int(parameter) + " as int)"))
         except:
             pass
         colleges = College.query.filter(or_(*queries))
@@ -357,15 +357,15 @@ def search_housing(parameters):
         except:
             pass
         try:
-            queries.append(HousingUnit.latitude.contains(float(parameter)))
-            queries.append(HousingUnit.longitude.contains(float(parameter)))
+            queries.append(HousingUnit.latitude.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(HousingUnit.longitude.contains("cast(" + float(parameter) + " as float)"))
         except:
             pass
         try:
-            queries.append(HousingUnit.bathrooms.contains(int(parameter)))
-            queries.append(HousingUnit.bedrooms.contains(int(parameter)))
-            queries.append(HousingUnit.price.contains(int(parameter)))
-            queries.append(HousingUnit.sqft.contains(int(parameter)))
+            queries.append(HousingUnit.bathrooms.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(HousingUnit.bedrooms.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(HousingUnit.price.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(HousingUnit.sqft.contains("cast(" + int(parameter) + " as int)"))
         except:
             pass
         units = HousingUnit.query.filter(or_(*queries))
@@ -394,13 +394,13 @@ def search_jobs(parameters):
         except:
             pass
         try:
-            queries.append(Job.salary_min.contains(int(parameter)))
-            queries.append(Job.salary_max.contains(int(parameter)))
+            queries.append(Job.salary_min.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(Job.salary_max.contains("cast(" + int(parameter) + " as int)"))
         except:
             pass
         try:
-            queries.append(Job.latitude.contains(float(parameter)))
-            queries.append(Job.longitude.contains(float(parameter)))
+            queries.append(Job.latitude.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(Job.longitude.contains("cast(" + float(parameter) + " as float)"))
         except:
             pass
         jobs = Job.query.filter(or_(*queries))
