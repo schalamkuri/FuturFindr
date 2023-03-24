@@ -83,16 +83,48 @@ def get_colleges():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    city = request.args.get("city")
+    a_rate = request.args.get("a_rate")
+    i_tuition = request.args.get("i_tution")
+    o_tuition = request.args.get("o_tuition")
     sort = request.args.get("sort")
     asc = request.args.get("asc")
     query = db.session.query(College)
     
-    # Sort
+    # sort
     if sort is not None and getattr(College, sort) is not None:
         if asc is not None:
             query = query.order_by(getattr(College, sort))
         else:
             query = query.order_by(desc(getattr(College, sort)))
+
+    # filter
+    if city is not None:
+        query = query.filter(College.city == city)
+    if a_rate is not None:
+        range = a_rate.split("-")
+        try:
+            query = query.filter(
+                College.admission_rate >= range[0], College.admission_rate <= range[1]
+            )
+        except:
+            pass
+    if i_tuition is not None:
+        range = i_tuition.split("-")
+        try:
+            query = query.filter(
+                College.instate_tuition >= range[0], College.instate_tuition <= range[1]
+            )
+        except:
+            pass
+    if o_tuition is not None:
+        range = o_tuition.split("-")
+        try:
+            query = query.filter(
+                College.outstate_tuition >= range[0], College.outstate_tuition <= range[1]
+            )
+        except:
+            pass
     
     # pagination
     count = query.count()
@@ -109,11 +141,56 @@ def get_housing():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    city = request.args.get("city")
+    p_type = request.args.get("p_type")
+    bedrooms = request.args.get("bedrooms")
+    bathrooms = request.args.get("bathrooms")
+    price = request.args.get("price")
+    sqft = request.args.get("sqft")
     sort = request.args.get("sort")
     asc = request.args.get("asc")
     query = db.session.query(HousingUnit)
 
-    # Sort
+    # filter
+    if city is not None:
+        query = query.filter(HousingUnit.city == city)
+    if p_type is not None:
+        query = query.filter(HousingUnit.property_type == p_type)
+    if bedrooms is not None:
+        range = bedrooms.split("-")
+        try:
+            query = query.filter(
+                HousingUnit.bedrooms >= range[0], HousingUnit.bedrooms <= range[1]
+            )
+        except:
+            pass
+    if bathrooms is not None:
+        range = bathrooms.split("-")
+        try:
+            query = query.filter(
+                HousingUnit.bathrooms >= range[0],
+                HousingUnit.bathrooms <= range[1],
+            )
+        except:
+            pass
+    if sqft is not None:
+        range = sqft.split("-")
+        try:
+            query = query.filter(
+                HousingUnit.sqft >= range[0], HousingUnit.sqft <= range[1]
+            )
+        except:
+            pass
+    if price is not None:
+        range = price.split("-")
+        try:
+            query = query.filter(
+                HousingUnit.price >= range[0], HousingUnit.price <= range[1]
+            )
+        except:
+            pass
+
+    # sort
     if sort is not None and getattr(HousingUnit, sort) is not None:
         if asc is not None:
             query = query.order_by(getattr(HousingUnit, sort))
@@ -135,11 +212,32 @@ def get_jobs():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    category = request.args.get("category")
+    city = request.args.get("city")
+    type = request.args.get("type")
+    salary_range = request.args.get("salary_range")
     sort = request.args.get("sort")
     asc = request.args.get("asc")
     query = db.session.query(Job)
     
-    # Sort
+    # filter
+    if category is not None:
+        category.replace("and", "&")
+        query = query.filter(Job.category == category)
+    if city is not None:
+        query = query.filter(Job.city == city)
+    if type is not None:
+        query = query.filter(Job.type == type)
+    if salary_range is not None:
+        range = range.split("-")
+        try:
+            query = query.filter(
+                Job.salary_min >= range[0], Job.salary_max <= range[1]
+            )
+        except:
+            pass
+
+    # sort
     if sort is not None and getattr(Job, sort) is not None:
         if asc is not None:
             query = query.order_by(getattr(Job, sort))
