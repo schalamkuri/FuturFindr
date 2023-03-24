@@ -3,7 +3,7 @@
 
 from flask import Flask, jsonify, request, Response
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import literal_column, or_
+from sqlalchemy import literal_column, or_, DOUBLE_PRECISION
 from sqlalchemy.sql import text, column, desc
 from models import app, db, Job, College, HousingUnit, HousingUnitImage
 from schema import (
@@ -322,19 +322,19 @@ def search_colleges(parameters):
     for parameter in parameters:
         queries = []
         try:
-            queries.append(College.city.contains(parameter))
-            queries.append(College.name.contains(parameter))
+            queries.append(College.city.icontains(parameter))
+            queries.append(College.name.icontains(parameter))
         except:
             pass
         try:
-            queries.append(College.latitude.contains("cast(" + float(parameter) + " as float)"))
-            queries.append(College.longitude.contains("cast(" + float(parameter) + " as float)"))
-            queries.append(College.admission_rate.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(College.latitude == float(parameter))
+            queries.append(College.longitude == float(parameter))
+            queries.append(College.admission_rate == float(parameter))
         except:
             pass
         try:
-            queries.append(College.instate_tuition.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(College.outstate_tuition.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(College.instate_tuition == int(parameter))
+            queries.append(College.outstate_tuition == int(parameter))
         except:
             pass
         colleges = College.query.filter(or_(*queries))
@@ -350,22 +350,22 @@ def search_housing(parameters):
     for parameter in parameters:
         queries = []
         try:
-            queries.append(HousingUnit.city.contains(parameter))
-            queries.append(HousingUnit.address.contains(parameter))
-            queries.append(HousingUnit.property_type.contains(parameter))
-            queries.append(HousingUnit.date_listed.contains(parameter))
+            queries.append(HousingUnit.city.icontains(parameter))
+            queries.append(HousingUnit.address.icontains(parameter))
+            queries.append(HousingUnit.property_type.icontains(parameter))
+            queries.append(HousingUnit.date_listed.icontains(parameter))
         except:
             pass
         try:
-            queries.append(HousingUnit.latitude.contains("cast(" + float(parameter) + " as float)"))
-            queries.append(HousingUnit.longitude.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(HousingUnit.latitude == float(parameter))
+            queries.append(HousingUnit.longitude == float(parameter))
         except:
             pass
         try:
-            queries.append(HousingUnit.bathrooms.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(HousingUnit.bedrooms.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(HousingUnit.price.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(HousingUnit.sqft.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(HousingUnit.bathrooms == int(parameter))
+            queries.append(HousingUnit.bedrooms == int(parameter))
+            queries.append(HousingUnit.price == int(parameter))
+            queries.append(HousingUnit.sqft == int(parameter))
         except:
             pass
         units = HousingUnit.query.filter(or_(*queries))
@@ -381,26 +381,26 @@ def search_jobs(parameters):
     for parameter in parameters:
         queries = []
         try:
-            queries.append(Job.title.contains(parameter))
-            queries.append(Job.company.contains(parameter))
-            queries.append(Job.city.contains(parameter))
-            queries.append(Job.category.contains(parameter))
-            queries.append(Job.url.contains(parameter))
-            queries.append(Job.description.contains(parameter))
+            queries.append(Job.title.icontains(parameter))
+            queries.append(Job.company.icontains(parameter))
+            queries.append(Job.city.icontains(parameter))
+            queries.append(Job.category.icontains(parameter))
+            queries.append(Job.url.icontains(parameter))
+            queries.append(Job.description.icontains(parameter))
         except:
             pass
         try:
-            queries.append(Job.created.contains(datetime(parameter)))
+            queries.append(Job.created == datetime(parameter))
         except:
             pass
         try:
-            queries.append(Job.salary_min.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(Job.salary_max.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(Job.salary_min == int(parameter))
+            queries.append(Job.salary_max == int(parameter))
         except:
             pass
         try:
-            queries.append(Job.latitude.contains("cast(" + float(parameter) + " as float)"))
-            queries.append(Job.longitude.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(Job.latitude == float(parameter))
+            queries.append(Job.longitude == float(parameter))
         except:
             pass
         jobs = Job.query.filter(or_(*queries))
