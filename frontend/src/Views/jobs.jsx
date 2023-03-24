@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {backendApi} from "../Assets/Data/Constants"
 import JobCard from "../components/JobCard";
-import Pagination from 'react-bootstrap/Pagination';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Spinner from 'react-bootstrap/Spinner';
+// import Pagination from 'react-bootstrap/Pagination';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+// import Spinner from 'react-bootstrap/Spinner';
+
+import { Spinner, Pagination, Row, Col, Button, Form, Container, InputGroup } from "react-bootstrap";
 
 function Jobs() {
 
@@ -62,6 +64,46 @@ function Jobs() {
 
   return (
     <>
+            {/* <Container fluid>
+    <Form onSubmit={(event) => {
+          event.preventDefault();
+          setLoad(false);
+        }}
+        className="d-flex pb-5 justify-content-center"
+        >
+      <Form.Control
+          ref={searchQuery}
+          style={{ width: "20vw" }}
+          type="search"
+          placeholder="Search Colleges"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-secondary" className="mb-2" onClick={() => setLoad(false)}>
+          Search
+        </Button>
+
+    </Form>
+    </Container> */}
+      <Form>
+      <Row className="d-flex justify-content-center">
+        <Col xs="auto">
+          <Form.Label htmlFor="inlineFormInput" visuallyHidden>
+            College
+          </Form.Label>
+          <Form.Control
+            className="mb-2"
+            id="inlineFormInput"
+            placeholder="Search Jobs"
+          />
+        </Col>
+        <Col xs="auto">
+          <Button type="submit" className="mb-2" onClick={() => setLoad(false)}>
+            Submit
+          </Button>
+        </Col>
+      </Row>
+    </Form>
     <div style={{
       display: "block",
       marginLeft: "auto",

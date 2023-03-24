@@ -10,7 +10,7 @@ function CollegeCard(props) {
 				<Card.Text>
 					Instate Tuition: ${props.instateTuition ? props.instateTuition : "~"} <br></br>
 					Outstate Tuition: ${props.outstateTuition ? props.outstateTuition : "~"} <br></br>
-					Admission Rate: %{props.admissionRate ? Math.trunc(props.admissionRate * 100) : "~"} <br></br>
+					Admission Rate: {props.admissionRate ? Math.trunc(props.admissionRate * 100) : "~"}% <br></br>
 					City: {props.city} <br></br>
 				</Card.Text>
 				<a href={`/colleges/${props.id}`} class="stretched-link"></a>

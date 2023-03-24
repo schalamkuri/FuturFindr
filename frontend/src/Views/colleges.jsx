@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {backendApi} from "../Assets/Data/Constants"
 import CollegeCard from "../components/CollegeCard";
-import Pagination from 'react-bootstrap/Pagination';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Spinner from 'react-bootstrap/Spinner';
+//import Pagination from 'react-bootstrap/Pagination';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+// import Spinner from 'react-bootstrap/Spinner';
+// import Button from "react-bootstrap/Button";
+// import Form from "react-bootstrap/Form";
 
+import { Spinner, Pagination, Row, Col, Button, Form, Container, InputGroup } from "react-bootstrap";
 
 function Colleges() {
   // State
@@ -14,6 +17,8 @@ function Colleges() {
   const [load, setLoad] = useState(false);
   const postsPerPage = 12;
   const totalColleges = 4000;
+
+  const searchQuery = useRef("");
 
   // Indexes
   var indexOfLastPost = currentPage * postsPerPage < totalColleges ?
@@ -62,6 +67,46 @@ function Colleges() {
 
   return (
     <>
+    {/* <Container fluid>
+    <Form onSubmit={(event) => {
+          event.preventDefault();
+          setLoad(false);
+        }}
+        className="d-flex pb-5 justify-content-center"
+        >
+      <Form.Control
+          ref={searchQuery}
+          style={{ width: "20vw" }}
+          type="search"
+          placeholder="Search Colleges"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-secondary" className="mb-2" onClick={() => setLoad(false)}>
+          Search
+        </Button>
+
+    </Form>
+    </Container> */}
+      <Form>
+      <Row className="d-flex justify-content-center">
+        <Col xs="auto">
+          <Form.Label htmlFor="inlineFormInput" visuallyHidden>
+            College
+          </Form.Label>
+          <Form.Control
+            className="mb-2"
+            id="inlineFormInput"
+            placeholder="Search Colleges"
+          />
+        </Col>
+        <Col xs="auto">
+          <Button type="submit" className="mb-2" onClick={() => setLoad(false)}>
+            Submit
+          </Button>
+        </Col>
+      </Row>
+    </Form>
     <div style={{
       display: "block",
       marginLeft: "auto",
