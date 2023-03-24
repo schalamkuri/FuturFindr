@@ -11,7 +11,7 @@ function JobCard(props) {
           Company: {props.company} <br></br>
           Industry: {props.category} <br></br>
           Location: {props.location} <br></br>
-          Pay range: ${props.salaryMin}-{props.salaryMax} <br></br>
+          Pay range: ${props.salaryMin} {props.salaryMax != props.salaryMin && "- $" + props.salaryMax} <br></br>
           Date Posted: {props?.datePosted?.split("T")[0]} <br></br>
         </Card.Text>
         <a href={`/jobs/${props.id}`} className="stretched-link"></a>
@@ -19,5 +19,4 @@ function JobCard(props) {
     </Card>
   );
 }
-
 export default JobCard;
