@@ -83,10 +83,19 @@ def get_colleges():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    sort = request.args.get("sort")
+    asc = request.args.get("asc")
     query = db.session.query(College)
-    count = query.count()
-
+    
+    # Sort
+    if sort is not None and getattr(College, sort) is not None:
+        if asc is not None:
+            query = query.order_by(getattr(College, sort))
+        else:
+            query = query.order_by(desc(getattr(College, sort)))
+    
     # pagination
+    count = query.count()
     if page_num is not None:
         query = paginate_helper(page_num, per_page, query)
 
@@ -100,10 +109,19 @@ def get_housing():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    sort = request.args.get("sort")
+    asc = request.args.get("asc")
     query = db.session.query(HousingUnit)
-    count = query.count()
 
+    # Sort
+    if sort is not None and getattr(HousingUnit, sort) is not None:
+        if asc is not None:
+            query = query.order_by(getattr(HousingUnit, sort))
+        else:
+            query = query.order_by(desc(getattr(HousingUnit, sort)))
+    
     # pagination
+    count = query.count()
     if page_num is not None:
         query = paginate_helper(page_num, per_page, query)
 
@@ -117,10 +135,19 @@ def get_jobs():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    sort = request.args.get("sort")
+    asc = request.args.get("asc")
     query = db.session.query(Job)
-    count = query.count()
+    
+    # Sort
+    if sort is not None and getattr(Job, sort) is not None:
+        if asc is not None:
+            query = query.order_by(getattr(Job, sort))
+        else:
+            query = query.order_by(desc(getattr(Job, sort)))
 
     # pagination
+    count = query.count()
     if page_num is not None:
         query = paginate_helper(page_num, per_page, query)
 
