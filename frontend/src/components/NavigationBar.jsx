@@ -1,12 +1,17 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import Logo from '../Assets/fortune-teller.png';
+import { Nav, Navbar, Button, Form, Container } from "react-bootstrap";
 
 // Code is based off of geojobs navigation bar
 // https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/components/GlobalNavbar/GlobalNavbar.jsx
   
   const NavigationBar = () => {
+
+    const handleSubmit = (event) => {
+      // event.preventDefault()
+      // const form = event.currentTarget
+      // console.log(`search query: ${form.query.value}`)
+      // window.location.assign(`/search/${form.query.value}`)
+    }
     return (
       <Navbar
       
@@ -41,6 +46,22 @@ import Logo from '../Assets/fortune-teller.png';
                 Housing
               </Nav.Link>
             </Nav>
+            <Container className="d-flex justify-content-end">
+            <Form onSubmit={handleSubmit} className="d-flex">
+              <Form.Control
+                style={{ width: "20vw" }}
+                type="search"
+                name="query"
+                placeholder="Colleges, Jobs, & Housing"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button type="submit" variant="outline-secondary">Search</Button>
+              {/*style={{color: '#3d405b'}}*/}
+            </Form>
+          </Container>
+
+
           </Navbar.Collapse>
         </Container>
       </Navbar>

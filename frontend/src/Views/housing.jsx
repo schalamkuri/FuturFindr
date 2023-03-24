@@ -92,14 +92,14 @@ function Housing() {
             College
           </Form.Label>
           <Form.Control
-            className="mb-2"
+            className="m-2"
             id="inlineFormInput"
             placeholder="Search Housing"
           />
         </Col>
         <Col xs="auto">
-          <Button type="submit" className="mb-2" onClick={() => setLoad(false)}>
-            Submit
+          <Button type="submit" className="m-2" onClick={() => setLoad(false)}>
+            Search
           </Button>
         </Col>
       </Row>
