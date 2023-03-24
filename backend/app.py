@@ -3,7 +3,7 @@
 
 from flask import Flask, jsonify, request, Response
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import literal_column, or_
+from sqlalchemy import literal_column, or_, DOUBLE_PRECISION
 from sqlalchemy.sql import text, column, desc
 from models import app, db, Job, College, HousingUnit, HousingUnitImage
 from schema import (
@@ -83,10 +83,51 @@ def get_colleges():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    city = request.args.get("city")
+    a_rate = request.args.get("a_rate")
+    i_tuition = request.args.get("i_tution")
+    o_tuition = request.args.get("o_tuition")
+    sort = request.args.get("sort")
+    asc = request.args.get("asc")
     query = db.session.query(College)
-    count = query.count()
+    
+    # sort
+    if sort is not None and getattr(College, sort) is not None:
+        if asc is not None:
+            query = query.order_by(getattr(College, sort))
+        else:
+            query = query.order_by(desc(getattr(College, sort)))
 
+    # filter
+    if city is not None:
+        query = query.filter(College.city == city)
+    if a_rate is not None:
+        range = a_rate.split("-")
+        try:
+            query = query.filter(
+                College.admission_rate >= range[0], College.admission_rate <= range[1]
+            )
+        except:
+            pass
+    if i_tuition is not None:
+        range = i_tuition.split("-")
+        try:
+            query = query.filter(
+                College.instate_tuition >= range[0], College.instate_tuition <= range[1]
+            )
+        except:
+            pass
+    if o_tuition is not None:
+        range = o_tuition.split("-")
+        try:
+            query = query.filter(
+                College.outstate_tuition >= range[0], College.outstate_tuition <= range[1]
+            )
+        except:
+            pass
+    
     # pagination
+    count = query.count()
     if page_num is not None:
         query = paginate_helper(page_num, per_page, query)
 
@@ -100,10 +141,64 @@ def get_housing():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    city = request.args.get("city")
+    p_type = request.args.get("p_type")
+    bedrooms = request.args.get("bedrooms")
+    bathrooms = request.args.get("bathrooms")
+    price = request.args.get("price")
+    sqft = request.args.get("sqft")
+    sort = request.args.get("sort")
+    asc = request.args.get("asc")
     query = db.session.query(HousingUnit)
-    count = query.count()
 
+    # filter
+    if city is not None:
+        query = query.filter(HousingUnit.city == city)
+    if p_type is not None:
+        query = query.filter(HousingUnit.property_type == p_type)
+    if bedrooms is not None:
+        range = bedrooms.split("-")
+        try:
+            query = query.filter(
+                HousingUnit.bedrooms >= range[0], HousingUnit.bedrooms <= range[1]
+            )
+        except:
+            pass
+    if bathrooms is not None:
+        range = bathrooms.split("-")
+        try:
+            query = query.filter(
+                HousingUnit.bathrooms >= range[0],
+                HousingUnit.bathrooms <= range[1],
+            )
+        except:
+            pass
+    if sqft is not None:
+        range = sqft.split("-")
+        try:
+            query = query.filter(
+                HousingUnit.sqft >= range[0], HousingUnit.sqft <= range[1]
+            )
+        except:
+            pass
+    if price is not None:
+        range = price.split("-")
+        try:
+            query = query.filter(
+                HousingUnit.price >= range[0], HousingUnit.price <= range[1]
+            )
+        except:
+            pass
+
+    # sort
+    if sort is not None and getattr(HousingUnit, sort) is not None:
+        if asc is not None:
+            query = query.order_by(getattr(HousingUnit, sort))
+        else:
+            query = query.order_by(desc(getattr(HousingUnit, sort)))
+    
     # pagination
+    count = query.count()
     if page_num is not None:
         query = paginate_helper(page_num, per_page, query)
 
@@ -117,10 +212,40 @@ def get_jobs():
     # get api call arguments
     page_num = request.args.get("page", type=int)
     per_page = request.args.get("per_page", type=int)
+    category = request.args.get("category")
+    city = request.args.get("city")
+    type = request.args.get("type")
+    salary_range = request.args.get("salary_range")
+    sort = request.args.get("sort")
+    asc = request.args.get("asc")
     query = db.session.query(Job)
-    count = query.count()
+    
+    # filter
+    if category is not None:
+        category.replace("and", "&")
+        query = query.filter(Job.category == category)
+    if city is not None:
+        query = query.filter(Job.city == city)
+    if type is not None:
+        query = query.filter(Job.type == type)
+    if salary_range is not None:
+        range = range.split("-")
+        try:
+            query = query.filter(
+                Job.salary_min >= range[0], Job.salary_max <= range[1]
+            )
+        except:
+            pass
+
+    # sort
+    if sort is not None and getattr(Job, sort) is not None:
+        if asc is not None:
+            query = query.order_by(getattr(Job, sort))
+        else:
+            query = query.order_by(desc(getattr(Job, sort)))
 
     # pagination
+    count = query.count()
     if page_num is not None:
         query = paginate_helper(page_num, per_page, query)
 
@@ -322,19 +447,19 @@ def search_colleges(parameters):
     for parameter in parameters:
         queries = []
         try:
-            queries.append(College.city.contains(parameter))
-            queries.append(College.name.contains(parameter))
+            queries.append(College.city.icontains(parameter))
+            queries.append(College.name.icontains(parameter))
         except:
             pass
         try:
-            queries.append(College.latitude.contains("cast(" + float(parameter) + " as float)"))
-            queries.append(College.longitude.contains("cast(" + float(parameter) + " as float)"))
-            queries.append(College.admission_rate.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(College.latitude == float(parameter))
+            queries.append(College.longitude == float(parameter))
+            queries.append(College.admission_rate == float(parameter))
         except:
             pass
         try:
-            queries.append(College.instate_tuition.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(College.outstate_tuition.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(College.instate_tuition == int(parameter))
+            queries.append(College.outstate_tuition == int(parameter))
         except:
             pass
         colleges = College.query.filter(or_(*queries))
@@ -350,22 +475,22 @@ def search_housing(parameters):
     for parameter in parameters:
         queries = []
         try:
-            queries.append(HousingUnit.city.contains(parameter))
-            queries.append(HousingUnit.address.contains(parameter))
-            queries.append(HousingUnit.property_type.contains(parameter))
-            queries.append(HousingUnit.date_listed.contains(parameter))
+            queries.append(HousingUnit.city.icontains(parameter))
+            queries.append(HousingUnit.address.icontains(parameter))
+            queries.append(HousingUnit.property_type.icontains(parameter))
+            queries.append(HousingUnit.date_listed.icontains(parameter))
         except:
             pass
         try:
-            queries.append(HousingUnit.latitude.contains("cast(" + float(parameter) + " as float)"))
-            queries.append(HousingUnit.longitude.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(HousingUnit.latitude == float(parameter))
+            queries.append(HousingUnit.longitude == float(parameter))
         except:
             pass
         try:
-            queries.append(HousingUnit.bathrooms.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(HousingUnit.bedrooms.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(HousingUnit.price.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(HousingUnit.sqft.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(HousingUnit.bathrooms == int(parameter))
+            queries.append(HousingUnit.bedrooms == int(parameter))
+            queries.append(HousingUnit.price == int(parameter))
+            queries.append(HousingUnit.sqft == int(parameter))
         except:
             pass
         units = HousingUnit.query.filter(or_(*queries))
@@ -381,26 +506,26 @@ def search_jobs(parameters):
     for parameter in parameters:
         queries = []
         try:
-            queries.append(Job.title.contains(parameter))
-            queries.append(Job.company.contains(parameter))
-            queries.append(Job.city.contains(parameter))
-            queries.append(Job.category.contains(parameter))
-            queries.append(Job.url.contains(parameter))
-            queries.append(Job.description.contains(parameter))
+            queries.append(Job.title.icontains(parameter))
+            queries.append(Job.company.icontains(parameter))
+            queries.append(Job.city.icontains(parameter))
+            queries.append(Job.category.icontains(parameter))
+            queries.append(Job.url.icontains(parameter))
+            queries.append(Job.description.icontains(parameter))
         except:
             pass
         try:
-            queries.append(Job.created.contains(datetime(parameter)))
+            queries.append(Job.created == datetime(parameter))
         except:
             pass
         try:
-            queries.append(Job.salary_min.contains("cast(" + int(parameter) + " as int)"))
-            queries.append(Job.salary_max.contains("cast(" + int(parameter) + " as int)"))
+            queries.append(Job.salary_min == int(parameter))
+            queries.append(Job.salary_max == int(parameter))
         except:
             pass
         try:
-            queries.append(Job.latitude.contains("cast(" + float(parameter) + " as float)"))
-            queries.append(Job.longitude.contains("cast(" + float(parameter) + " as float)"))
+            queries.append(Job.latitude == float(parameter))
+            queries.append(Job.longitude == float(parameter))
         except:
             pass
         jobs = Job.query.filter(or_(*queries))
