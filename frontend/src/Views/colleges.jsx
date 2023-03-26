@@ -1,23 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { backendApi } from "../Assets/Data/Constants";
 import CollegeCard from "../components/CollegeCard";
-//import Pagination from 'react-bootstrap/Pagination';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Spinner from 'react-bootstrap/Spinner';
-// import Button from "react-bootstrap/Button";
-// import Form from "react-bootstrap/Form";
-
-import {
-  Spinner,
-  Pagination,
-  Row,
-  Col,
-  Button,
-  Form,
-  Container,
-  InputGroup,
-} from "react-bootstrap";
+import { Spinner, Pagination, Row, Col, Button, Form } from "react-bootstrap";
 
 function Colleges() {
   // State
@@ -25,9 +9,9 @@ function Colleges() {
   const [collegeList, setColleges] = useState([]);
   const [load, setLoad] = useState(false);
   const [regex, setRegex] = useState(null);
-  const postsPerPage = 12;
   const [totalColleges, setTotalColleges] = useState(4000);
 
+  const postsPerPage = 12;
   const searchQuery = useRef("");
 
   // determine index of the last post
@@ -36,14 +20,14 @@ function Colleges() {
       ? currentPage * postsPerPage
       : totalColleges;
 
-  // determine index of the first post 
+  // determine index of the first post
   var indexOfFirstPost;
   if (indexOfLastPost - postsPerPage < 1) {
-    indexOfFirstPost = 1;
+    indexOfFirstPost = totalColleges;
   } else if (currentPage * postsPerPage > totalColleges) {
-    indexOfFirstPost = totalColleges - totalColleges % postsPerPage
+    indexOfFirstPost = totalColleges - (totalColleges % postsPerPage);
   } else {
-    indexOfFirstPost = indexOfLastPost - postsPerPage
+    indexOfFirstPost = indexOfLastPost - postsPerPage;
   }
 
   const getColleges = async () => {
