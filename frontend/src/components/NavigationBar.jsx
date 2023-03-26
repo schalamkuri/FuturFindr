@@ -7,10 +7,8 @@ import { Nav, Navbar, Button, Form, Container } from "react-bootstrap";
   const NavigationBar = () => {
 
     const handleSubmit = (event) => {
-      // event.preventDefault()
-      // const form = event.currentTarget
-      // console.log(`search query: ${form.query.value}`)
-      // window.location.assign(`/search/${form.query.value}`)
+      event.preventDefault()
+      window.location.assign(`/search/${event.currentTarget.query.value}`)
     }
     return (
       <Navbar

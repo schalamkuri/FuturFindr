@@ -8,6 +8,7 @@ import Jobs from "./Views/jobs";
 import JobsInstance from "./Views/JobsInstance";
 import HousingInstance from "./Views/HousingInstance";
 import CollegeInstance from "./Views/CollegeInstance";
+import Search from "./Views/Search"
 
 
 // Code is based off of geojobs routeswitch
@@ -25,6 +26,7 @@ const RouteSwitch = () => {
         <Route path="/jobs/:id" element={<JobsInstance/>} />
         <Route path="/housing" element={<Housing/>} />
         <Route path="/housing/:id" element={<HousingInstance/>} />
+        <Route path="/search/:query" element={<Search />} /> 
       </Routes>
     </BrowserRouter>
   );

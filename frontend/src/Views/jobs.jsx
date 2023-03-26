@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {backendApi} from "../Assets/Data/Constants"
 import JobCard from "../components/JobCard";
-// import Pagination from 'react-bootstrap/Pagination';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Spinner from 'react-bootstrap/Spinner';
-
 import { Spinner, Pagination, Row, Col, Button, Form, Container, InputGroup } from "react-bootstrap";
 
 function Jobs() {
