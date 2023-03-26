@@ -99,7 +99,7 @@ def get_colleges():
     per_page = request.args.get("per_page", type=int)
     city = request.args.get("city")
     a_rate = request.args.get("a_rate")
-    i_tuition = request.args.get("i_tuition")
+    i_tuition = request.args.get("i_tution")
     o_tuition = request.args.get("o_tuition")
     sort = request.args.get("sort")
     asc = request.args.get("asc")
