@@ -11,6 +11,7 @@ const Search = () => {
   const [load, setLoad] = useState(false);
 
   const userQuery = useParams()["query"];
+  const regex = new RegExp(`(?:${userQuery.replaceAll("%20", "|")})`, "i");
 
   // load data from query
   // this will get results for all 3 models
@@ -52,6 +53,7 @@ const Search = () => {
                       }
                       admissionRate={data.admission_rate}
                       city={data.city}
+                      regex = {regex}
                     />
                   </Col>
                 );
@@ -81,6 +83,7 @@ const Search = () => {
                           ? data.img_url
                           : "https://thumbs.dreamstime.com/b/cv-writing-job-application-resume-gray-icon-vector-graphics-various-use-187075464.jpg"
                       }
+                      regex = {regex}
                     />
                   </Col>
                 );
@@ -114,6 +117,7 @@ const Search = () => {
                             : "https://www.pngkit.com/png/detail/413-4134663_house-vector-library-house-clipart-grey.png"
                           : data.images[5].img_url
                       }
+                      regex = {regex}
                     />
                   </Col>
                 );
