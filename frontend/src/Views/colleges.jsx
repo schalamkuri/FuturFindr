@@ -26,33 +26,45 @@ function Colleges() {
   const [load, setLoad] = useState(false);
   const [regex, setRegex] = useState(null);
   const postsPerPage = 12;
-  const [totalColleges, setTotalColleges] = useState(4000)
+  const [totalColleges, setTotalColleges] = useState(4000);
 
   const searchQuery = useRef("");
 
-  // Indexes
+  // determine index of the last post
   var indexOfLastPost =
     currentPage * postsPerPage < totalColleges
       ? currentPage * postsPerPage
       : totalColleges;
-  var indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  // determine index of the first post 
+  var indexOfFirstPost;
+  if (indexOfLastPost - postsPerPage < 1) {
+    indexOfFirstPost = 1;
+  } else if (currentPage * postsPerPage > totalColleges) {
+    indexOfFirstPost = totalColleges - totalColleges % postsPerPage
+  } else {
+    indexOfFirstPost = indexOfLastPost - postsPerPage
+  }
 
   const getColleges = async () => {
     try {
       if (!load) {
         var endpoint;
         if (searchQuery.current.value != "") {
-          endpoint = `search/college/${searchQuery.current.value}`;
-          setRegex(new RegExp(searchQuery.current.value.replaceAll(" ", "|"), "i"));
+          endpoint = `search/college/${searchQuery.current.value}?page=${currentPage}&per_page=${postsPerPage}`;
+          setRegex(
+            new RegExp(searchQuery.current.value.replaceAll(" ", "|"), "i")
+          );
           const data = await backendApi.get(endpoint);
           setColleges(data.data.data);
-          setTotalColleges(data.data.data.length)
+          setTotalColleges(data.data.meta.total);
         } else {
-          endpoint = "colleges?page=" + currentPage + "&per_page=" + postsPerPage;
+          endpoint =
+            "colleges?page=" + currentPage + "&per_page=" + postsPerPage;
           setRegex(null);
           const data = await backendApi.get(endpoint);
           setColleges(data.data.data);
-          setTotalColleges(4000)
+          setTotalColleges(4000);
         }
         setLoad(true);
       }
@@ -85,7 +97,7 @@ function Colleges() {
   // On click function for paginator
   function pagination(number) {
     setCurrentPage(number);
-    setLoad(false)
+    setLoad(false);
   }
 
   return (
@@ -138,7 +150,7 @@ function Colleges() {
                       }
                       admissionRate={data.admission_rate}
                       city={data.city}
-                      regex = {regex}
+                      regex={regex}
                     />
                   </Col>
                 );
