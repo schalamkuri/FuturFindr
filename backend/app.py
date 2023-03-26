@@ -32,20 +32,14 @@ def home():
 @app.route("/search/<string:query>")
 def search_all(query):
     parameters = query.split()
-    results = {
-        **search_colleges(parameters),
-        **search_housing(parameters),
-        **search_jobs(parameters),
-    }
-    temp = sorted(results.keys(), key=lambda x: results[x], reverse=True)
-    colleges = [college for college in temp if type(college) == College]
-    housing = [housing for housing in temp if type(housing) == HousingUnit]
-    jobs = [job for job in temp if type(job) == Job]
-    college_results = college_schema.dump(colleges, many=True)
-    housing_results = housing_unit_schema.dump(housing, many=True)
-    job_results = job_schema.dump(jobs, many=True)
+    college_results = search_colleges(parameters)
+    housing_results = search_housing(parameters)
+    job_results = search_jobs(parameters)
+    colleges = college_schema.dump(college_results, many=True)
+    housing = housing_unit_schema.dump(housing_results, many=True)
+    jobs = job_schema.dump(job_results, many=True)
     return jsonify(
-        {"colleges": college_results, "housing": housing_results, "jobs": job_results}
+        {"colleges": colleges, "housing": housing, "jobs": jobs}
     )
 
 
