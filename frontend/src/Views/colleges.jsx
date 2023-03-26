@@ -1,13 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { backendApi } from "../Assets/Data/Constants";
 import CollegeCard from "../components/CollegeCard";
-//import Pagination from 'react-bootstrap/Pagination';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Spinner from 'react-bootstrap/Spinner';
-// import Button from "react-bootstrap/Button";
-// import Form from "react-bootstrap/Form";
-
+import RangeSlider from "../components/RangeSlider";
 import {
   Spinner,
   Pagination,
@@ -15,8 +9,6 @@ import {
   Col,
   Button,
   Form,
-  Container,
-  InputGroup,
 } from "react-bootstrap";
 
 function Colleges() {
@@ -27,6 +19,9 @@ function Colleges() {
   const [regex, setRegex] = useState(null);
   const postsPerPage = 12;
   const [totalColleges, setTotalColleges] = useState(4000);
+
+  const [i_tuition, setItuition] = useState([0, 1000000]);
+  const [o_tuition, setOtuition] = useState([0, 1000000]);
 
   const searchQuery = useRef("");
 
@@ -46,6 +41,26 @@ function Colleges() {
     indexOfFirstPost = indexOfLastPost - postsPerPage
   }
 
+
+
+  const handleItuitionFilter = (value) => {
+    setItuition(value);
+  };
+
+  const handleOtuitionFilter = (value) => {
+    setOtuition(value);
+  };
+
+  function arrayEquals(a, b) {
+    return (
+      Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index])
+    );
+  }
+
+
   const getColleges = async () => {
     try {
       if (!load) {
@@ -62,6 +77,12 @@ function Colleges() {
           endpoint =
             "colleges?page=" + currentPage + "&per_page=" + postsPerPage;
           setRegex(null);
+          if (!arrayEquals(i_tuition, [0, 1000000])) {
+            endpoint += `&i_tuition=${i_tuition[0]}-${i_tuition[1]}`;
+          }
+          if (!arrayEquals(o_tuition, [0, 1000000])) {
+            endpoint += `&o_tuition=${o_tuition[0]}-${o_tuition[1]}`;
+          }
           const data = await backendApi.get(endpoint);
           setColleges(data.data.data);
           setTotalColleges(4000);
@@ -125,6 +146,150 @@ function Colleges() {
           Search
         </Button>
       </Form>
+
+      <Form className="filter-form">
+        {/* <Row className="mx-auto text-center w-50 mb-4">
+          <Col>
+            <FilterDropdown
+              title="Sort"
+              items={[
+                "Sort",
+                "Salary Min",
+                "Company",
+                "Title",
+                "Category",
+                "Created",
+              ]}
+              onChange={handleSortFilter}
+            />
+          </Col>
+          <Col>
+            <FilterDropdown
+              title="Order"
+              items={["Ascending", "Descending"]}
+              onChange={handleOrderFilter}
+            />
+          </Col>
+          <Col>
+            <FilterDropdown
+              title="City"
+              items={[
+                "City",
+                "New York, NY",
+                "Los Angeles, CA",
+                "Chicago, IL",
+                "Houston, TX",
+                "Phoenix, AZ",
+                "Philadelphia, PA",
+                "San Antonio, TX",
+                "San Diego, CA",
+                "Dallas, TX",
+                "San Jose, CA",
+                "Austin, TX",
+                "Jacksonville, FL",
+                "Fort Worth, TX",
+                "Columbus, OH",
+                "Indianapolis, IN",
+                "Charlotte, NC",
+                "San Francisco, CA",
+                "Seattle, WA",
+                "Denver, CO",
+                "Washington D.C.",
+                "Nashville, TN",
+                "Oklahoma City, OK",
+                "El Paso, TX",
+                "Boston, MA",
+                "Portland, OR",
+                "Las Vegas, NV",
+                "Detroit, MI",
+                "Memphis, TN",
+                "Louisville, KY",
+                "Baltimore, MD",
+                "Milwaukee, WI",
+                "Albuquerque, NM",
+                "Tucson, AZ",
+                "Fresno, CA",
+                "Sacramento, CA",
+                "Kansas City, MO",
+                "Mesa, AZ",
+                "Atlanta, GA",
+                "Omaha, NE",
+                "Colorado Springs, CO",
+                "Raleigh, NC",
+                "Long Beach, CA",
+                "Virginia Beach, VA",
+                "Miami, FL",
+                "Oakland, CA",
+                "Minneapolis, MN",
+                "Tulsa, OK",
+                "Bakersfield, CA",
+                "Wichita, KS",
+                "Arlington, TX",
+              ]}
+              scroll
+              onChange={handleCityFilter}
+            />
+          </Col>
+          <Col>
+            <FilterDropdown
+              title="Job Category"
+              items={[
+                "Accounting & Finance Jobs",
+                "Admin Jobs",
+                "Consultancy Jobs",
+                "Creative & Design Jobs",
+                "Customer Services Jobs",
+                "Domestic help & Cleaning Jobs",
+                "Energy, Oil & Gas Jobs",
+                "Engineering Jobs",
+                "HR & Recruitment Jobs",
+                "Healthcare & Nursing Jobs",
+                "Hospitality & Catering Jobs",
+                "IT Jobs",
+                "Legal Jobs",
+                "Logistics & Warehouse Jobs",
+                "Maintenance Jobs",
+                "Manufacturing Jobs",
+                "Other/General Jobs",
+                "PR, Advertising & Marketing Jobs",
+                "Property Jobs",
+                "Retail Jobs",
+                "Sales Jobs",
+                "Scientific & QA Jobs",
+                "Social work Jobs",
+                "Teaching Jobs",
+                "Trade & Construction Jobs",
+                "Travel Jobs",
+              ]}
+              scroll
+              onChange={HandleCategoryFilter}
+            />
+          </Col>
+        </Row> */}
+        <Row className="m-2">
+          <Col>
+            <Form.Label>In-state Tuition</Form.Label>
+            <RangeSlider min={0} max={50000} onChange={handleItuitionFilter} />
+          </Col>
+          <Col>
+            <Form.Label>Out of state Tuition</Form.Label>
+            <RangeSlider min={0} max={100000} onChange={handleOtuitionFilter} />
+          </Col>
+        </Row>
+        
+        <Row className="mx-auto text-center my-4">
+          <Col>
+            <Button
+              variant="outline-secondary"
+              onClick={() => setLoad(false)}
+            >
+              Submit
+            </Button>
+          </Col>
+        </Row>
+      </Form>
+
+
       <div
         style={{
           display: "block",
