@@ -10,9 +10,9 @@ import { Nav, Navbar, Button, Form, Container } from "react-bootstrap";
       event.preventDefault()
       window.location.assign(`/search/${event.currentTarget.query.value}`)
     }
+
     return (
       <Navbar
-      
         variant="light"
         expand="lg"
         style={{
