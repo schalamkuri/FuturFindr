@@ -17,12 +17,12 @@ function Colleges() {
   const [collegeList, setColleges] = useState([]);
   const [load, setLoad] = useState(false);
   const [regex, setRegex] = useState(null);
-  const postsPerPage = 12;
   const [totalColleges, setTotalColleges] = useState(4000);
 
   const [i_tuition, setItuition] = useState([0, 1000000]);
   const [o_tuition, setOtuition] = useState([0, 1000000]);
 
+  const postsPerPage = 12;
   const searchQuery = useRef("");
 
   // determine index of the last post
@@ -31,14 +31,14 @@ function Colleges() {
       ? currentPage * postsPerPage
       : totalColleges;
 
-  // determine index of the first post 
+  // determine index of the first post
   var indexOfFirstPost;
   if (indexOfLastPost - postsPerPage < 1) {
-    indexOfFirstPost = 1;
+    indexOfFirstPost = totalColleges;
   } else if (currentPage * postsPerPage > totalColleges) {
-    indexOfFirstPost = totalColleges - totalColleges % postsPerPage
+    indexOfFirstPost = totalColleges - (totalColleges % postsPerPage);
   } else {
-    indexOfFirstPost = indexOfLastPost - postsPerPage
+    indexOfFirstPost = indexOfLastPost - postsPerPage;
   }
 
 
