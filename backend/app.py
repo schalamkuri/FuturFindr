@@ -32,47 +32,61 @@ def home():
 @app.route("/search/<string:query>")
 def search_all(query):
     parameters = query.split()
-    results = {
-        **search_colleges(parameters),
-        **search_housing(parameters),
-        **search_jobs(parameters),
-    }
-    temp = sorted(results.keys(), key=lambda x: results[x], reverse=True)
-    colleges = [college for college in temp if type(college) == College]
-    housing = [housing for housing in temp if type(housing) == HousingUnit]
-    jobs = [job for job in temp if type(job) == Job]
-    college_results = college_schema.dump(colleges, many=True)
-    housing_results = housing_unit_schema.dump(housing, many=True)
-    job_results = job_schema.dump(jobs, many=True)
+    college_results = search_colleges(parameters)
+    housing_results = search_housing(parameters)
+    job_results = search_jobs(parameters)
+    colleges = college_schema.dump(college_results, many=True)
+    housing = housing_unit_schema.dump(housing_results, many=True)
+    jobs = job_schema.dump(job_results, many=True)
     return jsonify(
-        {"colleges": college_results, "housing": housing_results, "jobs": job_results}
+        {"colleges": colleges, "housing": housing, "jobs": jobs}
     )
 
 
 @app.route("/search/<string:model>/<string:query>")
 def search_models(model, query):
+    # get pagination arguments
+    page_num = request.args.get("page", type=int)
+    per_page = request.args.get("per_page", type=int)
+
     model = model.strip().lower()
     parameters = query.split()
     result = None
     if model == "college":
         results = search_colleges(parameters)
-        colleges = sorted(results.keys(), key=lambda x: results[x], reverse=True)
-        result = college_schema.dump(colleges, many=True)
+        # pagination
+        total = results.count()
+        if page_num is not None:
+            results = paginate_helper(page_num, per_page, results)
+            count = len(results)
+        else:
+            count = results.count()
+        result = college_schema.dump(results, many=True)
     elif model == "housing":
         results = search_housing(parameters)
-        housing = sorted(
-            results.keys(), key=lambda x: results[x], reverse=True
-        )
-        result = housing_unit_schema.dump(housing, many=True)
+        # pagination
+        total = results.count()
+        if page_num is not None:
+            results = paginate_helper(page_num, per_page, results)
+            count = len(results)
+        else:
+            count = results.count()
+        result = housing_unit_schema.dump(results, many=True)
     elif model == "job":
         results = search_jobs(parameters)
-        jobs = sorted(results.keys(), key=lambda x: results[x], reverse=True)
-        result = job_schema.dump(jobs, many=True)
+        # pagination
+        total = results.count()
+        if page_num is not None:
+            results = paginate_helper(page_num, per_page, results)
+            count = len(results)
+        else:
+            count = results.count()
+        result = job_schema.dump(results, many=True)
     else:
         return Response(
             json.dumps({"error": "Invalid model type"}), mimetype="application/json"
         )
-    return jsonify({"data": result})
+    return jsonify({"data": result, "meta": {"count": count, "total": total}})
 
 
 # Functions for returning lists of models
@@ -443,7 +457,6 @@ def get_nearby_jobs(lat, lng, num):
 # inspired by GeoJobs https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/back-end/app.py
 
 def search_colleges(parameters):
-    results = {}
     for parameter in parameters:
         queries = []
         try:
@@ -463,15 +476,9 @@ def search_colleges(parameters):
         except:
             pass
         colleges = College.query.filter(or_(*queries))
-        for college in colleges:
-            if not college in results:
-                results[college] = 1
-            else:
-                results[college] += 1
-    return results
+    return colleges
 
 def search_housing(parameters):
-    results = {}
     for parameter in parameters:
         queries = []
         try:
@@ -494,15 +501,9 @@ def search_housing(parameters):
         except:
             pass
         units = HousingUnit.query.filter(or_(*queries))
-        for unit in units:
-            if not unit in results:
-                results[unit] = 1
-            else:
-                results[unit] += 1
-    return results
+    return units
 
 def search_jobs(parameters):
-    results = {}
     for parameter in parameters:
         queries = []
         try:
@@ -529,12 +530,7 @@ def search_jobs(parameters):
         except:
             pass
         jobs = Job.query.filter(or_(*queries))
-        for job in jobs:
-            if not job in results:
-                results[job] = 1
-            else:
-                results[job] += 1
-    return results
+    return jobs
 
 
 # Run app
