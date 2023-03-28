@@ -3,7 +3,8 @@ import Card from "react-bootstrap/Card";
 import { Highlight } from "react-highlight-regex";
 
 function JobCard(props) {
-  // TAKEN FROM GEO JOBS REPO AND SLIGHTLY EDITED
+
+  // FUNCTION FROM GEO JOBS REPO AND SLIGHTLY EDITED
   // highlightes part of input that matches regex expression
 	function highlightText(input) {
 		if (props.regex != null && input != null) {
