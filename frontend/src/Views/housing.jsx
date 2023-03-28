@@ -29,14 +29,14 @@ function Housing() {
 
   // determine index of the first post
   var indexOfFirstPost;
-  if (indexOfLastPost - postsPerPage < 1) {
+  if (indexOfLastPost - postsPerPage < 0) {
     indexOfFirstPost = totalHousing;
   } else if (currentPage * postsPerPage > totalHousing) {
     indexOfFirstPost = totalHousing - (totalHousing % postsPerPage);
   } else {
     indexOfFirstPost = indexOfLastPost - postsPerPage;
   }
-
+  
   const getHousing = async () => {
     try {
       if (!load) {

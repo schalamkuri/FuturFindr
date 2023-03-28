@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import Select from 'react-select';
 import { backendApi } from "../Assets/Data/Constants";
 import CollegeCard from "../components/CollegeCard";
 import RangeSlider from "../components/RangeSlider";
+import FilterDropdown from "../components/FilterDropdown";
 import {
   Spinner,
   Pagination,
@@ -10,6 +12,7 @@ import {
   Button,
   Form,
 } from "react-bootstrap";
+import { citiesFilterOptions } from "../Assets/Data/CitiesFilter";
 
 function Colleges() {
   // State
@@ -19,8 +22,13 @@ function Colleges() {
   const [regex, setRegex] = useState(null);
   const [totalColleges, setTotalColleges] = useState(4000);
 
+  const [sort, setSort] = useState("sort");
+  const [ascending, setAscending] = useState(true);
+  const [city, setCity] = useState("city");
   const [i_tuition, setItuition] = useState([0, 1000000]);
   const [o_tuition, setOtuition] = useState([0, 1000000]);
+  const [admission, setAdmission] = useState([0, 1000000]);
+
 
   const postsPerPage = 12;
   const searchQuery = useRef("");
@@ -33,7 +41,7 @@ function Colleges() {
 
   // determine index of the first post
   var indexOfFirstPost;
-  if (indexOfLastPost - postsPerPage < 1) {
+  if (indexOfLastPost - postsPerPage < 0) {
     indexOfFirstPost = totalColleges;
   } else if (currentPage * postsPerPage > totalColleges) {
     indexOfFirstPost = totalColleges - (totalColleges % postsPerPage);
@@ -41,7 +49,19 @@ function Colleges() {
     indexOfFirstPost = indexOfLastPost - postsPerPage;
   }
 
+  // handle state for filtering parameters
+  const handleSortFilter = (value) => {
+    setSort(value.toLowerCase().replace(" ", "_"));
+  };
 
+  const handleOrderFilter = (value) => {
+    setAscending(value == "Ascending");
+  };
+
+  const handleCityFilter = (value) => {
+    console.log(value.value)
+    setCity(value.value)
+  }
 
   const handleItuitionFilter = (value) => {
     setItuition(value);
@@ -49,6 +69,10 @@ function Colleges() {
 
   const handleOtuitionFilter = (value) => {
     setOtuition(value);
+  };
+
+  const handleAdmissionFilter = (value) => {
+    setAdmission(value);
   };
 
   function arrayEquals(a, b) {
@@ -60,32 +84,55 @@ function Colleges() {
     );
   }
 
-
   const getColleges = async () => {
     try {
       if (!load) {
+        // value of the api call
         var endpoint;
+
+        // if searchiing
         if (searchQuery.current.value != "") {
+          // set endpoint to search this model with the query
           endpoint = `search/college/${searchQuery.current.value}?page=${currentPage}&per_page=${postsPerPage}`;
+          // set regular expression for highlighting
           setRegex(
             new RegExp(searchQuery.current.value.replaceAll(" ", "|"), "i")
           );
+          // get data and set size for pagination
           const data = await backendApi.get(endpoint);
           setColleges(data.data.data);
           setTotalColleges(data.data.meta.total);
         } else {
+          // default to just paging 
           endpoint =
             "colleges?page=" + currentPage + "&per_page=" + postsPerPage;
+          // make sure there are no highlights from a previous search
           setRegex(null);
+
+          // add parameters if they are  not default
+          if (sort != "sort") {
+            endpoint += `&sort=${sort}`;
+          }
+          if (ascending && sort != "sort") {
+            endpoint += "&asc";
+          }
+          if (city != "city"){
+            endpoint += `&city=${city}`;
+          }
           if (!arrayEquals(i_tuition, [0, 1000000])) {
             endpoint += `&i_tuition=${i_tuition[0]}-${i_tuition[1]}`;
           }
           if (!arrayEquals(o_tuition, [0, 1000000])) {
             endpoint += `&o_tuition=${o_tuition[0]}-${o_tuition[1]}`;
           }
+          if (!arrayEquals(admission, [0, 100])) {
+            endpoint += `&a_rate=${admission[0] / 100}-${admission[1] / 100}`;
+          }
+
+          // get data and set size for pagination
           const data = await backendApi.get(endpoint);
           setColleges(data.data.data);
-          setTotalColleges(4000);
+          setTotalColleges(data.data.meta.total);
         }
         setLoad(true);
       }
@@ -123,171 +170,86 @@ function Colleges() {
 
   return (
     <>
-      <Form
-        onSubmit={(event) => {
-          event.preventDefault();
-          setLoad(false);
-        }}
-        className="d-flex justify-content-center"
-      >
-        <Form.Control
-          ref={searchQuery}
-          style={{ width: "15vw" }}
-          type="search"
-          placeholder="Search Colleges"
-          className="m-2"
-          aria-label="Search"
-        />
-        <Button
-          variant="outline-secondary"
-          className="m-2"
-          onClick={() => setLoad(false)}
+      <Row className="mx-auto text-center w-50 mb-4">
+        <Form
+          onSubmit={(event) => {
+            event.preventDefault();
+            setLoad(false);
+          }}
+          className="d-flex justify-content-center"
         >
-          Search
-        </Button>
-      </Form>
-
-      <Form className="filter-form">
-        {/* <Row className="mx-auto text-center w-50 mb-4">
-          <Col>
-            <FilterDropdown
-              title="Sort"
-              items={[
-                "Sort",
-                "Salary Min",
-                "Company",
-                "Title",
-                "Category",
-                "Created",
-              ]}
-              onChange={handleSortFilter}
-            />
-          </Col>
-          <Col>
-            <FilterDropdown
-              title="Order"
-              items={["Ascending", "Descending"]}
-              onChange={handleOrderFilter}
-            />
-          </Col>
-          <Col>
-            <FilterDropdown
-              title="City"
-              items={[
-                "City",
-                "New York, NY",
-                "Los Angeles, CA",
-                "Chicago, IL",
-                "Houston, TX",
-                "Phoenix, AZ",
-                "Philadelphia, PA",
-                "San Antonio, TX",
-                "San Diego, CA",
-                "Dallas, TX",
-                "San Jose, CA",
-                "Austin, TX",
-                "Jacksonville, FL",
-                "Fort Worth, TX",
-                "Columbus, OH",
-                "Indianapolis, IN",
-                "Charlotte, NC",
-                "San Francisco, CA",
-                "Seattle, WA",
-                "Denver, CO",
-                "Washington D.C.",
-                "Nashville, TN",
-                "Oklahoma City, OK",
-                "El Paso, TX",
-                "Boston, MA",
-                "Portland, OR",
-                "Las Vegas, NV",
-                "Detroit, MI",
-                "Memphis, TN",
-                "Louisville, KY",
-                "Baltimore, MD",
-                "Milwaukee, WI",
-                "Albuquerque, NM",
-                "Tucson, AZ",
-                "Fresno, CA",
-                "Sacramento, CA",
-                "Kansas City, MO",
-                "Mesa, AZ",
-                "Atlanta, GA",
-                "Omaha, NE",
-                "Colorado Springs, CO",
-                "Raleigh, NC",
-                "Long Beach, CA",
-                "Virginia Beach, VA",
-                "Miami, FL",
-                "Oakland, CA",
-                "Minneapolis, MN",
-                "Tulsa, OK",
-                "Bakersfield, CA",
-                "Wichita, KS",
-                "Arlington, TX",
-              ]}
-              scroll
-              onChange={handleCityFilter}
-            />
-          </Col>
-          <Col>
-            <FilterDropdown
-              title="Job Category"
-              items={[
-                "Accounting & Finance Jobs",
-                "Admin Jobs",
-                "Consultancy Jobs",
-                "Creative & Design Jobs",
-                "Customer Services Jobs",
-                "Domestic help & Cleaning Jobs",
-                "Energy, Oil & Gas Jobs",
-                "Engineering Jobs",
-                "HR & Recruitment Jobs",
-                "Healthcare & Nursing Jobs",
-                "Hospitality & Catering Jobs",
-                "IT Jobs",
-                "Legal Jobs",
-                "Logistics & Warehouse Jobs",
-                "Maintenance Jobs",
-                "Manufacturing Jobs",
-                "Other/General Jobs",
-                "PR, Advertising & Marketing Jobs",
-                "Property Jobs",
-                "Retail Jobs",
-                "Sales Jobs",
-                "Scientific & QA Jobs",
-                "Social work Jobs",
-                "Teaching Jobs",
-                "Trade & Construction Jobs",
-                "Travel Jobs",
-              ]}
-              scroll
-              onChange={HandleCategoryFilter}
-            />
-          </Col>
-        </Row> */}
-        <Row className="m-2">
-          <Col>
-            <Form.Label>In-state Tuition</Form.Label>
-            <RangeSlider min={0} max={50000} onChange={handleItuitionFilter} />
-          </Col>
-          <Col>
-            <Form.Label>Out of state Tuition</Form.Label>
-            <RangeSlider min={0} max={100000} onChange={handleOtuitionFilter} />
-          </Col>
-        </Row>
-        
-        <Row className="mx-auto text-center my-4">
-          <Col>
-            <Button
-              variant="outline-secondary"
-              onClick={() => setLoad(false)}
-            >
-              Submit
-            </Button>
-          </Col>
-        </Row>
-      </Form>
+          <Form.Control
+            ref={searchQuery}
+            style={{ width: "15vw" }}
+            type="search"
+            placeholder="Search Colleges"
+            className="m-2"
+            aria-label="Search"
+          />
+          <Button
+            variant="outline-secondary"
+            className="m-2"
+            onClick={() => setLoad(false)}
+          >
+            Search
+          </Button>
+        </Form>
+      </Row>
+      <Row className="mx-auto text-center w-50 mb-4">
+        <Col>
+          <FilterDropdown
+            title="Sort by"
+            items={[
+              "Admission Rate",
+              "Instate Tuition",
+              "Outstate Tuition",
+            ]}
+            onChange={handleSortFilter}
+          />
+        </Col>
+        <Col>
+          <FilterDropdown
+            title="Order by"
+            items={[
+              "Ascending",
+              "Descending"
+            ]}
+            onChange={handleOrderFilter}
+          />
+        </Col>
+        <Col>
+          <Select
+            placeholder="City"
+            options={citiesFilterOptions.map(opt => ({ label: opt, value: opt }))}
+            onChange={handleCityFilter}
+          />
+        </Col>
+      </Row>
+      <Row className="m-2">
+        <Col>
+          <Form.Label>In-state Tuition</Form.Label>
+          <RangeSlider min={0} max={50000} onChange={handleItuitionFilter} />
+        </Col>
+        <Col>
+          <Form.Label>Out of state Tuition</Form.Label>
+          <RangeSlider min={0} max={100000} onChange={handleOtuitionFilter} />
+        </Col>
+        <Col>
+          <Form.Label>Admission Rate</Form.Label>
+          <RangeSlider min={0} max={100} onChange={handleAdmissionFilter} />
+        </Col>
+      </Row>
+      
+      <Row className="mx-auto text-center my-4">
+        <Col>
+          <Button
+            variant="outline-secondary"
+            onClick={() => setLoad(false)}
+          >
+            Submit
+          </Button>
+        </Col>
+      </Row>
 
 
       <div

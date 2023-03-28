@@ -22,7 +22,7 @@ function Jobs() {
 
   // determine index of the first post
   var indexOfFirstPost;
-  if (indexOfLastPost - postsPerPage < 1) {
+  if (indexOfLastPost - postsPerPage < 0) {
     indexOfFirstPost = totalJobs;
   } else if (currentPage * postsPerPage > totalJobs) {
     indexOfFirstPost = totalJobs - (totalJobs % postsPerPage);
