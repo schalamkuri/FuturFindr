@@ -6,6 +6,9 @@ import CollegeCard from "../components/CollegeCard";
 import JobCard from "../components/JobCard";
 import HousingCard from "../components/HousingCard";
 
+// Code is adapted from geojobs's implemenation with some changes
+// https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/views/Search.jsx
+
 const Search = () => {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);

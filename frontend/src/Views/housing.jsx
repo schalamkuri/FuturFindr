@@ -12,6 +12,9 @@ import {
 import RangeSlider from "../components/RangeSlider";
 import Select from "react-select";
 
+// Searching and sorting implemenation references GeoJobs implemenation for
+// overall general logic
+
 function Housing() {
   /* State */
   const [housingList, setHousing] = useState([]);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Slider, TextField, Grid } from "@mui/material";
 
-// FROM GEOJOBS REPO
+// Code is taken from geojobs' implemenation of a range slider
 // https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/components/RangeSlider.jsx
 
 export default function RangeSlider(props) {

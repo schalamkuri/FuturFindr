@@ -6,6 +6,9 @@ import RangeSlider from "../components/RangeSlider";
 import { Spinner, Pagination, Row, Col, Button, Form } from "react-bootstrap";
 import { citiesFilterColleges } from "../Assets/Data/CitiesFilterColleges";
 
+// Searching and sorting implemenation references GeoJobs implemenation for
+// overall general logic
+
 function Colleges() {
   /* State */
   const [collegeList, setColleges] = useState([]);

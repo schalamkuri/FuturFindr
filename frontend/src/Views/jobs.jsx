@@ -6,6 +6,9 @@ import RangeSlider from "../components/RangeSlider";
 import Select from "react-select";
 import { citiesFilterJobs } from "../Assets/Data/CitiesFilterJobs";
 
+// Searching and sorting implemenation references GeoJobs implemenation for
+// overall general logic
+
 function Jobs() {
   /* State */
   const [jobsList, setJobs] = useState([]);
