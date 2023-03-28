@@ -29,7 +29,7 @@ const fetchRepositoryData = async () => {
   // Define totals
   let totalCommits = 0,
       totalIssues = 0,
-      totalTests = 0
+      totalTests = 32
 
   // Get commits (call api, for each returned user find num of commits,
   // then increment total commits)
