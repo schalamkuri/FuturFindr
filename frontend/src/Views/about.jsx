@@ -52,9 +52,9 @@ const fetchRepositoryData = async () => {
         aboutUs.forEach((user) => {
           if (user.name === element.author.name || user.gitlab === element.author.username)
           user.issues += 1
+          totalIssues += 1
         })
       })
-      totalIssues += 1
   });
 
   // return info
