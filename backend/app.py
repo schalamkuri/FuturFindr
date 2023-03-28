@@ -230,6 +230,7 @@ def get_jobs():
     city = request.args.get("city")
     type = request.args.get("type")
     salary_range = request.args.get("salary_range")
+    company = request.args.get("company")
     sort = request.args.get("sort")
     asc = request.args.get("asc")
     query = db.session.query(Job)
@@ -243,13 +244,15 @@ def get_jobs():
     if type is not None:
         query = query.filter(Job.type == type)
     if salary_range is not None:
-        range = range.split("-")
+        range = salary_range.split("-")
         try:
             query = query.filter(
                 Job.salary_min >= range[0], Job.salary_max <= range[1]
             )
         except:
             pass
+    if company is not None:
+        query = query.filter(Job.company == company)
 
     # sort
     if sort is not None and getattr(Job, sort) is not None:
