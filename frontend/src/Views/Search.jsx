@@ -37,6 +37,8 @@ const Search = () => {
       <Tabs defaultActiveKey="Colleges">
         <Tab eventKey="Colleges" title="Colleges">
           {load ? (
+            <>
+            {data["colleges"].length !== 0 ? (
             <Row>
               {data["colleges"].map((data) => {
                 return (
@@ -59,12 +61,16 @@ const Search = () => {
                 );
               })}
             </Row>
+            ) : (<p className="results span">No results found</p>)}
+            </>
           ) : (
             <Spinner animation="border" variant="info" />
           )}
         </Tab>
         <Tab eventKey="Jobs" title="Jobs">
           {load ? (
+            <>
+            {data["jobs"].length !== 0 ? (
             <Row>
               {data["jobs"].map((data) => {
                 return (
@@ -89,12 +95,16 @@ const Search = () => {
                 );
               })}
             </Row>
+            ) : (<p className="results span">No results found</p>)}
+            </>
           ) : (
             <Spinner animation="border" variant="info" />
           )}
         </Tab>
         <Tab eventKey="Housing" title="Housing">
           {load ? (
+            <>
+            {data["housing"].length !== 0 ? (
             <Row>
               {data["housing"].map((data) => {
                 return (
@@ -123,6 +133,8 @@ const Search = () => {
                 );
               })}
             </Row>
+            ) : (<p className="results span">No results found</p>)}
+            </>
           ) : (
             <Spinner animation="border" variant="info" />
           )}

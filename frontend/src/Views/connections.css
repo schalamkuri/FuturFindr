@@ -66,3 +66,76 @@ color: #999999;
 .portfoliolist .label {
     font-size: 100%;
 }
+
+.heading{ 
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: #080808;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+
+.heading {
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+.heading:before {
+    width: 28px;
+    height: 5px;
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    margin-left: -14px;
+    background-color: #84bcdc;
+}
+.heading:after {
+    width: 100px;
+    height: 1px;
+    display: block;
+    content: "";
+    position: relative;
+    margin-top: 25px;
+    left: 50%;
+    margin-left: -50px;
+    background-color: #84bcdc;
+}
+
+.text { 
+    color: #111; 
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 16px; 
+    line-height: 28px; 
+    margin: 0 0 48px; 
+}
+
+.results{
+    text-align: center;
+    margin-top: 40px;
+    text-transform: none;
+    font-size: 22px;
+    font-weight: normal;
+    font-family: "Playfair Display","Bookman",serif;
+    color:#999; letter-spacing:-0.005em; word-spacing:1px;
+    letter-spacing:none;
+}
+
+.results:before {
+    position: absolute;
+    left: 0;
+    bottom: 38px;
+    width: 60px;
+    height: 4px;
+    content: "";
+    left: 50%;
+    margin-left: -30px;
+    background-color: #dfdfdf;
+}

@@ -9,17 +9,131 @@ import {
   Button,
   Form,
 } from "react-bootstrap";
+import RangeSlider from "../components/RangeSlider";
+import Select from "react-select";
 
 function Housing() {
-  // State
-  const [currentPage, setCurrentPage] = useState(1);
+  /* State */
   const [housingList, setHousing] = useState([]);
+  const [totalHousing, setTotalHousing] = useState(132);
   const [load, setLoad] = useState(false);
   const [regex, setRegex] = useState(null);
-  const [totalHousing, setTotalHousing] = useState(132);
 
-  const postsPerPage = 12;
+  /* API PARAMETERS */
   const searchQuery = useRef("");
+  const postsPerPage = 12;
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sort, setSort] = useState("sort");
+  const [ascending, setAscending] = useState(true);
+  const [city, setCity] = useState("city");
+  const [type, setType] = useState("type");
+  const [rent, setRent] = useState([0, 12000]);
+  const [bedrooms, setBedrooms] = useState([0, 5]);
+  const [bathrooms, setBathrooms] = useState([0, 6]);
+
+   // functions to handle state whenever filter ui is changed
+
+  const handleSortFilter = (value) => {
+    setSort(value.value.toLowerCase().replace(" ", "_"));
+  };
+
+  const handleOrderFilter = (value) => {
+    setAscending(value.value === "Ascending");
+  };
+
+  const handleCityFilter = (value) => {
+    setCity(value.value)
+  }
+
+  const handletypeFilter = (value) => {
+    setType(value.value)
+  }
+
+  const handleRentFilter = (value) => {
+    setRent(value);
+  };
+
+  const handleBedroomsFilter = (value) => {
+    setBedrooms(value);
+  };
+
+  const handleBathroomsFilter = (value) => {
+    setBathrooms(value);
+  };
+
+  function arrayEquals(a, b) {
+    return (
+      Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index])
+    );
+  }
+
+  // makes the call to the backend to get data needed
+  const getHousing = async () => {
+    try {
+      // will only make a call once new data is requested
+      // this might be at the start, when you click a new page, or when
+      // you submit a search/filter query
+      if (!load) {
+        // value of the api call
+        var endpoint;
+
+        // if searching
+        if (searchQuery.current.value !== "") {
+          // set endpoint to search this model with the query
+          endpoint = `search/housing/${searchQuery.current.value}?page=${currentPage}&per_page=${postsPerPage}`;
+          // set regular expression for highlighting
+          setRegex(
+            new RegExp(searchQuery.current.value.replaceAll(" ", "|"), "i")
+          );
+        } else {
+          // default to just paging
+          endpoint = "housing?page=" + currentPage + "&per_page=" + postsPerPage;
+          // make sure there are no highlights from a previous search
+          setRegex(null);
+
+          // add parameters if they are  not default
+          if (sort !== "sort") {
+            endpoint += `&sort=${sort}`;
+          }
+          if (ascending && sort !== "sort") {
+            endpoint += "&asc";
+          }
+          if (city !== "city"){
+            endpoint += `&city=${city}`;
+          }
+          if (type !== "type"){
+            endpoint += `&p_type=${type}`;
+          }
+          if (!arrayEquals(rent, [0, 12000])) {
+            endpoint += `&price=${rent[0]}-${rent[1]}`;
+          }
+          if (!arrayEquals(bedrooms, [0, 5])) {
+            endpoint += `&bedrooms=${bedrooms[0]}-${bedrooms[1]}`;
+          }
+          if (!arrayEquals(bathrooms, [0, 6])) {
+            endpoint += `&bathrooms=${bathrooms[0]}-${bathrooms[1]}`;
+          }
+        }
+        // get data and set size for pagination
+        const data = await backendApi.get(endpoint);
+        setHousing(data.data.data);
+        setTotalHousing(data.data.meta.count);
+        setLoad(true);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getHousing();
+  }, [housingList, load]);
+
+  /* PAGINATION */
 
   // determine index of the last post
   var indexOfLastPost =
@@ -36,36 +150,6 @@ function Housing() {
   } else {
     indexOfFirstPost = indexOfLastPost - postsPerPage;
   }
-  
-  const getHousing = async () => {
-    try {
-      if (!load) {
-        var endpoint;
-        if (searchQuery.current.value != "") {
-          endpoint = `search/housing/${searchQuery.current.value}?page=${currentPage}&per_page=${postsPerPage}`;
-          setRegex(
-            new RegExp(searchQuery.current.value.replaceAll(" ", "|"), "i")
-          );
-          const data = await backendApi.get(endpoint);
-          setHousing(data.data.data);
-          setTotalHousing(data.data.meta.total);
-        } else {
-          endpoint = "housing?page=" + currentPage + "&per_page=" + postsPerPage;
-          setRegex(null);
-          const data = await backendApi.get(endpoint);
-          setHousing(data.data.data);
-          setTotalHousing(132);
-        }
-        setLoad(true);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    getHousing();
-  }, [housingList, load]);
 
   // Create intermediate pages
   let numPages = Math.ceil(totalHousing / postsPerPage);
@@ -92,29 +176,100 @@ function Housing() {
 
   return (
     <>
-      <Form
-        onSubmit={(event) => {
-          event.preventDefault();
-          setLoad(false);
-        }}
-        className="d-flex justify-content-center"
-      >
-        <Form.Control
-          ref={searchQuery}
-          style={{ width: "15vw" }}
-          type="search"
-          placeholder="Search Housing"
-          className="m-2"
-          aria-label="Search"
-        />
-        <Button
-          variant="outline-secondary"
-          className="m-2"
-          onClick={() => setLoad(false)}
+      <Row className="mx-auto text-center">
+        <Form
+          onSubmit={(event) => {
+            event.preventDefault();
+            setLoad(false);
+          }}
+          className="d-flex justify-content-end"
         >
-          Search
-        </Button>
-      </Form>
+          <Form.Control
+            ref={searchQuery}
+            style={{ width: "15vw" }}
+            type="search"
+            placeholder="Search Housing"
+            className="m-2"
+            aria-label="Search"
+          />
+          <Button
+            variant="outline-secondary"
+            className="m-2"
+            onClick={() => setLoad(false)}
+          >
+            Search
+          </Button>
+        </Form>
+      </Row>
+      <Row className="mx-auto text-center w-50 mb-4">
+        <Col className="heading">Housing</Col>
+      </Row>
+      <Row className="mx-auto text-center w-50 mb-4">
+        <Col>
+          <Select
+            placeholder="Sort by"
+            options={[
+              { label: "Monthly Rent", value: "Price" },
+              { label: "Squarefeet", value: "sqft" },
+              { label: "Bedrooms", value: "Bedrooms" },
+              { label: "Bathrooms", value: "Bathrooms" },
+            ]}
+            onChange={handleSortFilter}
+          />
+        </Col>
+        <Col>
+          <Select
+            placeholder="Order by"
+            options={[
+              { label: "Ascending", value: "Ascending" },
+              { label: "Descending", value: "Descending" },
+            ]}
+            onChange={handleOrderFilter}
+          />
+        </Col>
+        <Col>
+          <Select
+            placeholder="City"
+            options={[{ label: "Wating on data", value: "Waiting on data" }]}
+            onChange={handleCityFilter}
+          />
+        </Col>
+        <Col>
+          <Select
+            placeholder="Property Type"
+            options={[
+              { label: "Apartment", value: "Apartment" },
+              { label: "Single Family", value: "Single Family" },
+              { label: "Townhouse", value: "Townhouse" },
+              { label: "Condo", value: "Condo" },
+              { label: "Duplex-Triplex", value: "Duplex-Triplex" },
+            ]}
+            onChange={handletypeFilter}
+          />
+        </Col>
+      </Row>
+      <Row className="m-2">
+        <Col>
+          <Form.Label className="text">Monthly Rent</Form.Label>
+          <RangeSlider min={0} max={12000} onChange={handleRentFilter} />
+        </Col>
+        <Col>
+          <Form.Label className="text">Bedrooms</Form.Label>
+          <RangeSlider min={0} max={5} onChange={handleBedroomsFilter} />
+        </Col>
+        <Col>
+          <Form.Label className="text">Bathrooms</Form.Label>
+          <RangeSlider min={0} max={6} onChange={handleBathroomsFilter} />
+        </Col>
+      </Row>
+      <Row className="mx-auto text-center my-4">
+        <Col>
+          <Button variant="outline-secondary" onClick={() => setLoad(false)}>
+            Filter
+          </Button>
+        </Col>
+      </Row>
+
       <div
         style={{
           display: "block",
@@ -124,6 +279,8 @@ function Housing() {
       ></div>
       {load ? (
         <>
+          {housingList.length !== 0 ? (
+          <>
           <Row>
             {housingList.map((data) => {
               return (
@@ -184,6 +341,8 @@ function Housing() {
             Showing instances {indexOfFirstPost}-{indexOfLastPost} out of{" "}
             {totalHousing}
           </p>
+          </>
+          ) : (<p className="results span">No results found</p>)}
         </>
       ) : (
         <Spinner animation="border" variant="info" />

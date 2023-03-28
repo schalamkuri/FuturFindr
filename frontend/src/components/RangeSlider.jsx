@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Slider, TextField, Grid } from "@mui/material";
 
+// FROM GEOJOBS REPO
+// https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/components/RangeSlider.jsx
+
 export default function RangeSlider(props) {
   const { min, max, discrete, onChange } = props;
   const [value, setValue] = useState([min, max]);
@@ -35,7 +38,7 @@ export default function RangeSlider(props) {
   return (
     <Grid className="d-flex  gap-4">
       <TextField value={value[0]} onChange={handleMinChange} size="small" />
-      <Slider
+      <Slider 
         value={value}
         onChange={handleSliderChange}
         marks={discrete}
