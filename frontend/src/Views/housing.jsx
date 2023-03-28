@@ -233,7 +233,32 @@ function Housing() {
         <Col>
           <Select
             placeholder="City"
-            options={[{ label: "Wating on data", value: "Waiting on data" }]}
+            options={[
+              { label: "Albuquerque", value: "Albuquerque" },
+              { label: "Arlington", value: "Arlington" },
+              { label: "Atlanta", value: "Atlanta" },
+              { label: "Bakersfield", value: "Bakersfield" },
+              { label: "Baltimore", value: "Baltimore" },
+              { label: "Chicago", value: "Chicago" },
+              { label: "Colorado Springs", value: "Colorado Springs" },
+              { label: "Detroit", value: "Detroit" },
+              { label: "El Paso", value: "El Paso" },
+              { label: "Fresno", value: "Fresno" },
+              { label: "Indianapolis", value: "Indianapolis" },
+              { label: "Kansas City", value: "Kansas City" },
+              { label: "Las Vegas", value: "Las Vegas" },
+              { label: "Los Angeles", value: "Los Angeles" },
+              { label: "Mesa", value: "Mesa" },
+              { label: "Miami", value: "Miami" },
+              { label: "Milwaukee", value: "Milwaukee" },
+              { label: "New York", value: "New York" },
+              { label: "Oklahoma City", value: "Oklahoma City" },
+              { label: "Sacramento", value: "Sacramento" },
+              { label: "San Antonio", value: "San Antonio" },
+              { label: "Tulsa", value: "Tulsa" },
+              { label: "Virginia Beach", value: "Virginia Beach" },
+              { label: "Wichita", value: "Wichita" },
+            ]}
             onChange={handleCityFilter}
           />
         </Col>
@@ -297,6 +322,7 @@ function Housing() {
                     beds={data.bedrooms}
                     baths={data.bathrooms}
                     dateListed={data.date_listed}
+                    sqft = {data.sqft}
                     regex={regex}
                     image={
                       data.id !== "12-E-46th-St,-New-York,-NY-10017" &&
