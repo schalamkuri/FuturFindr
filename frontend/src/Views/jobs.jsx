@@ -320,6 +320,7 @@ function Jobs() {
                       salaryMin={data.salary_min}
                       salaryMax={data.salary_max}
                       datePosted={data.created}
+                      time={data.type}
                       regex={regex}
                       image={
                         data.img_url

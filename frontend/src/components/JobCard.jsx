@@ -24,6 +24,7 @@ function JobCard(props) {
           Location: {highlightText(props.location)} <br></br>
           Pay range: ${props.salaryMin} {props.salaryMax != props.salaryMin && "- $" + props.salaryMax} <br></br>
           Date Posted: {props?.datePosted?.split("T")[0]} <br></br>
+          {props.time}
         </Card.Text>
         <a href={`/jobs/${props.id}`} className="stretched-link"></a>
       </Card.Body>
