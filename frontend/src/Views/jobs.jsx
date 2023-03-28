@@ -5,6 +5,8 @@ import { Spinner, Pagination, Row, Col, Button, Form } from "react-bootstrap";
 import RangeSlider from "../components/RangeSlider";
 import Select from "react-select";
 import { citiesFilterJobs } from "../Assets/Data/CitiesFilterJobs";
+import { companiesFilterJobs } from "../Assets/Data/CompaniesFilterJobs.jsx";
+
 
 // Searching and sorting implemenation references GeoJobs implemenation for
 // overall general logic
@@ -102,19 +104,18 @@ function Jobs() {
           if (city !== "city"){
             endpoint += `&city=${city}`;
           }
-          // if (company !== "company"){
-          //   endpoint += `&company=${company}`;
-          // }
+          if (company !== "company"){
+            endpoint += `&company=${company}`;
+          }
           if (industry !== "industry"){
             endpoint += `&category=${industry}`;
           }
           if (time !== "time"){
             endpoint += `&type=${time}`;
           }
-          // NOT WORKIGN THINK ITS ON THE BACKEND
-          // if (!arrayEquals(salary, [0, 250000])) {
-          //   endpoint += `&salary_range=${salary[0]}-${salary[1]}`;
-          // }
+          if (!arrayEquals(salary, [0, 250000])) {
+            endpoint += `&salary_range=${salary[0]}-${salary[1]}`;
+          }
         }
         // get data and set size for pagination
         const data = await backendApi.get(endpoint);
@@ -202,7 +203,8 @@ function Jobs() {
       <Row className="mx-auto text-center w-50 mb-4">
         <Col className="heading">Jobs</Col>
       </Row>
-      <Row className="mx-auto text-center w-50 mb-4">
+      <Row className="mx-auto text-center">
+        {/*w-50 mb-4*/}
         <Col>
           <Select
             placeholder="Sort by"
@@ -233,7 +235,10 @@ function Jobs() {
         <Col>
           <Select
             placeholder="Company"
-            options={[{ label: "Wating on data", value: "Waiting on data" }]}
+            options={companiesFilterJobs.map((opt) => ({
+              label: opt,
+              value: opt,
+            }))}
             onChange={handleCompanyFilter}
           />
         </Col>
@@ -315,6 +320,7 @@ function Jobs() {
                       salaryMin={data.salary_min}
                       salaryMax={data.salary_max}
                       datePosted={data.created}
+                      time={data.type}
                       regex={regex}
                       image={
                         data.img_url
