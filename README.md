@@ -71,10 +71,10 @@ https://www.futurfindr.me/
 | Frank Sosa            |                            |                            |
 | Seth Parsons          |                            |                            |
 | Saiprathik Chalamkuri | 30                         |                            |
-| Josiah Valdez         |                            |                            |
+| Josiah Valdez         | 25                         | 19                         |
 | Ritesh Thakur         | 30                         | 20                         |
 
-### Phase 4
+<!-- ### Phase 4
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
@@ -82,9 +82,12 @@ https://www.futurfindr.me/
 | Seth Parsons          |                            |                            |
 | Saiprathik Chalamkuri |                            |                            |
 | Josiah Valdez         |                            |                            |
-| Ritesh Thakur         |                            |                            |
+| Ritesh Thakur         |                            |                            | -->
 
 ### Comments
+<!-- Mention that our front/back end unit testing won't work because of GitLab
+     pipeline minutes running out. -->
+
 
 <!-- # RFP
 
