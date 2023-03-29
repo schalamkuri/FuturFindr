@@ -29,7 +29,7 @@ const fetchRepositoryData = async () => {
   // Define totals
   let totalCommits = 0,
       totalIssues = 0,
-      totalTests = 0
+      totalTests = 32
 
   // Get commits (call api, for each returned user find num of commits,
   // then increment total commits)
@@ -50,11 +50,12 @@ const fetchRepositoryData = async () => {
   await gitlabApi.get("projects/43389523/issues").then((response) => {
     response.data.forEach((element) => {
         aboutUs.forEach((user) => {
-          if (user.name === element.author.name || user.gitlab === element.author.username)
+          if (user.name === element.author.name || user.gitlab === element.author.username) {
           user.issues += 1
+          totalIssues += 1
+          }
         })
       })
-      totalIssues += 1
   });
 
   // return info

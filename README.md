@@ -1,4 +1,4 @@
-# cs373-idb-17
+<!-- # cs373-idb-17 -->
 
 # FuturFindr
 
@@ -18,9 +18,8 @@
 | --------------- | ----------------- |
 | 1               | 6c033bfc          |
 | 2               | fbc7a42c          |
-
-<!-- | 3         |                                          |
-| 4         |                                          | -->
+| 3               |                   |
+| 4               |                   |
 
 ## Project Leader
 
@@ -28,9 +27,8 @@
 | --------------- | ------------------------ |
 | 1               | Frank Sosa               |
 | 2               | Seth Parsons             |
-
-<!-- | 3         |                      |
-| 4         |                      | -->
+| 3               | Saiprathik Chalamkuri    |
+| 4               |                          |
 
 ### Responsibilities
 
@@ -66,17 +64,17 @@ https://www.futurfindr.me/
 | Josiah Valdez         | 20                         | 21                         |
 | Ritesh Thakur         | 30                         | 20                         |
 
-<!-- ### Phase 3
+### Phase 3
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
-| Frank Sosa            |                            |                            |
-| Seth Parsons          |                            |                            |
-| Saiprathik Chalamkuri |                            |                            |
-| Josiah Valdez         |                            |                            |
-| Ritesh Thakur         |                            |                            |
+| Frank Sosa            | 25                         | 25                         |
+| Seth Parsons          | 20                         | 20                         |
+| Saiprathik Chalamkuri | 30                         | 25                         |
+| Josiah Valdez         | 25                         | 19                         |
+| Ritesh Thakur         | 30                         | 20                         |
 
-### Phase 4
+<!-- ### Phase 4
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
@@ -87,6 +85,9 @@ https://www.futurfindr.me/
 | Ritesh Thakur         |                            |                            | -->
 
 ### Comments
+<!-- Mention that our front/back end unit testing won't work because of GitLab
+     pipeline minutes running out. -->
+
 
 <!-- # RFP
 
