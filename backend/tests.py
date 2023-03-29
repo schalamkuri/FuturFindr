@@ -15,6 +15,7 @@ class Tests(unittest.TestCase):
         self.CLG_CNT = 4000
         self.HSG_CNT = 132
         self.JOB_CNT = 1947
+        self.SRCH_PTH = "/search"
 
     # Test that obtaining all instances of colleges is functional.
     def testGetAllColleges(self):
@@ -69,6 +70,21 @@ class Tests(unittest.TestCase):
             self.assertEqual(data["company"], "Houston Methodist")
             self.assertEqual(data["salary_max"], 85865)
 
+    # Test all models for search under a common attribute.
+    def testAllSearch(self):
+        with self.client:
+            res = self.client.get(self.SRCH_PTH + "/portland")
+            self.assertEqual(res.status_code, self.STAT)
+            data = res.json
+            clgs, hsg, jobs = data["colleges"], data["housing"], data["jobs"]
+            self.assertEqual(len(clgs), 22)
+            self.assertEqual(len(hsg), 1)
+            self.assertEqual(len(jobs), 9)
+
+    # Test a single model of our choice for search.
+    # def testModelSearch(self):
+    #     with self.client:
+    #         pass
 
 if __name__ == "__main__":
     unittest.main()
