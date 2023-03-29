@@ -11,6 +11,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import sys
 from selenium.webdriver.common.keys import Keys
 
+import time
+
 PATH = "./gui_tests/chromedriver"
 URL = "https://dev.futurfindr.me/"
 
@@ -39,12 +41,11 @@ class TestElements(unittest.TestCase):
     def testGlobalSearch(self):
         
         self.driver.get(URL)
-        #self.driver.find_element(by=By.XPATH, value="/html/body/div/nav/div/div[2]/a[2]").click()
 
         assert self.driver.current_url == URL
 
         searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[2]/form/input")
-        searchTextField.send_keys("Austin");
+        searchTextField.send_keys("Austin")
 
         self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[2]/form/button").click()
 
@@ -52,73 +53,35 @@ class TestElements(unittest.TestCase):
             a = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div[1]/div/div[1]/div/div/p/mark"))
             )
+            time.sleep(1)
         except Exception as e:
             self.assertEqual(True, False)
 
 
         cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div/div/div[1]/div/div[1]/div/div/p/mark").text
-
         assert cardTitleText == "Austin"
 
     def testModelSearch(self):
         self.driver.get(URL + "colleges/")
+        
+        assert self.driver.current_url == URL + "colleges/"
+
+        searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/form/input")
+        searchTextField.send_keys("Austin")
+
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/form/button").click()
+        time.sleep(1)
 
         try:
             a = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[1]/form/input"))
+                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[6]/div/div[1]/div/div/p/mark"))
             )
+            time.sleep(1)
         except Exception as e:
             self.assertEqual(True, False)
-
-        searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/form/input")
-        searchTextField.send_keys("austin");
-
-        #searchTextField.send_keys(Keys.ENTER)
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/form/button").click()
-
-        try:
-            a = WebDriverWait(self.driver, 5).until(
-                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[6]/div/div[1]/div/div/p"))
-            )
-        except Exception as e:
-            self.assertEqual(True, False)
-
-        cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[6]/div/div[1]/div/div/p").text
-
-        print(cardTitleText)
-
-        # try:
-        #     a = WebDriverWait(self.driver, 10).until(
-        #         EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[2]/div"))
-        #     )
-        # except Exception as e:
-        #     self.assertEqual(True, False)
-
         
-        # cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[2]/div").text
-
-        # assert cardTitleText == "COLLEGES--"
-
-    # def testModelDeepSearch(self):
-    #     self.driver.get(URL + "cultures/")
-
-    #     searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div/div/input")
-    #     searchTextField.send_keys("Ame");
-
-    #     self.driver.find_element(by=By.XPATH, value="/html/body/div/div[1]").click()
-
-    #     try:
-    #         a = WebDriverWait(self.driver, 10).until(
-    #             EC.presence_of_element_located((By.XPATH, "/html/body/div/div[5]/div[2]/button"))
-    #         )
-    #     except Exception as e:
-    #         self.assertEqual(True, False)
-
-
-    #     self.driver.find_element(by=By.XPATH, value="/html/body/div/div[5]/div[2]/button").click()
-
-    #     assert self.driver.current_url == URL + "cultures/21"
-
+        cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[6]/div/div[1]/div/div/p/mark").text
+        assert cardTitleText == "Austin"
 
 if __name__ == "__main__":
     PATH = sys.argv[1]

@@ -1,4 +1,4 @@
-# cs373-idb-17
+<!-- # cs373-idb-17 -->
 
 # FuturFindr
 
@@ -17,10 +17,9 @@
 | **Phase** | **Git Sha** |
 | --------------- | ----------------- |
 | 1               | 6c033bfc          |
-| 2               |                   |
-
-<!-- | 3         |                                          |
-| 4         |                                          | -->
+| 2               | fbc7a42c          |
+| 3               |                   |
+| 4               |                   |
 
 ## Project Leader
 
@@ -28,9 +27,8 @@
 | --------------- | ------------------------ |
 | 1               | Frank Sosa               |
 | 2               | Seth Parsons             |
-
-<!-- | 3         |                      |
-| 4         |                      | -->
+| 3               | Saiprathik Chalamkuri    |
+| 4               |                          |
 
 ### Responsibilities
 
@@ -66,15 +64,15 @@ https://www.futurfindr.me/
 | Josiah Valdez         | 20                         | 21                         |
 | Ritesh Thakur         | 30                         | 20                         |
 
-<!-- ### Phase 3
+### Phase 3
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
 | Frank Sosa            |                            |                            |
 | Seth Parsons          |                            |                            |
-| Saiprathik Chalamkuri |                            |                            |
+| Saiprathik Chalamkuri | 30                         |                            |
 | Josiah Valdez         |                            |                            |
-| Ritesh Thakur         |                            |                            |
+| Ritesh Thakur         | 30                         | 20                         |
 
 ### Phase 4
 
@@ -84,7 +82,7 @@ https://www.futurfindr.me/
 | Seth Parsons          |                            |                            |
 | Saiprathik Chalamkuri |                            |                            |
 | Josiah Valdez         |                            |                            |
-| Ritesh Thakur         |                            |                            | -->
+| Ritesh Thakur         |                            |                            |
 
 ### Comments
 
