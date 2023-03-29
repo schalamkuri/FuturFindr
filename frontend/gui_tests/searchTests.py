@@ -36,29 +36,29 @@ class TestElements(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    # def testGlobalSearch(self):
+    def testGlobalSearch(self):
         
-    #     self.driver.get(URL)
-    #     #self.driver.find_element(by=By.XPATH, value="/html/body/div/nav/div/div[2]/a[2]").click()
+        self.driver.get(URL)
+        #self.driver.find_element(by=By.XPATH, value="/html/body/div/nav/div/div[2]/a[2]").click()
 
-    #     assert self.driver.current_url == URL
+        assert self.driver.current_url == URL
 
-    #     searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[2]/form/input")
-    #     searchTextField.send_keys("Austin");
+        searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[2]/form/input")
+        searchTextField.send_keys("Austin");
 
-    #     self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[2]/form/button").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[2]/form/button").click()
 
-    #     try:
-    #         a = WebDriverWait(self.driver, 10).until(
-    #             EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div[1]/div/div[1]/div/div/p/mark"))
-    #         )
-    #     except Exception as e:
-    #         self.assertEqual(True, False)
+        try:
+            a = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div[1]/div/div[1]/div/div/p/mark"))
+            )
+        except Exception as e:
+            self.assertEqual(True, False)
 
 
-    #     cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div/div/div[1]/div/div[1]/div/div/p/mark").text
+        cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div/div/div[1]/div/div[1]/div/div/p/mark").text
 
-    #     assert cardTitleText == "Austin"
+        assert cardTitleText == "Austin"
 
     def testModelSearch(self):
         self.driver.get(URL + "colleges/")
@@ -74,29 +74,30 @@ class TestElements(unittest.TestCase):
         searchTextField.send_keys("austin");
 
         #searchTextField.send_keys(Keys.ENTER)
-
-        # try:
-        #     a = WebDriverWait(self.driver, 5).until(
-        #         EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[6]/div/div[1]/div/div/p"))
-        #     )
-        # except Exception as e:
-        #     self.assertEqual(True, False)
-
-        # cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[6]/div/div[1]/div/div/p").text
-
-        # print(cardTitleText)
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/form/button").click()
 
         try:
-            a = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[2]/div"))
+            a = WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[6]/div/div[1]/div/div/p"))
             )
         except Exception as e:
             self.assertEqual(True, False)
 
-        
-        cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[2]/div").text
+        cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[6]/div/div[1]/div/div/p").text
 
-        assert cardTitleText == "COLLEGES--"
+        print(cardTitleText)
+
+        # try:
+        #     a = WebDriverWait(self.driver, 10).until(
+        #         EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[2]/div"))
+        #     )
+        # except Exception as e:
+        #     self.assertEqual(True, False)
+
+        
+        # cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[2]/div").text
+
+        # assert cardTitleText == "COLLEGES--"
 
     # def testModelDeepSearch(self):
     #     self.driver.get(URL + "cultures/")
