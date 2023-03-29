@@ -82,9 +82,14 @@ class Tests(unittest.TestCase):
             self.assertEqual(len(jobs), 9)
 
     # Test a single model of our choice for search.
-    # def testModelSearch(self):
-    #     with self.client:
-    #         pass
+    def testModelSearch(self):
+        with self.client:
+            res = self.client.get(self.SRCH_PTH + "/job/portland")
+            self.assertEqual(res.status_code, self.STAT)
+            data = res.json["data"]
+            self.assertEqual(len(data), 9)
+            self.assertEqual(data[5]["company"], "NaphCare")
+
 
 if __name__ == "__main__":
     unittest.main()
