@@ -175,7 +175,7 @@ function Colleges() {
     <>
       <Row className="mx-auto text-center">
         <Form
-          //onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           className="d-flex justify-content-end"
         >
           <Form.Control
@@ -189,14 +189,14 @@ function Colleges() {
           <Button
             variant="outline-secondary"
             className="m-2"
-            onClick={handleSubmit}
+            onClick={() => setLoad(false)}
           >
             Search
           </Button>
         </Form>
       </Row>
       <Row className="mx-auto text-center w-50 mb-4">
-        <Col className="heading">Colleges--</Col>
+        <Col className="heading">Colleges</Col>
       </Row>
       <Row className="mx-auto text-center w-50 mb-4">
         <Col>
