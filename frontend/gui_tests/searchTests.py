@@ -9,6 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sys
+from selenium.webdriver.common.keys import Keys
 
 PATH = "./gui_tests/chromedriver"
 URL = "https://dev.futurfindr.me/"
@@ -63,7 +64,7 @@ class TestElements(unittest.TestCase):
         self.driver.get(URL + "colleges/")
 
         try:
-            a = WebDriverWait(self.driver, 25).until(
+            a = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[1]/form/input"))
             )
         except Exception as e:
@@ -72,22 +73,30 @@ class TestElements(unittest.TestCase):
         searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/form/input")
         searchTextField.send_keys("austin");
 
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/form/button").click()
+        #searchTextField.send_keys(Keys.ENTER)
 
+        # try:
+        #     a = WebDriverWait(self.driver, 5).until(
+        #         EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[6]/div/div[1]/div/div/p"))
+        #     )
+        # except Exception as e:
+        #     self.assertEqual(True, False)
+
+        # cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[6]/div/div[1]/div/div/p").text
+
+        # print(cardTitleText)
 
         try:
             a = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, ""))
+                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[2]/div"))
             )
         except Exception as e:
             self.assertEqual(True, False)
 
         
-        # cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[6]/div/div[1]/div/div/p/mark").text
+        cardTitleText = self.driver.find_element(by=By.XPATH, value="/html/body/div/div/div[2]/div").text
 
-        # os.system("echo Running Search Tests...")
-        # os.system("echo " + cardTitleText)
-        # assert cardTitleText == "Austin"
+        assert cardTitleText == "COLLEGES--"
 
     # def testModelDeepSearch(self):
     #     self.driver.get(URL + "cultures/")
