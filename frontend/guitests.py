@@ -28,5 +28,5 @@ if __name__ == "__main__":
     os.system("echo Running Search Tests...")
     os.system("python3 ./gui_tests/searchTests.py " + PATH)
 
-    # os.system("echo Running Filter Tests...")
-    # os.system("python3 ./gui_tests/filterTests.py " + PATH)
+    os.system("echo Running Sort/Filter Tests...")
+    os.system("python3 ./gui_tests/sortTests.py " + PATH)

@@ -22,7 +22,7 @@ class TestElements(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         ops = Options()
-        ops.add_argument("--headless")
+        # ops.add_argument("--headless")
         ops.add_argument("--disable-gpu")
         ops.add_argument("--window-size=1280,800")
         ops.add_argument("--allow-insecure-localhost")
