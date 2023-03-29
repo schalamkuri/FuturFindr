@@ -50,7 +50,7 @@ function CollegeInstance() {
                 <Card.Text>
                     Instate Tuition: ${college.instate_tuition ? college.instate_tuition : "~"} <br></br>
 					Outstate Tuition: ${college.outstate_tuition ? college.outstate_tuition : "~"} <br></br>
-					Admission Rate: %{college.admission_rate ? Math.trunc(college.admission_rate * 100) : "~"} <br></br>
+					Admission Rate: {college.admission_rate ? Math.trunc(college.admission_rate * 100) : "~"}% <br></br>
 					City: {college.city} <br></br>
                 </Card.Text>
             </Card.Body>
