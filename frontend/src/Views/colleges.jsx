@@ -166,14 +166,16 @@ function Colleges() {
     setLoad(false);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    setLoad(false);
+  }
+
   return (
     <>
       <Row className="mx-auto text-center">
         <Form
-          onSubmit={(event) => {
-            event.preventDefault();
-            setLoad(false);
-          }}
+          //onSubmit={handleSubmit}
           className="d-flex justify-content-end"
         >
           <Form.Control
@@ -187,14 +189,14 @@ function Colleges() {
           <Button
             variant="outline-secondary"
             className="m-2"
-            onClick={() => setLoad(false)}
+            onClick={handleSubmit}
           >
             Search
           </Button>
         </Form>
       </Row>
       <Row className="mx-auto text-center w-50 mb-4">
-        <Col className="heading">Colleges</Col>
+        <Col className="heading">Colleges--</Col>
       </Row>
       <Row className="mx-auto text-center w-50 mb-4">
         <Col>

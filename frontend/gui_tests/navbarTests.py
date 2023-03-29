@@ -29,8 +29,6 @@ class TestNavbar(unittest.TestCase):
         cls.driver.get(URL)
 
     # Close browser and quit after all tests
-    # /html/body/div/nav/div/div[1]/a[1]
-    # /html/body/div/div/nav/div/div/div/a[2]
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
