@@ -43,6 +43,12 @@ import { Nav, Navbar, Button, Form, Container } from "react-bootstrap";
               <Nav.Link href="/housing">
                 Housing
               </Nav.Link>
+              <Nav.Link href="/visualizations">
+                Visualizations
+              </Nav.Link>
+              <Nav.Link href="/pVisualizations">
+                Provider Visualizations
+              </Nav.Link>
             </Nav>
             <Container className="d-flex justify-content-end">
             <Form onSubmit={handleSubmit} className="d-flex">
