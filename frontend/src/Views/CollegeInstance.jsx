@@ -54,6 +54,15 @@ function CollegeInstance() {
 					City: {college.city} <br></br>
                 </Card.Text>
             </Card.Body>
+            <iframe
+              width="600"
+              height="450"
+              style={{ border: "0" }}
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyA9kS5d3pbtHba18DDfLWZkAxDOe6N04EY&q=${college.latitude} ${college.longitude}`}
+            ></iframe>
             <Button variant="info" href={college.url}>See College</Button>
             </Card>
             {college.nearby_jobs.length !== 0 ? (
