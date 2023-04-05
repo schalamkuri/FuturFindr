@@ -1,4 +1,6 @@
 import Typography from "@mui/material/Typography";
+
+
 function Visualizations() {
   return (
     <Typography>
