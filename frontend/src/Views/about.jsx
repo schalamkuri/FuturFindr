@@ -93,6 +93,7 @@ function About() {
 
   // Return actual page
   return (
+
     <Stack>
         {/* Description Section */}
         <Container className='p-4'>

@@ -53,6 +53,10 @@ function JobsInstance() {
         <Card.Footer>{job.description}</Card.Footer>
         <Button variant="info" href={job.url}>See job listing</Button>
         </Card>
+        <Container>
+    </Container>
+
+
         {job.nearby_housing_units.length !== 0 ? (
             <>
             <div className="title-holder">
