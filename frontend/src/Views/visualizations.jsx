@@ -12,7 +12,7 @@ function Visualizations() {
   loading="lazy"
   allowfullscreen
   referrerpolicy="no-referrer-when-downgrade"
-  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=Space+Needle,Seattle+WA`}>
+  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyA9kS5d3pbtHba18DDfLWZkAxDOe6N04EY&q=Space+Needle,Seattle+WA`}>
 </iframe>
     </div>
     </Typography>
