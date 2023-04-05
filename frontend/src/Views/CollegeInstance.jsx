@@ -64,8 +64,6 @@ function CollegeInstance() {
                   : "~"}
                 % <br></br>
                 City: {college.city} <br></br>
-                {/* {college.latitude} <br></br>
-                {process.env.REACT_APP_GOOGLE_API_KEY} */}
               </Card.Text>
             </Card.Body>
             <iframe
