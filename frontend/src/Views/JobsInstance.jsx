@@ -64,7 +64,7 @@ function JobsInstance() {
               loading="lazy"
               allowfullscreen
               referrerpolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyA9kS5d3pbtHba18DDfLWZkAxDOe6N04EY&q=${job.latitude} ${job.longitude}`}
+              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${job.latitude} ${job.longitude}`}
             ></iframe>
             <Button variant="info" href={job.url}>
               See job listing
