@@ -5,7 +5,7 @@ import { Spinner, Pagination, Row, Col, Button, Form } from "react-bootstrap";
 import RangeSlider from "../components/RangeSlider";
 import Select from "react-select";
 import { citiesFilterJobs } from "../Assets/Data/CitiesFilterJobs";
-import { companiesFilterJobs } from "../Assets/Data/CompaniesFilterJobs.jsx";
+import { companiesFilterJobs } from "../Assets/Data/CompaniesFilterJobs";
 
 
 // Searching and sorting implemenation references GeoJobs implemenation for

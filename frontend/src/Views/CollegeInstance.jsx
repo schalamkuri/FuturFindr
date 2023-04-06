@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { backendApi } from "../Assets/Data/Constants";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
-import Spinner from "react-bootstrap/Spinner";
 import "./connections.css";
+import {Button, Card, Container, Row, Col, Image, Carousel, Spinner } from "react-bootstrap";
 
 function CollegeInstance() {
   // state

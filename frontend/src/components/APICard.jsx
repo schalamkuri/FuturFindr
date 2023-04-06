@@ -1,5 +1,4 @@
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import {Card, Button} from 'react-bootstrap';
 
 const APICard = (inputAPI) => {
   return (

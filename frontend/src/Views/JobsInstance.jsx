@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { backendApi } from "../Assets/Data/Constants";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
-import Spinner from "react-bootstrap/Spinner";
 import "./connections.css";
+import {Button, Card, Container, Row, Col, Image, Spinner} from 'react-bootstrap';
 
 function JobsInstance() {
   // state
   const id = useParams()["id"];
   const [job, setJob] = useState([]);
   const [load, setLoad] = useState(false);
-  const temp = "hafsadf";
 
   // get specific job instance from backend
   const getJob = async () => {
