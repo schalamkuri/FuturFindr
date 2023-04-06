@@ -21,6 +21,7 @@
     "react-scripts": "^5.0.1",
     "react-select": "^5.7.2",
     "react-test-renderer": "^18.2.0",
+    "recharts": "^2.5.0",
     "selenium": "^2.20.0",
     "selenium-webdriver": "^4.8.1",
     "sort-by": "^0.0.2",
