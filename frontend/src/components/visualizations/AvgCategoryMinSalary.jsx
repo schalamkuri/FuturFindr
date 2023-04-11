@@ -1,167 +1,84 @@
+import React, { useState, useEffect } from 'react'
 import Container from "react-bootstrap/Container";
-import axios from "axios"
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Spinner, Row, Col} from "react-bootstrap";
+import { categories, backendApi } from "../../Assets/Data/Constants";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer } from 'recharts';
 
 // Inspired by GeoJobs
 
-var data1 = [
-    {
-        category: "Accounting & Finance Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Admin Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Creative & Design Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Customer Services Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Domestic help & Cleaning Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Engineering Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Healthcare & Nursing Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Hospitality & Catering Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "HR & Recruitment Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "IT Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Legal Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Logistics & Warehouse Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Maintenance Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Manufacturing Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Part time Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "PR, Advertising & Marketing Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Retail Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Sales Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Scientific & QA Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Social work Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Teaching Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Trade & Construction Jobs",
-        avg_min_salary: 0
-    },
-    {
-        category: "Travel Jobs",
-        avg_min_salary: 0
-    }
-];
+function AvgCategoryMinSalary() {
+    /* State */
+    const [categoryList, setCategoryList] = useState([]);
+    const [load, setLoad] = useState(false);
+    var x = false;
 
-const backendApi = axios.create({ baseURL: "https://api.futurfindr.me/", });
-let x = false
+    // makes the call to the backend to get data needed
+    const getCategoryList = async () => {
+        try {
+        // will only make a call once new data is requested
+        if (!load) {
+            // Call api - for each job type, find average salary
+            for (const job_category of categories) {
+                var avg_sal = 0
+                const response = await backendApi.get("jobs?category=" + job_category.replace("&", "%26"))
+                const count = response.data.meta.count
+                response.data.data.forEach((job) => {
+                    avg_sal += job.salary_min
+                })
+                avg_sal = avg_sal / count
+                categoryList.push({category: job_category, avg_min_salary: Math.floor(avg_sal)})
+                avg_sal = 0
+            }
+            setLoad(true);
+        }
+        } catch (e) {
+        console.log(e);
+        }
+    };
 
-const fetchRepoData = async () => {
-    // Code that makes it so this can only be called once
-    if (x === false) {
-        x = true
-    } else {
-        return
-    }
+    useEffect(() => {
+        if (!x) {
+            getCategoryList();
+            x = true;
+        }
+    }, [categoryList, load]);
 
-    var num_results = 0
-    var curr_avg = 0
-
-    // Call api - for each job type, add together all salaries and save average
-    // in data
-    data1.forEach(job_category => {
-        backendApi.get("jobs?category=" + job_category.category.replace("&", "%26")).then((response) => {
-            num_results = response.data.meta.count
-            response.data.data.forEach((job) => {
-                curr_avg += job.salary_min
-            })
-            curr_avg = Math.floor(curr_avg / num_results)
-            job_category.avg_min_salary = curr_avg
-            curr_avg = 0
-        })
-    });
-}
-
-const AvgCategoryMinSalary = () => {
-    fetchRepoData()
     return (
+        <div>
+        {load ? (
         <Container fluid="md">
-            <Row style={{ width: "100%", height: 600 }}>
-                <h3 className="p-5 text-center">Average yearly salary for each job category</h3>
-                <Col>
-                    <ResponsiveContainer width="100%" height="100%">
-                        <BarChart
-                            width={500}
-                            height={300}
-                            data={data1}
-                            margin={{
-                                top: 5,
-                                right: 30,
-                                left: 20,
-                                bottom: 5,
-                            }}
-                        >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="category" />
-                            <YAxis />
-                            <ReferenceLine y={52919.29} stroke="#000" />
-                            <Tooltip />
-                            <Legend />
-                            <Bar dataKey="avg_min_salary" fill="#8884d8" />
-                        </BarChart>
-                    </ResponsiveContainer>
-                </Col>
-            </Row>
+        <Row style={{ width: "100%", height: 600 }}>
+            <h3 className="p-5 text-center">Average Salary per Job Category</h3>
+            <Col>
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart
+                        width={500}
+                        height={300}
+                        data={categoryList}
+                        margin={{
+                            top: 5,
+                            right: 30,
+                            left: 20,
+                            bottom: 5,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="category" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="avg_min_salary" fill="#8884d8" />
+                    </BarChart>
+                </ResponsiveContainer>
+            </Col>
+        </Row>
         </Container>
+        ) : (
+            <Spinner animation="border" variant="info" />
+        )}
+        </div>
     );
 }
+
 
 export default AvgCategoryMinSalary;
