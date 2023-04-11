@@ -13,6 +13,9 @@ db = SQLAlchemy(app)
 
 
 class College(db.Model):
+    '''
+        Build College relation.
+    '''
     id = db.Column(db.BigInteger, primary_key=True)
     city = db.Column(db.String(40))
     name = db.Column(db.String(100))
@@ -26,6 +29,9 @@ class College(db.Model):
 
 
 class HousingUnit(db.Model):
+    '''
+        Build Housing relation.
+    '''
     id = db.Column(db.String(65), primary_key=True)
     city = db.Column(db.String(40))
     latitude = db.Column(db.Float)
@@ -41,12 +47,19 @@ class HousingUnit(db.Model):
 
 
 class HousingUnitImage(db.Model):
+    '''
+        Build Housing Image relation, has foreign key constraint
+        tied to Housin relation.
+    '''
     id = db.Column(db.String, primary_key=True)
     housing_id = db.Column(db.String(65), db.ForeignKey(HousingUnit.id))
     img_url = db.Column(db.String(1000))
 
 
 class Job(db.Model):
+    '''
+        Build Job relation.
+    '''
     id = db.Column(db.BigInteger, primary_key=True)
     title = db.Column(db.String(150))
     company = db.Column(db.String(60))

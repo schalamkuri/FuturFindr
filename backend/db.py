@@ -6,7 +6,7 @@ import googlemaps
 import wikipedia
 from googleapiclient.discovery import build
 
-gmaps = googlemaps.Client(key="AIzaSyB--bIa6UPVD5X1MRBveqR6A7Hy4-tMfSo")
+gmaps = googlemaps.Client(key = "AIzaSyB--bIa6UPVD5X1MRBveqR6A7Hy4-tMfSo")
 gsearch_keys = ["AIzaSyBQ3-z04RoOVwb93OevrNok30ZRTXoc4mE", "", ""]
 index = 0
 gsearch_id = "90e585031d91d445c"
@@ -18,7 +18,7 @@ adzuna_img_link = "https://zunastatic-abf.kxcdn.com/images/global/jobs/fb_share.
 
 # First, build a service object for interacting with the API.
 def google_search(term):
-    service = build("customsearch", "v1", developerKey=gsearch_keys[index])
+    service = build("customsearch", "v1", developerKey = gsearch_keys[index])
     result = service.cse().list(q=term, cx=gsearch_id, searchType="image").execute()
     # If we have a valid result, return it
     try:
@@ -28,14 +28,6 @@ def google_search(term):
 
 
 def populate_db():
-    # populate_colleges()
-    # print("Finished filling college data.")
-    # populate_housing()
-    # print("Finished filling housing data.")
-    # populate_housing_imgs()
-    # print("Finished filling housing image data.")
-    # populate_jobs()
-    # print("Finished filling job data.")
     print(
         "Database was not touched. Please do not run this script unless you know what you're doing."
     )
@@ -53,6 +45,7 @@ def populate_colleges():
             geocode_result = gmaps.geocode(college["school.name"])
             # find image from google custom search too
             image = google_search(college["school.name"])
+
         db_row = {
             "id": college["id"] if "id" in college else None,
             "city": college["school.city"] if "school.city" in college else None,
@@ -208,7 +201,4 @@ def populate_jobs():
 
 if __name__ == "__main__":
     with app.app_context():
-        # db.drop_all()
-        # db.create_all()
-        # print("Reset database to empty - starting to fill database...")
         populate_db()
