@@ -237,7 +237,6 @@ def get_jobs():
     
     # filter
     if category is not None:
-        category.replace("and", "&")
         query = query.filter(Job.category == category)
     if city is not None:
         query = query.filter(Job.city == city)

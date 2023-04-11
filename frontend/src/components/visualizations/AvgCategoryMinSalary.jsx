@@ -1,116 +1,137 @@
 import Container from "react-bootstrap/Container";
+import axios from "axios"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer } from 'recharts';
 
-const data = [
-    {
-        category: "Teaching Jobs",
-        avg_min_salary: 41158.84403669725
-    },
-    {
-        category: "Healthcare & Nursing Jobs",
-        avg_min_salary: 55107.914893617024
-    },
-    {
-        category: "Travel Jobs",
-        avg_min_salary: 62351.416666666664
-    },
-    {
-        category: "Energy, Oil & Gas Jobs",
-        avg_min_salary: 64498.57142857143
-    },
-    {
-        category: "IT Jobs",
-        avg_min_salary: 84752.52777777778
-    },
+// Inspired by GeoJobs
+
+var data1 = [
     {
         category: "Accounting & Finance Jobs",
-        avg_min_salary: 65876.52380952382
-    },
-    {
-        category: "Logistics & Warehouse Jobs",
-        avg_min_salary: 65640.57294429708
-    },
-    {
-        category: "Customer Services Jobs",
-        avg_min_salary: 28940.32
+        avg_min_salary: 0
     },
     {
         category: "Admin Jobs",
-        avg_min_salary: 40741.10810810811
-    },
-    {
-        category: "Sales Jobs",
-        avg_min_salary: 45463.8202247191
-    },
-    {
-        category: "Hospitality & Catering Jobs",
-        avg_min_salary: 26715.235294117647
-    },
-    {
-        category: "PR, Advertising & Marketing Jo",
-        avg_min_salary: 56318.181818181816
-    },
-    {
-        category: "HR & Recruitment Jobs",
-        avg_min_salary: 58184.1
-    },
-    {
-        category: "Engineering Jobs",
-        avg_min_salary: 56280.31578947369
-    },
-    {
-        category: "Consultancy Jobs",
-        avg_min_salary: 93450.0
+        avg_min_salary: 0
     },
     {
         category: "Creative & Design Jobs",
-        avg_min_salary: 50987.71428571428
+        avg_min_salary: 0
     },
     {
-        category: "Retail Jobs",
-        avg_min_salary: 31424.0
-    },
-    {
-        category: "Maintenance Jobs",
-        avg_min_salary: 34173.89473684211
-    },
-    {
-        category: "Scientific & QA Jobs",
-        avg_min_salary: 53573.333333333336
-    },
-    {
-        category: "Trade & Construction Jobs",
-        avg_min_salary: 45922.5
-    },
-    {
-        category: "Legal Jobs",
-        avg_min_salary: 96709.33333333333
-    },
-    {
-        category: "Manufacturing Jobs",
-        avg_min_salary: 34051.42857142857
-    },
-    {
-        category: "Social work Jobs",
-        avg_min_salary: 39440.0
-    },
-    {
-        category: "Property Jobs",
-        avg_min_salary: 65000.0
+        category: "Customer Services Jobs",
+        avg_min_salary: 0
     },
     {
         category: "Domestic help & Cleaning Jobs",
-        avg_min_salary: 31680.0
+        avg_min_salary: 0
     },
     {
-        category: "Other/General Jobs",
-        avg_min_salary: 47460.0
+        category: "Engineering Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Healthcare & Nursing Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Hospitality & Catering Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "HR & Recruitment Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "IT Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Legal Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Logistics & Warehouse Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Maintenance Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Manufacturing Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Part time Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "PR, Advertising & Marketing Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Retail Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Sales Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Scientific & QA Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Social work Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Teaching Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Trade & Construction Jobs",
+        avg_min_salary: 0
+    },
+    {
+        category: "Travel Jobs",
+        avg_min_salary: 0
     }
 ];
 
+const backendApi = axios.create({ baseURL: "https://api.futurfindr.me/", });
+let x = false
+
+const fetchRepoData = async () => {
+    // Code that makes it so this can only be called once
+    if (x === false) {
+        x = true
+    } else {
+        return
+    }
+
+    var num_results = 0
+    var curr_avg = 0
+
+    // Call api - for each job type, add together all salaries and save average
+    // in data
+    data1.forEach(job_category => {
+        backendApi.get("jobs?category=" + job_category.category.replace("&", "%26")).then((response) => {
+            num_results = response.data.meta.count
+            response.data.data.forEach((job) => {
+                curr_avg += job.salary_min
+            })
+            curr_avg = Math.floor(curr_avg / num_results)
+            job_category.avg_min_salary = curr_avg
+            curr_avg = 0
+        })
+    });
+}
+
 const AvgCategoryMinSalary = () => {
+    fetchRepoData()
     return (
         <Container fluid="md">
             <Row style={{ width: "100%", height: 600 }}>
@@ -120,7 +141,7 @@ const AvgCategoryMinSalary = () => {
                         <BarChart
                             width={500}
                             height={300}
-                            data={data}
+                            data={data1}
                             margin={{
                                 top: 5,
                                 right: 30,
