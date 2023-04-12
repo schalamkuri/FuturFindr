@@ -3,6 +3,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import AvgCategoryMinSalary from "../components/visualizations/AvgCategoryMinSalary";
 import JobsPerCategory from "../components/visualizations/JobsPerCategory";
+import AvgTuition from "../components/visualizations/AvgTuition";
 
 const Visualizations = () => {
   return (
@@ -16,8 +17,8 @@ const Visualizations = () => {
               Visualizations
           </Typography>
           <JobsPerCategory></JobsPerCategory>
-          {/* <AvgCityAparmentPrice></AvgCityAparmentPrice> */}
           <AvgCategoryMinSalary />
+          <AvgTuition />
           <Typography
           variant="h3"
           sx={{ textAlign: "center" }}
