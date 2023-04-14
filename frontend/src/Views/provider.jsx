@@ -1,9 +1,7 @@
 import Typography from "@mui/material/Typography";
 import React from "react";
 import Container from "react-bootstrap/Container";
-import AvgCategoryMinSalary from "../components/visualizations/AvgCategoryMinSalary";
-import JobsPerCategory from "../components/visualizations/JobsPerCategory";
-import AvgTuition from "../components/visualizations/AvgTuition";
+import ProviderPlayersPerPosition from "../components/visualizations/ProviderPlayersPerPosition";
 
 const Provider= () => {
   return (
@@ -16,12 +14,7 @@ const Provider= () => {
           }}>
               Provider Visualizations
           </Typography>
-          <JobsPerCategory></JobsPerCategory>
-          <AvgCategoryMinSalary />
-          <AvgTuition />
-          {/* <ProviderFoodCategoryCount />
-          <ProviderAvgFoodCategorySold />
-          <ProviderMarketsPerState /> */}
+          <ProviderPlayersPerPosition />
       </Container>
   )
   
