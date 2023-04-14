@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import AvgCategoryMinSalary from "../components/visualizations/AvgCategoryMinSalary";
 import JobsPerCategory from "../components/visualizations/JobsPerCategory";
 import AvgTuition from "../components/visualizations/AvgTuition";
+import ProviderPlayersPerPosition from "../components/visualizations/ProviderPlayersPerPosition";
 
 const Visualizations = () => {
   return (
@@ -27,8 +28,8 @@ const Visualizations = () => {
           }}>
               Provider Visualizations
           </Typography>
-          {/* <ProviderFoodCategoryCount />
-          <ProviderAvgFoodCategorySold />
+          <ProviderPlayersPerPosition />
+          {/*<ProviderAvgFoodCategorySold />
           <ProviderMarketsPerState /> */}
       </Container>
   )

@@ -2,6 +2,8 @@ import axios from "axios";
 
 export const backendApi = axios.create({ baseURL: "https://api.futurfindr.me/", });
 
+export const providerApi = axios.create({ baseURL: "https://api.sportsrightnow.me/", });
+
 export const categories = [
     "Accounting & Finance Jobs",
     "Admin Jobs",
