@@ -6,8 +6,8 @@ import { PieChart, Pie, Tooltip, ResponsiveContainer } from 'recharts';
 
 function ProviderPlayersPerPosition() {
     /* State */
-    const [numPlayersList, setNumPlayersList] = useState({});
-    const [finalList, setfinalList] = useState([]);
+    const [numPlayersList] = useState({});
+    const [finalList] = useState([]);
     const [load, setLoad] = useState(false);
     var x = false;
 
@@ -58,7 +58,7 @@ function ProviderPlayersPerPosition() {
                                 cx="50%"
                                 cy="50%"
                                 outerRadius={200}
-                                fill="#8884d8"
+                                fill="#2785c9"
                                 label
                             />
                             <Tooltip />

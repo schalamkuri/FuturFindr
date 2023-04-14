@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import Container from "react-bootstrap/Container";
 import { Spinner, Row, Col} from "react-bootstrap";
 import { categories, backendApi } from "../../Assets/Data/Constants";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 // Inspired by GeoJobs
 
-function AvgCategoryMinSalary() {
+function AvgCategorySalary() {
     /* State */
-    const [categoryList, setCategoryList] = useState([]);
+    const [categoryList] = useState([]);
     const [load, setLoad] = useState(false);
     var x = false;
 
@@ -18,8 +18,8 @@ function AvgCategoryMinSalary() {
         // will only make a call once new data is requested
         if (!load) {
             // Call api - for each job type, find average salary
+            var avg_sal = 0
             for (const job_category of categories) {
-                var avg_sal = 0
                 const response = await backendApi.get("jobs?category=" + job_category.replace("&", "%26"))
                 const count = response.data.meta.count
                 response.data.data.forEach((job) => {
@@ -67,7 +67,7 @@ function AvgCategoryMinSalary() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="avg_min_salary" fill="#8884d8" />
+                        <Bar dataKey="avg_min_salary" fill="#2785c9" />
                     </BarChart>
                 </ResponsiveContainer>
             </Col>
@@ -81,4 +81,4 @@ function AvgCategoryMinSalary() {
 }
 
 
-export default AvgCategoryMinSalary;
+export default AvgCategorySalary;

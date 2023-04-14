@@ -1,9 +1,9 @@
 import Typography from "@mui/material/Typography";
 import React from "react";
 import Container from "react-bootstrap/Container";
-import AvgCategoryMinSalary from "../components/visualizations/AvgCategoryMinSalary";
+import AvgCategorySalary from "../components/visualizations/AvgCategorySalary";
 import JobsPerCategory from "../components/visualizations/JobsPerCategory";
-import AvgTuition from "../components/visualizations/AvgTuition";
+import TuitionVsAdmission from "../components/visualizations/TuitionVsAdmission";
 
 const Visualizations = () => {
   return (
@@ -17,8 +17,8 @@ const Visualizations = () => {
               Visualizations
           </Typography>
           <JobsPerCategory></JobsPerCategory>
-          <AvgCategoryMinSalary />
-          <AvgTuition />
+          <AvgCategorySalary />
+          <TuitionVsAdmission />
       </Container>
   )
   

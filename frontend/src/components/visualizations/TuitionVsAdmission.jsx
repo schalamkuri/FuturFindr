@@ -6,27 +6,24 @@ import {ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, Resp
 
 // Inspired by GeoJobs
 
-function AvgTuition() {
+function TuitionVsAdmission() {
     /* State */
-    const [data, setData] = useState([]);
+    const [data] = useState([]);
     const [load, setLoad] = useState(false);
     var x = false;
 
     // makes the call to the backend to get data needed
     const getData = async () => {
-        console.log("HeRE!")
         try {
         // will only make a call once new data is requested
         if (!load) {
             // Call api - get 300 colleges
             const response = await backendApi.get("colleges?page=2&per_page=300")
-            console.log(response)
             response.data.data.forEach((college) => {
                 if (college.instate_tuition != null && college.admission_rate != null) {
                     data.push({name: college.name, tuition: college.instate_tuition, admission_rate: college.admission_rate})
                 }
             })
-            console.log(data)
             setLoad(true);
         }
         } catch (e) {
@@ -63,8 +60,8 @@ function AvgTuition() {
                             <XAxis type="number" dataKey="tuition" name="In-state Tuition Rate" unit="$" />
                             <YAxis type="number" dataKey="admission_rate" name="Admission Rate" />
                             <ZAxis dataKey="name" name="Name"/>
-                            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                            <Scatter name="Names" data={data} fill="#8884d8" />
+                            <Tooltip labelFormatter={() => { return ''; }} cursor={{ strokeDasharray: '3 3' }}/>
+                            <Scatter name="Names" data={data} fill="#2785c9" />
                         </ScatterChart>
                     </ResponsiveContainer>
                 </Col>
@@ -78,4 +75,4 @@ function AvgTuition() {
 }
 
 
-export default AvgTuition;
+export default TuitionVsAdmission;

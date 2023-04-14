@@ -8,7 +8,7 @@ import { PieChart, Pie, Tooltip, ResponsiveContainer } from 'recharts';
 
 function JobsPerCategory() {
     /* State */
-    const [categoryList, setCategoryList] = useState([]);
+    const [categoryList] = useState([]);
     const [load, setLoad] = useState(false);
     var x = false;
 
@@ -53,7 +53,7 @@ function JobsPerCategory() {
                                 cx="50%"
                                 cy="50%"
                                 outerRadius={200}
-                                fill="#8884d8"
+                                fill="#2785c9"
                                 label
                             />
                             <Tooltip />

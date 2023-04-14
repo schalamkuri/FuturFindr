@@ -15,8 +15,8 @@ function getMonthName(monthNumber) {
 
 function ProviderEventsPerMonth() {
     /* State */
-    const [numEventsList, setNumEventsList] = useState({});
-    const [finalList, setfinalList] = useState([]);
+    const [numEventsList] = useState({});
+    const [finalList] = useState([]);
     const [load, setLoad] = useState(false);
     var x = false;
 
@@ -78,7 +78,7 @@ function ProviderEventsPerMonth() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="num_events" fill="#8884d8" />
+                        <Bar dataKey="num_events" fill="#2785c9" />
                     </BarChart>
                 </ResponsiveContainer>
             </Col>
