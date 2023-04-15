@@ -18,7 +18,7 @@
 | --------------- | ----------------- |
 | 1               | 6c033bfc          |
 | 2               | fbc7a42c          |
-| 3               |                   |
+| 3               | 861afa84          |
 | 4               |                   |
 
 ## Project Leader
@@ -28,7 +28,7 @@
 | 1               | Frank Sosa               |
 | 2               | Seth Parsons             |
 | 3               | Saiprathik Chalamkuri    |
-| 4               |                          |
+| 4               | Ritesh Thakur            |
 
 ### Responsibilities
 
@@ -82,9 +82,10 @@ https://www.futurfindr.me/
 | Seth Parsons          | 10                         | 15                         |
 | Saiprathik Chalamkuri |                            |                            |
 | Josiah Valdez         |                            |                            |
-| Ritesh Thakur         |                            |                            |
+| Ritesh Thakur         | 8                          | 10                         |
 
 ### Comments
+GitLab minutes ran out
 <!-- Mention that our front/back end unit testing won't work because of GitLab
      pipeline minutes running out. -->
 
