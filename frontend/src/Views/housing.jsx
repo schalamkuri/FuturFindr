@@ -1,14 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { backendApi } from "../Assets/Data/Constants";
 import HousingCard from "../components/HousingCard";
-import {
-  Spinner,
-  Pagination,
-  Row,
-  Col,
-  Button,
-  Form,
-} from "react-bootstrap";
+import { Spinner, Pagination, Row, Col, Button, Form } from "react-bootstrap";
 import RangeSlider from "../components/RangeSlider";
 import Select from "react-select";
 
@@ -35,7 +28,7 @@ function Housing() {
   const [bedrooms, setBedrooms] = useState([0, 5]);
   const [bathrooms, setBathrooms] = useState([0, 6]);
 
-   // functions to handle state whenever filter ui is changed
+  // functions to handle state whenever filter ui is changed
 
   const handleSortFilter = (value) => {
     setSort(value.value.toLowerCase().replace(" ", "_"));
@@ -46,12 +39,12 @@ function Housing() {
   };
 
   const handleCityFilter = (value) => {
-    setCity(value.value)
-  }
+    setCity(value.value);
+  };
 
   const handletypeFilter = (value) => {
-    setType(value.value)
-  }
+    setType(value.value);
+  };
 
   const handleRentFilter = (value) => {
     setRent(value);
@@ -94,7 +87,8 @@ function Housing() {
           );
         } else {
           // default to just paging
-          endpoint = "housing?page=" + currentPage + "&per_page=" + postsPerPage;
+          endpoint =
+            "housing?page=" + currentPage + "&per_page=" + postsPerPage;
           // make sure there are no highlights from a previous search
           setRegex(null);
 
@@ -105,10 +99,10 @@ function Housing() {
           if (ascending && sort !== "sort") {
             endpoint += "&asc";
           }
-          if (city !== "city"){
+          if (city !== "city") {
             endpoint += `&city=${city}`;
           }
-          if (type !== "type"){
+          if (type !== "type") {
             endpoint += `&p_type=${type}`;
           }
           if (!arrayEquals(rent, [0, 12000])) {
@@ -174,7 +168,7 @@ function Housing() {
   // On click function for paginator
   function pagination(number) {
     setCurrentPage(number);
-    setLoad(false)
+    setLoad(false);
   }
 
   return (
@@ -308,70 +302,73 @@ function Housing() {
       {load ? (
         <>
           {housingList.length !== 0 ? (
-          <>
-          <Row>
-            {housingList.map((data) => {
-              return (
-                <Col sm={3} key={data.id}>
-                  <HousingCard
-                    id={data.id}
-                    address={data.address}
-                    type={data.property_type}
-                    city={data.city}
-                    price={data.price}
-                    beds={data.bedrooms}
-                    baths={data.bathrooms}
-                    dateListed={data.date_listed}
-                    sqft = {data.sqft}
-                    regex={regex}
-                    image={
-                      data.id !== "12-E-46th-St,-New-York,-NY-10017" &&
-                      data.id !== "125-Rivington-St,-Apt-2,-New-York,-NY-10002"
-                        ? data.images.length !== 0
-                          ? data.images[0].img_url
-                          : "https://www.pngkit.com/png/detail/413-4134663_house-vector-library-house-clipart-grey.png"
-                        : data.images[5].img_url
-                    }
-                  />
-                </Col>
-              );
-            })}
-          </Row>
-          <Pagination
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {currentPage > 2 && (
-              <Pagination.Item
-                key={1}
-                onClick={() => pagination(1)}
-                active={1 === currentPage}
+            <>
+              <Row>
+                {housingList.map((data) => {
+                  return (
+                    <Col sm={3} key={data.id}>
+                      <HousingCard
+                        id={data.id}
+                        address={data.address}
+                        type={data.property_type}
+                        city={data.city}
+                        price={data.price}
+                        beds={data.bedrooms}
+                        baths={data.bathrooms}
+                        dateListed={data.date_listed}
+                        sqft={data.sqft}
+                        regex={regex}
+                        image={
+                          data.id !== "12-E-46th-St,-New-York,-NY-10017" &&
+                          data.id !==
+                            "125-Rivington-St,-Apt-2,-New-York,-NY-10002"
+                            ? data.images.length !== 0
+                              ? data.images[0].img_url
+                              : "https://www.pngkit.com/png/detail/413-4134663_house-vector-library-house-clipart-grey.png"
+                            : data.images[5].img_url
+                        }
+                      />
+                    </Col>
+                  );
+                })}
+              </Row>
+              <Pagination
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                1
-              </Pagination.Item>
-            )}
-            {currentPage > 3 && <Pagination.Ellipsis />}
-            {pages}
-            {currentPage < numPages - 3 && <Pagination.Ellipsis />}
-            {currentPage < numPages - 2 && (
-              <Pagination.Item
-                key={numPages}
-                onClick={() => pagination(numPages)}
-                active={numPages === currentPage}
-              >
-                {numPages}
-              </Pagination.Item>
-            )}
-          </Pagination>
-          <p className="font-weight-light text-right">
-            Showing instances {indexOfFirstPost}-{indexOfLastPost} out of{" "}
-            {totalHousing}
-          </p>
-          </>
-          ) : (<p className="results span">No results found</p>)}
+                {currentPage > 2 && (
+                  <Pagination.Item
+                    key={1}
+                    onClick={() => pagination(1)}
+                    active={1 === currentPage}
+                  >
+                    1
+                  </Pagination.Item>
+                )}
+                {currentPage > 3 && <Pagination.Ellipsis />}
+                {pages}
+                {currentPage < numPages - 3 && <Pagination.Ellipsis />}
+                {currentPage < numPages - 2 && (
+                  <Pagination.Item
+                    key={numPages}
+                    onClick={() => pagination(numPages)}
+                    active={numPages === currentPage}
+                  >
+                    {numPages}
+                  </Pagination.Item>
+                )}
+              </Pagination>
+              <p className="font-weight-light text-right">
+                Showing instances {indexOfFirstPost}-{indexOfLastPost} out of{" "}
+                {totalHousing}
+              </p>
+            </>
+          ) : (
+            <p className="results span">No results found</p>
+          )}
         </>
       ) : (
         <Spinner animation="border" variant="info" />

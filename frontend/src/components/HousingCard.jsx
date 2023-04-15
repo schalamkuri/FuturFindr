@@ -23,8 +23,8 @@ function HousingCard(props) {
             City: {props.city ? highlightText(props.city) : "~"} <br></br>
             Monthly Rent: ${props.price ? props.price : "~"} <br></br>
             Beds: {props.beds ? props.beds : "~"} <br></br>
-            Baths {props.baths ? props.baths : "~"} <br></br>
-            {props.sqft ? props.sqft : "~"} sqft<br></br>
+            Baths: {props.baths ? props.baths : "~"} <br></br>
+            Area: {props.sqft ? props.sqft : "~"} sqft<br></br>
 
         </Card.Text>
         <a href={`/housing/${props.id}`} className="stretched-link"></a>

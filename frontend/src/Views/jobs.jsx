@@ -5,7 +5,7 @@ import { Spinner, Pagination, Row, Col, Button, Form } from "react-bootstrap";
 import RangeSlider from "../components/RangeSlider";
 import Select from "react-select";
 import { citiesFilterJobs } from "../Assets/Data/CitiesFilterJobs";
-import { companiesFilterJobs } from "../Assets/Data/CompaniesFilterJobs.jsx";
+import { companiesFilterJobs } from "../Assets/Data/CompaniesFilterJobs";
 
 
 // Searching and sorting implemenation references GeoJobs implemenation for
@@ -246,28 +246,28 @@ function Jobs() {
           <Select
             placeholder="Industry"
             options={[
-              { label: "Accounting & Finance Jobs", value: "Accounting & Finance Jobs" },
+              { label: "Accounting & Finance Jobs", value: "Accounting %26 Finance Jobs" },
               { label: "Admin Jobs", value: "Admin Jobs" },
-              { label: "Creative & Design Jobs", value: "Creative & Design Jobs" },
+              { label: "Creative & Design Jobs", value: "Creative %26 Design Jobs" },
               { label: "Customer Services Jobs", value: "Customer Services Jobs" },
-              { label: "Domestic help & Cleaning Jobs", value: "Domestic help & Cleaning Jobs" },
+              { label: "Domestic help & Cleaning Jobs", value: "Domestic help %26 Cleaning Jobs" },
               { label: "Engineering Jobs", value: "Engineering Jobs" },
-              { label: "Healthcare & Nursing Jobs", value: "Healthcare & Nursing Jobs" },
-              { label: "Hospitality & Catering Jobs", value: "Hospitality & Catering Jobs" },
-              { label: "HR & Recruitment Jobs", value: "HR & Recruitment Jobs" },
+              { label: "Healthcare & Nursing Jobs", value: "Healthcare %26 Nursing Jobs" },
+              { label: "Hospitality & Catering Jobs", value: "Hospitality %26 Catering Jobs" },
+              { label: "HR & Recruitment Jobs", value: "HR %26 Recruitment Jobs" },
               { label: "IT Jobs", value: "IT Jobs" },
               { label: "Legal Jobs", value: "Legal Jobs" },
-              { label: "Logistics & Warehouse Jobs", value: "Logistics & Warehouse Jobs" },
+              { label: "Logistics & Warehouse Jobs", value: "Logistics %26 Warehouse Jobs" },
               { label: "Maintenance Jobs", value: "Maintenance Jobs" },
               { label: "Manufacturing Jobs", value: "Manufacturing Jobs" },
               { label: "Part time Jobs", value: "Part time Jobs" },
-              { label: "PR, Advertising & Marketing Jobs", value: "PR, Advertising & Marketing Jobs" },
+              { label: "PR, Advertising & Marketing Jobs", value: "PR, Advertising %26 Marketing Jobs" },
               { label: "Retail Jobs", value: "Retail Jobs" },
               { label: "Sales Jobs", value: "Sales Job" },
-              { label: "Scientific & QA Jobs", value: "Scientific & QA Jobs" },
+              { label: "Scientific & QA Jobs", value: "Scientific %26 QA Jobs" },
               { label: "Social work Jobs", value: "Social work Jobs" },
               { label: "Teaching Jobs", value: "Teaching Jobs" },
-              { label: "Trade & Construction Jobs", value: "Trade & Construction Jobs" },
+              { label: "Trade & Construction Jobs", value: "Trade %26 Construction Jobs" },
               { label: "Travel Jobs", value: "Travel Jobs" },
             ]}
             onChange={handleIndustryFilter}

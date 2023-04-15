@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
-import Container from 'react-bootstrap/Container'
-import Stack from 'react-bootstrap/Stack'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import {Container, Stack, Row, Col} from 'react-bootstrap'
 import { aboutUs } from '../Assets/Data/AboutUs';
 import { toolsUsed } from '../Assets/Data/ToolsUsed';
 import { apisScraped } from '../Assets/Data/APIsScraped';
 import DevCard from '../components/DevCard';
 import ToolCard from '../components/ToolCard';
 import APICard from '../components/APICard';
+
 
 // roughly based on GeoJobs's implementation 
 // https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/front-end/src/views/About.jsx
@@ -93,6 +91,7 @@ function About() {
 
   // Return actual page
   return (
+
     <Stack>
         {/* Description Section */}
         <Container className='p-4'>
