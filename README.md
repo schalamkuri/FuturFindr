@@ -78,10 +78,10 @@ https://www.futurfindr.me/
 
 | Name                  | Est. Completion Time (hrs) | Real Completion Time (hrs) |
 | --------------------- | -------------------------- | -------------------------- |
-| Frank Sosa            |                            |                            |
+| Frank Sosa            | 10                         | 10                         |
 | Seth Parsons          | 10                         | 15                         |
-| Saiprathik Chalamkuri |                            |                            |
-| Josiah Valdez         |                            |                            |
+| Saiprathik Chalamkuri | 10                         | 12                         |
+| Josiah Valdez         | 8                          | 10                         |
 | Ritesh Thakur         | 8                          | 10                         |
 
 ### Comments
