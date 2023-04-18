@@ -459,6 +459,7 @@ def get_nearby_jobs(lat, lng, num):
 # inspired by GeoJobs https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/back-end/app.py
 
 def search_colleges(parameters):
+    colleges = []
     for parameter in parameters:
         queries = []
         try:
@@ -477,10 +478,11 @@ def search_colleges(parameters):
             queries.append(College.outstate_tuition == int(parameter))
         except:
             pass
-        colleges = College.query.filter(or_(*queries))
+        colleges += College.query.filter(or_(*queries))
     return colleges
 
 def search_housing(parameters):
+    units = []
     for parameter in parameters:
         queries = []
         try:
@@ -502,10 +504,11 @@ def search_housing(parameters):
             queries.append(HousingUnit.sqft == int(parameter))
         except:
             pass
-        units = HousingUnit.query.filter(or_(*queries))
+        units += HousingUnit.query.filter(or_(*queries))
     return units
 
 def search_jobs(parameters):
+    jobs = []
     for parameter in parameters:
         queries = []
         try:
@@ -531,7 +534,7 @@ def search_jobs(parameters):
             queries.append(Job.longitude == float(parameter))
         except:
             pass
-        jobs = Job.query.filter(or_(*queries))
+        jobs += Job.query.filter(or_(*queries))
     return jobs
 
 
