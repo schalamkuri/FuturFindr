@@ -149,6 +149,12 @@ function About() {
             <h3 className='d-flex justify-content-center'>Postman API Documentation</h3>
           </a>
         </Container>
+        {/* GitLab Repo Link */}
+        <Container className='p-4'>
+          <a href="https://gitlab.com/ritzyo/cs373-idb-17" target="_blank">
+            <h3 className='d-flex justify-content-center'>GitLab Repo</h3>
+          </a>
+        </Container>
         {/* Tools Section */}
         <Container className='p-4'>
           <h3 className='d-flex justify-content-center'>Tools We Used:</h3>

@@ -20,6 +20,21 @@ const toolsUsed = [{
     pic : reactBootstrapPic,
     link: "https://react-bootstrap.github.io/"
   }, {
+    name: "Flask",
+    desc: "Python library used for our back-end",
+    pic : "https://www.fullstackpython.com/img/logos/flask.png",
+    link: "https://flask.palletsprojects.com/en/1.1.x/"
+  }, {
+    name: "PostgreSQL",
+    desc: "Database used for our project",
+    pic : "https://www.postgresql.org/media/img/about/press/elephant.png",
+    link: "https://www.postgresql.org/"
+  }, {
+    name: "PlantUML",
+    desc: "Used for creating UML diagrams",
+    pic : "https://cdn.hashnode.com/res/hashnode/image/upload/v1609283590230/mqeCBmvO_.png?auto=compress,format&format=webp",
+    link: "https://plantuml.com/"
+  }, {
     name: "NameCheap",
     desc: "Where we bought our domain name!",
     pic : nameCheapPic,
