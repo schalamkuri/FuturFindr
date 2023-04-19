@@ -459,9 +459,8 @@ def get_nearby_jobs(lat, lng, num):
 # inspired by GeoJobs https://gitlab.com/sarthaksirotiya/cs373-idb/-/blob/main/back-end/app.py
 
 def search_colleges(parameters):
-    colleges = []
+    queries = []
     for parameter in parameters:
-        queries = []
         try:
             queries.append(College.city.icontains(parameter))
             queries.append(College.name.icontains(parameter))
@@ -478,13 +477,11 @@ def search_colleges(parameters):
             queries.append(College.outstate_tuition == int(parameter))
         except:
             pass
-        colleges += College.query.filter(or_(*queries))
-    return colleges
+    return College.query.filter(or_(*queries))
 
 def search_housing(parameters):
-    units = []
+    queries = []
     for parameter in parameters:
-        queries = []
         try:
             queries.append(HousingUnit.city.icontains(parameter))
             queries.append(HousingUnit.address.icontains(parameter))
@@ -504,13 +501,11 @@ def search_housing(parameters):
             queries.append(HousingUnit.sqft == int(parameter))
         except:
             pass
-        units += HousingUnit.query.filter(or_(*queries))
-    return units
+    return HousingUnit.query.filter(or_(*queries))
 
 def search_jobs(parameters):
-    jobs = []
+    queries = []
     for parameter in parameters:
-        queries = []
         try:
             queries.append(Job.title.icontains(parameter))
             queries.append(Job.company.icontains(parameter))
@@ -534,8 +529,7 @@ def search_jobs(parameters):
             queries.append(Job.longitude == float(parameter))
         except:
             pass
-        jobs += Job.query.filter(or_(*queries))
-    return jobs
+    return Job.query.filter(or_(*queries))
 
 
 # Run app
