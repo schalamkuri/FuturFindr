@@ -118,7 +118,11 @@ function Housing() {
         // get data and set size for pagination
         const data = await backendApi.get(endpoint);
         setHousing(data.data.data);
-        setTotalHousing(data.data.meta.count);
+        if (searchQuery.current.value !== "") {
+          setTotalHousing(data.data.meta.total);
+        } else {
+          setTotalHousing(data.data.meta.count);
+        }
         setLoad(true);
       }
     } catch (e) {

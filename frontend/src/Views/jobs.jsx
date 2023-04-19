@@ -120,7 +120,11 @@ function Jobs() {
         // get data and set size for pagination
         const data = await backendApi.get(endpoint);
         setJobs(data.data.data);
-        setTotalJobs(data.data.meta.count);
+        if (searchQuery.current.value !== "") {
+          setTotalJobs(data.data.meta.total);
+        } else {
+          setTotalJobs(data.data.meta.count);
+        }
         setLoad(true);
       }
     } catch (e) {
