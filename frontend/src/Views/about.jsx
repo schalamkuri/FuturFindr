@@ -31,11 +31,12 @@ const fetchRepositoryData = async () => {
 
   // Get commits (call api, for each returned user find num of commits,
   // then increment total commits)
-  await gitlabApi.get("projects/43389523/repository/contributors").then((response) => {
+  await gitlabApi.get("projects/43389523/repository/contributors?order_by=commits&sort=desc").then((response) => {
     response.data.forEach((element) => {
       aboutUs.forEach((user) => {
         if (user.name === element.name || user.gitlab === element.name ||
-            user.email === element.email || user.email2 === element.email2) {
+            user.email === element.email || user.email2 === element.email|| 
+            user.email3 === element.email) {
           user.commits += element.commits
         }
       })
