@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { backendApi } from "../Assets/Data/Constants";
 import "./connections.css";
-import {Button, Card, Container, Row, Col, Image, Spinner} from 'react-bootstrap';
+import {
+  Button,
+  Card,
+  Container,
+  Row,
+  Col,
+  Image,
+  Spinner,
+} from "react-bootstrap";
 
 function JobsInstance() {
   // state
@@ -30,7 +38,8 @@ function JobsInstance() {
     <div>
       {load ? (
         <Container>
-          <Card className="card border-dark mb-3" style={{ height: "90%" }}>
+          <Card className="text-center" style={{ height: "90%" }}>
+            <Card.Header as="h2">{job.title}</Card.Header>
             <Card.Img
               variant="top"
               src={
@@ -40,7 +49,6 @@ function JobsInstance() {
               }
             />
             <Card.Body>
-              <Card.Title>{job.title}</Card.Title>
               <Card.Text>
                 Company: {job.company} <br></br>
                 Industry: {job.category} <br></br>
@@ -49,16 +57,21 @@ function JobsInstance() {
                 Date Posted: {job.created} <br></br>
               </Card.Text>
             </Card.Body>
+
+            <Container>
+              <div class="d-flex justify-content-center">
+                <iframe
+                  width="600"
+                  height="450"
+                  style={{ border: "0" }}
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${job.latitude} ${job.longitude}`}
+                ></iframe>
+              </div>
+            </Container>
             <Card.Footer>{job.description}</Card.Footer>
-            <iframe
-              width="600"
-              height="450"
-              style={{ border: "0" }}
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${job.latitude} ${job.longitude}`}
-            ></iframe>
             <Button variant="info" href={job.url}>
               See job listing
             </Button>

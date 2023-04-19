@@ -20,6 +20,8 @@ DEFAULT_NEARBY_RETURNED = 3
 DEFAULT_NEARBY_RADIUS = 500
 
 # Home page
+
+
 @app.route("/")
 def home():
     return "<h1>FuturFindr API</h1>"
@@ -104,7 +106,7 @@ def get_colleges():
     sort = request.args.get("sort")
     asc = request.args.get("asc")
     query = db.session.query(College)
-    
+
     # sort
     if sort is not None and getattr(College, sort) is not None:
         if asc is not None:
@@ -139,7 +141,7 @@ def get_colleges():
             )
         except:
             pass
-    
+
     # pagination
     count = query.count()
     if page_num is not None:
@@ -210,7 +212,7 @@ def get_housing():
             query = query.order_by(getattr(HousingUnit, sort))
         else:
             query = query.order_by(desc(getattr(HousingUnit, sort)))
-    
+
     # pagination
     count = query.count()
     if page_num is not None:
@@ -234,7 +236,7 @@ def get_jobs():
     sort = request.args.get("sort")
     asc = request.args.get("asc")
     query = db.session.query(Job)
-    
+
     # filter
     if category is not None:
         query = query.filter(Job.category == category)
@@ -479,6 +481,7 @@ def search_colleges(parameters):
             pass
     return College.query.filter(or_(*queries))
 
+
 def search_housing(parameters):
     queries = []
     for parameter in parameters:
@@ -502,6 +505,7 @@ def search_housing(parameters):
         except:
             pass
     return HousingUnit.query.filter(or_(*queries))
+
 
 def search_jobs(parameters):
     queries = []

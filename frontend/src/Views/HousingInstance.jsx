@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { backendApi } from "../Assets/Data/Constants";
 import "./connections.css";
-import {Card, Container, Row, Col, Image, Carousel, Spinner } from "react-bootstrap";
+import {
+  Card,
+  Container,
+  Row,
+  Col,
+  Image,
+  Carousel,
+  Spinner,
+} from "react-bootstrap";
 
 function HousingInstance() {
   // state
@@ -11,7 +19,6 @@ function HousingInstance() {
   const [load, setLoad] = useState(false);
   const [items, setItems] = useState([]);
   const [addy, setAddy] = useState([]);
-  
 
   // get specific housing instance from backend
   const getHouse = async () => {
@@ -19,7 +26,7 @@ function HousingInstance() {
       var endpoint = "housing/" + id;
       const data = await backendApi.get(endpoint);
       setHouse(data.data.data);
-      setAddy(house.id.replace(/-/g, '+'));
+      setAddy(house.id.replace(/-/g, "+"));
       setLoad(true);
       // Create carousel items for each image
       var items = [];
@@ -47,7 +54,8 @@ function HousingInstance() {
     <div>
       {load ? (
         <Container>
-          <Card className="card border-dark mb-3" style={{ height: "90%" }}>
+          <Card className="text-center" style={{ height: "90%" }}>
+            <Card.Header as="h2">{house.address}</Card.Header>
             <Card.Img variant="top" src={house.images.img_url} />
             {house.images.length === 0 ? (
               <Card.Img
@@ -60,7 +68,6 @@ function HousingInstance() {
               <Carousel slide={false}>{items}</Carousel>
             )}
             <Card.Body>
-              <Card.Title>{house.address}</Card.Title>
               <Card.Text>
                 {house.property_type} <br></br>
                 City: {house.city} <br></br>
@@ -69,15 +76,19 @@ function HousingInstance() {
                 Baths {house.bathrooms ? house.bedrooms : "~"} <br></br>
               </Card.Text>
             </Card.Body>
-            <iframe
-              width="600"
-              height="450"
-              style={{ border: "0" }}
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${addy}`}
-            ></iframe>
+            <Container>
+              <div class="d-flex justify-content-center">
+                <iframe
+                  width="600"
+                  height="450"
+                  style={{ border: "0" }}
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${addy}`}
+                ></iframe>
+              </div>
+            </Container>
           </Card>
           {house.nearby_jobs.length !== 0 ? (
             <>
