@@ -113,7 +113,11 @@ function Colleges() {
         // get data and set size for pagination
         const data = await backendApi.get(endpoint);
         setColleges(data.data.data);
-        setTotalColleges(data.data.meta.count);
+        if (searchQuery.current.value !== "") {
+          setTotalColleges(data.data.meta.total);
+        } else {
+          setTotalColleges(data.data.meta.count);
+        }
         setLoad(true);
       }
     } catch (e) {
@@ -174,10 +178,7 @@ function Colleges() {
   return (
     <>
       <Row className="mx-auto text-center">
-        <Form
-          onSubmit={handleSubmit}
-          className="d-flex justify-content-end"
-        >
+        <Form onSubmit={handleSubmit} className="d-flex justify-content-end">
           <Form.Control
             ref={searchQuery}
             style={{ width: "15vw" }}
