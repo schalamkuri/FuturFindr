@@ -55,32 +55,32 @@ def search_models(model, query):
     if model == "college":
         results = search_colleges(parameters)
         # pagination
-        total = results.count()
+        total = len(results)
         if page_num is not None:
             results = paginate_helper(page_num, per_page, results)
             count = len(results)
         else:
-            count = results.count()
+            count = len(results)
         result = college_schema.dump(results, many=True)
     elif model == "housing":
         results = search_housing(parameters)
         # pagination
-        total = results.count()
+        total = len(results)
         if page_num is not None:
             results = paginate_helper(page_num, per_page, results)
             count = len(results)
         else:
-            count = results.count()
+            count = len(results)
         result = housing_unit_schema.dump(results, many=True)
     elif model == "job":
         results = search_jobs(parameters)
         # pagination
-        total = results.count()
+        total = len(results)
         if page_num is not None:
             results = paginate_helper(page_num, per_page, results)
             count = len(results)
         else:
-            count = results.count()
+            count = len(results)
         result = job_schema.dump(results, many=True)
     else:
         return Response(
