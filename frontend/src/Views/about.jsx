@@ -31,7 +31,7 @@ const fetchRepositoryData = async () => {
 
   // Get commits (call api, for each returned user find num of commits,
   // then increment total commits)
-  await gitlabApi.get("projects/43389523/repository/contributors?order_by=commits&sort=desc").then((response) => {
+  await gitlabApi.get("projects/43389523/repository/contributors?order_by=commits&sort=desc&per_page=25").then((response) => {
     response.data.forEach((element) => {
       aboutUs.forEach((user) => {
         if (user.name === element.name || user.gitlab === element.name ||
@@ -46,14 +46,14 @@ const fetchRepositoryData = async () => {
 
   // Get issues (call api, for each returned issue increment issues of assigned
   // user, also increment total issues)
-  await gitlabApi.get("projects/43389523/issues").then((response) => {
+  await gitlabApi.get("projects/43389523/issues?per_page=100").then((response) => {
     response.data.forEach((element) => {
         aboutUs.forEach((user) => {
           if (user.name === element.author.name || user.gitlab === element.author.username) {
           user.issues += 1
-          totalIssues += 1
           }
         })
+        totalIssues += 1
       })
   });
 
