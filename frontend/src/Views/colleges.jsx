@@ -178,10 +178,7 @@ function Colleges() {
   return (
     <>
       <Row className="mx-auto text-center">
-        <Form
-          onSubmit={handleSubmit}
-          className="d-flex justify-content-end"
-        >
+        <Form onSubmit={handleSubmit} className="d-flex justify-content-end">
           <Form.Control
             ref={searchQuery}
             style={{ width: "15vw" }}

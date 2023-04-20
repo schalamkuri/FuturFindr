@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { backendApi } from "../Assets/Data/Constants";
 import "./connections.css";
-import {Button, Card, Container, Row, Col, Image, Carousel, Spinner } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Container,
+  Row,
+  Col,
+  Image,
+  Spinner,
+} from "react-bootstrap";
 
 function CollegeInstance() {
   // state
@@ -34,7 +42,8 @@ function CollegeInstance() {
     <div>
       {load ? (
         <Container>
-          <Card className="card border-dark mb-3" style={{ height: "90%" }}>
+          <Card className="text-center" style={{ height: "90%" }}>
+            <Card.Header as="h2">{college.name}</Card.Header>
             <Card.Img
               variant="top"
               src={
@@ -44,7 +53,6 @@ function CollegeInstance() {
               }
             />
             <Card.Body>
-              <Card.Title>{college.name}</Card.Title>
               <Card.Text>
                 Instate Tuition: $
                 {college.instate_tuition ? college.instate_tuition : "~"}{" "}
@@ -60,15 +68,19 @@ function CollegeInstance() {
                 City: {college.city} <br></br>
               </Card.Text>
             </Card.Body>
-            <iframe
-              width="600"
-              height="450"
-              style={{ border: "0" }}
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${college.latitude} ${college.longitude}`}
-            ></iframe>
+            <Container>
+              <div class="d-flex justify-content-center">
+                <iframe
+                  width="600"
+                  height="450"
+                  style={{ border: "0" }}
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${college.latitude} ${college.longitude}`}
+                ></iframe>
+              </div>
+            </Container>
             <Button variant="info" href={college.url}>
               See College
             </Button>
