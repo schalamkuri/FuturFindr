@@ -36,7 +36,7 @@ class TestNavbar(unittest.TestCase):
 # ---
 
     def testNavLogo(self):
-         self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/a/div/h2").click()
+         self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/a/div/h2").click()
          assert self.driver.current_url == URL
          currentURL = self.driver.current_url
          assert currentURL == URL
@@ -45,27 +45,27 @@ class TestNavbar(unittest.TestCase):
 # ---
 
     def testHomeAbout(self):
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div/a[1]").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[1]/a[1]").click()
         assert self.driver.current_url == URL + "about"
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/a").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/a/div/h2").click()
         assert self.driver.current_url == URL
 
     def testHomeColleges(self):
         self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div/a[2]").click()
         assert self.driver.current_url == URL + "colleges"
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/a").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/a/div/h2").click()
         assert self.driver.current_url == URL
 
     def testHomeJobs(self):
         self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div/a[3]").click()
         assert self.driver.current_url == URL + "jobs"
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/a").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/a/div/h2").click()
         assert self.driver.current_url == URL
 
     def testHomeHousing(self):
         self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div/a[4]").click()
         assert self.driver.current_url == URL + "housing"
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/a").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/a/div/h2").click()
         assert self.driver.current_url == URL
 
 # ---
@@ -80,9 +80,9 @@ class TestNavbar(unittest.TestCase):
         assert self.driver.current_url == URL + "about"
 
     def testAboutJobs(self):
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div/a[3]").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[1]/a[3]").click()
         assert self.driver.current_url == URL + "jobs"
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div/a[1]").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[1]/a[1]").click()
         assert self.driver.current_url == URL + "about"
 
     def testAboutHousing(self):
@@ -121,6 +121,18 @@ class TestNavbar(unittest.TestCase):
 
 
 # ---
+
+    def testHomeVisualizations(self):
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div/a[5]").click()
+        assert self.driver.current_url == URL + "visualizations"
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/a/div/h2").click()
+        assert self.driver.current_url == URL
+    
+    def testHomeProviderVisualizations(self):
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/div/div/div[1]/a[6]").click()
+        assert self.driver.current_url == URL + "pVisualizations"
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div/nav/a/div/h2").click()
+        assert self.driver.current_url == URL
 
 if __name__ == "__main__":
     PATH = sys.argv[1]
